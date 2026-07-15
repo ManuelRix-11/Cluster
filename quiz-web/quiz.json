@@ -1,0 +1,34 @@
+[
+  {
+    "domanda": "Qual è la capitale dell'Italia?",
+    "risposta1": "Milano",
+    "risposta2": "Roma",
+    "risposta3": "Napoli",
+    "risposta4": "Torino",
+    "corretta": "Roma"
+  },
+  {
+    "domanda": "Chi ha dipinto la Gioconda?",
+    "risposta": "Leonardo da Vinci"
+  },
+  {
+    "domanda": "Quanti continenti ci sono sulla Terra?",
+    "risposta1": "5",
+    "risposta2": "6",
+    "risposta3": "7",
+    "risposta4": "8",
+    "corretta": "7"
+  },
+  {
+    "domanda": "In che anno è caduto il Muro di Berlino?",
+    "risposta": "1989"
+  },
+  {
+    "domanda": "Qual è il pianeta più grande del sistema solare?",
+    "risposta1": "Saturno",
+    "risposta2": "Nettuno",
+    "risposta3": "Giove",
+    "risposta4": "Urano",
+    "corretta": "Giove"
+  }
+]

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz App</title>
+  <meta name="description" content="App quiz moderna a risposta multipla e risposta aperta. Carica il tuo JSON e inizia il quiz." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Sfondo animato ── -->
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+
+  <!-- ── App shell ── -->
+  <div class="app" id="app">
+
+    <!-- SCHERMATA WELCOME -->
+    <div class="screen active" id="screen-welcome">
+      <div class="card card--welcome">
+        <div class="logo">✦</div>
+        <h1>Quiz App</h1>
+        <p class="subtitle">Carica un file <code>quiz.json</code> per iniziare, oppure usa il quiz di esempio.</p>
+
+        <label class="btn btn--primary" for="file-input" id="btn-load">
+          📂 &nbsp;Carica Quiz JSON
+          <input type="file" id="file-input" accept=".json" hidden />
+        </label>
+        <button class="btn btn--ghost" id="btn-demo">Usa il quiz di esempio</button>
+
+        <p class="hint">Formato supportato: array JSON con domande a scelta multipla e/o risposta aperta.</p>
+      </div>
+    </div>
+
+    <!-- SCHERMATA QUIZ -->
+    <div class="screen" id="screen-quiz">
+      <header class="app-header">
+        <span class="app-brand">✦ Quiz App</span>
+        <span class="score-chip" id="score-chip">⭐ 0 / 0</span>
+      </header>
+
+      <!-- progress bar -->
+      <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar-wrap">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+
+      <main class="quiz-main">
+        <div class="card card--quiz" id="quiz-card">
+          <div class="question-meta" id="question-meta">Domanda 1 / 5</div>
+          <div class="question-text" id="question-text">Testo della domanda</div>
+          <div class="answers" id="answers"></div>
+          <div class="feedback" id="feedback" aria-live="polite"></div>
+        </div>
+      </main>
+    </div>
+
+    <!-- SCHERMATA RISULTATO -->
+    <div class="screen" id="screen-result">
+      <div class="card card--result">
+        <div class="result-icon" id="result-icon">🏆</div>
+        <h2 id="result-title">Ottimo lavoro!</h2>
+        <p class="result-score" id="result-score">5 / 5</p>
+        <div class="result-bar-wrap">
+          <div class="result-bar-fill" id="result-bar-fill"></div>
+        </div>
+        <p class="result-pct" id="result-pct">100%</p>
+
+        <div class="result-actions">
+          <button class="btn btn--primary" id="btn-restart">🔄 &nbsp;Ricomincia</button>
+          <label class="btn btn--ghost" for="file-input-result">
+            📂 &nbsp;Altro quiz
+            <input type="file" id="file-input-result" accept=".json" hidden />
+          </label>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /app -->
+
+  <script src="app.js"></script>
+</body>
+</html>
