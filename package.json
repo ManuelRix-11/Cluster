@@ -1,0 +1,22 @@
+{
+  "name": "quiz-app",
+  "version": "1.0.0",
+  "description": "Quiz App desktop — Electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --x64"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.0.0"
+  },
+  "build": {
+    "appId": "com.quizapp.desktop",
+    "productName": "Quiz App",
+    "files": ["main.js", "preload.js", "quiz-web/**", "quiz.json"],
+    "win": {
+      "target": "nsis"
+    }
+  }
+}

@@ -11,6 +11,16 @@
 </head>
 <body>
 
+  <!-- ── Titlebar custom frameless (solo Electron) ── -->
+  <div class="titlebar" id="titlebar" hidden>
+    <span class="titlebar-brand">🎓 Quiz App</span>
+    <div class="titlebar-controls">
+      <button class="titlebar-btn" id="btn-win-min" title="Minimizza">–</button>
+      <button class="titlebar-btn" id="btn-win-max" title="Massimizza">&#9633;</button>
+      <button class="titlebar-btn close" id="btn-win-close" title="Chiudi">✕</button>
+    </div>
+  </div>
+
   <!-- ── Sfondo animato ── -->
   <div class="bg-orbs" aria-hidden="true">
     <div class="orb orb1"></div>
@@ -24,24 +34,39 @@
     <!-- SCHERMATA WELCOME -->
     <div class="screen active" id="screen-welcome">
       <div class="card card--welcome">
-        <div class="logo">✦</div>
+        <div class="logo">🎓</div>
         <h1>Quiz App</h1>
-        <p class="subtitle">Carica un file <code>quiz.json</code> per iniziare, oppure usa il quiz di esempio.</p>
 
-        <label class="btn btn--primary" for="file-input" id="btn-load">
-          📂 &nbsp;Carica Quiz JSON
-          <input type="file" id="file-input" accept=".json" hidden />
-        </label>
-        <button class="btn btn--ghost" id="btn-demo">Usa il quiz di esempio</button>
+        <!-- Lista quiz dalla cartella Quizzes/ — solo Electron -->
+        <div id="quiz-list-section" hidden>
+          <p class="quiz-list-label">Quiz disponibili</p>
+          <div id="quiz-list"></div>
+          <div class="quiz-list-footer">
+            <label class="btn btn--ghost btn--sm" for="file-input">
+              📂 &nbsp;Carica quiz personalizzato
+            </label>
+          </div>
+        </div>
 
-        <p class="hint">Formato supportato: array JSON con domande a scelta multipla e/o risposta aperta.</p>
+        <!-- Azioni standard — browser -->
+        <div id="welcome-actions">
+          <p class="subtitle">Carica un file <code>quiz.json</code> per iniziare, oppure usa il quiz di esempio.</p>
+          <label class="btn btn--primary" for="file-input" id="btn-load">
+            📂 &nbsp;Carica Quiz JSON
+          </label>
+          <button class="btn btn--ghost" id="btn-demo">Usa il quiz di esempio</button>
+          <p class="hint">Formato supportato: array JSON con domande a scelta multipla e/o risposta aperta.</p>
+        </div>
+
+        <!-- File input condiviso -->
+        <input type="file" id="file-input" accept=".json" hidden />
       </div>
     </div>
 
     <!-- SCHERMATA QUIZ -->
     <div class="screen" id="screen-quiz">
       <header class="app-header">
-        <span class="app-brand">✦ Quiz App</span>
+        <span class="app-brand">🎓 Quiz App</span>
         <span class="score-chip" id="score-chip">⭐ 0 / 0</span>
       </header>
 
@@ -54,6 +79,7 @@
         <div class="card card--quiz" id="quiz-card">
           <div class="question-meta" id="question-meta">Domanda 1 / 5</div>
           <div class="question-text" id="question-text">Testo della domanda</div>
+          <img id="question-image" class="question-image" alt="Immagine domanda" hidden>
           <div class="answers" id="answers"></div>
           <div class="feedback" id="feedback" aria-live="polite"></div>
         </div>
@@ -71,6 +97,10 @@
         </div>
         <p class="result-pct" id="result-pct">100%</p>
 
+        <!-- Resoconto dettagliato domande -->
+        <div class="result-recap-title">📋 Resoconto risposte</div>
+        <div id="result-recap" class="result-recap"></div>
+
         <div class="result-actions">
           <button class="btn btn--primary" id="btn-restart">🔄 &nbsp;Ricomincia</button>
           <label class="btn btn--ghost" for="file-input-result">
@@ -82,6 +112,16 @@
     </div>
 
   </div><!-- /app -->
+
+  <!-- Drag strip: area trascinamento (solo Electron) -->
+  <div id="drag-strip" hidden></div>
+
+  <!-- Electron: score chip fisso + controlli finestra (solo in Electron) -->
+  <div id="electron-hud" class="electron-hud" hidden>
+    <button class="hud-btn hud-min" id="btn-win-min" title="Minimizza">&#8211;</button>
+    <button class="hud-btn hud-close" id="btn-win-close" title="Chiudi">&#10005;</button>
+    <span id="score-fixed" class="score-chip"></span>
+  </div>
 
   <script src="app.js"></script>
 </body>

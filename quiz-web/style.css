@@ -26,6 +26,17 @@ html, body {
   overflow-x: hidden;
 }
 
+/* ── Scrollbar personalizzata ────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(108, 99, 255, 0.35);
+  border-radius: 999px;
+  transition: background 0.2s;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(108, 99, 255, 0.65); }
+
+
 /* ── Sfondo orbs ─────────────────────────────────────────────────────────── */
 .bg-orbs {
   position: fixed; inset: 0; pointer-events: none; z-index: 0;
@@ -432,6 +443,202 @@ html, body {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* ── Immagine domanda (opzionale) ────────────────────────────────────────── */
+.question-image {
+  width: 100%;
+  max-height: 220px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin: -8px 0 20px;
+  background: rgba(255,255,255,0.03);
+}
+
+
+/* ── Quiz list (Electron welcome screen) ─────────────────────────────────── */
+.quiz-list-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  text-align: left;
+  margin: 8px 0 10px;
+}
+
+.quiz-list-empty {
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 24px 0;
+}
+.quiz-list-empty code { color: var(--accent); }
+
+.quiz-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1.5px solid transparent;
+  background: var(--surface2);
+  cursor: pointer;
+  text-align: left;
+  margin-bottom: 8px;
+  transition: border-color 0.18s, background 0.18s, transform 0.15s;
+}
+.quiz-item:hover {
+  border-color: var(--accent);
+  background: rgba(108,99,255,0.08);
+  transform: translateX(4px);
+}
+.quiz-item-name {
+  flex: 1;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.quiz-item-count {
+  font-size: 0.78rem;
+  color: var(--muted);
+  background: rgba(255,255,255,0.06);
+  padding: 3px 9px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.quiz-item-arrow {
+  color: var(--accent);
+  font-size: 1rem;
+  transition: transform 0.15s;
+}
+.quiz-item:hover .quiz-item-arrow { transform: translateX(4px); }
+
+.quiz-list-footer {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.btn--sm {
+  padding: 9px 18px;
+  font-size: 0.85rem;
+  height: auto;
+  margin-bottom: 0;
+}
+
+/* ── Electron: senza titlebar, hud fisso top-right ─────────────────────── */
+body.electron { padding-top: 0; }
+body.electron .app-header { display: none; }
+
+/* Drag strip: area trascinamento in alto a sinistra (non tocca il HUD) */
+#drag-strip {
+  position: fixed;
+  top: 0; left: 0; right: 180px;
+  height: 36px;
+  -webkit-app-region: drag;
+  -webkit-user-select: none;
+  z-index: 1;
+}
+
+/* HUD: score chip + controlli finestra */
+.electron-hud {
+  position: fixed;
+  top: 12px; right: 14px;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  -webkit-app-region: no-drag;
+}
+
+.hud-btn {
+  width: 26px; height: 22px;
+  border: none; background: transparent;
+  color: var(--muted);
+  font-size: 12px; border-radius: 4px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s, background 0.15s, color 0.15s;
+}
+.electron-hud:hover .hud-btn { opacity: 1; }
+.hud-btn:hover { background: rgba(255,255,255,0.12); color: var(--text); }
+.hud-close:hover { background: #c42b1c !important; color: #fff; }
+
+/* Score chip nel hud: visibile solo durante il quiz */
+.electron-hud .score-chip { display: none; }
+.electron-hud.show-score .score-chip { display: inline-flex; }
+
+
+/* ── Resoconto finale ─────────────────────────────────────────────────────── */
+.result-recap-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  text-align: left;
+  margin: 24px 0 10px;
+}
+
+.result-recap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+  max-height: 360px;
+  overflow-y: auto;
+  padding-right: 4px;
+  /* scrollbar sottile */
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.result-recap::-webkit-scrollbar { width: 5px; }
+.result-recap::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
+
+.recap-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1.5px solid transparent;
+  background: var(--surface2);
+  text-align: left;
+  transition: border-color 0.2s;
+}
+.recap-corretta { border-color: rgba(67,217,140,0.35); }
+.recap-sbagliata { border-color: rgba(255,92,110,0.35); }
+.recap-saltata   { border-color: rgba(255,255,255,0.08); opacity: 0.6; }
+
+.recap-num {
+  flex-shrink: 0;
+  width: 26px; height: 26px;
+  border-radius: 6px;
+  background: rgba(108,99,255,0.15);
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.recap-content { flex: 1; min-width: 0; }
+
+.recap-domanda {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.recap-risposta {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.recap-risposta strong { color: var(--text); }
+.recap-label { font-weight: 500; }
+.recap-risposta-corretta { color: var(--success); font-size: 0.82rem; }
 
 /* ── Responsive ──────────────────────────────────────────────────────────── */
 @media (max-width: 640px) {
