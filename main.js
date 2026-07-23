@@ -60,6 +60,19 @@ ipcMain.handle('quizzes:load', (_, filename) => {
   return fs.readFileSync(p, 'utf-8')
 })
 
+// ── Statistiche (stats.csv) ────────────────────────────────────────────────────
+const STATS_PATH = () => path.join(app.getPath('userData'), 'stats.csv')
+const STATS_HEADER = 'data,quiz_name,n_domande,n_corrette,n_simili,n_sbagliate,punteggio_30\n'
+
+ipcMain.handle('stats:read', () => {
+  const p = STATS_PATH()
+  return fs.existsSync(p) ? fs.readFileSync(p, 'utf-8') : STATS_HEADER
+})
+
+ipcMain.handle('stats:write', (_, csv) => {
+  fs.writeFileSync(STATS_PATH(), csv, 'utf-8')
+})
+
 app.whenReady().then(() => {
   // Protocollo quiz-local:// — serve file da images/ in modo sicuro
   protocol.handle('quiz-local', request => {

@@ -1,0 +1,910 @@
+[
+  {
+    "domanda": "Choose the correct form: If I _____ harder, I would pass the exam.",
+    "risposta1": "study",
+    "risposta2": "studied",
+    "risposta3": "had studied",
+    "risposta4": "will study",
+    "corretta": "studied"
+  },
+  {
+    "domanda": "Choose the correct form: If she _____ the job, she would be living in Paris now.",
+    "risposta1": "took",
+    "risposta2": "had taken",
+    "risposta3": "takes",
+    "risposta4": "would take",
+    "corretta": "had taken"
+  },
+  {
+    "domanda": "Which sentence is a correct third conditional?",
+    "risposta1": "If he studies more, he will pass.",
+    "risposta2": "If he studied more, he would pass.",
+    "risposta3": "If he had studied more, he would have passed.",
+    "risposta4": "If he would study more, he had passed.",
+    "corretta": "If he had studied more, he would have passed."
+  },
+  {
+    "domanda": "Choose the correct form: Water _____ at 100°C.",
+    "risposta1": "will boil",
+    "risposta2": "would boil",
+    "risposta3": "boils",
+    "risposta4": "is boiling",
+    "corretta": "boils"
+  },
+  {
+    "domanda": "Choose the correct form: I wish I _____ speak three languages.",
+    "risposta1": "can",
+    "risposta2": "could",
+    "risposta3": "would",
+    "risposta4": "will",
+    "corretta": "could"
+  },
+  {
+    "domanda": "Choose the correct form: She wishes she _____ so much money on clothes last year.",
+    "risposta1": "didn't spend",
+    "risposta2": "wouldn't spend",
+    "risposta3": "hadn't spent",
+    "risposta4": "hasn't spent",
+    "corretta": "hadn't spent"
+  },
+  {
+    "domanda": "Choose the correct form: You won't get the job _____ you improve your CV.",
+    "risposta1": "if",
+    "risposta2": "unless",
+    "risposta3": "although",
+    "risposta4": "provided",
+    "corretta": "unless"
+  },
+  {
+    "domanda": "Choose the correct form: If only I _____ that before the exam!",
+    "risposta1": "had known",
+    "risposta2": "would know",
+    "risposta3": "knew",
+    "risposta4": "have known",
+    "corretta": "had known"
+  },
+  {
+    "domanda": "Choose the correct passive form: The report _____ by the manager yesterday.",
+    "risposta1": "is written",
+    "risposta2": "was written",
+    "risposta3": "has been written",
+    "risposta4": "had written",
+    "corretta": "was written"
+  },
+  {
+    "domanda": "Choose the correct passive form: The new bridge _____ by the end of next year.",
+    "risposta1": "will build",
+    "risposta2": "is going to build",
+    "risposta3": "will have been built",
+    "risposta4": "has been built",
+    "corretta": "will have been built"
+  },
+  {
+    "domanda": "Choose the correct passive form: The package _____ when I arrived at the office.",
+    "risposta1": "already delivered",
+    "risposta2": "has already been delivered",
+    "risposta3": "had already been delivered",
+    "risposta4": "was already delivered",
+    "corretta": "had already been delivered"
+  },
+  {
+    "domanda": "Choose the correct passive form: The road _____ at the moment, so take a different route.",
+    "risposta1": "repairs",
+    "risposta2": "is repairing",
+    "risposta3": "is being repaired",
+    "risposta4": "has repaired",
+    "corretta": "is being repaired"
+  },
+  {
+    "domanda": "Choose the correct impersonal passive: _____ that the company will close next month.",
+    "risposta1": "They report",
+    "risposta2": "It is reported",
+    "risposta3": "It reports",
+    "risposta4": "There is reported",
+    "corretta": "It is reported"
+  },
+  {
+    "domanda": "Choose the correct passive form: She _____ to stay late and finish the project.",
+    "risposta1": "asked",
+    "risposta2": "has asked",
+    "risposta3": "was asked",
+    "risposta4": "had asked",
+    "corretta": "was asked"
+  },
+  {
+    "domanda": "Choose the correct reported speech form: She said, 'I am tired.' → She said she _____ tired.",
+    "risposta1": "is",
+    "risposta2": "was",
+    "risposta3": "has been",
+    "risposta4": "had been",
+    "corretta": "was"
+  },
+  {
+    "domanda": "Choose the correct reported speech form: He told me, 'I haven't finished yet.' → He told me he _____ yet.",
+    "risposta1": "hasn't finished",
+    "risposta2": "didn't finish",
+    "risposta3": "hadn't finished",
+    "risposta4": "wouldn't finish",
+    "corretta": "hadn't finished"
+  },
+  {
+    "domanda": "Choose the correct verb: He _____ me that he was leaving the company.",
+    "risposta1": "said",
+    "risposta2": "told",
+    "risposta3": "spoke",
+    "risposta4": "talked",
+    "corretta": "told"
+  },
+  {
+    "domanda": "Choose the correct reported question form: She asked me, 'Can you help me?' → She asked me if I _____ help her.",
+    "risposta1": "can",
+    "risposta2": "could",
+    "risposta3": "would",
+    "risposta4": "should",
+    "corretta": "could"
+  },
+  {
+    "domanda": "Choose the correct reported form: 'Don't open the window,' she said. → She told us _____ the window.",
+    "risposta1": "don't open",
+    "risposta2": "not to open",
+    "risposta3": "to not open",
+    "risposta4": "not opening",
+    "corretta": "not to open"
+  },
+  {
+    "domanda": "Choose the correct form: They asked us where we _____ the night before.",
+    "risposta1": "were",
+    "risposta2": "had been",
+    "risposta3": "have been",
+    "risposta4": "would be",
+    "corretta": "had been"
+  },
+  {
+    "domanda": "Choose the correct modal: You _____ wear a seatbelt by law — it's compulsory.",
+    "risposta1": "should",
+    "risposta2": "might",
+    "risposta3": "must",
+    "risposta4": "would",
+    "corretta": "must"
+  },
+  {
+    "domanda": "Choose the correct modal: You _____ park here — it's a no-parking zone.",
+    "risposta1": "shouldn't",
+    "risposta2": "mustn't",
+    "risposta3": "don't have to",
+    "risposta4": "needn't",
+    "corretta": "mustn't"
+  },
+  {
+    "domanda": "Choose the correct modal: She _____ be at home — I'm not certain, but her car is outside.",
+    "risposta1": "must",
+    "risposta2": "should",
+    "risposta3": "might",
+    "risposta4": "will",
+    "corretta": "might"
+  },
+  {
+    "domanda": "Choose the correct modal: He _____ be exhausted — he's been working for 16 hours straight.",
+    "risposta1": "might",
+    "risposta2": "could",
+    "risposta3": "must",
+    "risposta4": "should",
+    "corretta": "must"
+  },
+  {
+    "domanda": "Choose the correct modal: They arrived on time, so they _____ missed the train.",
+    "risposta1": "must have",
+    "risposta2": "should have",
+    "risposta3": "can't have",
+    "risposta4": "might have",
+    "corretta": "can't have"
+  },
+  {
+    "domanda": "Choose the correct modal: You _____ buy tickets in advance — there are plenty available at the door.",
+    "risposta1": "mustn't",
+    "risposta2": "shouldn't",
+    "risposta3": "needn't",
+    "risposta4": "can't",
+    "corretta": "needn't"
+  },
+  {
+    "domanda": "Choose the correct modal: I _____ swim when I was four years old.",
+    "risposta1": "can",
+    "risposta2": "could",
+    "risposta3": "was able",
+    "risposta4": "might",
+    "corretta": "could"
+  },
+  {
+    "domanda": "Choose the correct modal: You _____ see a doctor about that cough — it doesn't sound good.",
+    "risposta1": "must",
+    "risposta2": "shall",
+    "risposta3": "should",
+    "risposta4": "would",
+    "corretta": "should"
+  },
+  {
+    "domanda": "Choose the correct tense: I _____ that film three times already — let's watch something else.",
+    "risposta1": "saw",
+    "risposta2": "have seen",
+    "risposta3": "had seen",
+    "risposta4": "was seeing",
+    "corretta": "have seen"
+  },
+  {
+    "domanda": "Choose the correct tense: She _____ to London in 2019 for a conference.",
+    "risposta1": "has gone",
+    "risposta2": "has been",
+    "risposta3": "went",
+    "risposta4": "was going",
+    "corretta": "went"
+  },
+  {
+    "domanda": "Choose the correct tense: By the time we arrived, the concert _____ already.",
+    "risposta1": "started",
+    "risposta2": "has started",
+    "risposta3": "had started",
+    "risposta4": "was starting",
+    "corretta": "had started"
+  },
+  {
+    "domanda": "Look at those clouds! It _____ rain soon.",
+    "risposta1": "will",
+    "risposta2": "is going to",
+    "risposta3": "is",
+    "risposta4": "would",
+    "corretta": "is going to"
+  },
+  {
+    "domanda": "Choose the correct form: By next June, I _____ for this company for ten years.",
+    "risposta1": "will work",
+    "risposta2": "will be working",
+    "risposta3": "will have worked",
+    "risposta4": "have worked",
+    "corretta": "will have worked"
+  },
+  {
+    "domanda": "Choose the correct tense: I _____ when the earthquake struck.",
+    "risposta1": "slept",
+    "risposta2": "was sleeping",
+    "risposta3": "had slept",
+    "risposta4": "have slept",
+    "corretta": "was sleeping"
+  },
+  {
+    "domanda": "Choose the correct form: She _____ play the violin when she was a child, but she stopped.",
+    "risposta1": "was used to",
+    "risposta2": "used to",
+    "risposta3": "would use to",
+    "risposta4": "got used to",
+    "corretta": "used to"
+  },
+  {
+    "domanda": "Choose the correct form: How long _____ you been learning English?",
+    "risposta1": "did",
+    "risposta2": "do",
+    "risposta3": "have",
+    "risposta4": "had",
+    "corretta": "have"
+  },
+  {
+    "domanda": "Which sentence is grammatically correct? (State verbs)",
+    "risposta1": "I am thinking you are right.",
+    "risposta2": "I think you are right.",
+    "risposta3": "I am thinking you are being right.",
+    "risposta4": "I am thought you are right.",
+    "corretta": "I think you are right."
+  },
+  {
+    "domanda": "Choose the correct relative pronoun: The woman _____ works in reception is very helpful.",
+    "risposta1": "which",
+    "risposta2": "whose",
+    "risposta3": "who",
+    "risposta4": "whom",
+    "corretta": "who"
+  },
+  {
+    "domanda": "Choose the correct relative pronoun: The town _____ I grew up has changed enormously.",
+    "risposta1": "which",
+    "risposta2": "where",
+    "risposta3": "when",
+    "risposta4": "that",
+    "corretta": "where"
+  },
+  {
+    "domanda": "Choose the correct relative pronoun: The man _____ car was stolen called the police immediately.",
+    "risposta1": "who",
+    "risposta2": "which",
+    "risposta3": "that",
+    "risposta4": "whose",
+    "corretta": "whose"
+  },
+  {
+    "domanda": "Which sentence uses a non-defining relative clause correctly?",
+    "risposta1": "My sister who lives in Rome is a doctor.",
+    "risposta2": "My sister, who lives in Rome, is a doctor.",
+    "risposta3": "My sister, that lives in Rome, is a doctor.",
+    "risposta4": "My sister which lives in Rome is a doctor.",
+    "corretta": "My sister, who lives in Rome, is a doctor."
+  },
+  {
+    "domanda": "Choose the correct form: I enjoy _____ by the sea in the early morning.",
+    "risposta1": "to walk",
+    "risposta2": "walk",
+    "risposta3": "walking",
+    "risposta4": "walked",
+    "corretta": "walking"
+  },
+  {
+    "domanda": "Choose the correct form: She promised _____ on time for the interview.",
+    "risposta1": "arriving",
+    "risposta2": "to arrive",
+    "risposta3": "arrive",
+    "risposta4": "having arrived",
+    "corretta": "to arrive"
+  },
+  {
+    "domanda": "Choose the correct form: He avoided _____ eye contact during the meeting.",
+    "risposta1": "to make",
+    "risposta2": "make",
+    "risposta3": "making",
+    "risposta4": "to making",
+    "corretta": "making"
+  },
+  {
+    "domanda": "Choose the correct form: I can't afford _____ a new laptop right now.",
+    "risposta1": "buying",
+    "risposta2": "buy",
+    "risposta3": "to buying",
+    "risposta4": "to buy",
+    "corretta": "to buy"
+  },
+  {
+    "domanda": "Choose the correct form: They suggested _____ the early train to avoid traffic.",
+    "risposta1": "to take",
+    "risposta2": "take",
+    "risposta3": "taking",
+    "risposta4": "to taking",
+    "corretta": "taking"
+  },
+  {
+    "domanda": "Choose the correct form: She is used to _____ alone — she's been doing it for years.",
+    "risposta1": "work",
+    "risposta2": "working",
+    "risposta3": "be working",
+    "risposta4": "have worked",
+    "corretta": "working"
+  },
+  {
+    "domanda": "Choose the correct form: He stopped _____ after the doctor's warning.",
+    "risposta1": "to smoke",
+    "risposta2": "smoked",
+    "risposta3": "smoking",
+    "risposta4": "smoke",
+    "corretta": "smoking"
+  },
+  {
+    "domanda": "Choose the correct form: She stopped _____ when she saw the sign.",
+    "risposta1": "to read",
+    "risposta2": "reading",
+    "risposta3": "read",
+    "risposta4": "having read",
+    "corretta": "to read"
+  },
+  {
+    "domanda": "Choose the correct form: I regret _____ you that your application was unsuccessful.",
+    "risposta1": "to tell",
+    "risposta2": "telling",
+    "risposta3": "told",
+    "risposta4": "having told",
+    "corretta": "to tell"
+  },
+  {
+    "domanda": "Choose the correct article: She is _____ best student in the class.",
+    "risposta1": "a",
+    "risposta2": "an",
+    "risposta3": "the",
+    "risposta4": "(no article)",
+    "corretta": "the"
+  },
+  {
+    "domanda": "Choose the correct article: He plays _____ guitar in a jazz band.",
+    "risposta1": "a",
+    "risposta2": "the",
+    "risposta3": "an",
+    "risposta4": "(no article)",
+    "corretta": "the"
+  },
+  {
+    "domanda": "Choose the correct article: She is studying _____ medicine at university.",
+    "risposta1": "a",
+    "risposta2": "the",
+    "risposta3": "an",
+    "risposta4": "(no article)",
+    "corretta": "(no article)"
+  },
+  {
+    "domanda": "Choose the correct preposition: She is very good _____ mathematics.",
+    "risposta1": "in",
+    "risposta2": "at",
+    "risposta3": "for",
+    "risposta4": "with",
+    "corretta": "at"
+  },
+  {
+    "domanda": "Choose the correct preposition: He is very interested _____ learning new languages.",
+    "risposta1": "at",
+    "risposta2": "for",
+    "risposta3": "about",
+    "risposta4": "in",
+    "corretta": "in"
+  },
+  {
+    "domanda": "Choose the correct preposition: I'm looking forward _____ seeing you at the conference.",
+    "risposta1": "for",
+    "risposta2": "at",
+    "risposta3": "to",
+    "risposta4": "about",
+    "corretta": "to"
+  },
+  {
+    "domanda": "Choose the correct preposition: He congratulated me _____ passing the driving test.",
+    "risposta1": "for",
+    "risposta2": "about",
+    "risposta3": "on",
+    "risposta4": "at",
+    "corretta": "on"
+  },
+  {
+    "domanda": "Choose the correct preposition: She depends _____ her parents for financial support.",
+    "risposta1": "from",
+    "risposta2": "of",
+    "risposta3": "by",
+    "risposta4": "on",
+    "corretta": "on"
+  },
+  {
+    "domanda": "Choose the correct phrasal verb: She decided to _____ the meeting because she was ill.",
+    "risposta1": "call off",
+    "risposta2": "call up",
+    "risposta3": "call out",
+    "risposta4": "call on",
+    "corretta": "call off"
+  },
+  {
+    "domanda": "Choose the correct phrasal verb: I need to _____ a few things at the chemist's.",
+    "risposta1": "pick up",
+    "risposta2": "pick out",
+    "risposta3": "pick on",
+    "risposta4": "pick over",
+    "corretta": "pick up"
+  },
+  {
+    "domanda": "Choose the correct phrasal verb: After much debate, they finally _____ a solution.",
+    "risposta1": "came across",
+    "risposta2": "came up with",
+    "risposta3": "came out of",
+    "risposta4": "came through",
+    "corretta": "came up with"
+  },
+  {
+    "domanda": "Choose the correct phrasal verb: Please _____ the form and return it to reception.",
+    "risposta1": "fill out",
+    "risposta2": "fill up",
+    "risposta3": "fill over",
+    "risposta4": "fill away",
+    "corretta": "fill out"
+  },
+  {
+    "domanda": "Choose the correct phrasal verb: She really _____ her mother in looks and personality.",
+    "risposta1": "looks up to",
+    "risposta2": "takes after",
+    "risposta3": "gets along with",
+    "risposta4": "puts up with",
+    "corretta": "takes after"
+  },
+  {
+    "domanda": "Choose the correct phrasal verb: He decided to _____ his job to travel around the world.",
+    "risposta1": "give up",
+    "risposta2": "give in",
+    "risposta3": "give away",
+    "risposta4": "give out",
+    "corretta": "give up"
+  },
+  {
+    "domanda": "Choose the correct phrasal verb: The conference has been _____ until next month.",
+    "risposta1": "put off",
+    "risposta2": "put away",
+    "risposta3": "put out",
+    "risposta4": "put up",
+    "corretta": "put off"
+  },
+  {
+    "domanda": "Choose the correct phrasal verb: She couldn't _____ what he was saying because of the noise.",
+    "risposta1": "make out",
+    "risposta2": "make up",
+    "risposta3": "make off",
+    "risposta4": "make over",
+    "corretta": "make out"
+  },
+  {
+    "domanda": "Choose the correct collocation: She _____ a decision to leave the company.",
+    "risposta1": "did",
+    "risposta2": "took",
+    "risposta3": "made",
+    "risposta4": "had",
+    "corretta": "made"
+  },
+  {
+    "domanda": "Choose the correct collocation: He _____ a cold after getting caught in the rain.",
+    "risposta1": "got",
+    "risposta2": "caught",
+    "risposta3": "took",
+    "risposta4": "had",
+    "corretta": "caught"
+  },
+  {
+    "domanda": "Choose the correct collocation: They _____ significant progress on the new project.",
+    "risposta1": "did",
+    "risposta2": "had",
+    "risposta3": "took",
+    "risposta4": "made",
+    "corretta": "made"
+  },
+  {
+    "domanda": "Choose the correct collocation: She _____ an important role in the success of the campaign.",
+    "risposta1": "made",
+    "risposta2": "did",
+    "risposta3": "played",
+    "risposta4": "took",
+    "corretta": "played"
+  },
+  {
+    "domanda": "Choose the correct collocation: He _____ advantage of the opportunity to study abroad.",
+    "risposta1": "made",
+    "risposta2": "took",
+    "risposta3": "did",
+    "risposta4": "got",
+    "corretta": "took"
+  },
+  {
+    "domanda": "Choose the correct collocation: She _____ her breath before diving into the pool.",
+    "risposta1": "kept",
+    "risposta2": "caught",
+    "risposta3": "held",
+    "risposta4": "took",
+    "corretta": "held"
+  },
+  {
+    "domanda": "Choose the correct collocation: He _____ a speech at his colleague's retirement party.",
+    "risposta1": "said",
+    "risposta2": "told",
+    "risposta3": "made",
+    "risposta4": "spoke",
+    "corretta": "made"
+  },
+  {
+    "domanda": "Choose the correct collocation: She _____ an eye on the children while I was cooking.",
+    "risposta1": "had",
+    "risposta2": "kept",
+    "risposta3": "held",
+    "risposta4": "put",
+    "corretta": "kept"
+  },
+  {
+    "domanda": "Choose the correct word formed from REMARK: Her performance was truly _____.",
+    "risposta1": "remarkation",
+    "risposta2": "remarking",
+    "risposta3": "remarkable",
+    "risposta4": "remarked",
+    "corretta": "remarkable"
+  },
+  {
+    "domanda": "Choose the correct word formed from RESPONSIBLE: He acted in a completely _____ way.",
+    "risposta1": "unresponsible",
+    "risposta2": "irresponsible",
+    "risposta3": "disresponsible",
+    "risposta4": "nonresponsible",
+    "corretta": "irresponsible"
+  },
+  {
+    "domanda": "Choose the correct word formed from ACHIEVE: She felt a great sense of _____ after finishing the marathon.",
+    "risposta1": "achiever",
+    "risposta2": "achieving",
+    "risposta3": "achieval",
+    "risposta4": "achievement",
+    "corretta": "achievement"
+  },
+  {
+    "domanda": "Choose the correct word formed from CONFIDENT: He spoke with great _____ during the presentation.",
+    "risposta1": "confidentness",
+    "risposta2": "confidency",
+    "risposta3": "confidence",
+    "risposta4": "confidentism",
+    "corretta": "confidence"
+  },
+  {
+    "domanda": "Choose the correct word formed from PATIENCE: She dealt with the difficult customer very _____.",
+    "risposta1": "patiently",
+    "risposta2": "patient",
+    "risposta3": "patience",
+    "risposta4": "impatient",
+    "corretta": "patiently"
+  },
+  {
+    "domanda": "Choose the correct word formed from EMPLOY: The rise in _____ is a major concern for the government.",
+    "risposta1": "employer",
+    "risposta2": "unemployment",
+    "risposta3": "disemployment",
+    "risposta4": "unemploying",
+    "corretta": "unemployment"
+  },
+  {
+    "domanda": "'It's raining cats and dogs.' This means:",
+    "risposta1": "It is raining lightly.",
+    "risposta2": "The weather is uncertain.",
+    "risposta3": "It is raining very heavily.",
+    "risposta4": "Animals are outside in the rain.",
+    "corretta": "It is raining very heavily."
+  },
+  {
+    "domanda": "'To bite the bullet' means:",
+    "risposta1": "To make a dangerous decision.",
+    "risposta2": "To endure a painful or difficult situation.",
+    "risposta3": "To refuse to cooperate.",
+    "risposta4": "To speak your mind directly.",
+    "corretta": "To endure a painful or difficult situation."
+  },
+  {
+    "domanda": "'To be under the weather' means:",
+    "risposta1": "To be confused about something.",
+    "risposta2": "To be caught in bad weather.",
+    "risposta3": "To be feeling slightly ill.",
+    "risposta4": "To be working outdoors.",
+    "corretta": "To be feeling slightly ill."
+  },
+  {
+    "domanda": "'To cost an arm and a leg' means:",
+    "risposta1": "To be very dangerous.",
+    "risposta2": "To require a lot of effort.",
+    "risposta3": "To be very expensive.",
+    "risposta4": "To be physically demanding.",
+    "corretta": "To be very expensive."
+  },
+  {
+    "domanda": "'To be on the fence' means:",
+    "risposta1": "To be in a difficult situation.",
+    "risposta2": "To be undecided about something.",
+    "risposta3": "To be watching something carefully.",
+    "risposta4": "To be in the wrong place.",
+    "corretta": "To be undecided about something."
+  },
+  {
+    "domanda": "'To break the ice' means:",
+    "risposta1": "To destroy something important.",
+    "risposta2": "To start a difficult conversation.",
+    "risposta3": "To make people feel more comfortable in a new situation.",
+    "risposta4": "To tell someone bad news.",
+    "corretta": "To make people feel more comfortable in a new situation."
+  },
+  {
+    "domanda": "Choose the correct option: Despite _____ hard all day, she didn't finish the project.",
+    "risposta1": "work",
+    "risposta2": "to work",
+    "risposta3": "worked",
+    "risposta4": "working",
+    "corretta": "working"
+  },
+  {
+    "domanda": "Choose the correct option: It was such _____ film that everyone fell asleep.",
+    "risposta1": "a boring",
+    "risposta2": "the boring",
+    "risposta3": "a bored",
+    "risposta4": "boring",
+    "corretta": "a boring"
+  },
+  {
+    "domanda": "Choose the correct option: No sooner _____ she arrived than it started raining.",
+    "risposta1": "did",
+    "risposta2": "has",
+    "risposta3": "had",
+    "risposta4": "was",
+    "corretta": "had"
+  },
+  {
+    "domanda": "Choose the correct option: She _____ no choice but to cancel the event.",
+    "risposta1": "made",
+    "risposta2": "had",
+    "risposta3": "took",
+    "risposta4": "got",
+    "corretta": "had"
+  },
+  {
+    "domanda": "Choose the correct option: It's high time you _____ looking for a new job.",
+    "risposta1": "start",
+    "risposta2": "started",
+    "risposta3": "have started",
+    "risposta4": "would start",
+    "corretta": "started"
+  },
+  {
+    "domanda": "Choose the correct option: He was made _____ for the damage he caused.",
+    "risposta1": "pay",
+    "risposta2": "paying",
+    "risposta3": "to pay",
+    "risposta4": "paid",
+    "corretta": "to pay"
+  },
+  {
+    "domanda": "Choose the correct option: She'd rather you _____ in the house.",
+    "risposta1": "don't smoke",
+    "risposta2": "didn't smoke",
+    "risposta3": "not smoke",
+    "risposta4": "won't smoke",
+    "corretta": "didn't smoke"
+  },
+  {
+    "domanda": "Choose the correct option: Hardly _____ his speech when the lights went out.",
+    "risposta1": "he started",
+    "risposta2": "he had started",
+    "risposta3": "had he started",
+    "risposta4": "did he start",
+    "corretta": "had he started"
+  },
+  {
+    "domanda": "Choose the correct option to complete the sentence: The more you practise, _____ you become.",
+    "risposta1": "the more fluent",
+    "risposta2": "more fluent",
+    "risposta3": "the most fluent",
+    "risposta4": "most fluent",
+    "corretta": "the more fluent"
+  },
+  {
+    "domanda": "Which sentence is more formal and appropriate for a professional email?",
+    "risposta1": "I'm writing to let you know about the changes.",
+    "risposta2": "Just wanted to give you a heads up about the changes.",
+    "risposta3": "I am writing to inform you of the forthcoming changes.",
+    "risposta4": "FYI, things are going to change.",
+    "corretta": "I am writing to inform you of the forthcoming changes."
+  },
+  {
+    "domanda": "Choose the correct linker: _____ the heavy rain, the outdoor concert went ahead.",
+    "risposta1": "Although",
+    "risposta2": "Despite",
+    "risposta3": "Even though",
+    "risposta4": "However",
+    "corretta": "Despite"
+  },
+  {
+    "domanda": "Choose the correct linker: She studied hard. _____, she failed the exam.",
+    "risposta1": "Despite",
+    "risposta2": "Although",
+    "risposta3": "Nevertheless",
+    "risposta4": "In spite",
+    "corretta": "Nevertheless"
+  },
+  {
+    "domanda": "Translate into English: 'Vorrei che tu fossi qui con me.'",
+    "corretta": "I wish you were here with me."
+  },
+  {
+    "domanda": "Translate into English: 'Se avessi studiato di più, avrei superato l'esame.'",
+    "corretta": "If I had studied more, I would have passed the exam."
+  },
+  {
+    "domanda": "Translate into English: 'Non è necessario che tu venga.'",
+    "corretta": "You don't need to come."
+  },
+  {
+    "domanda": "Translate into English: 'Stavo leggendo quando ha squillato il telefono.'",
+    "corretta": "I was reading when the phone rang."
+  },
+  {
+    "domanda": "Translate into English: 'Non avevo mai visto niente di simile prima.'",
+    "corretta": "I had never seen anything like that before."
+  },
+  {
+    "domanda": "Translate into English: 'Entro domani mattina avrò finito il rapporto.'",
+    "corretta": "By tomorrow morning, I will have finished the report."
+  },
+  {
+    "domanda": "Translate into English: 'Mi hanno detto che la riunione era stata annullata.'",
+    "corretta": "They told me that the meeting had been cancelled."
+  },
+  {
+    "domanda": "Translate into English: 'È la cosa più interessante che abbia mai letto.'",
+    "corretta": "It's the most interesting thing I have ever read."
+  },
+  {
+    "domanda": "Translate into English: 'Non sopporto aspettare senza fare nulla.'",
+    "corretta": "I can't stand waiting around doing nothing."
+  },
+  {
+    "domanda": "Translate into English: 'Si dice che questo ristorante abbia la migliore pizza della città.'",
+    "corretta": "This restaurant is said to have the best pizza in the city."
+  },
+  {
+    "domanda": "Translate into English: 'Nonostante la pioggia, la partita è andata avanti.'",
+    "corretta": "Despite the rain, the match went ahead."
+  },
+  {
+    "domanda": "Translate into English: 'Avevo appena finito di mangiare quando sono arrivati.'",
+    "corretta": "I had just finished eating when they arrived."
+  },
+  {
+    "domanda": "Translate into English: 'È inutile lamentarsi — non cambierà nulla.'",
+    "corretta": "It's no use complaining — it won't change anything."
+  },
+  {
+    "domanda": "Translate into English: 'Mi dispiace non essere venuto alla tua festa.'",
+    "corretta": "I'm sorry for not coming to your party."
+  },
+  {
+    "domanda": "Translate into English: 'Preferirei che tu non fumassi in casa.'",
+    "corretta": "I'd rather you didn't smoke in the house."
+  },
+  {
+    "domanda": "Translate into English: 'Il contratto deve essere firmato entro venerdì.'",
+    "corretta": "The contract must be signed by Friday."
+  },
+  {
+    "domanda": "Translate into English: 'Quanto tempo ci vuole per arrivare all'aeroporto?'",
+    "corretta": "How long does it take to get to the airport?"
+  },
+  {
+    "domanda": "Translate into English: 'È troppo tardi per cambiare idea adesso.'",
+    "corretta": "It's too late to change your mind now."
+  },
+  {
+    "domanda": "Translate into English: 'Le ho chiesto se poteva aiutarmi.'",
+    "corretta": "I asked her if she could help me."
+  },
+  {
+    "domanda": "Translate into English: 'Continuò a lavorare nonostante fosse stanco.'",
+    "corretta": "He kept on working even though he was tired."
+  },
+  {
+    "domanda": "Translate into English: 'Sono anni che non lo vedo.'",
+    "corretta": "I haven't seen him for years."
+  },
+  {
+    "domanda": "Translate into English: 'Si è offerta di aiutarmi con i bagagli.'",
+    "corretta": "She offered to help me with the luggage."
+  },
+  {
+    "domanda": "Translate into English: 'L'ho convinto a cambiare idea.'",
+    "corretta": "I convinced him to change his mind."
+  },
+  {
+    "domanda": "Translate into English: 'Dovresti abituarti a lavorare sotto pressione.'",
+    "corretta": "You should get used to working under pressure."
+  },
+  {
+    "domanda": "Translate into English: 'Se fossi in te, andrei dal medico.'",
+    "corretta": "If I were you, I would go to the doctor."
+  },
+  {
+    "domanda": "Translate into English: 'Non mi aspettavo che la riunione durasse così a lungo.'",
+    "corretta": "I didn't expect the meeting to last so long."
+  },
+  {
+    "domanda": "Translate into English: 'Più la conosco, più mi piace.'",
+    "corretta": "The more I get to know her, the more I like her."
+  },
+  {
+    "domanda": "Translate into English: 'Bisogna prenotare il prima possibile.'",
+    "corretta": "We need to book as soon as possible."
+  },
+  {
+    "domanda": "Translate into English: 'È il terzo film che vedo questa settimana.'",
+    "corretta": "It's the third film I have watched this week."
+  },
+  {
+    "domanda": "Translate into English: 'Non posso fare a meno di pensarci.'",
+    "corretta": "I can't help thinking about it."
+  },
+  {
+    "domanda": "Translate into English: 'È abituata a vivere da sola — non è un problema per lei.'",
+    "corretta": "She is used to living alone — it's not a problem for her."
+  }
+]

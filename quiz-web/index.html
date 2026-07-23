@@ -35,7 +35,7 @@
     <div class="screen active" id="screen-welcome">
       <div class="card card--welcome">
         <div class="logo">🎓</div>
-        <h1>Quiz App</h1>
+        <h1>TestsUnisaExams</h1>
 
         <!-- Lista quiz dalla cartella Quizzes/ — solo Electron -->
         <div id="quiz-list-section" hidden>
@@ -45,6 +45,7 @@
             <label class="btn btn--ghost btn--sm" for="file-input">
               📂 &nbsp;Carica quiz personalizzato
             </label>
+            <button class="btn btn--ghost btn--sm" id="btn-stats" hidden>📊 &nbsp;Storico</button>
           </div>
         </div>
 
@@ -66,8 +67,7 @@
     <!-- SCHERMATA QUIZ -->
     <div class="screen" id="screen-quiz">
       <header class="app-header">
-        <span class="app-brand">🎓 Quiz App</span>
-        <span class="score-chip" id="score-chip">⭐ 0 / 0</span>
+        <span class="app-brand" id="btn-home-quiz" role="button" tabindex="0" title="Torna alla home">🎓 TestsUnisaExams</span>
       </header>
 
       <!-- progress bar -->
@@ -107,8 +107,26 @@
             📂 &nbsp;Altro quiz
             <input type="file" id="file-input-result" accept=".json" hidden />
           </label>
+          <button class="btn btn--ghost" id="btn-home">🏠 &nbsp;Home</button>
         </div>
       </div>
+    </div>
+
+    <!-- SCHERMATA STATISTICHE — solo Electron -->
+    <div class="screen" id="screen-stats">
+      <header class="app-header">
+        <span class="app-brand" id="btn-home-stats" role="button" tabindex="0" title="Torna alla home">🎓 Quiz App</span>
+        <span class="stats-page-title">📊 Statistiche</span>
+      </header>
+      <main class="stats-main">
+        <div class="stat-cards" id="stat-cards"></div>
+        <div class="chart-section">
+          <p class="chart-label">Andamento ultime sessioni</p>
+          <div class="chart-wrap"><canvas id="stats-chart"></canvas></div>
+        </div>
+        <p class="chart-label chart-label--history">Storico sessioni</p>
+        <div id="stats-history" class="stats-history"></div>
+      </main>
     </div>
 
   </div><!-- /app -->
@@ -118,9 +136,8 @@
 
   <!-- Electron: score chip fisso + controlli finestra (solo in Electron) -->
   <div id="electron-hud" class="electron-hud" hidden>
-    <button class="hud-btn hud-min" id="btn-win-min" title="Minimizza">&#8211;</button>
-    <button class="hud-btn hud-close" id="btn-win-close" title="Chiudi">&#10005;</button>
-    <span id="score-fixed" class="score-chip"></span>
+    <button class="hud-btn hud-min" id="btn-hud-min" title="Minimizza">&#8211;</button>
+    <button class="hud-btn hud-close" id="btn-hud-close" title="Chiudi">&#10005;</button>
   </div>
 
   <script src="app.js"></script>

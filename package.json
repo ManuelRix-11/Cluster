@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder --win --x64"
+    "build": "electron-builder --win --x64",
+    "build:linux": "electron-builder --linux"
   },
   "devDependencies": {
     "electron": "^31.0.0",
@@ -14,9 +15,15 @@
   "build": {
     "appId": "com.quizapp.desktop",
     "productName": "Quiz App",
-    "files": ["main.js", "preload.js", "quiz-web/**", "quiz.json"],
+    "files": ["main.js", "preload.js", "quiz-web/**", "Quizzes/**", "images/**"],
     "win": {
       "target": "nsis"
+    },
+    "linux": {
+      "target": [
+        "tar.gz"
+      ],
+      "category": "Education"
     }
   }
 }

@@ -7,7 +7,7 @@ const DEMO = [
   },
   {
     domanda: "Chi ha dipinto la Gioconda?",
-    risposta: "Leonardo da Vinci"
+    corretta: "Leonardo da Vinci"
   },
   {
     domanda: "Quanti continenti ci sono sulla Terra?",
@@ -16,7 +16,7 @@ const DEMO = [
   },
   {
     domanda: "In che anno è caduto il Muro di Berlino?",
-    risposta: "1989"
+    corretta: "1989"
   },
   {
     domanda: "Qual è il pianeta più grande del sistema solare?",
@@ -29,27 +29,28 @@ const DEMO = [
 let domande = [], indice = 0, punteggio = 0;
 let storico = [];       // { domanda, rispostaUtente, rispostaCorretta, esito }
 let currentQuizName = null; // nome del quiz attivo (per percorso immagini)
+let statsRows = [];     // righe CSV in memoria (solo durante la sessione Electron)
 
 // ── DOM refs ──────────────────────────────────────────────────────────────────
-const screens      = { welcome: $('screen-welcome'), quiz: $('screen-quiz'), result: $('screen-result') };
+function $(id) { return document.getElementById(id); }
+
+const screens = { welcome: $('screen-welcome'), quiz: $('screen-quiz'), result: $('screen-result'), stats: $('screen-stats') };
 const ui = {
-  scorechip:     $('score-chip'),
-  progressFill:  $('progress-fill'),
-  progressWrap:  $('progress-bar-wrap'),
-  meta:          $('question-meta'),
-  text:          $('question-text'),
+  progressFill: $('progress-fill'),
+  progressWrap: $('progress-bar-wrap'),
+  meta: $('question-meta'),
+  text: $('question-text'),
   questionImage: $('question-image'),
-  answers:       $('answers'),
-  feedback:      $('feedback'),
-  quizCard:      $('quiz-card'),
-  resultIcon:    $('result-icon'),
-  resultTitle:   $('result-title'),
-  resultScore:   $('result-score'),
+  answers: $('answers'),
+  feedback: $('feedback'),
+  quizCard: $('quiz-card'),
+  resultIcon: $('result-icon'),
+  resultTitle: $('result-title'),
+  resultScore: $('result-score'),
   resultBarFill: $('result-bar-fill'),
-  resultPct:     $('result-pct'),
+  resultPct: $('result-pct'),
 };
 
-function $(id) { return document.getElementById(id); }
 
 // ── File loading ──────────────────────────────────────────────────────────────
 function bindFileInput(inputId) {
@@ -75,7 +76,12 @@ bindFileInput('file-input');
 bindFileInput('file-input-result');
 
 $('btn-demo').addEventListener('click', () => avvia(DEMO));
-$('btn-restart').addEventListener('click', () => { indice = 0; punteggio = 0; mostraDomanda(); showScreen('quiz'); });
+$('btn-restart').addEventListener('click', () => avvia(domande)); // ponytail: avvia già resetta storico, punteggio, indice e rimescola
+$('btn-home').addEventListener('click', tornaHome);
+$('btn-home-quiz').addEventListener('click', tornaHome);
+$('btn-home-quiz').addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') tornaHome(); });
+$('btn-home-stats')?.addEventListener('click', () => showScreen('welcome'));
+$('btn-home-stats')?.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') showScreen('welcome'); });
 
 // ── Navigazione schermate ─────────────────────────────────────────────────────
 function showScreen(name) {
@@ -101,23 +107,32 @@ function shuffle(arr) {
 function avvia(data) {
   // Seleziona casualmente fino a MAX_DOMANDE domande
   const pool = shuffle([...data]).slice(0, MAX_DOMANDE);
-  domande   = pool;
-  indice    = 0;
+  domande = pool;
+  indice = 0;
   punteggio = 0;
-  storico   = [];
+  storico = [];
   mostraDomanda();
   showScreen('quiz');
 }
 
+// ponytail: reset senza salvare stats — quiz annullato
+function tornaHome() {
+  domande = [];
+  indice = 0;
+  punteggio = 0;
+  storico = [];
+  currentQuizName = null;
+  showScreen('welcome');
+}
+
 // ── Mostra domanda ────────────────────────────────────────────────────────────
 function mostraDomanda() {
-  const d   = domande[indice];
+  const d = domande[indice];
   const tot = domande.length;
-  const n   = indice + 1;
+  const n = indice + 1;
 
   ui.meta.textContent = `Domanda ${n} / ${tot}`;
   ui.text.textContent = d.domanda;
-  aggiornaPunteggiochip();
   ui.answers.innerHTML = '';
   hideFeedback();
   resetCardState();
@@ -146,19 +161,21 @@ function updateProgress(done, tot) {
 
 // ── Risposta multipla ─────────────────────────────────────────────────────────
 function buildMultipla(d) {
-  const opzioni = [d.risposta1, d.risposta2, d.risposta3, d.risposta4];
-  const labels  = ['A', 'B', 'C', 'D'];
-  opzioni.forEach((op, i) => {
+  const labels = ['A', 'B', 'C', 'D', 'E', 'F'];
+  let i = 1;
+  while (d[`risposta${i}`] !== undefined) {
+    const op = d[`risposta${i}`];
     const btn = document.createElement('button');
     btn.className = 'option';
-    btn.id = `option-${i}`;
+    btn.id = `option-${i - 1}`;
     btn.innerHTML = `
-      <span class="option-label">${labels[i]}</span>
+      <span class="option-label">${labels[i - 1] ?? i}</span>
       <span class="option-text">${op}</span>
     `;
     btn.addEventListener('click', () => valutaMultipla(op, d.corretta, btn));
     ui.answers.appendChild(btn);
-  });
+    i++;
+  }
 }
 
 function valutaMultipla(scelta, corretta, clickedEl) {
@@ -176,6 +193,75 @@ function valutaMultipla(scelta, corretta, clickedEl) {
     esito: ok ? 'corretta' : 'sbagliata'
   });
   avanzaDopoFeedback(ok);
+}
+
+// ── Fuzzy matching per risposte aperte ──────────────────────────────────────
+
+/**
+ * Normalizza una stringa: minuscolo, rimuove accenti, punteggiatura e spazi multipli.
+ */
+function normalizza(s) {
+  return s
+    .toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // rimuove accenti
+    .replace(/[^a-z0-9\s]/g, ' ')                     // punteggiatura → spazio
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
+ * Distanza di Levenshtein tra due stringhe.
+ * Restituisce il numero minimo di inserimenti/cancellazioni/sostituzioni.
+ */
+function levenshtein(a, b) {
+  const m = a.length, n = b.length;
+  const dp = Array.from({ length: m + 1 }, (_, i) =>
+    Array.from({ length: n + 1 }, (__, j) => (i === 0 ? j : j === 0 ? i : 0))
+  );
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      dp[i][j] = a[i - 1] === b[j - 1]
+        ? dp[i - 1][j - 1]
+        : 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
+    }
+  }
+  return dp[m][n];
+}
+
+/**
+ * Similarità di Jaccard sui token (parole) di due stringhe normalizzate.
+ * Restituisce un valore tra 0 (nessuna parola in comune) e 1 (identiche).
+ */
+function jaccardToken(a, b) {
+  const setA = new Set(a.split(' '));
+  const setB = new Set(b.split(' '));
+  const intersect = [...setA].filter(w => setB.has(w)).length;
+  const union = new Set([...setA, ...setB]).size;
+  return union === 0 ? 1 : intersect / union;
+}
+
+/**
+ * Confronto "intelligente" tra la risposta dell'utente e quella corretta.
+ * Restituisce 'corretta' | 'simile' | 'sbagliata'.
+ *
+ * - 'corretta' : match esatto dopo normalizzazione
+ * - 'simile'   : typo tollerabile (Levenshtein) OPPURE alta sovrapposizione di parole (Jaccard)
+ * - 'sbagliata': nessun criterio soddisfatto
+ */
+function valutaRispostaAperta(input, corretta) {
+  const a = normalizza(input);
+  const b = normalizza(corretta);
+
+  if (a === b) return 'corretta';
+
+  // Soglia Levenshtein: tolleranza del 30% sulla stringa più corta (min 2 edit)
+  const sogliaDist = Math.max(2, Math.floor(Math.min(a.length, b.length) * 0.30));
+  if (levenshtein(a, b) <= sogliaDist) return 'simile';
+
+  // Soglia Jaccard: almeno il 60% di parole in comune
+  if (jaccardToken(a, b) >= 0.60) return 'simile';
+
+  return 'sbagliata';
 }
 
 // ── Risposta aperta ───────────────────────────────────────────────────────────
@@ -196,15 +282,15 @@ function buildAperta(d) {
   const conferma = () => {
     const v = input.value.trim();
     if (!v) return;
-    const ok = v.toLowerCase() === d.risposta.trim().toLowerCase();
+    const esito = valutaRispostaAperta(v, d.corretta);
+    const ok = esito === 'corretta' || esito === 'simile';
     input.disabled = true;
-    btn.disabled   = true;
-    // Registra la risposta nello storico
+    btn.disabled = true;
     storico.push({
       domanda: d.domanda,
       rispostaUtente: v,
-      rispostaCorretta: d.risposta,
-      esito: ok ? 'corretta' : 'sbagliata'
+      rispostaCorretta: d.corretta,
+      esito
     });
     avanzaDopoFeedback(ok);
   };
@@ -225,7 +311,6 @@ function avanzaDopoFeedback(ok) {
     punteggio++;
   }
   // Nessun feedback visivo immediato (rimosso per requisito todo)
-  aggiornaPunteggiochip();
   setTimeout(avanza, 600);
 }
 
@@ -256,18 +341,147 @@ if (window.electronAPI) {
   $('electron-hud').removeAttribute('hidden')
   $('drag-strip').removeAttribute('hidden')
 
-  $('btn-win-min').addEventListener('click',   () => window.electronAPI.minimize())
-  $('btn-win-close').addEventListener('click', () => window.electronAPI.close())
+  $('btn-hud-min').addEventListener('click', () => window.electronAPI.minimize())
+  $('btn-hud-close').addEventListener('click', () => window.electronAPI.close())
 
   $('quiz-list-section').removeAttribute('hidden')
   $('welcome-actions').hidden = true
 
   caricaListaQuiz()
+  caricaStats()
+  $('btn-stats').addEventListener('click', apriStats)
+}
+
+// ── Statistiche CSV ───────────────────────────────────────────────────────────
+async function caricaStats() {
+  const csv = await window.electronAPI.readStats()
+  const righe = csv.trim().split('\n').slice(1).filter(Boolean)
+  statsRows = righe.map(r => {
+    const [data, quiz_name_raw, n_domande, n_corrette, n_simili, n_sbagliate, punteggio_30] = r.split(',')
+    const quiz_name = (quiz_name_raw ?? '').replace(/^"|"$/g, '') // strip virgolette (bug 4)
+    return {
+      data, quiz_name, n_domande: +n_domande, n_corrette: +n_corrette,
+      n_simili: +n_simili, n_sbagliate: +n_sbagliate, punteggio_30: +punteggio_30
+    }
+  }).filter(r => !isNaN(r.punteggio_30)) // scarta righe corrotte (bug 5)
+  if (statsRows.length > 0) $('btn-stats').removeAttribute('hidden')
+}
+
+async function salvaStats(riga) {
+  statsRows.push(riga)
+  const header = 'data,quiz_name,n_domande,n_corrette,n_simili,n_sbagliate,punteggio_30\n'
+  const corpo = statsRows.map(r =>
+    [r.data, `"${r.quiz_name}"`, r.n_domande, r.n_corrette, r.n_simili, r.n_sbagliate, r.punteggio_30].join(',') // quiz_name quotato (bug 4)
+  ).join('\n')
+  await window.electronAPI.writeStats(header + corpo + '\n')
+  if (statsRows.length > 0) $('btn-stats').removeAttribute('hidden')
+}
+
+function apriStats() {
+  if (statsRows.length === 0) return
+  const tot = statsRows.length
+  const media = statsRows.reduce((s, r) => s + r.punteggio_30, 0) / tot
+  const best = Math.max(...statsRows.map(r => r.punteggio_30))
+  const freq = {}
+  statsRows.forEach(r => freq[r.quiz_name] = (freq[r.quiz_name] || 0) + 1)
+  const topQuiz = Object.entries(freq).sort((a, b) => b[1] - a[1])[0][0]
+  const fmt = n => Number.isInteger(n) ? String(n) : n.toFixed(2)
+
+  $('stat-cards').innerHTML = [
+    { icon: '🎯', value: tot, label: 'Sessioni' },
+    { icon: '📈', value: fmt(media) + '/30', label: 'Voto medio' },
+    { icon: '🏆', value: fmt(best) + '/30', label: 'Miglior voto' },
+    { icon: '📚', value: topQuiz, label: 'Più studiato' },
+  ].map(c => `<div class="stat-card">
+    <span class="stat-card-icon">${c.icon}</span>
+    <span class="stat-card-value">${c.value}</span>
+    <span class="stat-card-label">${c.label}</span>
+  </div>`).join('')
+
+  $('stats-history').innerHTML = [...statsRows].reverse().map((r, i) => {
+    const voto = fmt(r.punteggio_30)
+    const cls = r.punteggio_30 >= 24 ? 'good' : r.punteggio_30 >= 18 ? 'ok' : 'bad'
+    const simili = r.n_simili > 0 ? ` ${r.n_simili}🟡` : ''
+    return `<div class="stats-row">
+      <span class="stats-idx">${statsRows.length - i}</span>
+      <span class="stats-name">${r.quiz_name}</span>
+      <span class="stats-meta">${r.n_corrette}✅${simili} ${r.n_sbagliate}❌ / ${r.n_domande}</span>
+      <span class="stats-date">${r.data}</span>
+      <span class="stats-score stats-score--${cls}">${voto}/30</span>
+    </div>`
+  }).join('')
+
+  showScreen('stats')
+  requestAnimationFrame(drawChart)
+}
+
+function drawChart() {
+  const canvas = $('stats-chart')
+  if (!canvas || statsRows.length === 0) return
+  const dpr = window.devicePixelRatio || 1
+  const rect = canvas.getBoundingClientRect()
+  const W = rect.width, H = rect.height
+  canvas.width = W * dpr
+  canvas.height = H * dpr
+  const ctx = canvas.getContext('2d')
+  ctx.scale(dpr, dpr)
+
+  const data = statsRows.slice(-15)
+  const pad = { top: 32, right: 20, bottom: 52, left: 44 }
+  const cW = W - pad.left - pad.right
+  const cH = H - pad.top - pad.bottom
+
+    // Linee griglia orizzontali
+    ;[0, 18, 24, 30].forEach(score => {
+      const y = pad.top + cH - (score / 30) * cH
+      ctx.strokeStyle = score === 18 ? 'rgba(255,196,0,0.25)' : 'rgba(255,255,255,0.07)'
+      ctx.lineWidth = 1
+      ctx.setLineDash(score === 18 ? [4, 3] : [])
+      ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(W - pad.right, y); ctx.stroke()
+      ctx.setLineDash([])
+      ctx.fillStyle = score === 18 ? 'rgba(255,196,0,0.6)' : 'rgba(255,255,255,0.3)'
+      ctx.font = '11px Inter, system-ui, sans-serif'
+      ctx.textAlign = 'right'
+      ctx.fillText(score, pad.left - 6, y + 4)
+    })
+
+  // Barre
+  const slotW = cW / data.length
+  const barW = Math.min(42, slotW * 0.62)
+  data.forEach((r, i) => {
+    const barH = (r.punteggio_30 / 30) * cH
+    const x = pad.left + i * slotW + (slotW - barW) / 2
+    const y = pad.top + cH - barH
+    const color = r.punteggio_30 >= 24 ? '#43d98c' : r.punteggio_30 >= 18 ? '#ffc400' : '#ff5c6e'
+    const grad = ctx.createLinearGradient(0, y, 0, pad.top + cH)
+    grad.addColorStop(0, color + 'cc')
+    grad.addColorStop(1, color + '22')
+    ctx.fillStyle = grad
+    ctx.beginPath()
+    if (ctx.roundRect) ctx.roundRect(x, y, barW, barH, [4, 4, 0, 0])
+    else ctx.rect(x, y, barW, barH)
+    ctx.fill()
+    // Voto sopra la barra
+    const label = r.punteggio_30 % 1 === 0 ? String(r.punteggio_30) : r.punteggio_30.toFixed(1)
+    ctx.fillStyle = color
+    ctx.font = 'bold 10px Inter, system-ui, sans-serif'
+    ctx.textAlign = 'center'
+    ctx.fillText(label, x + barW / 2, Math.max(y - 5, pad.top + 11))
+    // Data
+    ctx.fillStyle = 'rgba(255,255,255,0.3)'
+    ctx.font = '10px Inter, system-ui, sans-serif'
+    ctx.fillText(r.data.slice(5), x + barW / 2, H - pad.bottom + 14)
+    // Nome quiz (tronco)
+    const nm = r.quiz_name.length > 5 ? r.quiz_name.slice(0, 5) + '…' : r.quiz_name
+    ctx.fillStyle = 'rgba(255,255,255,0.2)'
+    ctx.font = '9px Inter, system-ui, sans-serif'
+    ctx.fillText(nm, x + barW / 2, H - pad.bottom + 26)
+  })
 }
 
 async function caricaListaQuiz() {
   const quizzes = await window.electronAPI.listQuizzes()
-  const listEl  = $('quiz-list')
+  const listEl = $('quiz-list')
   listEl.innerHTML = ''
 
   if (quizzes.length === 0) {
@@ -293,38 +507,38 @@ async function caricaListaQuiz() {
 }
 
 
-// Aggiorna il chip del punteggio nella barra header
-function aggiornaPunteggiochip() {
-  const txt = `📊 ${punteggio} / ${domande.length}`;
-  ui.scorechip.textContent = txt;
-  const fixed = $('score-fixed');
-  if (fixed) fixed.textContent = txt;
-}
 
 // ── Schermata risultato ───────────────────────────────────────────────────
 function mostraRisultato() {
   const tot = domande.length;
-  const nCorrette  = storico.filter(r => r.esito === 'corretta').length;
+  const nCorrette = storico.filter(r => r.esito === 'corretta').length;
+  const nSimili = storico.filter(r => r.esito === 'simile').length;
   const nSbagliate = storico.filter(r => r.esito === 'sbagliata').length;
-  const nSaltate   = tot - storico.length; // domande non risposte (skip futuro)
+  const nSaltate = tot - storico.length; // domande non risposte (skip futuro)
 
-  // Calcolo punteggio in 30esimi: +1 corretta, -0.25 sbagliata, +0 saltata
-  const puntiGrezzi = nCorrette * 1 - nSbagliate * 0.25;
+  // Calcolo punteggio in 30esimi: +1 corretta/simile, -0.25 sbagliata, +0 saltata
+  const nOk = nCorrette + nSimili;
+  const puntiGrezzi = nOk * 1 - nSbagliate * 0.25;
   const punteggio30 = Math.max(0, (puntiGrezzi / tot) * 30);
-  const pct = Math.round((nCorrette / tot) * 100);
+  const pct = Math.round((nOk / tot) * 100);
 
   let icon, titolo;
-  if (pct >= 80)      { icon = '🏆'; titolo = 'Ottimo lavoro!'; }
+  if (pct >= 80) { icon = '🏆'; titolo = 'Ottimo lavoro!'; }
   else if (pct >= 60) { icon = '💪'; titolo = 'Quasi — riprova!'; }
   else if (pct >= 40) { icon = '📖'; titolo = 'Continua a studiare!'; }
-  else                { icon = '📚'; titolo = 'Studia ancora un po\'!'; }
+  else { icon = '📚'; titolo = 'Studia ancora un po\'!'; }
 
-  ui.resultIcon.textContent  = icon;
+  ui.resultIcon.textContent = icon;
   ui.resultTitle.textContent = titolo;
   // Mostra punteggio in 30esimi
   const punteggio30Str = Number.isInteger(punteggio30) ? punteggio30 : punteggio30.toFixed(2);
   ui.resultScore.textContent = `${punteggio30Str} / 30`;
-  ui.resultPct.textContent   = `${nCorrette} corrette · ${nSbagliate} sbagliate · ${nSaltate} saltate`;
+  ui.resultPct.textContent = [
+    `${nCorrette} corrette`,
+    nSimili > 0 ? `${nSimili} simili` : null,
+    `${nSbagliate} sbagliate`,
+    `${nSaltate} saltate`
+  ].filter(Boolean).join(' · ');
   ui.resultBarFill.style.width = '0%'; // reset per animazione
 
   // ── Resoconto dettagliato ────────────────────────────────────────────────
@@ -333,14 +547,15 @@ function mostraRisultato() {
   storico.forEach((item, i) => {
     const row = document.createElement('div');
     row.className = `recap-row recap-${item.esito}`;
-    const icona = item.esito === 'corretta' ? '✅' : '❌';
+    const icona = item.esito === 'corretta' ? '✅' : item.esito === 'simile' ? '🟡' : '❌';
+    const mostraCorretta = item.esito === 'sbagliata' || item.esito === 'simile';
     row.innerHTML = `
       <div class="recap-num">${i + 1}</div>
       <div class="recap-content">
         <div class="recap-domanda">${item.domanda}</div>
         <div class="recap-risposta">
           ${icona} <span class="recap-label">La tua risposta:</span> <strong>${item.rispostaUtente}</strong>
-          ${item.esito === 'sbagliata' ? `<span class="recap-risposta-corretta"> — Corretta: <strong>${item.rispostaCorretta}</strong></span>` : ''}
+          ${mostraCorretta ? `<span class="recap-risposta-corretta"> — Corretta: <strong>${item.rispostaCorretta}</strong></span>` : ''}
         </div>
       </div>
     `;
@@ -369,4 +584,18 @@ function mostraRisultato() {
   });
 
   updateProgress(tot, tot);
+
+  // ── Salva stats (solo Electron) ──────────────────────────────────────────
+  if (window.electronAPI && currentQuizName) {
+    const oggi = new Date().toISOString().slice(0, 10) // YYYY-MM-DD
+    salvaStats({
+      data: oggi,
+      quiz_name: currentQuizName,
+      n_domande: tot,
+      n_corrette: nCorrette,
+      n_simili: nSimili,
+      n_sbagliate: nSbagliate,
+      punteggio_30: +punteggio30.toFixed(2)
+    })
+  }
 }
