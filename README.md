@@ -37,7 +37,7 @@ Progettata per studiare in modo attivo attraverso quiz a scelta multipla, con fe
 
 ## 📥 Download
 
-Non vuoi compilare il progetto da sol*? Gli eseguibili già pronti per **Windows** e **Linux** sono disponibili nella sezione [**Packages**](../../packages) di questa repository GitHub.
+Non vuoi compilare il progetto da sol*? Gli eseguibili già pronti per **Windows** e **Linux** sono disponibili nella sezione [**Releases**](../../releases) di questa repository GitHub.
 
 Scarica la versione per il tuo sistema operativo, estraila (se necessario) ed eseguila direttamente — nessuna installazione richiesta.
 
