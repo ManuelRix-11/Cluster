@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiz App</title>
-  <meta name="description" content="App quiz moderna a risposta multipla e risposta aperta. Carica il tuo JSON e inizia il quiz." />
+  <title>IUE</title>
+  <meta name="description"
+    content="App quiz moderna a risposta multipla e risposta aperta. Carica il tuo JSON e inizia il quiz." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
   <!-- ── Titlebar custom frameless (solo Electron) ── -->
   <div class="titlebar" id="titlebar" hidden>
-    <span class="titlebar-brand">🎓 Quiz App</span>
+    <span class="titlebar-brand">🎓 Simulazioni Esami Informatica</span>
     <div class="titlebar-controls">
       <button class="titlebar-btn" id="btn-win-min" title="Minimizza">–</button>
       <button class="titlebar-btn" id="btn-win-max" title="Massimizza">&#9633;</button>
@@ -35,7 +38,7 @@
     <div class="screen active" id="screen-welcome">
       <div class="card card--welcome">
         <div class="logo">🎓</div>
-        <h1>TestsUnisaExams</h1>
+        <h1>Simulazioni Esami Informatica</h1>
 
         <!-- Lista quiz dalla cartella Quizzes/ — solo Electron -->
         <div id="quiz-list-section" hidden>
@@ -67,11 +70,13 @@
     <!-- SCHERMATA QUIZ -->
     <div class="screen" id="screen-quiz">
       <header class="app-header">
-        <span class="app-brand" id="btn-home-quiz" role="button" tabindex="0" title="Torna alla home">🎓 TestsUnisaExams</span>
+        <span class="app-brand" id="btn-home-quiz" role="button" tabindex="0" title="Torna alla home">🎓
+          TestsUnisaExams</span>
       </header>
 
       <!-- progress bar -->
-      <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar-wrap">
+      <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"
+        id="progress-bar-wrap">
         <div class="progress-fill" id="progress-fill"></div>
       </div>
 
@@ -115,7 +120,8 @@
     <!-- SCHERMATA STATISTICHE — solo Electron -->
     <div class="screen" id="screen-stats">
       <header class="app-header">
-        <span class="app-brand" id="btn-home-stats" role="button" tabindex="0" title="Torna alla home">🎓 Quiz App</span>
+        <span class="app-brand" id="btn-home-stats" role="button" tabindex="0" title="Torna alla home">🎓 Quiz
+          App</span>
         <span class="stats-page-title">📊 Statistiche</span>
       </header>
       <main class="stats-main">
@@ -142,4 +148,5 @@
 
   <script src="app.js"></script>
 </body>
+
 </html>
