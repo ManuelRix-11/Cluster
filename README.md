@@ -8,7 +8,10 @@ Progettata per studiare in modo attivo attraverso quiz a scelta multipla, con fe
 ## 📸 Anteprima
 
 <img src="assets/homescreen.png" width="100%" alt="Home screen"/>
-<img src="assets/screen_quiz.png" width="49.8%" alt="Schermata quiz"/><img src="assets/screen_result.png" width="49.8%" alt="Schermata risultato"/>
+<div style="display: flex; flex-direction:row">
+  <img src="assets/screen_quiz.png" width="49.8%" alt="Schermata quiz"/><img src="assets/screen_result.png" width="49.8%" alt="Schermata risultato"/>
+</div>
+
 
 ---
 
