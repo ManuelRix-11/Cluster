@@ -7,7 +7,8 @@ Progettata per studiare in modo attivo attraverso quiz a scelta multipla, con fe
 
 ## 📸 Anteprima
 
-![Anteprima dell'app](assets/homescreen.png)
+<img src="assets/homescreen.png" width="100%" alt="Home screen"/>
+<img src="assets/screen_quiz.png" width="49.8%" alt="Schermata quiz"/><img src="assets/screen_result.png" width="49.8%" alt="Schermata risultato"/>
 
 ---
 

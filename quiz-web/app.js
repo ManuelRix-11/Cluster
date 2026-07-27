@@ -26,8 +26,8 @@ const DEMO = [
 ];
 
 // ── Stato ─────────────────────────────────────────────────────────────────────
-let domande = [], indice = 0, punteggio = 0;
-let storico = [];       // { domanda, rispostaUtente, rispostaCorretta, esito }
+let domande = [], indice = 0;
+let risposte = [];  // risposte[i] = null | { domanda, rispostaUtente, rispostaCorretta, esito }
 let currentQuizName = null; // nome del quiz attivo (per percorso immagini)
 let statsRows = [];     // righe CSV in memoria (solo durante la sessione Electron)
 
@@ -76,12 +76,25 @@ bindFileInput('file-input');
 bindFileInput('file-input-result');
 
 $('btn-demo').addEventListener('click', () => avvia(DEMO));
-$('btn-restart').addEventListener('click', () => avvia(domande)); // ponytail: avvia già resetta storico, punteggio, indice e rimescola
+$('btn-restart').addEventListener('click', () => avvia(domande));
 $('btn-home').addEventListener('click', tornaHome);
 $('btn-home-quiz').addEventListener('click', tornaHome);
 $('btn-home-quiz').addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') tornaHome(); });
 $('btn-home-stats')?.addEventListener('click', () => showScreen('welcome'));
 $('btn-home-stats')?.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') showScreen('welcome'); });
+
+// ── Navigazione domande ───────────────────────────────────────────────────────
+$('btn-prev').addEventListener('click', () => {
+  if (indice > 0) { indice--; mostraDomanda(); }
+});
+$('btn-next').addEventListener('click', () => {
+  if (indice < domande.length - 1) {
+    indice++;
+    mostraDomanda();
+  } else {
+    mostraRisultato(); // ponytail: confirm() bloccato in Electron — il recap mostra già le saltate
+  }
+});
 
 // ── Navigazione schermate ─────────────────────────────────────────────────────
 function showScreen(name) {
@@ -105,22 +118,18 @@ function shuffle(arr) {
 }
 
 function avvia(data) {
-  // Seleziona casualmente fino a MAX_DOMANDE domande
   const pool = shuffle([...data]).slice(0, MAX_DOMANDE);
   domande = pool;
   indice = 0;
-  punteggio = 0;
-  storico = [];
+  risposte = new Array(pool.length).fill(null);
   mostraDomanda();
   showScreen('quiz');
 }
 
-// ponytail: reset senza salvare stats — quiz annullato
 function tornaHome() {
   domande = [];
   indice = 0;
-  punteggio = 0;
-  storico = [];
+  risposte = [];
   currentQuizName = null;
   showScreen('welcome');
 }
@@ -136,7 +145,7 @@ function mostraDomanda() {
   ui.answers.innerHTML = '';
   hideFeedback();
   resetCardState();
-  updateProgress(indice, tot);
+  updateProgressFromAnswered();
 
   // Immagine domanda (opzionale)
   if (d.immagine && window.electronAPI && currentQuizName) {
@@ -151,6 +160,8 @@ function mostraDomanda() {
   } else {
     buildAperta(d);
   }
+
+  aggiornaPulsanti();
 }
 
 function updateProgress(done, tot) {
@@ -159,40 +170,46 @@ function updateProgress(done, tot) {
   ui.progressWrap.setAttribute('aria-valuenow', pct);
 }
 
+function updateProgressFromAnswered() {
+  updateProgress(risposte.filter(Boolean).length, domande.length);
+}
+
 // ── Risposta multipla ─────────────────────────────────────────────────────────
 function buildMultipla(d) {
   const labels = ['A', 'B', 'C', 'D', 'E', 'F'];
+  const rispSalvata = risposte[indice];
   let i = 1;
   while (d[`risposta${i}`] !== undefined) {
     const op = d[`risposta${i}`];
     const btn = document.createElement('button');
     btn.className = 'option';
     btn.id = `option-${i - 1}`;
+    // Ripristina selezione precedente (cambiabile)
+    if (rispSalvata && rispSalvata.rispostaUtente === op) btn.classList.add('selected');
     btn.innerHTML = `
       <span class="option-label">${labels[i - 1] ?? i}</span>
       <span class="option-text">${op}</span>
     `;
-    btn.addEventListener('click', () => valutaMultipla(op, d.corretta, btn));
+    btn.addEventListener('click', () => selezionaOpzione(op, d.corretta, btn));
     ui.answers.appendChild(btn);
     i++;
   }
 }
 
-function valutaMultipla(scelta, corretta, clickedEl) {
+function selezionaOpzione(scelta, corretta, clickedEl) {
+  // Rimuove selezione da tutti, marca il cliccato
+  ui.answers.querySelectorAll('.option').forEach(el => el.classList.remove('selected'));
+  clickedEl.classList.add('selected');
+  // Salva (sovrascrive eventuale risposta precedente)
   const ok = scelta.trim().toLowerCase() === corretta.trim().toLowerCase();
-  // Blocca tutti i bottoni dopo la scelta
-  ui.answers.querySelectorAll('.option').forEach(el => {
-    el.classList.add('disabled');
-    el.style.pointerEvents = 'none';
-  });
-  // Registra la risposta nello storico
-  storico.push({
+  risposte[indice] = {
     domanda: domande[indice].domanda,
     rispostaUtente: scelta,
     rispostaCorretta: corretta,
     esito: ok ? 'corretta' : 'sbagliata'
-  });
-  avanzaDopoFeedback(ok);
+  };
+  updateProgressFromAnswered();
+  aggiornaPulsanti();
 }
 
 // ── Fuzzy matching per risposte aperte ──────────────────────────────────────
@@ -277,22 +294,29 @@ function buildAperta(d) {
 
   const btn = document.createElement('button');
   btn.className = 'btn btn--primary btn--confirm';
-  btn.textContent = 'Conferma →';
+
+  // Ripristina risposta precedente se esiste (modificabile)
+  const rispSalvata = risposte[indice];
+  if (rispSalvata) {
+    input.value = rispSalvata.rispostaUtente;
+    btn.textContent = 'Aggiorna →';
+  } else {
+    btn.textContent = 'Conferma →';
+  }
 
   const conferma = () => {
     const v = input.value.trim();
     if (!v) return;
     const esito = valutaRispostaAperta(v, d.corretta);
-    const ok = esito === 'corretta' || esito === 'simile';
-    input.disabled = true;
-    btn.disabled = true;
-    storico.push({
+    risposte[indice] = {
       domanda: d.domanda,
       rispostaUtente: v,
       rispostaCorretta: d.corretta,
       esito
-    });
-    avanzaDopoFeedback(ok);
+    };
+    btn.textContent = 'Aggiorna →';
+    updateProgressFromAnswered();
+    aggiornaPulsanti();
   };
 
   btn.addEventListener('click', conferma);
@@ -301,32 +325,23 @@ function buildAperta(d) {
   wrap.appendChild(input);
   wrap.appendChild(btn);
   ui.answers.appendChild(wrap);
-  input.focus();
+  if (!rispSalvata) input.focus();
 }
 
-// ── Feedback e avanzamento ────────────────────────────────────────────────
-// ok: true = risposta corretta, false = sbagliata
-function avanzaDopoFeedback(ok) {
-  if (ok) {
-    punteggio++;
-  }
-  // Nessun feedback visivo immediato (rimosso per requisito todo)
-  setTimeout(avanza, 600);
-}
-
-function avanza() {
-  indice++;
-  if (indice < domande.length) {
-    mostraDomanda();
+// ── Navigazione e stato pulsanti ─────────────────────────────────────────────
+function aggiornaPulsanti() {
+  const btnPrev = $('btn-prev');
+  const btnNext = $('btn-next');
+  if (!btnPrev || !btnNext) return;
+  btnPrev.disabled = indice === 0;
+  if (indice === domande.length - 1) {
+    const nSaltate = risposte.filter(r => r === null).length;
+    btnNext.textContent = nSaltate > 0 ? `Consegna ⚠️ (${nSaltate})` : 'Consegna ✓';
   } else {
-    mostraRisultato();
+    btnNext.textContent = 'Avanti →';
   }
 }
 
-function showFeedback(type, msg) {
-  ui.feedback.textContent = msg;
-  ui.feedback.className = `feedback show ${type}`;
-}
 function hideFeedback() {
   ui.feedback.textContent = '';
   ui.feedback.className = 'feedback';
@@ -511,10 +526,10 @@ async function caricaListaQuiz() {
 // ── Schermata risultato ───────────────────────────────────────────────────
 function mostraRisultato() {
   const tot = domande.length;
-  const nCorrette = storico.filter(r => r.esito === 'corretta').length;
-  const nSimili = storico.filter(r => r.esito === 'simile').length;
-  const nSbagliate = storico.filter(r => r.esito === 'sbagliata').length;
-  const nSaltate = tot - storico.length; // domande non risposte (skip futuro)
+  const nCorrette = risposte.filter(r => r?.esito === 'corretta').length;
+  const nSimili = risposte.filter(r => r?.esito === 'simile').length;
+  const nSbagliate = risposte.filter(r => r?.esito === 'sbagliata').length;
+  const nSaltate = risposte.filter(r => r === null).length;
 
   // Calcolo punteggio in 30esimi: +1 corretta/simile, -0.25 sbagliata, +0 saltata
   const nOk = nCorrette + nSimili;
@@ -526,54 +541,52 @@ function mostraRisultato() {
   if (pct >= 80) { icon = '🏆'; titolo = 'Ottimo lavoro!'; }
   else if (pct >= 60) { icon = '💪'; titolo = 'Quasi — riprova!'; }
   else if (pct >= 40) { icon = '📖'; titolo = 'Continua a studiare!'; }
-  else { icon = '📚'; titolo = 'Studia ancora un po\'!'; }
+  else { icon = '📚'; titolo = "Studia ancora un po'!"; }
 
   ui.resultIcon.textContent = icon;
   ui.resultTitle.textContent = titolo;
-  // Mostra punteggio in 30esimi
   const punteggio30Str = Number.isInteger(punteggio30) ? punteggio30 : punteggio30.toFixed(2);
   ui.resultScore.textContent = `${punteggio30Str} / 30`;
   ui.resultPct.textContent = [
     `${nCorrette} corrette`,
     nSimili > 0 ? `${nSimili} simili` : null,
     `${nSbagliate} sbagliate`,
-    `${nSaltate} saltate`
+    nSaltate > 0 ? `${nSaltate} saltate` : null
   ].filter(Boolean).join(' · ');
-  ui.resultBarFill.style.width = '0%'; // reset per animazione
+  ui.resultBarFill.style.width = '0%';
 
-  // ── Resoconto dettagliato ────────────────────────────────────────────────
+  // ── Resoconto dettagliato ──────────────────────────────────────────
   const recap = $('result-recap');
   recap.innerHTML = '';
-  storico.forEach((item, i) => {
+  risposte.forEach((item, i) => {
     const row = document.createElement('div');
-    row.className = `recap-row recap-${item.esito}`;
-    const icona = item.esito === 'corretta' ? '✅' : item.esito === 'simile' ? '🟡' : '❌';
-    const mostraCorretta = item.esito === 'sbagliata' || item.esito === 'simile';
-    row.innerHTML = `
-      <div class="recap-num">${i + 1}</div>
-      <div class="recap-content">
-        <div class="recap-domanda">${item.domanda}</div>
-        <div class="recap-risposta">
-          ${icona} <span class="recap-label">La tua risposta:</span> <strong>${item.rispostaUtente}</strong>
-          ${mostraCorretta ? `<span class="recap-risposta-corretta"> — Corretta: <strong>${item.rispostaCorretta}</strong></span>` : ''}
+    if (item === null) {
+      row.className = 'recap-row recap-saltata';
+      row.innerHTML = `
+        <div class="recap-num">${i + 1}</div>
+        <div class="recap-content">
+          <div class="recap-domanda">${domande[i].domanda}</div>
+          <div class="recap-risposta">⏭️ <span class="recap-label">Non risposta</span></div>
         </div>
-      </div>
-    `;
+      `;
+    } else {
+      row.className = `recap-row recap-${item.esito}`;
+      const icona = item.esito === 'corretta' ? '✅' : item.esito === 'simile' ? '🟡' : '❌';
+      const mostraCorretta = item.esito === 'sbagliata' || item.esito === 'simile';
+      row.innerHTML = `
+        <div class="recap-num">${i + 1}</div>
+        <div class="recap-content">
+          <div class="recap-domanda">${item.domanda}</div>
+          <div class="recap-risposta">
+            ${icona} <span class="recap-label">La tua risposta:</span> <strong>${item.rispostaUtente}</strong>
+            ${mostraCorretta ? `<span class="recap-risposta-corretta"> — Corretta: <strong>${item.rispostaCorretta}</strong></span>` : ''}
+          </div>
+        </div>
+      `;
+    }
     recap.appendChild(row);
   });
-  // Domande saltate (se presenti)
-  domande.slice(storico.length).forEach((d, i) => {
-    const row = document.createElement('div');
-    row.className = 'recap-row recap-saltata';
-    row.innerHTML = `
-      <div class="recap-num">${storico.length + i + 1}</div>
-      <div class="recap-content">
-        <div class="recap-domanda">${d.domanda}</div>
-        <div class="recap-risposta">⏭️ <span class="recap-label">Non risposta</span></div>
-      </div>
-    `;
-    recap.appendChild(row);
-  });
+
 
   showScreen('result');
   // trigger animazione barra con piccolo delay
