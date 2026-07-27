@@ -1082,3 +1082,21 @@ body.electron #score-fixed {
     font-size: 1.1rem;
   }
 }
+
+/* ── Logo immagine ───────────────────────────────────────────────────────── */
+.logo-img {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 4px 16px rgba(108, 99, 255, 0.4));
+}
+
+.brand-logo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  vertical-align: middle;
+  margin-right: 2px;
+}
