@@ -17,8 +17,11 @@ Progettata per studiare in modo attivo attraverso quiz a scelta multipla, con fe
 
 ## ✨ Funzionalità
 
-- **Quiz a scelta multipla** con feedback immediato (risposta corretta/errata)
-- **Barra di progresso** durante il quiz
+- **Navigazione libera** tra le domande con i pulsanti ← Indietro / Avanti →
+- **Salta e torna** — puoi saltare una domanda e tornarci in seguito
+- **Risposte modificabili** — puoi cambiare una risposta già data prima di consegnare
+- **Quiz a scelta multipla** e a risposta aperta (con fuzzy matching)
+- **Barra di progresso** che mostra le domande risposte
 - **Schermata risultato** con resoconto dettagliato di ogni domanda
 - **Storico sessioni** con grafico dell'andamento (solo modalità desktop)
 - **Caricamento quiz personalizzato** tramite file `.json`
