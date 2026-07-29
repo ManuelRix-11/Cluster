@@ -1100,3 +1100,165 @@ body.electron #score-fixed {
   vertical-align: middle;
   margin-right: 2px;
 }
+
+/* ── Banner warning compilatore C ────────────────────────────────────────── */
+.c-compiler-warning {
+  padding: 11px 14px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  background: rgba(255, 196, 0, 0.08);
+  border: 1px solid rgba(255, 196, 0, 0.30);
+  color: #ffc400;
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+.c-compiler-warning code {
+  background: rgba(255, 196, 0, 0.15);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* ── Editor Monaco ───────────────────────────────────────────────────────── */
+.code-editor-wrap {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1.5px solid var(--border);
+  margin-bottom: 12px;
+  transition: border-color 0.2s;
+}
+
+.code-editor-wrap:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+}
+
+#code-editor {
+  width: 100%;
+  height: 280px;
+}
+
+/* ── Pulsante esegui ─────────────────────────────────────────────────────── */
+.btn--run {
+  background: linear-gradient(135deg, #43d98c, #2ebd7a);
+  color: #000;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(67, 217, 140, 0.28);
+  align-self: flex-start;
+  width: auto;
+  padding: 11px 24px;
+  margin-bottom: 12px;
+}
+
+.btn--run:hover {
+  box-shadow: 0 10px 28px rgba(67, 217, 140, 0.42);
+  transform: translateY(-1px);
+}
+
+.btn--run:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Output compilazione ─────────────────────────────────────────────────── */
+.code-output {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1.5px solid transparent;
+  padding: 12px 14px;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-all;
+  min-height: 48px;
+  color: var(--muted);
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.code-output.running {
+  color: var(--muted);
+  border-color: var(--border);
+}
+
+.code-output.success {
+  color: var(--success);
+  border-color: rgba(67, 217, 140, 0.35);
+  background: rgba(67, 217, 140, 0.05);
+}
+
+.code-output.error {
+  color: var(--error);
+  border-color: rgba(255, 92, 110, 0.35);
+  background: rgba(255, 92, 110, 0.05);
+}
+
+/* Test case card */
+.test-cases-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.test-case-card {
+  border-radius: 10px;
+  border: 1.5px solid transparent;
+  background: rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.test-case-card--ok   { border-color: rgba(67, 217, 140, 0.45); }
+.test-case-card--fail { border-color: rgba(255, 92, 110, 0.45); }
+.test-case-card--err  { border-color: rgba(255, 196, 0, 0.45); }
+
+.test-case-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.test-case-card--ok   .test-case-header { background: rgba(67, 217, 140, 0.10); color: var(--success); }
+.test-case-card--fail .test-case-header { background: rgba(255, 92, 110, 0.10); color: var(--error); }
+.test-case-card--err  .test-case-header { background: rgba(255, 196, 0, 0.10);  color: #ffc400; }
+
+.test-case-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.78rem;
+}
+
+.test-case-col {
+  padding: 8px 12px;
+}
+
+.test-case-col + .test-case-col {
+  border-left: 1px solid rgba(255,255,255,0.06);
+}
+
+.test-case-col-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 3px;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.test-case-col-value {
+  color: var(--text);
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.test-case-col-value--ok   { color: var(--success); }
+.test-case-col-value--fail { color: var(--error); }

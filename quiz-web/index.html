@@ -10,6 +10,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <!-- Monaco Editor (locale, no CDN) -->
+  <script>var require = { paths: { vs: '../node_modules/monaco-editor/min/vs' } };</script>
+  <script src="../node_modules/monaco-editor/min/vs/loader.js"></script>
 </head>
 
 <body>
@@ -81,6 +84,10 @@
 
       <main class="quiz-main">
         <div class="card card--quiz" id="quiz-card">
+          <!-- Banner warning compilatore C (visibile solo per quiz tipo codice) -->
+          <div class="c-compiler-warning" id="c-compiler-warning" hidden>
+            ⚠️ Questo quiz richiede un <strong>compilatore C</strong> installato sul sistema (<code>gcc</code>). Assicurati di averlo prima di procedere.
+          </div>
           <div class="question-meta" id="question-meta">Domanda 1 / 5</div>
           <div class="question-text" id="question-text">Testo della domanda</div>
           <img id="question-image" class="question-image" alt="Immagine domanda" hidden>

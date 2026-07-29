@@ -1,0 +1,38 @@
+[
+  {
+    "tipo": "codice",
+    "domanda": "Scrivi un programma C che legge un intero N da stdin e stampa i numeri da 1 a N, uno per riga.",
+    "test_cases": [
+      { "stdin": "5",  "expected": "1\n2\n3\n4\n5\n" },
+      { "stdin": "3",  "expected": "1\n2\n3\n" },
+      { "stdin": "1",  "expected": "1\n" }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "Scrivi un programma C che legge due interi A e B da stdin e stampa la loro somma.",
+    "test_cases": [
+      { "stdin": "3 7",  "expected": "10\n" },
+      { "stdin": "0 0",  "expected": "0\n" },
+      { "stdin": "-5 5", "expected": "0\n" }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "Scrivi un programma C che legge un intero N e stampa il suo fattoriale.",
+    "test_cases": [
+      { "stdin": "5",  "expected": "120\n" },
+      { "stdin": "0",  "expected": "1\n" },
+      { "stdin": "1",  "expected": "1\n" }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "Scrivi un programma C che legge un intero N e stampa 'pari' se è pari, 'dispari' altrimenti.",
+    "test_cases": [
+      { "stdin": "4",  "expected": "pari\n" },
+      { "stdin": "7",  "expected": "dispari\n" },
+      { "stdin": "0",  "expected": "pari\n" }
+    ]
+  }
+]

@@ -22,7 +22,8 @@
       "quiz-web/**",
       "Quizzes/**",
       "images/**",
-      "assets/**"
+      "assets/**",
+      "node_modules/monaco-editor/min/**"
     ],
     "win": {
       "target": "nsis"
@@ -36,5 +37,8 @@
   },
   "allowScripts": {
     "electron@31.7.7": true
+  },
+  "dependencies": {
+    "monaco-editor": "^0.56.0"
   }
 }

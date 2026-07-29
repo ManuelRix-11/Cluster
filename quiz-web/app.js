@@ -49,6 +49,7 @@ const ui = {
   resultScore: $('result-score'),
   resultBarFill: $('result-bar-fill'),
   resultPct: $('result-pct'),
+  cCompilerWarning: $('c-compiler-warning'),
 };
 
 
@@ -122,6 +123,9 @@ function avvia(data) {
   domande = pool;
   indice = 0;
   risposte = new Array(pool.length).fill(null);
+  // Mostra warning se c'è almeno una domanda di tipo codice
+  const hasCodice = pool.some(d => d.tipo === 'codice');
+  ui.cCompilerWarning.hidden = !hasCodice;
   mostraDomanda();
   showScreen('quiz');
 }
@@ -157,6 +161,8 @@ function mostraDomanda() {
 
   if (d.risposta1 !== undefined) {
     buildMultipla(d);
+  } else if (d.tipo === 'codice') {
+    buildCodice(d);
   } else {
     buildAperta(d);
   }
@@ -327,6 +333,181 @@ function buildAperta(d) {
   ui.answers.appendChild(wrap);
   if (!rispSalvata) input.focus();
 }
+
+// ── Monaco editor (domande tipo codice) ───────────────────────────────────
+let monacoEditor = null;
+
+const STARTER_C = `#include <stdio.h>
+
+int main() {
+    
+    return 0;
+}`;
+
+function buildCodice(d) {
+  // Wrapper editor
+  const editorWrap = document.createElement('div');
+  editorWrap.className = 'code-editor-wrap';
+  const editorDiv = document.createElement('div');
+  editorDiv.id = 'code-editor';
+  editorWrap.appendChild(editorDiv);
+
+  // Pulsante esegui
+  const btn = document.createElement('button');
+  btn.className = 'btn btn--run btn--confirm';
+  btn.textContent = '▶ Esegui & Verifica';
+  btn.id = 'btn-run-code';
+
+  // Output panel
+  const output = document.createElement('div');
+  output.className = 'code-output';
+  output.id = 'code-output';
+  output.textContent = 'Il risultato apparirà qui…';
+
+  ui.answers.appendChild(editorWrap);
+  ui.answers.appendChild(btn);
+  ui.answers.appendChild(output);
+
+  // Ripristina codice salvato
+  const rispSalvata = risposte[indice];
+  const valoreSalvato = rispSalvata?.codice ?? STARTER_C;
+
+  // Inizializza Monaco (sincrono grazie al loader già caricato)
+  require(['vs/editor/editor.main'], () => {
+    // Distruggi istanza precedente se esiste
+    if (monacoEditor) { monacoEditor.dispose(); monacoEditor = null; }
+
+    monacoEditor = monaco.editor.create(editorDiv, {
+      value: valoreSalvato,
+      language: 'c',
+      theme: 'vs-dark',
+      fontSize: 13,
+      minimap: { enabled: false },
+      scrollBeyondLastLine: false,
+      automaticLayout: true,
+      lineNumbers: 'on',
+      renderLineHighlight: 'gutter',
+      fontFamily: "'Fira Code', 'Cascadia Code', monospace",
+      fontLigatures: true,
+      padding: { top: 10, bottom: 10 },
+    });
+
+    // Ripristina stato pulsante se già inviato
+    if (rispSalvata) {
+      btn.textContent = 'Riesegui →';
+      renderOutput(output, rispSalvata.risultato);
+    }
+  });
+
+  // Esegui e verifica
+  btn.addEventListener('click', async () => {
+    if (!monacoEditor) return;
+    const code = monacoEditor.getValue();
+    if (!code.trim()) return;
+
+    btn.disabled = true;
+    btn.textContent = '⏳ Compilazione…';
+    output.className = 'code-output running';
+    output.textContent = 'Compilazione in corso…';
+
+    // Esegui tutti i test case
+    const testCases = d.test_cases ?? [];
+    const results = [];
+    let allOk = true;
+
+    for (const tc of testCases) {
+      const res = await window.electronAPI.compileAndRun(code, tc.stdin);
+      const ok = res.ok && normalizzaOutput(res.stdout) === normalizzaOutput(tc.expected);
+      if (!ok) allOk = false;
+      results.push({ stdin: tc.stdin, expected: tc.expected, got: res.stdout, ok, stderr: res.stderr });
+    }
+
+    const risultato = { allOk, results };
+    const codice = monacoEditor.getValue();
+
+    risposte[indice] = {
+      domanda: d.domanda,
+      rispostaUtente: allOk ? '✅ corretta' : '❌ sbagliata',
+      rispostaCorretta: '(compilazione)',
+      esito: allOk ? 'corretta' : 'sbagliata',
+      codice,
+      risultato,
+    };
+
+    renderOutput(output, risultato);
+    btn.disabled = false;
+    btn.textContent = 'Riesegui →';
+    updateProgressFromAnswered();
+    aggiornaPulsanti();
+  });
+}
+
+function normalizzaOutput(s) {
+  return (s ?? '').replace(/\r\n/g, '\n').trimEnd();
+}
+
+function renderOutput(el, risultato) {
+  if (!risultato) return;
+  el.innerHTML = '';
+  el.className = 'code-output ' + (risultato.allOk ? 'success' : 'error');
+
+  // Se c'e' un errore di compilazione globale, mostralo subito
+  const erroreCompilazione = risultato.results.find(r => r.stderr);
+  if (erroreCompilazione) {
+    const errDiv = document.createElement('div');
+    errDiv.style.cssText = 'font-family: monospace; font-size: 0.8rem; white-space: pre-wrap; word-break: break-all;';
+    errDiv.textContent = 'Errore di compilazione:\n' + erroreCompilazione.stderr;
+    el.appendChild(errDiv);
+    return;
+  }
+
+  // Card per ogni test case
+  const grid = document.createElement('div');
+  grid.className = 'test-cases-grid';
+
+  risultato.results.forEach((r, i) => {
+    const card = document.createElement('div');
+    const stato = r.ok ? 'ok' : 'fail';
+    card.className = `test-case-card test-case-card--${stato}`;
+
+    const header = document.createElement('div');
+    header.className = 'test-case-header';
+    header.innerHTML = r.ok ? `&#10003; Test ${i + 1} &mdash; Corretto` : `&#10007; Test ${i + 1} &mdash; Sbagliato`;
+    card.appendChild(header);
+
+    const body = document.createElement('div');
+    body.className = 'test-case-body';
+
+    const colIn = document.createElement('div');
+    colIn.className = 'test-case-col';
+    colIn.innerHTML = `<div class="test-case-col-label">Input</div><div class="test-case-col-value">${escHtml(r.stdin)}</div>`;
+
+    const colOut = document.createElement('div');
+    colOut.className = 'test-case-col';
+    if (r.ok) {
+      colOut.innerHTML = `<div class="test-case-col-label">Output</div><div class="test-case-col-value test-case-col-value--ok">${escHtml(r.got)}</div>`;
+    } else {
+      colOut.innerHTML = `
+        <div class="test-case-col-label">Atteso</div>
+        <div class="test-case-col-value test-case-col-value--ok" style="margin-bottom:6px">${escHtml(r.expected)}</div>
+        <div class="test-case-col-label">Ottenuto</div>
+        <div class="test-case-col-value test-case-col-value--fail">${escHtml(r.got) || '<em style="opacity:.5">nessun output</em>'}</div>
+      `;
+    }
+
+    body.appendChild(colIn);
+    body.appendChild(colOut);
+    card.appendChild(body);
+    grid.appendChild(card);
+  });
+
+  el.appendChild(grid);
+}
+
+function escHtml(s) {
+  return (s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 
 // ── Navigazione e stato pulsanti ─────────────────────────────────────────────
 function aggiornaPulsanti() {

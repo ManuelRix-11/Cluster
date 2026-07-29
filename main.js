@@ -2,6 +2,8 @@
 const { app, BrowserWindow, ipcMain, protocol, net } = require('electron')
 const path = require('path')
 const fs   = require('fs')
+const os   = require('os')
+const { execSync } = require('child_process')
 
 // Deve essere chiamato PRIMA di app.ready
 protocol.registerSchemesAsPrivileged([
@@ -71,6 +73,28 @@ ipcMain.handle('stats:read', () => {
 
 ipcMain.handle('stats:write', (_, csv) => {
   fs.writeFileSync(STATS_PATH(), csv, 'utf-8')
+})
+
+// ── Compilazione C con gcc ────────────────────────────────────────────────────
+ipcMain.handle('c:run', (_, { code, stdin }) => {
+  const id  = Date.now()
+  const src = path.join(os.tmpdir(), `iue_${id}.c`)
+  const bin = path.join(os.tmpdir(), `iue_${id}`)
+  try {
+    fs.writeFileSync(src, code, 'utf-8')
+    execSync(`gcc "${src}" -o "${bin}" -lm`, { timeout: 10000 })
+    const out = execSync(`"${bin}"`, {
+      input: stdin ?? '',
+      timeout: 5000,
+      encoding: 'utf-8'
+    })
+    return { ok: true, stdout: out, stderr: '' }
+  } catch (err) {
+    return { ok: false, stdout: '', stderr: err.stderr?.toString() || err.message }
+  } finally {
+    try { fs.unlinkSync(src) } catch {}
+    try { fs.unlinkSync(bin) } catch {}
+  }
 })
 
 app.whenReady().then(() => {
