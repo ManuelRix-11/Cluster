@@ -2,6 +2,7 @@
   <img src="assets/logoIUE.png" width="200" alt="Logo IUE"/>
 </p>
 <h1 align="center">IUE — InformaticaUnisaExams</h1>
+
 App desktop per simulare gli esami di informatica dell'**Università degli Studi di Salerno (Unisa)**.  
 Progettata per studiare in modo attivo attraverso quiz a scelta multipla e quiz di programmazione interattivi, con feedback immediato e storico delle sessioni.
 
