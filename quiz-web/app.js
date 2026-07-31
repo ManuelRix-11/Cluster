@@ -482,21 +482,24 @@ function renderOutput(el, risultato) {
     colIn.className = 'test-case-col';
     colIn.innerHTML = `<div class="test-case-col-label">Input</div><div class="test-case-col-value">${escHtml(r.stdin)}</div>`;
 
-    const colOut = document.createElement('div');
-    colOut.className = 'test-case-col';
     if (r.ok) {
+      const colOut = document.createElement('div');
+      colOut.className = 'test-case-col';
       colOut.innerHTML = `<div class="test-case-col-label">Output</div><div class="test-case-col-value test-case-col-value--ok">${escHtml(r.got)}</div>`;
+      body.appendChild(colIn);
+      body.appendChild(colOut);
     } else {
-      colOut.innerHTML = `
-        <div class="test-case-col-label">Atteso</div>
-        <div class="test-case-col-value test-case-col-value--ok" style="margin-bottom:6px">${escHtml(r.expected)}</div>
-        <div class="test-case-col-label">Ottenuto</div>
-        <div class="test-case-col-value test-case-col-value--fail">${escHtml(r.got) || '<em style="opacity:.5">nessun output</em>'}</div>
-      `;
+      body.style.gridTemplateColumns = '1fr 1fr 1fr';
+      const colAtteso = document.createElement('div');
+      colAtteso.className = 'test-case-col';
+      colAtteso.innerHTML = `<div class="test-case-col-label">Atteso</div><div class="test-case-col-value test-case-col-value--ok">${escHtml(r.expected)}</div>`;
+      const colGot = document.createElement('div');
+      colGot.className = 'test-case-col';
+      colGot.innerHTML = `<div class="test-case-col-label">Ottenuto</div><div class="test-case-col-value test-case-col-value--fail">${escHtml(r.got) || '<em style="opacity:.5">nessun output</em>'}</div>`;
+      body.appendChild(colIn);
+      body.appendChild(colAtteso);
+      body.appendChild(colGot);
     }
-
-    body.appendChild(colIn);
-    body.appendChild(colOut);
     card.appendChild(body);
     grid.appendChild(card);
   });
@@ -686,19 +689,65 @@ async function caricaListaQuiz() {
   }
 
   quizzes.forEach(q => {
-    const btn = document.createElement('button')
-    btn.className = 'quiz-item'
-    btn.innerHTML = `
+    if (!q.hasLivelli) {
+      // Quiz normale (invariato)
+      const btn = document.createElement('button')
+      btn.className = 'quiz-item'
+      btn.innerHTML = `
+        <span class="quiz-item-name">${q.name}</span>
+        <span class="quiz-item-count">${q.count} domande</span>
+        <span class="quiz-item-arrow">→</span>
+      `
+      btn.addEventListener('click', async () => {
+        currentQuizName = q.name
+        const content = await window.electronAPI.loadQuiz(q.filename)
+        avvia(JSON.parse(content))
+      })
+      listEl.appendChild(btn)
+      return
+    }
+
+    // Quiz con livelli: accordion inline
+    const wrap = document.createElement('div')
+    wrap.className = 'quiz-item-group'
+
+    const header = document.createElement('button')
+    header.className = 'quiz-item quiz-item--has-livelli'
+    header.innerHTML = `
       <span class="quiz-item-name">${q.name}</span>
-      <span class="quiz-item-count">${q.count} domande</span>
-      <span class="quiz-item-arrow">→</span>
+      <span class="livelli-badge">Livelli</span>
+      <span class="quiz-item-arrow quiz-item-arrow--toggle">▾</span>
     `
-    btn.addEventListener('click', async () => {
-      currentQuizName = q.name  // per il percorso immagini
-      const content = await window.electronAPI.loadQuiz(q.filename)
-      avvia(JSON.parse(content))
+
+    const panel = document.createElement('div')
+    panel.className = 'livelli-panel'
+
+    const livelloClass = { facile: 'livello--facile', medio: 'livello--medio', difficile: 'livello--difficile' }
+
+    q.livelli.forEach(lv => {
+      const cls = livelloClass[lv.nome.toLowerCase()] ?? ''
+      const lvBtn = document.createElement('button')
+      lvBtn.className = 'livello-btn ' + cls
+      lvBtn.disabled = lv.count === 0
+      lvBtn.innerHTML = `<span class="livello-nome">${lv.nome}</span><span class="livello-count">${lv.count} domande</span>`
+      lvBtn.addEventListener('click', async () => {
+        currentQuizName = q.name + ' · ' + lv.nome
+        const content = await window.electronAPI.loadQuiz(lv.filename)
+        avvia(JSON.parse(content))
+      })
+      panel.appendChild(lvBtn)
     })
-    listEl.appendChild(btn)
+
+    header.addEventListener('click', () => {
+      const opening = !panel.classList.contains('livelli-panel--open')
+      panel.classList.toggle('livelli-panel--open', opening)
+      header.querySelector('.quiz-item-arrow--toggle').textContent = opening ? '▴' : '▾'
+      header.classList.toggle('quiz-item--open', opening)
+    })
+
+    wrap.appendChild(header)
+    wrap.appendChild(panel)
+    listEl.appendChild(wrap)
   })
 }
 

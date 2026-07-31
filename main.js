@@ -39,28 +39,48 @@ ipcMain.handle('window:close', e => BrowserWindow.fromWebContents(e.sender).clos
 ipcMain.handle('quizzes:list', () => {
   const dir = path.join(app.getAppPath(), 'Quizzes')
   if (!fs.existsSync(dir)) return []
-  return fs.readdirSync(dir)
-    .filter(f => f.endsWith('.json'))
-    .map(f => {
+
+  return fs.readdirSync(dir).flatMap(entry => {
+    const full = path.join(dir, entry)
+    const stat = fs.statSync(full)
+
+    if (stat.isDirectory()) {
+      // Quiz con livelli: ogni .json dentro è un livello
+      const livelli = fs.readdirSync(full)
+        .filter(f => f.endsWith('.json'))
+        .map(f => {
+          try {
+            const data = JSON.parse(fs.readFileSync(path.join(full, f), 'utf-8'))
+            // Ricava il nome del livello dal filename: "P1_facile.json" → "Facile"
+            const rawName = f.replace(/\.json$/i, '').replace(/^[^_]+_/, '')
+            const nome = rawName.charAt(0).toUpperCase() + rawName.slice(1)
+            return { filename: `${entry}/${f}`, nome, count: Array.isArray(data) ? data.length : 0 }
+          } catch { return null }
+        })
+        .filter(Boolean)
+      return [{ name: entry, hasLivelli: true, livelli }]
+    }
+
+    if (entry.endsWith('.json')) {
       try {
-        const data = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf-8'))
-        return {
-          filename: f,
-          name: f.replace(/\.json$/i, ''),
-          count: Array.isArray(data) ? data.length : 0,
-        }
+        const data = JSON.parse(fs.readFileSync(full, 'utf-8'))
+        return [{ filename: entry, name: entry.replace(/\.json$/i, ''), count: Array.isArray(data) ? data.length : 0, hasLivelli: false }]
       } catch {
-        return { filename: f, name: f.replace(/\.json$/i, ''), count: 0 }
+        return [{ filename: entry, name: entry.replace(/\.json$/i, ''), count: 0, hasLivelli: false }]
       }
-    })
+    }
+
+    return []
+  })
 })
 
-// ── Carica un singolo quiz per filename ───────────────────────────────────────
+// ── Carica un singolo quiz per filename (supporta sottocartelle) ──────────────
 ipcMain.handle('quizzes:load', (_, filename) => {
-  const p = path.join(app.getAppPath(), 'Quizzes', path.basename(filename))
+  const p = path.join(app.getAppPath(), 'Quizzes', ...filename.split('/').map(s => path.basename(s)))
   if (!fs.existsSync(p)) throw new Error('File non trovato: ' + filename)
   return fs.readFileSync(p, 'utf-8')
 })
+
 
 // ── Statistiche (stats.csv) ────────────────────────────────────────────────────
 const STATS_PATH = () => path.join(app.getPath('userData'), 'stats.csv')
