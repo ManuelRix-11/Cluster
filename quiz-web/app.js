@@ -93,7 +93,7 @@ $('btn-next').addEventListener('click', () => {
     indice++;
     mostraDomanda();
   } else {
-    mostraRisultato(); // ponytail: confirm() bloccato in Electron — il recap mostra già le saltate
+    mostraRisultato(); // confirm() bloccato in Electron — il recap mostra già le saltate
   }
 });
 
