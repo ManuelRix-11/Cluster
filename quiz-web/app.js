@@ -34,7 +34,7 @@ let statsRows = [];     // righe CSV in memoria (solo durante la sessione Electr
 // ── DOM refs ──────────────────────────────────────────────────────────────────
 function $(id) { return document.getElementById(id); }
 
-const screens = { welcome: $('screen-welcome'), quiz: $('screen-quiz'), result: $('screen-result'), stats: $('screen-stats') };
+const screens = { anni: $('screen-anni'), welcome: $('screen-welcome'), quiz: $('screen-quiz'), result: $('screen-result'), stats: $('screen-stats') };
 const ui = {
   progressFill: $('progress-fill'),
   progressWrap: $('progress-bar-wrap'),
@@ -81,8 +81,8 @@ $('btn-restart').addEventListener('click', () => avvia(domande));
 $('btn-home').addEventListener('click', tornaHome);
 $('btn-home-quiz').addEventListener('click', tornaHome);
 $('btn-home-quiz').addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') tornaHome(); });
-$('btn-home-stats')?.addEventListener('click', () => showScreen('welcome'));
-$('btn-home-stats')?.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') showScreen('welcome'); });
+$('btn-home-stats')?.addEventListener('click', () => showScreen('anni'));
+$('btn-home-stats')?.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') showScreen('anni'); });
 
 // ── Navigazione domande ───────────────────────────────────────────────────────
 $('btn-prev').addEventListener('click', () => {
@@ -135,7 +135,8 @@ function tornaHome() {
   indice = 0;
   risposte = [];
   currentQuizName = null;
-  showScreen('welcome');
+  // ponytail: in Electron torna agli anni, in browser alla welcome
+  showScreen(window.electronAPI ? 'anni' : 'welcome');
 }
 
 // ── Mostra domanda ────────────────────────────────────────────────────────────
@@ -546,7 +547,10 @@ if (window.electronAPI) {
   $('quiz-list-section').removeAttribute('hidden')
   $('welcome-actions').hidden = true
 
-  caricaListaQuiz()
+  // Pulsante ← Anni nella schermata lista quiz
+  $('btn-back-anni').addEventListener('click', () => showScreen('anni'))
+
+  caricaAnni()
   caricaStats()
   $('btn-stats').addEventListener('click', apriStats)
 }
@@ -678,8 +682,27 @@ function drawChart() {
   })
 }
 
-async function caricaListaQuiz() {
-  const quizzes = await window.electronAPI.listQuizzes()
+async function caricaAnni() {
+  const voci = await window.electronAPI.listQuizzes()   // senza subpath → root
+  const anni = voci.filter(v => v.type === 'anno')
+  const listEl = $('anni-list')
+  listEl.innerHTML = ''
+
+  anni.forEach(a => {
+    const btn = document.createElement('button')
+    btn.className = 'anno-btn'
+    btn.innerHTML = `<span class="anno-nome">${a.name}</span>`
+    btn.addEventListener('click', async () => {
+      $('anno-title').textContent = a.name
+      await caricaListaQuiz(a.name)
+      showScreen('welcome')
+    })
+    listEl.appendChild(btn)
+  })
+}
+
+async function caricaListaQuiz(subpath) {
+  const quizzes = await window.electronAPI.listQuizzes(subpath)
   const listEl = $('quiz-list')
   listEl.innerHTML = ''
 

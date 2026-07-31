@@ -37,22 +37,38 @@
   <!-- ── App shell ── -->
   <div class="app" id="app">
 
-    <!-- SCHERMATA WELCOME -->
-    <div class="screen active" id="screen-welcome">
-      <div class="card card--welcome">
+    <!-- SCHERMATA SELEZIONE ANNO -->
+    <div class="screen active" id="screen-anni">
+      <div class="card card--anni">
         <div class="logo"><img src="../assets/logoIUE.png" alt="IUE Logo" class="logo-img"></div>
         <h1>Simulazioni Esami Informatica</h1>
+        <p class="home-tagline">Prepara il tuo esame universitario</p>
+        <p class="quiz-list-label">Seleziona l'anno</p>
+        <div id="anni-list"></div>
+        <div class="quiz-list-footer">
+          <label class="btn btn--ghost btn--sm" for="file-input">
+            📂 &nbsp;Carica quiz personalizzato
+          </label>
+          <button class="btn btn--ghost btn--sm" id="btn-stats" hidden>📊 &nbsp;Storico</button>
+        </div>
+      </div>
+      <footer class="home-footer">
+        <div class="footer-brand">ER<span class="dot">.</span></div>
+        <div class="footer-copy">Fatto con ❤️ e caffè &middot; &copy; 2026 Emanuele Ragozzini &middot; Tutti i diritti riservati.</div>
+      </footer>
+    </div>
+
+    <!-- SCHERMATA LISTA QUIZ (per anno selezionato) -->
+    <div class="screen" id="screen-welcome">
+      <div class="card card--welcome">
+        <button class="btn btn--ghost btn--sm btn--back" id="btn-back-anni">← Anni</button>
+        <div class="logo"><img src="../assets/logoIUE.png" alt="IUE Logo" class="logo-img"></div>
+        <h1 id="anno-title">Quiz</h1>
 
         <!-- Lista quiz dalla cartella Quizzes/ — solo Electron -->
         <div id="quiz-list-section" hidden>
           <p class="quiz-list-label">Quiz disponibili</p>
           <div id="quiz-list"></div>
-          <div class="quiz-list-footer">
-            <label class="btn btn--ghost btn--sm" for="file-input">
-              📂 &nbsp;Carica quiz personalizzato
-            </label>
-            <button class="btn btn--ghost btn--sm" id="btn-stats" hidden>📊 &nbsp;Storico</button>
-          </div>
         </div>
 
         <!-- Azioni standard — browser -->
@@ -75,6 +91,7 @@
         <div class="footer-copy">Fatto con ❤️ e caffè &middot; &copy; 2026 Emanuele Ragozzini &middot; Tutti i diritti riservati.</div>
       </footer>
     </div>
+
 
     <!-- SCHERMATA QUIZ -->
     <div class="screen" id="screen-quiz">

@@ -12,8 +12,8 @@ protocol.registerSchemesAsPrivileged([
 
 function createWindow() {
   const win = new BrowserWindow({
-    width:    920,
-    height:   720,
+    width:    1280,
+    height:   860,
     minWidth: 520,
     minHeight:460,
     frame:    false,
@@ -36,29 +36,67 @@ ipcMain.handle('window:maximize', e => {
 ipcMain.handle('window:close', e => BrowserWindow.fromWebContents(e.sender).close())
 
 // ── Lista quiz dalla cartella Quizzes/ ────────────────────────────────────────
-ipcMain.handle('quizzes:list', () => {
-  const dir = path.join(app.getAppPath(), 'Quizzes')
+ipcMain.handle('quizzes:list', (_, subpath) => {
+  const root = path.join(app.getAppPath(), 'Quizzes')
+  const dir  = subpath ? path.join(root, subpath) : root
   if (!fs.existsSync(dir)) return []
 
+  // ponytail: helper che scansiona una dir e restituisce quiz+livelli (logica precedente)
+  function scanQuizDir(base, prefix) {
+    return fs.readdirSync(base).flatMap(entry => {
+      const full = path.join(base, entry)
+      const stat = fs.statSync(full)
+
+      if (stat.isDirectory()) {
+        const livelli = fs.readdirSync(full)
+          .filter(f => f.endsWith('.json'))
+          .map(f => {
+            try {
+              const data = JSON.parse(fs.readFileSync(path.join(full, f), 'utf-8'))
+              const rawName = f.replace(/\.json$/i, '').replace(/^[^_]+_/, '')
+              const nome = rawName.charAt(0).toUpperCase() + rawName.slice(1)
+              const filename = prefix ? `${prefix}/${entry}/${f}` : `${entry}/${f}`
+              return { filename, nome, count: Array.isArray(data) ? data.length : 0 }
+            } catch { return null }
+          })
+          .filter(Boolean)
+        // ponytail: sort by difficulty, unknown names go last
+        const ORDER = { facile: 0, medio: 1, difficile: 2 }
+        livelli.sort((a, b) => {
+          const oa = ORDER[a.nome.toLowerCase()] ?? 99
+          const ob = ORDER[b.nome.toLowerCase()] ?? 99
+          return oa - ob || a.nome.localeCompare(b.nome)
+        })
+        return [{ name: entry, hasLivelli: true, livelli }]
+      }
+
+      if (entry.endsWith('.json')) {
+        try {
+          const data = JSON.parse(fs.readFileSync(full, 'utf-8'))
+          const filename = prefix ? `${prefix}/${entry}` : entry
+          return [{ filename, name: entry.replace(/\.json$/i, ''), count: Array.isArray(data) ? data.length : 0, hasLivelli: false }]
+        } catch {
+          const filename = prefix ? `${prefix}/${entry}` : entry
+          return [{ filename, name: entry.replace(/\.json$/i, ''), count: 0, hasLivelli: false }]
+        }
+      }
+
+      return []
+    })
+  }
+
+  if (subpath) {
+    // Richiesta esplicita di un anno: restituisce i quiz in quella cartella
+    return scanQuizDir(dir, subpath)
+  }
+
+  // Root: alla root tutte le directory sono anni (ponytail: struttura fissa)
   return fs.readdirSync(dir).flatMap(entry => {
     const full = path.join(dir, entry)
     const stat = fs.statSync(full)
 
     if (stat.isDirectory()) {
-      // Quiz con livelli: ogni .json dentro è un livello
-      const livelli = fs.readdirSync(full)
-        .filter(f => f.endsWith('.json'))
-        .map(f => {
-          try {
-            const data = JSON.parse(fs.readFileSync(path.join(full, f), 'utf-8'))
-            // Ricava il nome del livello dal filename: "P1_facile.json" → "Facile"
-            const rawName = f.replace(/\.json$/i, '').replace(/^[^_]+_/, '')
-            const nome = rawName.charAt(0).toUpperCase() + rawName.slice(1)
-            return { filename: `${entry}/${f}`, nome, count: Array.isArray(data) ? data.length : 0 }
-          } catch { return null }
-        })
-        .filter(Boolean)
-      return [{ name: entry, hasLivelli: true, livelli }]
+      return [{ type: 'anno', name: entry }]
     }
 
     if (entry.endsWith('.json')) {
@@ -73,6 +111,7 @@ ipcMain.handle('quizzes:list', () => {
     return []
   })
 })
+
 
 // ── Carica un singolo quiz per filename (supporta sottocartelle) ──────────────
 ipcMain.handle('quizzes:load', (_, filename) => {
