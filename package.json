@@ -3,7 +3,7 @@
   "version": "0.8.0",
   "description": "Hub di studio e simulatore d'esami per Informatica Unisa",
   "author": "Emanuele Ragozzini",
-  "license": "MIT",
+  "license": "PolyForm-Strict-1.0.0",
   "main": "main.cjs",
   "type": "module",
   "scripts": {

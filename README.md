@@ -172,5 +172,8 @@ Per aggiungere una nuova materia o un nuovo test, inserisci un file `.json` nell
 
 ## 👤 Autore & Licenza
 
-**Emanuele Ragozzini** — *Progetto creato per gli studenti del Dipartimento di Informatica (UNISA).*  
-Rilasciato sotto licenza [MIT](LICENSE). Fatto con ❤️ e caffè. © 2026 Tutti i diritti riservati.
+**Emanuele Ragozzini** — *Progetto creato per gli studenti del Dipartimento di Informatica (UNISA).*
+
+Questo progetto è rilasciato sotto licenza [PolyForm Strict 1.0.0](LICENSE). È utilizzabile liberamente solo per scopi personali e non commerciali; la modifica e la ridistribuzione non sono consentite.
+
+Fatto con ❤️ e caffè. © 2026 Tutti i diritti riservati.
