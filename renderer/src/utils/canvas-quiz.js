@@ -6,7 +6,7 @@
  *   cq.destroy();   // when navigating away
  */
 
-class CanvasQuiz {
+export class CanvasQuiz {
   static NS = 'http://www.w3.org/2000/svg';
 
   constructor(mountEl, data, onChange, savedConns = null) {
@@ -28,12 +28,12 @@ class CanvasQuiz {
     this._vp = { x: 0, y: 0, scale: 1 };
     this._panning = null;  // {startX, startY, origVX, origVY}
 
-    this._init();
+    this._init(savedConns);
   }
 
   // ─────────────────────────────────── BUILD ────────────────────────────────
 
-  _init() {
+  _init(savedConns) {
     this.wrapper = document.createElement('div');
     this.wrapper.className = 'cq-wrapper';
 

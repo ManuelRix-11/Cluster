@@ -1,0 +1,45 @@
+import React from 'react';
+import styles from './Multipla.module.css';
+
+export function Multipla({ question, savedAnswer, onAnswer }) {
+  const labels = ['A', 'B', 'C', 'D', 'E', 'F'];
+  
+  // Extract risposte
+  const options = [];
+  for (let i = 1; i <= 6; i++) {
+    const val = question[`risposta${i}`];
+    if (val !== undefined) {
+      options.push(val);
+    }
+  }
+
+  const handleSelect = (scelta) => {
+    const corretta = question.corretta;
+    const ok = scelta.trim().toLowerCase() === corretta.trim().toLowerCase();
+    
+    onAnswer({
+      domanda: question.domanda,
+      rispostaUtente: scelta,
+      rispostaCorretta: corretta,
+      esito: ok ? 'corretta' : 'sbagliata'
+    });
+  };
+
+  return (
+    <>
+      {options.map((op, i) => {
+        const isSelected = savedAnswer?.rispostaUtente === op;
+        return (
+          <button 
+            key={i} 
+            className={`${styles.option} ${isSelected ? styles.selected : ''}`}
+            onClick={() => handleSelect(op)}
+          >
+            <span className={styles.label}>{labels[i] ?? (i + 1)}</span>
+            <span className={styles.text}>{op}</span>
+          </button>
+        );
+      })}
+    </>
+  );
+}
