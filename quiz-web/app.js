@@ -119,7 +119,30 @@ function shuffle(arr) {
 }
 
 function avvia(data) {
-  const pool = shuffle([...data]).slice(0, MAX_DOMANDE);
+  // Separa le domande canvas dalle altre
+  const canvasQs = data.filter(d => d.tipo === 'canvas');
+  const otherQs = data.filter(d => d.tipo !== 'canvas');
+
+  shuffle(canvasQs);
+  shuffle(otherQs);
+
+  let pool = [];
+
+  // Seleziona esattamente 2 domande canvas (o meno se ce ne sono di meno)
+  if (canvasQs.length > 0) {
+    const numCanvas = Math.min(2, canvasQs.length);
+    pool.push(...canvasQs.slice(0, numCanvas));
+  }
+
+  // Riempi il resto con le altre domande
+  const remainingSlots = MAX_DOMANDE - pool.length;
+  if (remainingSlots > 0) {
+    pool.push(...otherQs.slice(0, remainingSlots));
+  }
+
+  // Mescola il pool finale per non avere le canvas sempre all'inizio
+  shuffle(pool);
+
   domande = pool;
   indice = 0;
   risposte = new Array(pool.length).fill(null);
@@ -152,6 +175,9 @@ function mostraDomanda() {
   resetCardState();
   updateProgressFromAnswered();
 
+  // Distruggi eventuale canvas precedente
+  if (activeCanvas) { activeCanvas.destroy(); activeCanvas = null; }
+
   // Immagine domanda (opzionale)
   if (d.immagine && window.electronAPI && currentQuizName) {
     ui.questionImage.src = `quiz-local:///images/${encodeURIComponent(currentQuizName)}/${encodeURIComponent(d.immagine)}`;
@@ -164,6 +190,8 @@ function mostraDomanda() {
     buildMultipla(d);
   } else if (d.tipo === 'codice') {
     buildCodice(d);
+  } else if (d.tipo === 'canvas') {
+    buildCanvas(d);
   } else {
     buildAperta(d);
   }
@@ -333,6 +361,30 @@ function buildAperta(d) {
   wrap.appendChild(btn);
   ui.answers.appendChild(wrap);
   if (!rispSalvata) input.focus();
+}
+
+// ── Canvas drag-and-drop (domande tipo canvas) ────────────────────────────────
+let activeCanvas = null;
+
+function buildCanvas(d) {
+  // Nascondi il testo domanda classico (è nel JSON domanda, già mostrato in ui.text)
+  // Il canvas si monta dentro #answers
+  const rispSalvata = risposte[indice];
+
+  activeCanvas = new CanvasQuiz(ui.answers, d, (details) => {
+    const pct = details.pct;
+    const esito = pct >= 80 ? 'corretta' : pct >= 50 ? 'simile' : 'sbagliata';
+    risposte[indice] = {
+      domanda: d.domanda,
+      rispostaUtente: `Canvas: ${details.correctCount}/${details.maxScore} conn. corrette${details.extraCount > 0 ? `, ${details.extraCount} superflue` : ''}`,
+      rispostaCorretta: `${details.maxScore}/${details.maxScore} connessioni corrette`,
+      esito,
+      pctCanvas: pct,
+      userConns: details.userConns // salva le connessioni per poterle ricaricare!
+    };
+    updateProgressFromAnswered();
+    aggiornaPulsanti();
+  }, rispSalvata?.userConns);
 }
 
 // ── Monaco editor (domande tipo codice) ───────────────────────────────────
