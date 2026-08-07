@@ -9,6 +9,16 @@
 
 ---
 
+## 👤 Autore & Licenza
+
+**Emanuele Ragozzini** — *Progetto creato per gli studenti del Dipartimento di Informatica (UNISA).*
+
+Questo progetto è rilasciato sotto licenza [PolyForm Strict 1.0.0](LICENSE). È utilizzabile liberamente solo per scopi personali e non commerciali; la modifica e la ridistribuzione non sono consentite.
+
+Fatto con ❤️ e caffè. © 2026 Tutti i diritti riservati.
+
+---
+
 ## 📸 Anteprima
 
 <img src="design/screenshots/homescreen.png" width="100%" alt="Home screen"/>
@@ -168,12 +178,3 @@ Per aggiungere una nuova materia o un nuovo test, inserisci un file `.json` nell
 - **Marked** — Parsing dinamico degli appunti Markdown
 - **CSS Vanilla & Glassmorphism** — Stile custom responsive e performante senza dipendenze grafiche esterne
 
----
-
-## 👤 Autore & Licenza
-
-**Emanuele Ragozzini** — *Progetto creato per gli studenti del Dipartimento di Informatica (UNISA).*
-
-Questo progetto è rilasciato sotto licenza [PolyForm Strict 1.0.0](LICENSE). È utilizzabile liberamente solo per scopi personali e non commerciali; la modifica e la ridistribuzione non sono consentite.
-
-Fatto con ❤️ e caffè. © 2026 Tutti i diritti riservati.
