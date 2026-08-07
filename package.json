@@ -1,29 +1,43 @@
 {
-  "name": "IUE - TestsUnisaExams",
+  "name": "Cluster",
   "version": "1.0.0",
-  "description": "App desktop per i test simulare degli esami di informatica Unisa",
-  "main": "main.js",
+  "description": "Hub di studio e simulatore d'esami per Informatica Unisa",
+  "main": "main.cjs",
+  "type": "module",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder --win --x64",
-    "build:linux": "electron-builder --linux"
+    "dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron .\"",
+    "build": "vite build && electron-builder --win --x64",
+    "build:linux": "vite build && electron-builder --linux"
+  },
+  "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
+    "marked": "^18.0.9",
+    "monaco-editor": "^0.56.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
   },
   "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.4",
+    "concurrently": "^10.0.4",
     "electron": "^31.0.0",
-    "electron-builder": "^24.0.0"
+    "electron-builder": "^24.0.0",
+    "wait-on": "^8.0.5",
+    "vite": "^8.2.0"
   },
   "build": {
-    "appId": "com.iue.desktop",
-    "productName": "IUE — InformaticaUnisaExams",
+    "appId": "com.cluster.desktop",
+    "productName": "Cluster — Informatica UNISA",
     "icon": "assets/logoIUE.png",
     "files": [
-      "main.js",
-      "preload.js",
-      "quiz-web/**",
+      "main.cjs",
+      "preload.cjs",
+      "renderer/dist/**",
       "Quizzes/**",
       "images/**",
-      "assets/**",
-      "node_modules/monaco-editor/min/**"
+      "assets/**"
     ],
     "win": {
       "target": "nsis"
@@ -37,8 +51,5 @@
   },
   "allowScripts": {
     "electron@31.7.7": true
-  },
-  "dependencies": {
-    "monaco-editor": "^0.56.0"
   }
 }

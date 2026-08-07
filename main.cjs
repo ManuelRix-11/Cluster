@@ -1,5 +1,5 @@
 // Processo principale Electron
-const { app, BrowserWindow, ipcMain, protocol, net } = require('electron')
+const { app, BrowserWindow, ipcMain, protocol, net, shell } = require('electron')
 const path = require('path')
 const fs   = require('fs')
 const os   = require('os')
@@ -10,22 +10,32 @@ protocol.registerSchemesAsPrivileged([
   { scheme: 'quiz-local', privileges: { standard: true, secure: true, supportFetchAPI: true } }
 ])
 
+app.name = 'Cluster'
+
 function createWindow() {
   const win = new BrowserWindow({
+    title:    'Cluster — Informatica UNISA',
     width:    1280,
     height:   860,
     minWidth: 520,
     minHeight:460,
     frame:    false,
     backgroundColor: '#09090f',
+    icon:     path.join(__dirname, 'assets', 'logoIUE.png'),
     webPreferences: {
-      preload:          path.join(__dirname, 'preload.js'),
+      preload:          path.join(__dirname, 'preload.cjs'),
       contextIsolation: true,
       nodeIntegration:  false,
     },
   })
-  win.loadFile('quiz-web/index.html')
-}
+  if (app.isPackaged) {
+    win.loadFile('renderer/dist/index.html')
+  } else {
+    // try to load the vite dev server, catch is needed if we restart electron too fast
+    win.loadURL('http://localhost:5173').catch(() => {
+      win.loadFile('renderer/dist/index.html')
+    })
+  }}
 
 // ── Controlli finestra ─────────────────────────────────────────────────────────
 ipcMain.handle('window:minimize', e => BrowserWindow.fromWebContents(e.sender).minimize())
@@ -34,6 +44,7 @@ ipcMain.handle('window:maximize', e => {
   win.isMaximized() ? win.unmaximize() : win.maximize()
 })
 ipcMain.handle('window:close', e => BrowserWindow.fromWebContents(e.sender).close())
+ipcMain.handle('window:openExternal', (_, url) => shell.openExternal(url))
 
 // ── Lista quiz dalla cartella Quizzes/ ────────────────────────────────────────
 ipcMain.handle('quizzes:list', (_, subpath) => {
@@ -131,7 +142,15 @@ ipcMain.handle('stats:read', () => {
 })
 
 ipcMain.handle('stats:write', (_, csv) => {
-  fs.writeFileSync(STATS_PATH(), csv, 'utf-8')
+  const p = STATS_PATH()
+  if (!fs.existsSync(p)) {
+    fs.writeFileSync(p, STATS_HEADER, 'utf-8')
+  }
+  fs.appendFileSync(p, csv, 'utf-8')
+})
+
+ipcMain.handle('stats:clear', () => {
+  fs.writeFileSync(STATS_PATH(), STATS_HEADER, 'utf-8')
 })
 
 // ── Compilazione C con gcc ────────────────────────────────────────────────────
@@ -154,6 +173,33 @@ ipcMain.handle('c:run', (_, { code, stdin }) => {
     try { fs.unlinkSync(src) } catch {}
     try { fs.unlinkSync(bin) } catch {}
   }
+})
+
+// ── Note Markdown ─────────────────────────────────────────────────────────────
+ipcMain.handle('notes:list', () => {
+  const root = path.join(app.getAppPath(), 'Notes')
+  if (!fs.existsSync(root)) return []
+  // ponytail: flat scan — cartelle = sezioni, .md dentro = note
+  function scan(dir, prefix) {
+    return fs.readdirSync(dir).flatMap(entry => {
+      const full = path.join(dir, entry)
+      if (fs.statSync(full).isDirectory()) {
+        return [{ type: 'section', name: entry, children: scan(full, entry) }]
+      }
+      if (entry.endsWith('.md') && entry !== 'README.md') {
+        const rel = prefix ? `${prefix}/${entry}` : entry
+        return [{ type: 'note', name: entry.replace(/\.md$/i, ''), path: rel }]
+      }
+      return []
+    })
+  }
+  return scan(root, '')
+})
+
+ipcMain.handle('notes:load', (_, relpath) => {
+  const p = path.join(app.getAppPath(), 'Notes', ...relpath.split('/').map(s => path.basename(s)))
+  if (!fs.existsSync(p)) throw new Error('Nota non trovata: ' + relpath)
+  return fs.readFileSync(p, 'utf-8')
 })
 
 app.whenReady().then(() => {

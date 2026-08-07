@@ -1,0 +1,8 @@
+.wrap {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  padding: 16px;
+}

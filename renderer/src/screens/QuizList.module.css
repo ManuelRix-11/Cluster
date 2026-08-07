@@ -1,0 +1,165 @@
+.cardQuizList {
+  width: 100%;
+  max-width: 600px;
+}
+
+.label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 16px;
+  border-left: 2px solid var(--accent);
+  padding-left: 8px;
+}
+
+.empty {
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 24px 0;
+}
+
+.empty code {
+  color: var(--accent);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.itemGroup {
+  margin-bottom: 8px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1.5px solid transparent;
+  background: var(--surface2);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.18s, background 0.18s, transform 0.15s;
+}
+
+.item:hover {
+  border-color: var(--accent);
+  background: rgba(108, 99, 255, 0.08);
+  transform: translateX(4px);
+}
+
+.hasLivelli {
+  margin-bottom: 0;
+}
+
+.item:has(> .open) {
+  border-color: var(--accent);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background: rgba(108, 99, 255, 0.08);
+}
+.item:has(> .open):hover {
+  transform: none;
+}
+
+.itemName {
+  flex: 1;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.itemCount {
+  font-size: 0.78rem;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 3px 9px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.itemArrow {
+  color: var(--accent);
+  font-size: 1rem;
+  transition: transform 0.15s;
+}
+.item:hover .itemArrow {
+  transform: translateX(4px);
+}
+.open {
+  transform: rotate(180deg);
+}
+
+.badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  background: rgba(108, 99, 255, 0.15);
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1.5px solid var(--accent);
+  border-top: none;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.lvlBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1.5px solid transparent;
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, transform 0.12s;
+}
+
+.lvlBtn:hover:not(:disabled) {
+  transform: translateX(3px);
+}
+
+.lvlBtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.lvlNome {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.lvlCount {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.lvlFacile:hover:not(:disabled) { border-color: rgba(67, 217, 140, 0.5); background: rgba(67, 217, 140, 0.1); }
+.lvlFacile .lvlNome { color: var(--success); }
+
+.lvlMedio:hover:not(:disabled) { border-color: rgba(240, 169, 43, 0.5); background: rgba(240, 169, 43, 0.1); }
+.lvlMedio .lvlNome { color: var(--warning); }
+
+.lvlDifficile:hover:not(:disabled) { border-color: rgba(255, 92, 110, 0.5); background: rgba(255, 92, 110, 0.1); }
+.lvlDifficile .lvlNome { color: var(--error); }

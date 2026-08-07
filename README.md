@@ -1,157 +1,157 @@
 <p align="center">
-  <img src="assets/logoIUE.png" width="200" alt="Logo IUE"/>
+  <img src="assets/logoIUE.png" width="180" alt="Logo Cluster"/>
 </p>
-<h1 align="center">IUE — InformaticaUnisaExams</h1>
+<h1 align="center">Cluster<span style="color: #c084fc; display: inline-block; vertical-align: 0.13em; margin-left: 2px;">.</span></h1>
 
-App desktop per simulare gli esami di informatica dell'**Università degli Studi di Salerno (Unisa)**.  
-Progettata per studiare in modo attivo attraverso quiz a scelta multipla e quiz di programmazione interattivi, con feedback immediato e storico delle sessioni.
+<p align="center">
+  <b>Hub di studio all-in-one e simulatore d'esami desktop per il corso di laurea in Informatica dell'Università degli Studi di Salerno (UNISA).</b>
+</p>
 
 ---
 
 ## 📸 Anteprima
 
-<img src="assets/homescreen.png" width="100%" alt="Home screen"/>
+<img src="design/screenshots/homescreen.png" width="100%" alt="Home screen"/>
 <div style="display: flex; flex-direction:row">
-  <img src="assets/screen_quiz.png" width="49.8%" alt="Schermata quiz"/><img src="assets/screen_result.png" width="49.8%" alt="Schermata risultato"/>
+  <img src="design/screenshots/screen_quiz.png" width="49.8%" alt="Schermata quiz"/><img src="design/screenshots/screen_result.png" width="49.8%" alt="Schermata risultato"/>
 </div>
 
 ---
 
-## ✨ Funzionalità
+## ✨ Funzionalità Principali
 
-- **Quiz di Programmazione C integrati** — Scrivi, compila ed esegui codice C direttamente nell'app.
-- **Test-cases interattivi** — Verifica il tuo codice contro vari input/output con un resoconto dettagliato.
-- **Livelli di Difficoltà** — I quiz possono essere suddivisi in livelli (es. *Facile*, *Medio*, *Difficile*) organizzati in cartelle (solo modalità desktop).
-- **Navigazione libera** tra le domande con i pulsanti ← Indietro / Avanti →
-- **Salta e torna** — puoi saltare una domanda e tornarci in seguito.
-- **Risposte modificabili** — puoi cambiare una risposta già data prima di consegnare.
-- **Quiz a scelta multipla** e a risposta aperta (con fuzzy matching).
-- **Barra di progresso** che mostra le domande risposte.
-- **Schermata risultato** con resoconto dettagliato di ogni domanda (3 colonne per gli errori di codice: Input, Atteso, Ottenuto).
-- **Storico sessioni** con grafico dell'andamento (solo modalità desktop).
-- **Supporto Markdown e Syntax Highlighting** — Nelle tracce delle domande.
-- Interfaccia moderna **Glassmorphism** con animazioni fluide e supporto dark mode.
-- Funziona sia come **app desktop (Electron)** che come **pagina web nel browser**.
+### 📖 Sezione Appunti & Studio
+- **Viewer Markdown Integrato** — Consulta tutti gli appunti e le dispense organizzate per anno e materia direttamente nell'app.
+- **Navigazione Laterale** — Struttura ad albero intuitiva per passare da un argomento all'altro senza distrazioni.
 
----
+### 📝 Quiz e Simulatore d'Esame
+- **Quiz di Programmazione C Integrati** — Scrivi, compila ed esegui codice C in tempo reale grazie all'integrazione con Monaco Editor (VS Code) e GCC nativo.
+- **Esercizi Interattivi Canvas (ADE)** — Risolvi quesiti di Architettura degli Elaboratori manipolando graficamente schemi di circuiti e datapath SVG con drag & drop.
+- **Quiz a Scelta Multipla e Risposta Aperta** — Con sistema di valutazione adattivo e fuzzy matching per risposte scritte.
+- **Valutazione e Test Cases** — Verifica istantanea con analisi dell'output atteso vs ottenuto.
+- **Navigazione Flessibile** — Salta le domande difficili, modifica le risposte prima di consegnare e monitora il progresso con la barra di avanzamento.
 
-## 📚 Quiz inclusi
+### 📊 Dashboard & Statistiche
+- **Media Voti Calcolata** — Monitora la tua media espressa in trentesimi in tempo reale.
+- **Grafico di Andamento (Trend SVG)** — Grafico a linee vettoriale nativo per visualizzare i progressi nelle ultime 15 sessioni.
+- **Filtri e Ordinamento** — Filtra lo storico per materia specifica o ordina per data e votazione.
+- **Reset Dati** — Ripristina lo storico in qualsiasi momento con un semplice click.
 
-| Materia | File / Cartella |
-|---|---|
-| Ingegneria del Software | `IS.json` |
-| Tecnologie e Software per il Web | `TSW.json` |
-| Inglese B2 | `Inglese_B2.json` |
-| Programmazione e Strutture Dati | `PSD.json` |
-| P1 (Programmazione 1 - C) | Cartella `P1` (Facile, Medio, Difficile) |
+### 🎨 Design & Esperienza Utente
+- **Estetica Dark Glassmorphism** — Interfaccia minimale e moderna con trasparenze, sfumature viola e animazioni ad alte prestazioni.
+- **Navigazione Nativa** — Breadcrumb dinamico per spostarsi facilmente tra Home, Esami, Appunti e Storico.
 
 ---
 
-## 📥 Download
+## 📚 Materie & Quiz Inclusi
 
-Non vuoi compilare il progetto da sol*? Gli eseguibili già pronti per **Windows** e **Linux** sono disponibili nella sezione [**Releases**](../../releases) di questa repository GitHub.
-
-Scarica la versione per il tuo sistema operativo, estraila (se necessario) ed eseguila direttamente — nessuna installazione richiesta.
+| Materia | Tipo Contenuto | File / Cartella |
+|---|---|---|
+| **Programmazione 1 (P1)** | Codice C (Facile, Medio, Difficile) | `Quizzes/Primo anno/` |
+| **Architettura degli Elaboratori (ADE)** | Esercizi Canvas & Datapath | `Quizzes/Primo anno/` |
+| **Programmazione e Strutture Dati (PSD)** | Quiz & Teoria | `Quizzes/Secondo anno/PSD.json` |
+| **Ingegneria del Software (IS)** | Quiz a Scelta Multipla | `Quizzes/Secondo anno/IS.json` |
+| **Tecnologie Software per il Web (TSW)** | Quiz & Codice Web | `Quizzes/Secondo anno/TSW.json` |
+| **Inglese B2** | Quiz a Scelta Multipla | `Quizzes/Terzo anno/Inglese_B2.json` |
 
 ---
 
-## 🚀 Come avviare il progetto
+## 📥 Download Eseguibili
+
+Non vuoi compilare il progetto? Gli eseguibili già pronti per **Windows** e **Linux** sono disponibili nella sezione [**Releases**](../../releases) di questa repository GitHub.
+
+Scarica la versione per il tuo sistema operativo, estraila (se necessario) ed eseguila direttamente, nessuna installazione richiesta.
+
+---
+
+## 🚀 Guida all'Avvio
 
 ### Prerequisiti
 
-- [Node.js](https://nodejs.org/) (v18 o superiore)
-- npm
-- **GCC (Compilatore C)** — richiesto solo per i quiz di programmazione C (`sudo apt install build-essential` su Linux, MinGW su Windows).
+- **Node.js** (v18 o superiore)
+- **npm**
+- **GCC (Compilatore C)** — Richiesto per l'esecuzione dei quiz di programmazione C (`sudo apt install build-essential` su Linux, MinGW/MSYS2 su Windows).
 
-### Installazione dipendenze
+### 1. Installazione Dipendenze
 
 ```bash
 npm install
 ```
 
-### Avvio in modalità sviluppo (desktop)
+### 2. Avvio in Sviluppo (Desktop Electron)
 
 ```bash
 npm start
 ```
 
-### Avvio nel browser (senza Electron)
-
-Apri direttamente il file `quiz-web/index.html` nel browser, oppure usa un server locale:
-
-```bash
-npx serve quiz-web
-```
-
-> **Nota:** in modalità browser, la compilazione C, i livelli di difficoltà a cartelle e lo storico sessioni non sono disponibili. Puoi comunque caricare manualmente un quiz `.json` classico.
-
 ---
 
-## 📦 Build dell'app
+## 📦 Compilazione ed Eseguibili
 
-### Windows (installer .exe)
+Per generare l'eseguibile desktop distribuibile:
 
+### Windows (.exe)
 ```bash
 npm run build
 ```
 
 ### Linux (.tar.gz)
-
 ```bash
 npm run build:linux
 ```
 
-I file di output si trovano nella cartella `dist/`.
+I file generati verranno salvati automaticamente nella cartella `dist/`.
 
 ---
 
-## 🗂️ Struttura del progetto
+## 🗂️ Struttura del Progetto
 
-```
-TUE/
-├── main.js              # Entry point Electron (processo principale, compilazione C)
-├── preload.js           # Bridge sicuro tra Electron e la web app
+```text
+Cluster/
+├── main.cjs                # Main process Electron (IPC, compilatore C, gestione file)
+├── preload.cjs             # Bridge IPC sicuro Electron-React
 ├── package.json
-├── quiz-web/            # Frontend (HTML + CSS + JS puro, Monaco Editor)
-│   ├── index.html
-│   ├── style.css
-│   └── app.js
-├── Quizzes/             # File JSON e Cartelle con i quiz
-│   ├── IS.json
-│   ├── P1/              # Esempio di quiz con livelli di difficoltà
-│   │   ├── P1_facile.json
-│   │   └── P1_difficile.json
-│   └── ...
-└── Appunti&VecchieDomande/   # Materiale sorgente
+├── vite.config.js          # Configurazione Vite per il bundler React
+├── Quizzes/                # Banca dati quiz divisi per anno e materia
+├── Notes/                  # Appunti e dispense in formato Markdown
+├── design/                 # Screenshot e risorse grafiche di presentazione
+└── renderer/               # Frontend React
+    ├── index.html
+    └── src/
+        ├── assets/         # Risorse statiche dell'interfaccia (loghi, icone)
+        ├── components/     # Componenti UI (Header, HUD, domande quiz)
+        ├── screens/        # Schermate (Home, Esami, Study, Stats, Result, Quiz)
+        ├── styles/         # Fogli di stile (global.css, canvas-quiz.css)
+        └── utils/          # Helper e funzioni di supporto
 ```
 
 ---
 
-## ➕ Aggiungere un nuovo quiz
+## ➕ Aggiungere Nuovi Quiz
 
-Basta inserire un file `.json` nella cartella `Quizzes/`. Puoi anche creare una **cartella** (es. `Quizzes/Materia/`) per abilitare i **livelli di difficoltà**.
+Per aggiungere una nuova materia o un nuovo test, inserisci un file `.json` nella directory `Quizzes/`.
 
-### Formato per quiz classico:
+### Formato Quiz Scelta Multipla:
 ```json
 [
   {
-    "domanda": "Testo della domanda",
-    "risposta1": "Opzione A",
-    "risposta2": "Opzione B",
-    "risposta3": "Opzione C",
-    "corretta": "Opzione A"
+    "domanda": "Qual è la complessità temporale della ricerca binaria?",
+    "risposta1": "O(log n)",
+    "risposta2": "O(n)",
+    "risposta3": "O(n^2)",
+    "corretta": "O(log n)"
   }
 ]
 ```
 
-### Formato per quiz di programmazione C (`tipo: "codice"`):
+### Formato Quiz di Codice C (`tipo: "codice"`):
 ```json
 [
   {
     "tipo": "codice",
-    "domanda": "Scrivi un programma in C che stampa 'Ciao'.",
+    "domanda": "Scrivi una funzione che calcoli la somma dei primi N numeri naturali.",
     "test_cases": [
-      { "stdin": "", "expected": "Ciao\n" }
+      { "stdin": "5\n", "expected": "15\n" }
     ]
   }
 ]
@@ -159,16 +159,18 @@ Basta inserire un file `.json` nella cartella `Quizzes/`. Puoi anche creare una 
 
 ---
 
-## 🛠️ Tecnologie utilizzate
+## 🛠️ Tecnologie Utilizzate
 
-- **Electron** — app desktop cross-platform
-- **Monaco Editor** — l'editor di codice di VS Code integrato nell'app
-- **HTML5 / CSS3 / JavaScript** — frontend puro, senza framework
-- **GCC** — compilazione nativa C via IPC
-- **Google Fonts (Fira Code, Inter)** — tipografia moderna per testo e codice
+- **Electron** — Shell desktop nativa e cross-platform
+- **React 19 + Vite** — Interfaccia utente dinamica ad alte prestazioni
+- **Monaco Editor** — Editor di codice integrato (stesso motore di VS Code)
+- **GCC** — Compilazione ed esecuzione nativa del codice C via IPC
+- **Marked** — Parsing dinamico degli appunti Markdown
+- **CSS Vanilla & Glassmorphism** — Stile custom responsive e performante senza dipendenze grafiche esterne
 
 ---
 
-## 👤 Autore
+## 👤 Autore & Licenza
 
-***Emanuele Ragozzini*** — condivisione libera tra studenti del *DI*.
+**Emanuele Ragozzini** — *Progetto creato per gli studenti del Dipartimento di Informatica (UNISA).*  
+Fatto con ❤️ e caffè. © 2026 Tutti i diritti riservati.

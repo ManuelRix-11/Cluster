@@ -1,0 +1,143 @@
+.container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  height: calc(100vh - 65px); /* Header minus */
+  align-items: stretch;
+  width: 100%;
+}
+
+.sidebar {
+  width: 260px;
+  min-width: 200px;
+  max-width: 320px;
+  border-right: 1px solid var(--border);
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.searchWrap {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.search {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search:focus {
+  border-color: var(--accent);
+}
+
+.tree {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 0;
+}
+
+.empty {
+  color: var(--muted);
+  font-size: 0.82rem;
+  padding: 16px;
+  text-align: center;
+}
+.empty code {
+  color: var(--accent);
+}
+
+.details {
+  /* No styles needed on details */
+}
+
+.section {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 8px 14px 4px;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+}
+
+.section::-webkit-details-marker {
+  display: none;
+}
+.details[open] > .section::before {
+  content: '▾ ';
+}
+.details:not([open]) > .section::before {
+  content: '▸ ';
+}
+
+.list {
+  list-style: none;
+  padding: 0 0 6px 0;
+  margin: 0;
+}
+
+.listItem {
+  margin: 0;
+  padding: 0;
+}
+
+.noteLink {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  padding: 7px 14px 7px 26px;
+  font-size: 0.87rem;
+  color: var(--text);
+  text-decoration: none;
+  border: none;
+  border-left: 2px solid transparent;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  cursor: pointer;
+}
+
+.noteLink:hover {
+  background: rgba(108, 99, 255, 0.1);
+  color: var(--accent);
+}
+
+.active {
+  border-left-color: var(--accent);
+  background: rgba(108, 99, 255, 0.15);
+  color: var(--accent);
+}
+
+.viewer {
+  flex: 1;
+  overflow-y: auto;
+  padding: 36px 48px;
+  background: transparent;
+}
+
+.viewerEmpty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 10px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.article {
+  max-width: 780px;
+  margin: 0 auto;
+}
