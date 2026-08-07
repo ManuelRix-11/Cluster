@@ -34,7 +34,7 @@ let statsRows = [];     // righe CSV in memoria (solo durante la sessione Electr
 // ── DOM refs ──────────────────────────────────────────────────────────────────
 function $(id) { return document.getElementById(id); }
 
-const screens = { welcome: $('screen-welcome'), quiz: $('screen-quiz'), result: $('screen-result'), stats: $('screen-stats') };
+const screens = { anni: $('screen-anni'), welcome: $('screen-welcome'), quiz: $('screen-quiz'), result: $('screen-result'), stats: $('screen-stats') };
 const ui = {
   progressFill: $('progress-fill'),
   progressWrap: $('progress-bar-wrap'),
@@ -49,6 +49,7 @@ const ui = {
   resultScore: $('result-score'),
   resultBarFill: $('result-bar-fill'),
   resultPct: $('result-pct'),
+  cCompilerWarning: $('c-compiler-warning'),
 };
 
 
@@ -80,8 +81,8 @@ $('btn-restart').addEventListener('click', () => avvia(domande));
 $('btn-home').addEventListener('click', tornaHome);
 $('btn-home-quiz').addEventListener('click', tornaHome);
 $('btn-home-quiz').addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') tornaHome(); });
-$('btn-home-stats')?.addEventListener('click', () => showScreen('welcome'));
-$('btn-home-stats')?.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') showScreen('welcome'); });
+$('btn-home-stats')?.addEventListener('click', () => showScreen('anni'));
+$('btn-home-stats')?.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') showScreen('anni'); });
 
 // ── Navigazione domande ───────────────────────────────────────────────────────
 $('btn-prev').addEventListener('click', () => {
@@ -92,7 +93,7 @@ $('btn-next').addEventListener('click', () => {
     indice++;
     mostraDomanda();
   } else {
-    mostraRisultato(); // ponytail: confirm() bloccato in Electron — il recap mostra già le saltate
+    mostraRisultato(); // confirm() bloccato in Electron — il recap mostra già le saltate
   }
 });
 
@@ -122,6 +123,9 @@ function avvia(data) {
   domande = pool;
   indice = 0;
   risposte = new Array(pool.length).fill(null);
+  // Mostra warning se c'è almeno una domanda di tipo codice
+  const hasCodice = pool.some(d => d.tipo === 'codice');
+  ui.cCompilerWarning.hidden = !hasCodice;
   mostraDomanda();
   showScreen('quiz');
 }
@@ -131,7 +135,8 @@ function tornaHome() {
   indice = 0;
   risposte = [];
   currentQuizName = null;
-  showScreen('welcome');
+  // ponytail: in Electron torna agli anni, in browser alla welcome
+  showScreen(window.electronAPI ? 'anni' : 'welcome');
 }
 
 // ── Mostra domanda ────────────────────────────────────────────────────────────
@@ -157,6 +162,8 @@ function mostraDomanda() {
 
   if (d.risposta1 !== undefined) {
     buildMultipla(d);
+  } else if (d.tipo === 'codice') {
+    buildCodice(d);
   } else {
     buildAperta(d);
   }
@@ -328,6 +335,184 @@ function buildAperta(d) {
   if (!rispSalvata) input.focus();
 }
 
+// ── Monaco editor (domande tipo codice) ───────────────────────────────────
+let monacoEditor = null;
+
+const STARTER_C = `#include <stdio.h>
+
+int main() {
+    
+    return 0;
+}`;
+
+function buildCodice(d) {
+  // Wrapper editor
+  const editorWrap = document.createElement('div');
+  editorWrap.className = 'code-editor-wrap';
+  const editorDiv = document.createElement('div');
+  editorDiv.id = 'code-editor';
+  editorWrap.appendChild(editorDiv);
+
+  // Pulsante esegui
+  const btn = document.createElement('button');
+  btn.className = 'btn btn--run btn--confirm';
+  btn.textContent = '▶ Esegui & Verifica';
+  btn.id = 'btn-run-code';
+
+  // Output panel
+  const output = document.createElement('div');
+  output.className = 'code-output';
+  output.id = 'code-output';
+  output.textContent = 'Il risultato apparirà qui…';
+
+  ui.answers.appendChild(editorWrap);
+  ui.answers.appendChild(btn);
+  ui.answers.appendChild(output);
+
+  // Ripristina codice salvato
+  const rispSalvata = risposte[indice];
+  const valoreSalvato = rispSalvata?.codice ?? STARTER_C;
+
+  // Inizializza Monaco (sincrono grazie al loader già caricato)
+  require(['vs/editor/editor.main'], () => {
+    // Distruggi istanza precedente se esiste
+    if (monacoEditor) { monacoEditor.dispose(); monacoEditor = null; }
+
+    monacoEditor = monaco.editor.create(editorDiv, {
+      value: valoreSalvato,
+      language: 'c',
+      theme: 'vs-dark',
+      fontSize: 13,
+      minimap: { enabled: false },
+      scrollBeyondLastLine: false,
+      automaticLayout: true,
+      lineNumbers: 'on',
+      renderLineHighlight: 'gutter',
+      fontFamily: "'Fira Code', 'Cascadia Code', monospace",
+      fontLigatures: true,
+      padding: { top: 10, bottom: 10 },
+    });
+
+    // Ripristina stato pulsante se già inviato
+    if (rispSalvata) {
+      btn.textContent = 'Riesegui →';
+      renderOutput(output, rispSalvata.risultato);
+    }
+  });
+
+  // Esegui e verifica
+  btn.addEventListener('click', async () => {
+    if (!monacoEditor) return;
+    const code = monacoEditor.getValue();
+    if (!code.trim()) return;
+
+    btn.disabled = true;
+    btn.textContent = '⏳ Compilazione…';
+    output.className = 'code-output running';
+    output.textContent = 'Compilazione in corso…';
+
+    // Esegui tutti i test case
+    const testCases = d.test_cases ?? [];
+    const results = [];
+    let allOk = true;
+
+    for (const tc of testCases) {
+      const res = await window.electronAPI.compileAndRun(code, tc.stdin);
+      const ok = res.ok && normalizzaOutput(res.stdout) === normalizzaOutput(tc.expected);
+      if (!ok) allOk = false;
+      results.push({ stdin: tc.stdin, expected: tc.expected, got: res.stdout, ok, stderr: res.stderr });
+    }
+
+    const risultato = { allOk, results };
+    const codice = monacoEditor.getValue();
+
+    risposte[indice] = {
+      domanda: d.domanda,
+      rispostaUtente: allOk ? '✅ corretta' : '❌ sbagliata',
+      rispostaCorretta: '(compilazione)',
+      esito: allOk ? 'corretta' : 'sbagliata',
+      codice,
+      risultato,
+    };
+
+    renderOutput(output, risultato);
+    btn.disabled = false;
+    btn.textContent = 'Riesegui →';
+    updateProgressFromAnswered();
+    aggiornaPulsanti();
+  });
+}
+
+function normalizzaOutput(s) {
+  return (s ?? '').replace(/\r\n/g, '\n').trimEnd();
+}
+
+function renderOutput(el, risultato) {
+  if (!risultato) return;
+  el.innerHTML = '';
+  el.className = 'code-output ' + (risultato.allOk ? 'success' : 'error');
+
+  // Se c'e' un errore di compilazione globale, mostralo subito
+  const erroreCompilazione = risultato.results.find(r => r.stderr);
+  if (erroreCompilazione) {
+    const errDiv = document.createElement('div');
+    errDiv.style.cssText = 'font-family: monospace; font-size: 0.8rem; white-space: pre-wrap; word-break: break-all;';
+    errDiv.textContent = 'Errore di compilazione:\n' + erroreCompilazione.stderr;
+    el.appendChild(errDiv);
+    return;
+  }
+
+  // Card per ogni test case
+  const grid = document.createElement('div');
+  grid.className = 'test-cases-grid';
+
+  risultato.results.forEach((r, i) => {
+    const card = document.createElement('div');
+    const stato = r.ok ? 'ok' : 'fail';
+    card.className = `test-case-card test-case-card--${stato}`;
+
+    const header = document.createElement('div');
+    header.className = 'test-case-header';
+    header.innerHTML = r.ok ? `&#10003; Test ${i + 1} &mdash; Corretto` : `&#10007; Test ${i + 1} &mdash; Sbagliato`;
+    card.appendChild(header);
+
+    const body = document.createElement('div');
+    body.className = 'test-case-body';
+
+    const colIn = document.createElement('div');
+    colIn.className = 'test-case-col';
+    colIn.innerHTML = `<div class="test-case-col-label">Input</div><div class="test-case-col-value">${escHtml(r.stdin)}</div>`;
+
+    if (r.ok) {
+      const colOut = document.createElement('div');
+      colOut.className = 'test-case-col';
+      colOut.innerHTML = `<div class="test-case-col-label">Output</div><div class="test-case-col-value test-case-col-value--ok">${escHtml(r.got)}</div>`;
+      body.appendChild(colIn);
+      body.appendChild(colOut);
+    } else {
+      body.style.gridTemplateColumns = '1fr 1fr 1fr';
+      const colAtteso = document.createElement('div');
+      colAtteso.className = 'test-case-col';
+      colAtteso.innerHTML = `<div class="test-case-col-label">Atteso</div><div class="test-case-col-value test-case-col-value--ok">${escHtml(r.expected)}</div>`;
+      const colGot = document.createElement('div');
+      colGot.className = 'test-case-col';
+      colGot.innerHTML = `<div class="test-case-col-label">Ottenuto</div><div class="test-case-col-value test-case-col-value--fail">${escHtml(r.got) || '<em style="opacity:.5">nessun output</em>'}</div>`;
+      body.appendChild(colIn);
+      body.appendChild(colAtteso);
+      body.appendChild(colGot);
+    }
+    card.appendChild(body);
+    grid.appendChild(card);
+  });
+
+  el.appendChild(grid);
+}
+
+function escHtml(s) {
+  return (s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+
 // ── Navigazione e stato pulsanti ─────────────────────────────────────────────
 function aggiornaPulsanti() {
   const btnPrev = $('btn-prev');
@@ -362,7 +547,10 @@ if (window.electronAPI) {
   $('quiz-list-section').removeAttribute('hidden')
   $('welcome-actions').hidden = true
 
-  caricaListaQuiz()
+  // Pulsante ← Anni nella schermata lista quiz
+  $('btn-back-anni').addEventListener('click', () => showScreen('anni'))
+
+  caricaAnni()
   caricaStats()
   $('btn-stats').addEventListener('click', apriStats)
 }
@@ -494,8 +682,27 @@ function drawChart() {
   })
 }
 
-async function caricaListaQuiz() {
-  const quizzes = await window.electronAPI.listQuizzes()
+async function caricaAnni() {
+  const voci = await window.electronAPI.listQuizzes()   // senza subpath → root
+  const anni = voci.filter(v => v.type === 'anno')
+  const listEl = $('anni-list')
+  listEl.innerHTML = ''
+
+  anni.forEach(a => {
+    const btn = document.createElement('button')
+    btn.className = 'anno-btn'
+    btn.innerHTML = `<span class="anno-nome">${a.name}</span>`
+    btn.addEventListener('click', async () => {
+      $('anno-title').textContent = a.name
+      await caricaListaQuiz(a.name)
+      showScreen('welcome')
+    })
+    listEl.appendChild(btn)
+  })
+}
+
+async function caricaListaQuiz(subpath) {
+  const quizzes = await window.electronAPI.listQuizzes(subpath)
   const listEl = $('quiz-list')
   listEl.innerHTML = ''
 
@@ -505,19 +712,65 @@ async function caricaListaQuiz() {
   }
 
   quizzes.forEach(q => {
-    const btn = document.createElement('button')
-    btn.className = 'quiz-item'
-    btn.innerHTML = `
+    if (!q.hasLivelli) {
+      // Quiz normale (invariato)
+      const btn = document.createElement('button')
+      btn.className = 'quiz-item'
+      btn.innerHTML = `
+        <span class="quiz-item-name">${q.name}</span>
+        <span class="quiz-item-count">${q.count} domande</span>
+        <span class="quiz-item-arrow">→</span>
+      `
+      btn.addEventListener('click', async () => {
+        currentQuizName = q.name
+        const content = await window.electronAPI.loadQuiz(q.filename)
+        avvia(JSON.parse(content))
+      })
+      listEl.appendChild(btn)
+      return
+    }
+
+    // Quiz con livelli: accordion inline
+    const wrap = document.createElement('div')
+    wrap.className = 'quiz-item-group'
+
+    const header = document.createElement('button')
+    header.className = 'quiz-item quiz-item--has-livelli'
+    header.innerHTML = `
       <span class="quiz-item-name">${q.name}</span>
-      <span class="quiz-item-count">${q.count} domande</span>
-      <span class="quiz-item-arrow">→</span>
+      <span class="livelli-badge">Livelli</span>
+      <span class="quiz-item-arrow quiz-item-arrow--toggle">▾</span>
     `
-    btn.addEventListener('click', async () => {
-      currentQuizName = q.name  // per il percorso immagini
-      const content = await window.electronAPI.loadQuiz(q.filename)
-      avvia(JSON.parse(content))
+
+    const panel = document.createElement('div')
+    panel.className = 'livelli-panel'
+
+    const livelloClass = { facile: 'livello--facile', medio: 'livello--medio', difficile: 'livello--difficile' }
+
+    q.livelli.forEach(lv => {
+      const cls = livelloClass[lv.nome.toLowerCase()] ?? ''
+      const lvBtn = document.createElement('button')
+      lvBtn.className = 'livello-btn ' + cls
+      lvBtn.disabled = lv.count === 0
+      lvBtn.innerHTML = `<span class="livello-nome">${lv.nome}</span><span class="livello-count">${lv.count} domande</span>`
+      lvBtn.addEventListener('click', async () => {
+        currentQuizName = q.name + ' · ' + lv.nome
+        const content = await window.electronAPI.loadQuiz(lv.filename)
+        avvia(JSON.parse(content))
+      })
+      panel.appendChild(lvBtn)
     })
-    listEl.appendChild(btn)
+
+    header.addEventListener('click', () => {
+      const opening = !panel.classList.contains('livelli-panel--open')
+      panel.classList.toggle('livelli-panel--open', opening)
+      header.querySelector('.quiz-item-arrow--toggle').textContent = opening ? '▴' : '▾'
+      header.classList.toggle('quiz-item--open', opening)
+    })
+
+    wrap.appendChild(header)
+    wrap.appendChild(panel)
+    listEl.appendChild(wrap)
   })
 }
 

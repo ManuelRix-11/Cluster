@@ -139,6 +139,59 @@ body {
   justify-content: flex-start;
 }
 
+#screen-welcome.active,
+#screen-anni.active {
+  position: relative;
+  height: 100vh;
+  padding-top: 32px;
+  padding-bottom: 52px; /* spazio per il footer assoluto */
+  box-sizing: border-box;
+}
+
+/* ── Anno grid ───────────────────────────────────────────────────────────── */
+#anni-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+  margin-top: 8px;
+}
+.anno-btn {
+  width: calc(50% - 7px);
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-2, rgba(255,255,255,0.04));
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s, transform 0.12s;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.anno-btn:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: var(--accent);
+  transform: scale(1.03);
+}
+.anno-nome { font-size: 0.95rem; line-height: 1.4; }
+
+
+/* ── Back button ─────────────────────────────────────────────────────────── */
+.btn--back {
+  align-self: flex-start;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+}
+
 /* ── Card ────────────────────────────────────────────────────────────────── */
 .card {
   background: var(--surface);
@@ -165,19 +218,36 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   display: block;
 }
 
-.card--welcome h1 {
-  font-size: 2.6rem;
+.logo-img {
+  filter: drop-shadow(0 0 18px rgba(108, 99, 255, 0.55));
+  animation: logo-pulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes logo-pulse {
+  from { filter: drop-shadow(0 0 12px rgba(108, 99, 255, 0.45)); }
+  to   { filter: drop-shadow(0 0 28px rgba(108, 99, 255, 0.85)); }
+}
+
+.card--welcome h1,
+.card--anni h1 {
+  font-size: 2.4rem;
   font-weight: 800;
   letter-spacing: -1px;
-  background: linear-gradient(135deg, #fff 30%, var(--accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 12px;
+  color: #fff;
+  margin-bottom: 6px;
+  line-height: 1.15;
+}
+
+/* ── Home tagline ────────────────────────────────────────────────────────── */
+.home-tagline {
+  color: var(--muted);
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 24px;
 }
 
 .subtitle {
@@ -633,13 +703,15 @@ body {
 
 /* ── Quiz list (Electron welcome screen) ─────────────────────────────────── */
 .quiz-list-label {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   color: var(--muted);
   text-transform: uppercase;
-  letter-spacing: 1.4px;
+  letter-spacing: 1.8px;
   text-align: left;
-  margin: 8px 0 10px;
+  margin: 8px 0 12px;
+  padding-left: 10px;
+  border-left: 2px solid var(--accent);
 }
 
 .quiz-list-empty {
@@ -712,6 +784,118 @@ body {
   height: auto;
   margin-bottom: 0;
 }
+
+/* ── Quiz con livelli ───────────────────────────────────────────────────── */
+.quiz-item-group {
+  margin-bottom: 8px;
+}
+
+.quiz-item-group .quiz-item {
+  margin-bottom: 0;
+}
+
+.quiz-item--open {
+  border-color: var(--accent);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background: rgba(108, 99, 255, 0.08);
+}
+
+.quiz-item--open:hover {
+  transform: none;
+}
+
+.livelli-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  background: rgba(108, 99, 255, 0.15);
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+.quiz-item-arrow--toggle {
+  font-size: 0.7rem;
+  transition: transform 0.2s;
+}
+
+.livelli-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 0px solid var(--accent);
+  border-top: none;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  overflow: hidden;
+  max-height: 0;
+  padding: 0 10px;
+  opacity: 0;
+  transition: max-height 0.28s ease, padding 0.28s ease, opacity 0.22s ease, border-width 0.28s ease;
+}
+
+.livelli-panel--open {
+  max-height: 400px;
+  padding: 10px;
+  opacity: 1;
+  border-width: 1.5px;
+}
+
+.livello-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1.5px solid transparent;
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, border-color 0.15s, transform 0.12s;
+}
+
+.livello-btn:hover:not(:disabled) {
+  transform: translateX(3px);
+}
+
+.livello-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.livello-nome {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.livello-count {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--muted);
+}
+
+.livello--facile { border-color: rgba(67, 217, 140, 0.3); }
+.livello--facile:hover:not(:disabled) { background: rgba(67, 217, 140, 0.08); border-color: var(--success); }
+.livello--facile .livello-nome { color: var(--success); }
+
+.livello--medio { border-color: rgba(255, 196, 0, 0.3); }
+.livello--medio:hover:not(:disabled) { background: rgba(255, 196, 0, 0.08); border-color: #ffc400; }
+.livello--medio .livello-nome { color: #ffc400; }
+
+.livello--difficile { border-color: rgba(255, 92, 110, 0.3); }
+.livello--difficile:hover:not(:disabled) { background: rgba(255, 92, 110, 0.08); border-color: var(--error); }
+.livello--difficile .livello-nome { color: var(--error); }
+
 
 /* Electron: la header resta visibile, solo più padding a destra per il HUD */
 body.electron .app-header {
@@ -1099,4 +1283,195 @@ body.electron #score-fixed {
   object-fit: contain;
   vertical-align: middle;
   margin-right: 2px;
+}
+
+/* ── Banner warning compilatore C ────────────────────────────────────────── */
+.c-compiler-warning {
+  padding: 11px 14px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  background: rgba(255, 196, 0, 0.08);
+  border: 1px solid rgba(255, 196, 0, 0.30);
+  color: #ffc400;
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+.c-compiler-warning code {
+  background: rgba(255, 196, 0, 0.15);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* ── Editor Monaco ───────────────────────────────────────────────────────── */
+.code-editor-wrap {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1.5px solid var(--border);
+  margin-bottom: 12px;
+  transition: border-color 0.2s;
+}
+
+.code-editor-wrap:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+}
+
+#code-editor {
+  width: 100%;
+  height: 280px;
+}
+
+/* ── Pulsante esegui ─────────────────────────────────────────────────────── */
+.btn--run {
+  background: linear-gradient(135deg, #43d98c, #2ebd7a);
+  color: #000;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(67, 217, 140, 0.28);
+  align-self: flex-start;
+  width: auto;
+  padding: 11px 24px;
+  margin-bottom: 12px;
+}
+
+.btn--run:hover {
+  box-shadow: 0 10px 28px rgba(67, 217, 140, 0.42);
+  transform: translateY(-1px);
+}
+
+.btn--run:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Output compilazione ─────────────────────────────────────────────────── */
+.code-output {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1.5px solid transparent;
+  padding: 12px 14px;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-all;
+  min-height: 48px;
+  color: var(--muted);
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.code-output.running {
+  color: var(--muted);
+  border-color: var(--border);
+}
+
+.code-output.success {
+  color: var(--success);
+  border-color: rgba(67, 217, 140, 0.35);
+  background: rgba(67, 217, 140, 0.05);
+}
+
+.code-output.error {
+  color: var(--error);
+  border-color: rgba(255, 92, 110, 0.35);
+  background: rgba(255, 92, 110, 0.05);
+}
+
+/* Test case card */
+.test-cases-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.test-case-card {
+  border-radius: 10px;
+  border: 1.5px solid transparent;
+  background: rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.test-case-card--ok   { border-color: rgba(67, 217, 140, 0.45); }
+.test-case-card--fail { border-color: rgba(255, 92, 110, 0.45); }
+.test-case-card--err  { border-color: rgba(255, 196, 0, 0.45); }
+
+.test-case-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.test-case-card--ok   .test-case-header { background: rgba(67, 217, 140, 0.10); color: var(--success); }
+.test-case-card--fail .test-case-header { background: rgba(255, 92, 110, 0.10); color: var(--error); }
+.test-case-card--err  .test-case-header { background: rgba(255, 196, 0, 0.10);  color: #ffc400; }
+
+.test-case-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 0;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.78rem;
+}
+
+.test-case-col {
+  padding: 8px 12px;
+}
+
+.test-case-col + .test-case-col {
+  border-left: 1px solid rgba(255,255,255,0.06);
+}
+
+.test-case-col-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 3px;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.test-case-col-value {
+  color: var(--text);
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.test-case-col-value--ok   { color: var(--success); }
+.test-case-col-value--fail { color: var(--error); }
+/* ── Home Footer ─────────────────────────────────────────────────────────── */
+.home-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  box-sizing: border-box;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.footer-brand {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+.footer-brand .dot {
+  color: var(--accent);
+}
+
+.footer-copy {
+  color: var(--muted);
 }

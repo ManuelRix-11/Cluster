@@ -10,6 +10,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <!-- Monaco Editor (locale, no CDN) -->
+  <script>var require = { paths: { vs: '../node_modules/monaco-editor/min/vs' } };</script>
+  <script src="../node_modules/monaco-editor/min/vs/loader.js"></script>
 </head>
 
 <body>
@@ -34,22 +37,38 @@
   <!-- ── App shell ── -->
   <div class="app" id="app">
 
-    <!-- SCHERMATA WELCOME -->
-    <div class="screen active" id="screen-welcome">
-      <div class="card card--welcome">
+    <!-- SCHERMATA SELEZIONE ANNO -->
+    <div class="screen active" id="screen-anni">
+      <div class="card card--anni">
         <div class="logo"><img src="../assets/logoIUE.png" alt="IUE Logo" class="logo-img"></div>
         <h1>Simulazioni Esami Informatica</h1>
+        <p class="home-tagline">Prepara il tuo esame universitario</p>
+        <p class="quiz-list-label">Seleziona l'anno</p>
+        <div id="anni-list"></div>
+        <div class="quiz-list-footer">
+          <label class="btn btn--ghost btn--sm" for="file-input">
+            📂 &nbsp;Carica quiz personalizzato
+          </label>
+          <button class="btn btn--ghost btn--sm" id="btn-stats" hidden>📊 &nbsp;Storico</button>
+        </div>
+      </div>
+      <footer class="home-footer">
+        <div class="footer-brand">ER<span class="dot">.</span></div>
+        <div class="footer-copy">Fatto con ❤️ e caffè &middot; &copy; 2026 Emanuele Ragozzini &middot; Tutti i diritti riservati.</div>
+      </footer>
+    </div>
+
+    <!-- SCHERMATA LISTA QUIZ (per anno selezionato) -->
+    <div class="screen" id="screen-welcome">
+      <div class="card card--welcome">
+        <button class="btn btn--ghost btn--sm btn--back" id="btn-back-anni">← Anni</button>
+        <div class="logo"><img src="../assets/logoIUE.png" alt="IUE Logo" class="logo-img"></div>
+        <h1 id="anno-title">Quiz</h1>
 
         <!-- Lista quiz dalla cartella Quizzes/ — solo Electron -->
         <div id="quiz-list-section" hidden>
           <p class="quiz-list-label">Quiz disponibili</p>
           <div id="quiz-list"></div>
-          <div class="quiz-list-footer">
-            <label class="btn btn--ghost btn--sm" for="file-input">
-              📂 &nbsp;Carica quiz personalizzato
-            </label>
-            <button class="btn btn--ghost btn--sm" id="btn-stats" hidden>📊 &nbsp;Storico</button>
-          </div>
         </div>
 
         <!-- Azioni standard — browser -->
@@ -65,7 +84,14 @@
         <!-- File input condiviso -->
         <input type="file" id="file-input" accept=".json" hidden />
       </div>
+
+      <!-- Footer (solo schermata welcome) -->
+      <footer class="home-footer">
+        <div class="footer-brand">ER<span class="dot">.</span></div>
+        <div class="footer-copy">Fatto con ❤️ e caffè &middot; &copy; 2026 Emanuele Ragozzini &middot; Tutti i diritti riservati.</div>
+      </footer>
     </div>
+
 
     <!-- SCHERMATA QUIZ -->
     <div class="screen" id="screen-quiz">
@@ -81,6 +107,10 @@
 
       <main class="quiz-main">
         <div class="card card--quiz" id="quiz-card">
+          <!-- Banner warning compilatore C (visibile solo per quiz tipo codice) -->
+          <div class="c-compiler-warning" id="c-compiler-warning" hidden>
+            ⚠️ Questo quiz richiede un <strong>compilatore C</strong> installato sul sistema (<code>gcc</code>). Assicurati di averlo prima di procedere.
+          </div>
           <div class="question-meta" id="question-meta">Domanda 1 / 5</div>
           <div class="question-text" id="question-text">Testo della domanda</div>
           <img id="question-image" class="question-image" alt="Immagine domanda" hidden>
