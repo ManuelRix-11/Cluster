@@ -1,0 +1,218 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   canvas-quiz.css  —  Interactive Drag & Drop Canvas for ADE exercises
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Wrapper ─────────────────────────────────────────────────────────────── */
+.cq-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  margin-top: 0.75rem;
+}
+
+/* ── Canvas area ─────────────────────────────────────────────────────────── */
+.cq-canvas-area {
+  width: 100%;
+  background: rgba(10, 15, 30, 0.75);
+  border: 1.5px solid rgba(99, 102, 241, 0.35);
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+.cq-svg {
+  width: 100%;
+  display: block;
+  overflow: visible;
+}
+
+/* ── Component body ──────────────────────────────────────────────────────── */
+.cq-comp-rect {
+  fill: rgba(23, 31, 54, 0.92);
+  stroke: rgba(99, 102, 241, 0.6);
+  stroke-width: 1.5;
+  transition: stroke 0.2s ease, filter 0.2s ease;
+}
+
+.cq-comp:hover .cq-comp-rect {
+  stroke: #818cf8;
+  filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.55));
+}
+
+.cq-comp-label {
+  fill: #e2e8f0;
+  font-size: 11.5px;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  font-weight: 600;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.01em;
+}
+
+.cq-comp-sublabel {
+  fill: #94a3b8;
+  font-size: 9.5px;
+  font-family: 'Inter', 'Segoe UI', monospace;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── Ports ───────────────────────────────────────────────────────────────── */
+.cq-port {
+  stroke-width: 2;
+  cursor: pointer;
+  transition: r 0.12s ease, filter 0.12s ease, fill 0.12s ease;
+}
+
+.cq-port-in {
+  fill: #0f2744;
+  stroke: #60a5fa;
+}
+
+.cq-port-out {
+  fill: #1a0f30;
+  stroke: #a78bfa;
+}
+
+.cq-port:hover {
+  filter: drop-shadow(0 0 5px currentColor);
+}
+
+.cq-port-selected {
+  fill: #fef08a !important;
+  stroke: #eab308 !important;
+  filter: url(#cq-glow) drop-shadow(0 0 8px #eab308) !important;
+}
+
+.cq-port-error {
+  fill: #fecaca !important;
+  stroke: #ef4444 !important;
+  animation: cq-shake 0.35s ease;
+}
+
+/* ── Port labels ─────────────────────────────────────────────────────────── */
+.cq-port-label {
+  fill: rgba(148, 163, 184, 0.75);
+  font-size: 8.5px;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── Wires / connections ─────────────────────────────────────────────────── */
+.cq-wire {
+  fill: none;
+  stroke: #38bdf8;
+  stroke-width: 2;
+  stroke-linecap: round;
+  cursor: pointer;
+  transition: stroke 0.18s ease, stroke-width 0.18s ease, opacity 0.18s ease;
+}
+
+.cq-wire:hover {
+  stroke: #f87171;
+  stroke-width: 3;
+}
+
+.cq-wire-pre {
+  stroke: #64748b;
+  stroke-dasharray: 6 3;
+  cursor: default;
+  pointer-events: none;
+}
+
+.cq-wire-pre:hover {
+  stroke: #64748b;
+  stroke-width: 2;
+}
+
+.cq-wire-correct {
+  stroke: #4ade80 !important;
+  stroke-width: 2.5 !important;
+  filter: drop-shadow(0 0 4px #4ade80);
+}
+
+.cq-wire-wrong {
+  stroke: #f87171 !important;
+  stroke-width: 2.5 !important;
+  cursor: default;
+}
+
+.cq-wire-missed {
+  stroke: #fbbf24 !important;
+  stroke-width: 1.5 !important;
+  stroke-dasharray: 5 4 !important;
+  opacity: 0.65;
+  cursor: default !important;
+  pointer-events: none;
+}
+
+/* ── Toolbar ─────────────────────────────────────────────────────────────── */
+.cq-toolbar {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.25rem 0;
+}
+
+.cq-status {
+  flex: 1;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  min-width: 180px;
+  line-height: 1.5;
+  padding-top: 0.1rem;
+}
+
+.cq-actions {
+  display: flex;
+  gap: 0.45rem;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+/* ── Score colors ────────────────────────────────────────────────────────── */
+.cq-deduction { color: #f87171; font-weight: 600; }
+.cq-missed    { color: #fbbf24; font-weight: 600; }
+
+/* Btn extensions — augment existing .btn classes */
+.btn--success {
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  color: #fff;
+  border-color: transparent;
+}
+.btn--success:hover { filter: brightness(1.1); }
+
+/* ── Legend ──────────────────────────────────────────────────────────────── */
+.cq-legend {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.75rem;
+  color: #64748b;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.cq-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.cq-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid;
+  flex-shrink: 0;
+}
+.cq-legend-dot--in  { background: #0f2744; border-color: #60a5fa; }
+.cq-legend-dot--out { background: #1a0f30; border-color: #a78bfa; }
+
+/* ── Animations ──────────────────────────────────────────────────────────── */
+@keyframes cq-shake {
+  0%, 100% { transform: translate(0, 0); }
+  20%       { transform: translate(-3px, 0); }
+  60%       { transform: translate(3px, 0); }
+}
