@@ -173,4 +173,4 @@ Per aggiungere una nuova materia o un nuovo test, inserisci un file `.json` nell
 ## 👤 Autore & Licenza
 
 **Emanuele Ragozzini** — *Progetto creato per gli studenti del Dipartimento di Informatica (UNISA).*  
-Fatto con ❤️ e caffè. © 2026 Tutti i diritti riservati.
+Rilasciato sotto licenza [MIT](LICENSE). Fatto con ❤️ e caffè. © 2026 Tutti i diritti riservati.
