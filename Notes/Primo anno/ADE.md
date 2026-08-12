@@ -77,3 +77,11 @@ Il bit `Zero` è attivo quando il risultato è 0 (usato da `beq`).
 5. **WB**: Scrivi dato letto in `$t0`
 
 `RegDst=0, ALUSrc=1, MemToReg=1, RegWrite=1, MemRead=1, MemWrite=0, Branch=0`
+
+```mermaid
+flowchart LR
+    IF["1. IF<br/>Fetch Istruzione"] --> ID["2. ID<br/>Decodifica & Registri"]
+    ID --> EX["3. EX<br/>Calcolo Indirizzo (ALU)"]
+    EX --> MEM["4. MEM<br/>Lettura Data Memory"]
+    MEM --> WB["5. WB<br/>Scrittura $t0"]
+```
