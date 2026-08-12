@@ -1,0 +1,62 @@
+[
+  {
+    "tipo": "matematica",
+    "domanda": "Calcola il valore del limite per x -> 0 di: sin(3x) / x",
+    "corretta": "3",
+    "tag": ["limiti", "trigonometria"]
+  },
+  {
+    "tipo": "matematica",
+    "domanda": "Calcola la derivata di f(x) = x^3 - 4x + 7 nel punto x = 2.",
+    "corretta": "8",
+    "tag": ["derivate", "calcolo"]
+  },
+  {
+    "tipo": "matematica",
+    "domanda": "Calcola il valore dell'integrale definito: ∫ da 0 a 2 di (3x^2 + 1) dx",
+    "corretta": "10",
+    "tag": ["integrali"]
+  },
+  {
+    "tipo": "matematica",
+    "domanda": "Qual è il coefficiente angolare della retta tangente alla curva f(x) = e^(2x) nel punto x = 0?",
+    "corretta": "2",
+    "tag": ["derivate", "esponenziali"]
+  },
+  {
+    "tipo": "matematica",
+    "domanda": "Risolvi l'equazione: log2(x + 3) = 3. Qual è il valore di x?",
+    "corretta": "5",
+    "tag": ["algebra", "logaritmi"]
+  },
+  {
+    "tipo": "matematica",
+    "domanda": "Calcola l'area del triangolo individuato dai punti (0,0), (3,0) e (0,5).",
+    "corretta": "15/2",
+    "tag": ["geometria", "algebra"]
+  },
+  {
+    "tipo": "matematica",
+    "domanda": "Calcola il limite per x -> +∞ di: (2x^2 + 3x) / (x^2 - 1)",
+    "corretta": "2",
+    "tag": ["limiti"]
+  },
+  {
+    "tipo": "matematica",
+    "domanda": "Calcola il valore dell'integrale definito: ∫ da 0 a 1 di e^x dx",
+    "corretta": "e - 1",
+    "tag": ["integrali", "esponenziali"]
+  },
+  {
+    "tipo": "matematica",
+    "domanda": "Calcola il modulo del numero complesso z = 3 + 4i.",
+    "corretta": "5",
+    "tag": ["numeri complessi", "algebra"]
+  },
+  {
+    "tipo": "matematica",
+    "domanda": "Qual è il valore di cos(π/3)? Inserisci frazione o decimale.",
+    "corretta": "1/2",
+    "tag": ["trigonometria"]
+  }
+]

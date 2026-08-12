@@ -2,6 +2,7 @@
   {
     "tipo": "codice",
     "domanda": "Scrivi un programma C che legge un intero N da stdin e stampa i numeri da 1 a N, uno per riga.",
+    "tag": ["cicli", "basi"],
     "test_cases": [
       {
         "stdin": "5",
@@ -20,6 +21,7 @@
   {
     "tipo": "codice",
     "domanda": "Scrivi un programma C che legge due interi A e B da stdin e stampa la loro somma.",
+    "tag": ["operatori", "basi"],
     "test_cases": [
       {
         "stdin": "3 7",
@@ -38,6 +40,7 @@
   {
     "tipo": "codice",
     "domanda": "Scrivi un programma C che legge un intero N e stampa il suo fattoriale.",
+    "tag": ["ricorsione", "cicli", "matematica"],
     "test_cases": [
       {
         "stdin": "5",
@@ -56,6 +59,7 @@
   {
     "tipo": "codice",
     "domanda": "Scrivi un programma C che legge un intero N e stampa 'pari' se è pari, 'dispari' altrimenti.",
+    "tag": ["condizioni", "basi"],
     "test_cases": [
       {
         "stdin": "4",
@@ -74,6 +78,7 @@
   {
     "tipo": "codice",
     "domanda": "Scrivi un programma C che legge due numeri binari (come stringhe) da stdin, ne calcola la somma e la stampa in binario senza zeri iniziali.\n\nSuggerimento: attenzione agli zeri iniziali nell'output!",
+    "tag": ["stringhe", "binario", "algoritmi"],
     "test_cases": [
       {
         "stdin": "1010\n0110",
@@ -92,6 +97,7 @@
   {
     "tipo": "codice",
     "domanda": "Scrivi un programma C che legge due numeri binari da stdin (max 8 bit ciascuno), ne calcola la somma e la stampa in binario. Se la somma supera il valore massimo a 8 bit (255), stampare 'OVERFLOW' su una riga prima del risultato.",
+    "tag": ["binario", "condizioni", "algoritmi"],
     "test_cases": [
       {
         "stdin": "11111111\n00000001",
@@ -110,6 +116,7 @@
   {
     "tipo": "codice",
     "domanda": "Scrivi un programma C che legge due numeri binari da stdin (max 8 bit), ne calcola la somma e stampa:\n1. 'OVERFLOW' (solo se la somma supera 255)\n2. Il risultato in binario senza zeri iniziali\n3. I due operandi e il risultato in decimale nel formato: A_dec B_dec risultato_dec",
+    "tag": ["binario", "formattazione", "algoritmi"],
     "test_cases": [
       {
         "stdin": "1010\n0110",
@@ -128,6 +135,7 @@
   {
     "tipo": "codice",
     "domanda": "Scrivi un programma C che legge un intero N (max 20) e poi N caratteri usando scanf(\" %c\", ...). Stampa ogni carattere su una riga separata.",
+    "tag": ["array", "input-output"],
     "test_cases": [
       {
         "stdin": "3\na 5 b",
@@ -146,6 +154,7 @@
   {
     "tipo": "codice",
     "domanda": "Scrivi un programma C che legge un intero N (max 20) e poi N caratteri usando scanf(\" %c\", ...). Per ogni carattere, stampa se è una cifra o una lettera nel formato:\n  X -> numero\n  X -> carattere\n\nSuggerimento: usa isdigit() / isalpha() da <ctype.h> oppure la tabella ASCII.",
+    "tag": ["array", "caratteri", "condizioni"],
     "test_cases": [
       {
         "stdin": "3\na 5 b",
@@ -164,6 +173,7 @@
   {
     "tipo": "codice",
     "domanda": "Scrivi un programma C che legge un intero N (max 20) e poi N caratteri usando scanf(\" %c\", ...). Separa i caratteri in due array: uno per le cifre e uno per le lettere. Stampa prima la classificazione di ogni elemento, poi i due array nel formato:\n  X -> numero / X -> carattere\n  Numeri: X X X\n  Caratteri: X X X",
+    "tag": ["array", "algoritmi", "caratteri"],
     "test_cases": [
       {
         "stdin": "5\na 5 b 3 c",
@@ -182,6 +192,7 @@
   {
     "tipo": "codice",
     "domanda": "Scrivi un programma C che legge due interi e un operatore nel formato 'A op B' e stampa il risultato intero. Gli operatori supportati sono: +, -, *, /.\n\nEsempio di input: 10 + 5\nEsempio di output: 15",
+    "tag": ["operatori", "condizioni", "calcolatrice"],
     "test_cases": [
       {
         "stdin": "10 + 5",
@@ -200,6 +211,7 @@
   {
     "tipo": "codice",
     "domanda": "Scrivi un programma C che legge due interi e un operatore nel formato 'A op B'. Gli operatori supportati sono: +, -, *, /, % (modulo). Stampa il risultato intero.",
+    "tag": ["operatori", "condizioni"],
     "test_cases": [
       {
         "stdin": "17 % 5",
@@ -218,6 +230,7 @@
   {
     "tipo": "codice",
     "domanda": "Scrivi un programma C che legge due valori e un operatore nel formato 'A op B' e stampa il risultato con 2 decimali (%.2f). Gli operatori supportati sono: +, -, *, /, % (modulo intero), pow (A elevato a B), sqrt (radice di A, B viene ignorato).\n\nSuggerimento: includi <math.h> e compila con -lm (gia' incluso dal sistema di test).",
+    "tag": ["matematica", "operatori", "librerie"],
     "test_cases": [
       {
         "stdin": "2 pow 8",
@@ -236,6 +249,7 @@
   {
     "tipo": "codice",
     "domanda": "Scrivi un programma C che esegue una sequenza di operazioni su interi, valutandole da sinistra a destra (senza rispettare la precedenza degli operatori). Leggi N (numero di operazioni) su una riga, poi l'espressione nella forma 'num1 op1 num2 op2 ...' su una seconda riga.\n\nEsempio: N=2, espressione '2 + 4 * 3' → (2+4)*3 = 18",
+    "tag": ["parsing", "algoritmi", "cicli"],
     "test_cases": [
       {
         "stdin": "2\n2 + 4 * 3",
@@ -254,6 +268,7 @@
   {
     "tipo": "codice",
     "domanda": "Scrivi un programma C che legge due interi e un operatore nel formato 'A op B'. Gli operatori supportati sono: +, -, *, /. In caso di divisione per zero, stampa 'Errore: divisione per zero' invece del risultato.",
+    "tag": ["condizioni", "errori", "operatori"],
     "test_cases": [
       {
         "stdin": "10 / 0",

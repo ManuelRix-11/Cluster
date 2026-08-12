@@ -9,12 +9,23 @@ int main() {
     return 0;
 }`;
 
+const STARTER_JAVA = `import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+    }
+}`;
+
 function normalizzaOutput(s) {
   return (s ?? '').replace(/\r\n/g, '\n').trimEnd();
 }
 
 export function CodiceQuestion({ question, savedAnswer, onAnswer }) {
-  const [code, setCode] = useState(savedAnswer?.codice ?? STARTER_C);
+  const isJava = question.tipo === 'java';
+  const defaultStarter = question.starter || (isJava ? STARTER_JAVA : STARTER_C);
+  const [code, setCode] = useState(savedAnswer?.codice ?? defaultStarter);
   const [status, setStatus] = useState(savedAnswer ? 'idle' : 'idle'); // idle | running
   const [result, setResult] = useState(savedAnswer?.risultato ?? null);
 
@@ -30,7 +41,9 @@ export function CodiceQuestion({ question, savedAnswer, onAnswer }) {
 
     try {
       for (const tc of testCases) {
-        const res = await window.electronAPI.compileAndRun(code, tc.stdin);
+        const res = isJava
+          ? await window.electronAPI.compileAndRunJava(code, tc.stdin)
+          : await window.electronAPI.compileAndRun(code, tc.stdin);
         const ok = res.ok && normalizzaOutput(res.stdout) === normalizzaOutput(tc.expected);
         if (!ok) allOk = false;
         results.push({ stdin: tc.stdin, expected: tc.expected, got: res.stdout, ok, stderr: res.stderr });
@@ -42,7 +55,7 @@ export function CodiceQuestion({ question, savedAnswer, onAnswer }) {
       onAnswer({
         domanda: question.domanda,
         rispostaUtente: allOk ? '✅ corretta' : '❌ sbagliata',
-        rispostaCorretta: '(compilazione)',
+        rispostaCorretta: '(compilazione test cases)',
         esito: allOk ? 'corretta' : 'sbagliata',
         codice: code,
         risultato: outcome,
@@ -50,7 +63,6 @@ export function CodiceQuestion({ question, savedAnswer, onAnswer }) {
 
     } catch (err) {
       console.error("Run error", err);
-      // Fallback
     } finally {
       setStatus('idle');
     }
@@ -63,7 +75,7 @@ export function CodiceQuestion({ question, savedAnswer, onAnswer }) {
       <div className={styles.editorWrap}>
         <Editor
           height="300px"
-          language="c"
+          language={isJava ? 'java' : 'c'}
           theme="vs-dark"
           value={code}
           onChange={(v) => setCode(v || '')}

@@ -1,0 +1,82 @@
+[
+  {
+    "tipo": "java",
+    "domanda": "Scrivi un programma Java che legge un intero N da standard input e stampa i numeri da 1 a N, ciascuno su una nuova riga.",
+    "tag": ["java", "cicli", "basi"],
+    "starter": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        \n    }\n}",
+    "test_cases": [
+      {
+        "stdin": "5",
+        "expected": "1\n2\n3\n4\n5\n"
+      },
+      {
+        "stdin": "3",
+        "expected": "1\n2\n3\n"
+      },
+      {
+        "stdin": "1",
+        "expected": "1\n"
+      }
+    ]
+  },
+  {
+    "tipo": "java",
+    "domanda": "Scrivi un programma Java che legge due interi A e B da standard input e ne stampa la somma.",
+    "tag": ["java", "basi", "operatori"],
+    "starter": "import java.util.Scanner;\n\npublic class Somma {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int a = sc.nextInt();\n        int b = sc.nextInt();\n        \n    }\n}",
+    "test_cases": [
+      {
+        "stdin": "10 20",
+        "expected": "30\n"
+      },
+      {
+        "stdin": "-5 15",
+        "expected": "10\n"
+      },
+      {
+        "stdin": "0 0",
+        "expected": "0\n"
+      }
+    ]
+  },
+  {
+    "tipo": "java",
+    "domanda": "Scrivi un programma Java che legge una stringa da standard input e la stampa invertita.",
+    "tag": ["java", "stringhe", "algoritmi"],
+    "starter": "import java.util.Scanner;\n\npublic class Inverti {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String s = sc.nextLine();\n        \n    }\n}",
+    "test_cases": [
+      {
+        "stdin": "ciao",
+        "expected": "oaic\n"
+      },
+      {
+        "stdin": "unisa",
+        "expected": "asinu\n"
+      },
+      {
+        "stdin": "radar",
+        "expected": "radar\n"
+      }
+    ]
+  },
+  {
+    "tipo": "java",
+    "domanda": "Scrivi un programma Java che legge un intero N e calcola il fattoriale di N.",
+    "tag": ["java", "ricorsione", "matematica"],
+    "starter": "import java.util.Scanner;\n\npublic class Fattoriale {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        \n    }\n}",
+    "test_cases": [
+      {
+        "stdin": "5",
+        "expected": "120\n"
+      },
+      {
+        "stdin": "0",
+        "expected": "1\n"
+      },
+      {
+        "stdin": "3",
+        "expected": "6\n"
+      }
+    ]
+  }
+]

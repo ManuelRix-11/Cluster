@@ -29,6 +29,22 @@ export function Result({ questions, answers, quizName, onHome }) {
       const oggi = new Date().toISOString().slice(0, 10);
       const csvLine = `${oggi},"${quizName}",${tot},${nCorrette},${nSimili},${nSbagliate},${nSaltate},${punteggio30Str},${pct}\n`;
       window.electronAPI.writeStats(csvLine).catch(console.error);
+
+      // ponytail: traccia risultati per tag
+      const tagEvents = [];
+      questions.forEach((q, idx) => {
+        const qTags = Array.isArray(q.tag) ? q.tag : (q.tag ? [q.tag] : (Array.isArray(q.tags) ? q.tags : []));
+        if (qTags.length > 0) {
+          const ans = answers[idx];
+          const isOk = ans && (ans.esito === 'corretta' || ans.esito === 'simile');
+          qTags.forEach(t => {
+            tagEvents.push({ tag: String(t).trim().toLowerCase(), ok: Boolean(isOk) });
+          });
+        }
+      });
+      if (tagEvents.length > 0 && window.electronAPI.recordTagStats) {
+        window.electronAPI.recordTagStats(tagEvents).catch(console.error);
+      }
     }
     // Animate bar
     requestAnimationFrame(() => requestAnimationFrame(() => setBarWidth(pct)));

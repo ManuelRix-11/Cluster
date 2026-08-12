@@ -132,8 +132,9 @@ ipcMain.handle('quizzes:load', (_, filename) => {
 })
 
 
-// ── Statistiche (stats.csv) ────────────────────────────────────────────────────
+// ── Statistiche (stats.csv & tags_stats.json) ──────────────────────────────────
 const STATS_PATH = () => path.join(app.getPath('userData'), 'stats.csv')
+const TAGS_PATH = () => path.join(app.getPath('userData'), 'tags_stats.json')
 const STATS_HEADER = 'data,quiz_name,n_domande,n_corrette,n_simili,n_sbagliate,punteggio_30\n'
 
 ipcMain.handle('stats:read', () => {
@@ -149,8 +150,41 @@ ipcMain.handle('stats:write', (_, csv) => {
   fs.appendFileSync(p, csv, 'utf-8')
 })
 
+ipcMain.handle('stats:tags:read', () => {
+  const p = TAGS_PATH()
+  try {
+    return fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf-8')) : {}
+  } catch {
+    return {}
+  }
+})
+
+ipcMain.handle('stats:tags:record', (_, tagResults) => {
+  const p = TAGS_PATH()
+  let current = {}
+  try {
+    if (fs.existsSync(p)) current = JSON.parse(fs.readFileSync(p, 'utf-8'))
+  } catch {}
+
+  if (Array.isArray(tagResults)) {
+    for (const item of tagResults) {
+      const tag = String(item.tag || '').trim().toLowerCase()
+      if (!tag) continue
+      if (!current[tag]) current[tag] = { ok: 0, total: 0 }
+      current[tag].total += 1
+      if (item.ok) current[tag].ok += 1
+    }
+  }
+  fs.writeFileSync(p, JSON.stringify(current, null, 2), 'utf-8')
+  return current
+})
+
 ipcMain.handle('stats:clear', () => {
   fs.writeFileSync(STATS_PATH(), STATS_HEADER, 'utf-8')
+  try {
+    const tp = TAGS_PATH()
+    if (fs.existsSync(tp)) fs.unlinkSync(tp)
+  } catch {}
 })
 
 // ── Compilazione C con gcc ────────────────────────────────────────────────────
@@ -172,6 +206,33 @@ ipcMain.handle('c:run', (_, { code, stdin }) => {
   } finally {
     try { fs.unlinkSync(src) } catch {}
     try { fs.unlinkSync(bin) } catch {}
+  }
+})
+
+// ── Compilazione Java con javac / java ─────────────────────────────────────────
+ipcMain.handle('java:run', (_, { code, stdin }) => {
+  // ponytail: estrai nome classe pubblica o prima classe dichiarata
+  const classMatch = code.match(/public\s+(?:final\s+)?class\s+([A-Za-z_][A-Za-z0-9_]*)/) ||
+                     code.match(/class\s+([A-Za-z_][A-Za-z0-9_]*)/)
+  const className = classMatch ? classMatch[1] : 'Main'
+  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'cluster_java_'))
+  const src = path.join(tempDir, `${className}.java`)
+
+  try {
+    fs.writeFileSync(src, code, 'utf-8')
+    execSync(`javac "${src}"`, { timeout: 10000, cwd: tempDir, encoding: 'utf-8' })
+    const out = execSync(`java "${className}"`, {
+      input: stdin ?? '',
+      timeout: 5000,
+      encoding: 'utf-8',
+      cwd: tempDir
+    })
+    return { ok: true, stdout: out, stderr: '' }
+  } catch (err) {
+    const errMsg = err.stderr?.toString() || err.stdout?.toString() || err.message || 'Errore di compilazione o esecuzione Java'
+    return { ok: false, stdout: '', stderr: errMsg }
+  } finally {
+    try { fs.rmSync(tempDir, { recursive: true, force: true }) } catch {}
   }
 })
 
