@@ -31,15 +31,22 @@ Fatto con ❤️ e caffè. © 2026 Tutti i diritti riservati.
 ## ✨ Funzionalità Principali
 
 ### 📖 Sezione Appunti & Studio
-- **Viewer Markdown Integrato** — Consulta tutti gli appunti e le dispense organizzate per anno e materia direttamente nell'app.
-- **Navigazione Laterale** — Struttura ad albero intuitiva per passare da un argomento all'altro senza distrazioni.
+- **Viewer Markdown Integrato** — Consulta appunti e dispense organizzate per anno e materia direttamente nell'app, con rendering completo.
+- **Rendering KaTeX** — Le formule matematiche LaTeX (inline `$...$` e blocco `$$...$$`) vengono renderizzate tipograficamente in tempo reale.
+- **Rendering Mermaid** — I blocchi di codice `mermaid` nei file Markdown vengono renderizzati come diagrammi e grafici interattivi.
+- **Navigazione Laterale** — Struttura ad albero con ricerca per filtrare rapidamente le note per nome.
+- **Cerca nel documento (Ctrl+F)** — Barra di ricerca fluttuante attivabile con `Ctrl+F` che evidenzia tutte le occorrenze del testo nel documento aperto e permette la navigazione tra i risultati.
+- **Indice Navigabile** — I link dell'indice presenti nei documenti Markdown eseguono uno scroll fluido alla sezione corrispondente all'interno del viewer.
+- **Scrollbar Indipendenti** — La sidebar e il contenuto della nota hanno scroll separati e indipendenti.
 
 ### 📝 Quiz e Simulatore d'Esame
-- **Quiz di Programmazione C Integrati** — Scrivi, compila ed esegui codice C in tempo reale grazie all'integrazione con Monaco Editor (VS Code) e GCC nativo.
-- **Esercizi Interattivi Canvas (ADE)** — Risolvi quesiti di Architettura degli Elaboratori manipolando graficamente schemi di circuiti e datapath SVG con drag & drop.
-- **Quiz a Scelta Multipla e Risposta Aperta** — Con sistema di valutazione adattivo e fuzzy matching per risposte scritte.
-- **Valutazione e Test Cases** — Verifica istantanea con analisi dell'output atteso vs ottenuto.
-- **Navigazione Flessibile** — Salta le domande difficili, modifica le risposte prima di consegnare e monitora il progresso con la barra di avanzamento.
+- **Quiz a Scelta Multipla** — Modalità esame con selezione randomizzata delle domande, navigazione libera tra le domande e valutazione finale alla consegna.
+- **Quiz a Risposta Aperta** — Con sistema di valutazione adattivo e fuzzy matching per confrontare le risposte scritte.
+- **Quiz di Programmazione C** — Scrivi, compila ed esegui codice C in tempo reale grazie all'integrazione con Monaco Editor (stesso motore di VS Code) e compilatore GCC nativo.
+- **Domande Matematiche** — Tipologia dedicata con rendering KaTeX per quesiti con formule e notazione matematica.
+- **Esercizi Interattivi Canvas** — Risolvi quesiti di Architettura degli Elaboratori manipolando graficamente schemi di circuiti e datapath SVG con drag & drop.
+- **Navigazione Flessibile** — Salta le domande, modifica le risposte prima di consegnare e monitora il progresso con la barra di avanzamento.
+- **Valutazione Finale** — Schermata risultato con punteggio, riepilogo delle risposte corrette/errate e possibilità di rivedere ogni risposta.
 
 ### 📊 Dashboard & Statistiche
 - **Media Voti Calcolata** — Monitora la tua media espressa in trentesimi in tempo reale.
@@ -48,21 +55,8 @@ Fatto con ❤️ e caffè. © 2026 Tutti i diritti riservati.
 - **Reset Dati** — Ripristina lo storico in qualsiasi momento con un semplice click.
 
 ### 🎨 Design & Esperienza Utente
-- **Estetica Dark Glassmorphism** — Interfaccia minimale e moderna con trasparenze, sfumature viola e animazioni ad alte prestazioni.
+- **Estetica Dark Glassmorphism** — Interfaccia moderna con trasparenze, sfumature viola, bordi gradienti animati e micro-animazioni ad alte prestazioni.
 - **Navigazione Nativa** — Breadcrumb dinamico per spostarsi facilmente tra Home, Esami, Appunti e Storico.
-
----
-
-## 📚 Materie & Quiz Inclusi
-
-| Materia | Tipo Contenuto | File / Cartella |
-|---|---|---|
-| **Programmazione 1 (P1)** | Codice C (Facile, Medio, Difficile) | `Quizzes/Primo anno/` |
-| **Architettura degli Elaboratori (ADE)** | Esercizi Canvas & Datapath | `Quizzes/Primo anno/` |
-| **Programmazione e Strutture Dati (PSD)** | Quiz & Teoria | `Quizzes/Secondo anno/PSD.json` |
-| **Ingegneria del Software (IS)** | Quiz a Scelta Multipla | `Quizzes/Secondo anno/IS.json` |
-| **Tecnologie Software per il Web (TSW)** | Quiz & Codice Web | `Quizzes/Secondo anno/TSW.json` |
-| **Inglese B2** | Quiz a Scelta Multipla | `Quizzes/Terzo anno/Inglese_B2.json` |
 
 ---
 
@@ -122,15 +116,15 @@ Cluster/
 ├── preload.cjs             # Bridge IPC sicuro Electron-React
 ├── package.json
 ├── vite.config.js          # Configurazione Vite per il bundler React
-├── Quizzes/                # Banca dati quiz divisi per anno e materia
+├── Quizzes/                # Banca dati quiz divisi per anno e materia (.json)
 ├── Notes/                  # Appunti e dispense in formato Markdown
 ├── design/                 # Screenshot e risorse grafiche di presentazione
 └── renderer/               # Frontend React
     ├── index.html
     └── src/
-        ├── assets/         # Risorse statiche dell'interfaccia (loghi, icone)
-        ├── components/     # Componenti UI (Header, HUD, domande quiz)
-        ├── screens/        # Schermate (Home, Esami, Study, Stats, Result, Quiz)
+        ├── assets/         # Risorse statiche (loghi, icone)
+        ├── components/     # Componenti UI (Header, HUD, tipi di domanda)
+        ├── screens/        # Schermate (Home, Esami, Study, Stats, Result, Quiz, QuizList)
         ├── styles/         # Fogli di stile (global.css, canvas-quiz.css)
         └── utils/          # Helper e funzioni di supporto
 ```
@@ -175,6 +169,7 @@ Per aggiungere una nuova materia o un nuovo test, inserisci un file `.json` nell
 - **React 19 + Vite** — Interfaccia utente dinamica ad alte prestazioni
 - **Monaco Editor** — Editor di codice integrato (stesso motore di VS Code)
 - **GCC** — Compilazione ed esecuzione nativa del codice C via IPC
-- **Marked** — Parsing dinamico degli appunti Markdown
+- **Marked** — Parsing dinamico degli appunti Markdown con renderer personalizzato
+- **KaTeX** — Rendering tipografico di formule matematiche LaTeX
+- **Mermaid** — Rendering di diagrammi e grafi da blocchi Markdown
 - **CSS Vanilla & Glassmorphism** — Stile custom responsive e performante senza dipendenze grafiche esterne
-

@@ -193,6 +193,64 @@ main {
   line-height: 1.4;
 }
 
+/* ── Home navigation buttons (Appunti / Esami) ───────────────────────────── */
+.anno-btn.home-nav-btn {
+  background: transparent;
+  border: none;
+  height: auto;
+  width: fit-content;
+  padding: 14px 24px;
+  margin: 0 35px;
+  position: relative;
+  isolation: isolate;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ponytail: gradient border via ::before, static, no animation */
+.anno-btn.home-nav-btn::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #a855f7, #6366f1, #a855f7);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.anno-btn.home-nav-btn:hover {
+  background: transparent;
+  transform: translateY(-2px);
+}
+
+.anno-btn.home-nav-btn:hover::before {
+  opacity: 1;
+}
+
+.anno-btn.home-nav-btn img {
+  filter: none;
+  transition: filter 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.anno-btn.home-nav-btn:hover img {
+  filter: drop-shadow(0 0 12px rgba(192, 132, 252, 0.55)) drop-shadow(0 4px 8px rgba(108, 99, 255, 0.3));
+  transform: translateY(-3px) scale(1.04);
+}
+
+.anno-btn.home-nav-btn:hover .anno-nome {
+  color: #e2d9f3;
+}
+
+
 
 /* ── Back button ─────────────────────────────────────────────────────────── */
 .btn--back {

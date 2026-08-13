@@ -1,5 +1,7 @@
 import React from 'react';
 import logoSrc from '../assets/logoIUE.png';
+import studyIcon from '../assets/study.png';
+import examsIcon from '../assets/exams.png';
 
 export function Home({ onNavigate }) {
   return (
@@ -19,12 +21,12 @@ export function Home({ onNavigate }) {
           <p className="home-tagline">Hub di studio & simulatore d'esami · Informatica UNISA</p>
 
           <div id="anni-list">
-            <button className="anno-btn" onClick={() => onNavigate('study')}>
-              <span style={{ fontSize: '2.5rem', marginBottom: '8px' }}>📖</span>
+            <button className="anno-btn home-nav-btn" onClick={() => onNavigate('study')}>
+              <img src={studyIcon} alt="Appunti" style={{ height: '5rem', marginBottom: '8px', objectFit: 'contain' }} />
               <span className="anno-nome">Appunti</span>
             </button>
-            <button className="anno-btn" onClick={() => onNavigate('esami')}>
-              <span style={{ fontSize: '2.5rem', marginBottom: '8px' }}>🎓</span>
+            <button className="anno-btn home-nav-btn" onClick={() => onNavigate('esami')}>
+              <img src={examsIcon} alt="Esami" style={{ height: '5rem', marginBottom: '8px', objectFit: 'contain' }} />
               <span className="anno-nome">Esami</span>
             </button>
           </div>
