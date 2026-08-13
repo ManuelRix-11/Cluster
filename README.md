@@ -21,7 +21,6 @@ Fatto con ❤️ e caffè. © 2026 Tutti i diritti riservati.
 
 ## 📸 Anteprima
 
-<img src="design/screenshots/homescreen.png" width="100%" alt="Home screen"/>
 <div style="display: flex; flex-direction:row">
   <img src="design/screenshots/screen_quiz.png" width="49.8%" alt="Schermata quiz"/><img src="design/screenshots/screen_result.png" width="49.8%" alt="Schermata risultato"/>
 </div>
