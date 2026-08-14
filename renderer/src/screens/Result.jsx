@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Result.module.css';
+import { getTags } from '../utils/tags';
 
 export function Result({ questions, answers, quizName, onHome }) {
   const tot = questions.length;
@@ -33,7 +34,7 @@ export function Result({ questions, answers, quizName, onHome }) {
       // ponytail: traccia risultati per tag
       const tagEvents = [];
       questions.forEach((q, idx) => {
-        const qTags = Array.isArray(q.tag) ? q.tag : (q.tag ? [q.tag] : (Array.isArray(q.tags) ? q.tags : []));
+        const qTags = getTags(q);
         if (qTags.length > 0) {
           const ans = answers[idx];
           const isOk = ans && (ans.esito === 'corretta' || ans.esito === 'simile');

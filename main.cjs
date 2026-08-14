@@ -52,13 +52,23 @@ ipcMain.handle('quizzes:list', (_, subpath) => {
   const dir  = subpath ? path.join(root, subpath) : root
   if (!fs.existsSync(dir)) return []
 
-  // ponytail: helper che scansiona una dir e restituisce quiz+livelli (logica precedente)
+  function readQuizEntry(full, entry, prefix) {
+    let count = 0
+    try {
+      const data = JSON.parse(fs.readFileSync(full, 'utf-8'))
+      count = Array.isArray(data) ? data.length : 0
+    } catch {}
+    const filename = prefix ? `${prefix}/${entry}` : entry
+    return { filename, name: entry.replace(/\.json$/i, ''), count, hasLivelli: false }
+  }
+
   function scanQuizDir(base, prefix) {
     return fs.readdirSync(base).flatMap(entry => {
       const full = path.join(base, entry)
       const stat = fs.statSync(full)
 
       if (stat.isDirectory()) {
+        const ORDER = { facile: 0, medio: 1, difficile: 2 }
         const livelli = fs.readdirSync(full)
           .filter(f => f.endsWith('.json'))
           .map(f => {
@@ -71,54 +81,23 @@ ipcMain.handle('quizzes:list', (_, subpath) => {
             } catch { return null }
           })
           .filter(Boolean)
-        // ponytail: sort by difficulty, unknown names go last
-        const ORDER = { facile: 0, medio: 1, difficile: 2 }
-        livelli.sort((a, b) => {
-          const oa = ORDER[a.nome.toLowerCase()] ?? 99
-          const ob = ORDER[b.nome.toLowerCase()] ?? 99
-          return oa - ob || a.nome.localeCompare(b.nome)
-        })
+          .sort((a, b) => (ORDER[a.nome.toLowerCase()] ?? 99) - (ORDER[b.nome.toLowerCase()] ?? 99) || a.nome.localeCompare(b.nome))
+
         return [{ name: entry, hasLivelli: true, livelli }]
       }
 
-      if (entry.endsWith('.json')) {
-        try {
-          const data = JSON.parse(fs.readFileSync(full, 'utf-8'))
-          const filename = prefix ? `${prefix}/${entry}` : entry
-          return [{ filename, name: entry.replace(/\.json$/i, ''), count: Array.isArray(data) ? data.length : 0, hasLivelli: false }]
-        } catch {
-          const filename = prefix ? `${prefix}/${entry}` : entry
-          return [{ filename, name: entry.replace(/\.json$/i, ''), count: 0, hasLivelli: false }]
-        }
-      }
-
+      if (entry.endsWith('.json')) return [readQuizEntry(full, entry, prefix)]
       return []
     })
   }
 
-  if (subpath) {
-    // Richiesta esplicita di un anno: restituisce i quiz in quella cartella
-    return scanQuizDir(dir, subpath)
-  }
+  if (subpath) return scanQuizDir(dir, subpath)
 
-  // Root: alla root tutte le directory sono anni (ponytail: struttura fissa)
+  // Root: directory = anni, file .json = quiz diretti
   return fs.readdirSync(dir).flatMap(entry => {
     const full = path.join(dir, entry)
-    const stat = fs.statSync(full)
-
-    if (stat.isDirectory()) {
-      return [{ type: 'anno', name: entry }]
-    }
-
-    if (entry.endsWith('.json')) {
-      try {
-        const data = JSON.parse(fs.readFileSync(full, 'utf-8'))
-        return [{ filename: entry, name: entry.replace(/\.json$/i, ''), count: Array.isArray(data) ? data.length : 0, hasLivelli: false }]
-      } catch {
-        return [{ filename: entry, name: entry.replace(/\.json$/i, ''), count: 0, hasLivelli: false }]
-      }
-    }
-
+    if (fs.statSync(full).isDirectory()) return [{ type: 'anno', name: entry }]
+    if (entry.endsWith('.json')) return [readQuizEntry(full, entry)]
     return []
   })
 })

@@ -163,9 +163,8 @@ export function Stats({ onNavigate }) {
   };
 
   return (
-    <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', width: '100%', flex: 1, alignItems: 'center' }}>
-      <div className="stats-main">
-        <div className="stats-header-bar">
+    <div className="stats-main">
+      <div className="stats-header-bar">
           <div className="stats-tabs">
             <button 
               className={`stats-tab-btn ${activeTab === 'sessions' ? 'active' : ''}`}
@@ -330,6 +329,5 @@ export function Stats({ onNavigate }) {
           )
         )}
       </div>
-    </div>
   );
 }

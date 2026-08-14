@@ -55,7 +55,7 @@ export default function App() {
         />
       )}
 
-      <main className={(screen === 'home' || screen === 'study') ? '' : 'screen-body'}>
+      <main className={screen === 'study' ? '' : 'screen-body'}>
         {screen === 'home' && <Home onNavigate={setScreen} />}
         {screen === 'esami' && <Esami onYearSelect={(y) => { setNav({...nav, year: y, mode: 'esami'}); setScreen('quiz-list'); }} onStats={() => setScreen('stats')} />}
         {screen === 'quiz-list' && <QuizList year={nav.year} onStartQuiz={(data, name) => { setNav({...nav, quiz: {nome: name, data}}); setScreen('quiz'); }} onStats={() => setScreen('stats')} />}

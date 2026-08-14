@@ -1,1189 +1,1788 @@
 [
-  {
-    "domanda": "Cosa è un metodo?",
-    "risposta1": "Un sistema per fare qualcosa in modo migliore",
-    "risposta2": "Un procedimento generale per risolvere classi di problemi",
-    "risposta3": "Un particolare approccio o filosofia per fare qualcosa",
-    "corretta": "Un procedimento generale per risolvere classi di problemi"
-  },
-  {
-    "domanda": "Quale di queste affermazioni NON è appropriata per il modello di processo a cascata?",
-    "risposta1": "Le fasi del processo sono in progressione sequenziale",
-    "risposta2": "I semilavorati all'uscita di una fase sono congelati e non possono essere più modificati",
-    "risposta3": "Le funzionalità del sistema sono sviluppate in maniera incrementale",
-    "corretta": "Le funzionalità del sistema sono sviluppate in maniera incrementale"
-  },
-  {
-    "domanda": "Un prototipo viene sviluppato per:",
-    "risposta1": "Ridurre i costi di sviluppo",
-    "risposta2": "Rilasciare rapidamente al cliente una prima versione del sistema",
-    "risposta3": "Interagire con il committente per convalidare i requisiti",
-    "corretta": "Interagire con il committente per convalidare i requisiti"
-  },
-  {
-    "domanda": "Quale tipo di prototipazione parte con i requisiti meglio compresi?",
-    "risposta1": "Prototipazione esplorativa",
-    "risposta2": "Prototipazione throw-away",
-    "risposta3": "Prototipazione mock-ups",
-    "corretta": "Prototipazione esplorativa"
-  },
-  {
-    "domanda": "Quale tipo di prototipazione tende a realizzare l'interfaccia utente?",
-    "risposta1": "Prototipazione esplorativa",
-    "risposta2": "Prototipazione breadboards",
-    "risposta3": "Prototipazione mock-ups",
-    "corretta": "Prototipazione mock-ups"
-  },
-  {
-    "domanda": "Quale di queste affermazioni è appropriata per il modello di processo incrementale?",
-    "risposta1": "Ogni versione produce funzionalità/sottosistemi più affidabili",
-    "risposta2": "Ogni versione aggiunge nuove funzionalità/sottosistemi al sistema",
-    "risposta3": "Ogni versione raffina le funzionalità/sottosistemi che sono presenti fin dall'inizio",
-    "corretta": "Ogni versione aggiunge nuove funzionalità/sottosistemi al sistema"
-  },
-  {
-    "domanda": "Quale di queste affermazioni è appropriata per il modello di processo iterativo?",
-    "risposta1": "Ogni versione raffina le funzionalità/sottosistemi che sono presenti fin dall’inizio",
-    "risposta2": "Ogni versione aggiunge nuove funzionalità/sottosistemi al sistema",
-    "risposta3": "I requisiti a più alta priorità vengono rilasciati per primi",
-    "corretta": "Ogni versione raffina le funzionalità/sottosistemi che sono presenti fin dall’inizio"
-  },
-  {
-    "domanda": "Cosa è un team?",
-    "risposta1": "Un insieme di persone a cui è assegnato un task comune, ma che lavorano individualmente e senza necessità di interazione",
-    "risposta2": "Un insieme di persone che rivedono un work product e che propongono azioni",
-    "risposta3": "Un piccolo insieme di persone che lavorano in stretta interazione sulla stessa attività o task",
-    "corretta": "Un insieme di persone a cui è assegnato un task comune, ma che lavorano individualmente e senza necessità di interazione"
-  },
-  {
-    "domanda": "Il tempo durante il quale un certo lavoro in un progetto deve essere fatto, viene denominato:",
-    "risposta1": "Work-product",
-    "risposta2": "Schedule",
-    "risposta3": "Task",
-    "corretta": "Schedule"
-  },
-  {
-    "domanda": "Il lavoro che deve essere eseguito da un partecipante al progetto, viene denominato:",
-    "risposta1": "Work-product",
-    "risposta2": "Schedule",
-    "risposta3": "Task",
-    "corretta": "Task"
-  },
-  {
-    "domanda": "Quale di queste affermazioni non è valida per una struttura organizzativa di reporting gerarchica?",
-    "risposta1": "Lo stato è riportato dall’alto verso il basso",
-    "risposta2": "Le decisioni vengono comunicate dall’alto verso il basso",
-    "risposta3": "Le informazioni relative a stato e decisioni sono unidirezionali",
-    "corretta": "Lo stato è riportato dall’alto verso il basso"
-  },
-  {
-    "domanda": "Cosa è un liason all’interno di un team?",
-    "risposta1": "Il leader del team",
-    "risposta2": "Il responsabile della comunicazione con un altro team",
-    "risposta3": "Il consulente amministrativo del team",
-    "corretta": "Il responsabile della comunicazione con un altro team"
-  },
-  {
-    "domanda": "Che tipo di ruolo è un configuration manager?",
-    "risposta1": "Uno sviluppatore",
-    "risposta2": "Un manager",
-    "risposta3": "Un liason",
-    "corretta": "Un liason"
-  },
-  {
-    "domanda": "Che cosa è un GANNT ?",
-    "risposta1": "Un grafico a barre che descrive lo schedule e la durata dei vari task",
-    "risposta2": "Un grafo che descrive le dipendenze tra i task del progetto",
-    "risposta3": "Un grafo che descrive le dipendenze tra i work-product del progetto",
-    "corretta": "Un grafico a barre che descrive lo schedule e la durata dei vari task"
-  },
-  {
-    "domanda": "Che cosa è un PERT?",
-    "risposta1": "Un grafico a barre che descrive lo schedule e la durata dei vari task",
-    "risposta2": "Un grafo che descrive le dipendenze tra i task del progetto",
-    "risposta3": "Un grafo che descrive le dipendenze tra i work-product del progetto",
-    "corretta": "Un grafo che descrive le dipendenze tra i task del progetto"
-  },
-  {
-    "domanda": "Quale dei seguenti non è una comunicaizione pianificata?",
-    "risposta1": "Definizione del problema",
-    "risposta2": "Review di progetto",
-    "risposta3": "Richiesta di modifica",
-    "corretta": "Richiesta di modifica"
-  },
-  {
-    "domanda": "Quale dei seguenti è una comunicazione non pianificata?",
-    "risposta1": "Risoluzione di un problema",
-    "risposta2": "Ispezione",
-    "risposta3": "Rilascio",
-    "corretta": "Risoluzione di un problema"
-  },
-  {
-    "domanda": "Quale dei seguenti meccanismi di comunicazione è asincrono?",
-    "risposta1": "Intervista strutturata",
-    "risposta2": "Riunione",
-    "risposta3": "Posta elettronica",
-    "corretta": "Posta elettronica"
-  },
-  {
-    "domanda": "Cosa è un modello ?",
-    "risposta1": "Un’astrazione che descrive il sistema o un sottoinsieme di un sistema",
-    "risposta2": "Un insieme di regole grafiche o testuali per rappresentare viste",
-    "risposta3": "Una vista di aspetti del sistema",
-    "corretta": "Un’astrazione che descrive il sistema o un sottoinsieme di un sistema"
-  },
-  {
-    "domanda": "Cosa è una vista?",
-    "risposta1": "Un’astrazione che descrive il sistema o un sottoinsieme di un sistema",
-    "risposta2": "Una visualizzazione di particolari aspetti di un modello",
-    "risposta3": "Un insieme di regole grafiche o testuali",
-    "corretta": "Una visualizzazione di particolari aspetti di un modello"
-  },
-  {
-    "domanda": "Cosa è una notazione ?",
-    "risposta1": "Un’astrazione che descrive il sistema o un sottoinsieme di un sistema",
-    "risposta2": "Una visualizzazione di particolari aspetti di un modello",
-    "risposta3": "Un insieme di regole grafiche o testuali per rappresentare viste",
-    "corretta": "Un insieme di regole grafiche o testuali per rappresentare viste"
-  },
-  {
-    "domanda": "Cosa è UML ?",
-    "risposta1": "Una notazione grafica per progettare sistemi software",
-    "risposta2": "Un insieme di linguaggi per modellare software",
-    "risposta3": "Un modello astratto per descrivere sistemi software",
-    "corretta": "Un insieme di linguaggi per modellare software"
-  },
-  {
-    "domanda": "Quale di questi diagrammi non è usato per descrivere il comportamento dinamico di un sistema software ?",
-    "risposta1": "Sequence diagram",
-    "risposta2": "Activity diagram",
-    "risposta3": "Use case diagram",
-    "corretta": "Use case diagram"
-  },
-  {
-    "domanda": "I diagrammi dei casi d’uso:",
-    "risposta1": "Descrivono il comportamento funzionale del sistema così come visto dagli utenti",
-    "risposta2": "Descrivono il comportamento dinamico tra gli attori e il sistema e tra gli oggetti del sistema",
-    "risposta3": "Descrivono il comportamento dinamico di un sistema, in particolare il workflow",
-    "corretta": "Descrivono il comportamento funzionale del sistema così come visto dagli utenti"
-  },
-  {
-    "domanda": "I diagrammi delle attività:",
-    "risposta1": "Descrivono il comportamento funzionale del sistema così come visto dagli utenti",
-    "risposta2": "Descrivono il comportamento dinamico tra gli attori e il sistema e tra gli oggetti del sistema",
-    "risposta3": "Descrivono il comportamento dinamico di un sistema, in particolare il workflow",
-    "corretta": "Descrivono il comportamento dinamico di un sistema, in particolare il workflow"
-  },
-  {
-    "domanda": "I diagrammi di sequenza:",
-    "risposta1": "Descrivono il comportamento funzionale del sistema così come visto dagli utenti",
-    "risposta2": "Descrivono il comportamento dinamico tra gli attori e il sistema e tra gli oggetti del sistema",
-    "risposta3": "Descrivono il comportamento dinamico di un sistema, in particolare il workflow",
-    "corretta": "Descrivono il comportamento dinamico tra gli attori e il sistema e tra gli oggetti del sistema"
-  },
-  {
-    "domanda": "I diagrammi di stato:",
-    "risposta1": "Descrivono la struttura statica del sistema: oggetti, attributi e relazioni",
-    "risposta2": "Descrivono il comportamento dinamico tra gli attori e il sistema e tra gli oggetti del sistema",
-    "risposta3": "Descrivono il comportamento dinamico di un singolo oggetto come una macchina a stati finiti",
-    "corretta": "Descrivono il comportamento dinamico di un singolo oggetto come una macchina a stati finiti"
-  },
-  {
-    "domanda": "I diagrammi delle classi:",
-    "risposta1": "Descrivono la struttura statica del sistema: oggetti, attributi e relazioni",
-    "risposta2": "Descrivono il comportamento dinamico tra gli attori e il sistema e tra gli oggetti del sistema",
-    "risposta3": "Descrivono il comportamento dinamico di un singolo oggetto come una macchina a stati finiti",
-    "corretta": "Descrivono la struttura statica del sistema: oggetti, attributi e relazioni"
-  },
-  {
-    "domanda": "In UML le classi e gli oggetti (istanze) sono rappresentate con:",
-    "risposta1": "Rettangoli",
-    "risposta2": "Ovali",
-    "risposta3": "Rettangoli con angoli arrotondati",
-    "corretta": "Rettangoli"
-  },
-  {
-    "domanda": "In UML i casi d’uso sono rappresentati con:",
-    "risposta1": "Rettangoli",
-    "risposta2": "Ovali",
-    "risposta3": "Rettangoli con angoli arrotondati",
-    "corretta": "Ovali"
-  },
-  {
-    "domanda": "In UML gli stati sono rappresentati con:",
-    "risposta1": "Rettangoli",
-    "risposta2": "Ovali",
-    "risposta3": "Rettangoli con angoli arrotondati",
-    "corretta": "Rettangoli con angoli arrotondati"
-  },
-  {
-    "domanda": "Quale di questi elementi non è parte di un diagramma dei casi d’uso:",
-    "risposta1": "Attore",
-    "risposta2": "Caso d'uso",
-    "risposta3": "Classe",
-    "corretta": "Classe"
-  },
-  {
-    "domanda": "Quale di questi elementi non è parte di un diagramma di sequenza:",
-    "risposta1": "Attore",
-    "risposta2": "Caso d'uso",
-    "risposta3": "Oggetti",
-    "corretta": "Caso d'uso"
-  },
-  {
-    "domanda": "Che tipo di relazione può esistere tra un attore e un caso d’uso:",
-    "risposta1": "Associazione",
-    "risposta2": "Dipendenza",
-    "risposta3": "Generalizzazione",
-    "corretta": "Associazione"
-  },
-  {
-    "domanda": "Che tipo di relazione può esistere tra due attori:",
-    "risposta1": "Associazione",
-    "risposta2": "Dipendenza",
-    "risposta3": "Generalizzazione",
-    "corretta": "Generalizzazione"
-  },
-  {
-    "domanda": "Quale di queste relazioni non esiste tra due casi d’uso:",
-    "risposta1": "Associazione",
-    "risposta2": "Dipendenza",
-    "risposta3": "Generalizzazione",
-    "corretta": "Associazione"
-  },
-  {
-    "domanda": "Quali di questi è un requisito funzionale:",
-    "risposta1": "Il sistema deve visualizzare l’ora in base alla sua locazione",
-    "risposta2": "Il tempo di risposta deve essere meno di un secondo",
-    "risposta3": "Il linguaggio di implementazione deve essere Java",
-    "corretta": "Il sistema deve visualizzare l’ora in base alla sua locazione"
-  },
-  {
-    "domanda": "Quali di questi è un requisito non funzionale:",
-    "risposta1": "Il sistema deve visualizzare l’ora in base alla sua locazione",
-    "risposta2": "Il tempo di risposta deve essere meno di un secondo",
-    "risposta3": "Il linguaggio di implementazione deve essere Java",
-    "corretta": "Il tempo di risposta deve essere meno di un secondo"
-  },
-  {
-    "domanda": "Cosa si intende per correttezza dei requisiti ?",
-    "risposta1": "I requisiti rappresentano la vista dell’utente",
-    "risposta2": "Sono descritti tutti i possibili scenari del sistema",
-    "risposta3": "Non ci sono requisiti funzionali e non funzionali che si contraddicono",
-    "corretta": "I requisiti rappresentano la vista dell’utente"
-  },
-  {
-    "domanda": "Cosa si intende per completezza dei requisiti ?",
-    "risposta1": "I requisiti rappresentano la vista dell’utente",
-    "risposta2": "Sono descritti tutti i possibili scenari del sistema",
-    "risposta3": "Non ci sono requisiti funzionali e non funzionali che si contraddicono",
-    "corretta": "Sono descritti tutti i possibili scenari del sistema"
-  },
-  {
-    "domanda": "Cosa si intende per consistenza dei requisiti ?",
-    "risposta1": "I requisiti rappresentano la vista dell’utente",
-    "risposta2": "Sono descritti tutti i possibili scenari del sistema",
-    "risposta3": "Non ci sono requisiti funzionali e non funzionali che si contraddicono",
-    "corretta": "Non ci sono requisiti funzionali e non funzionali che si contraddicono"
-  },
-  {
-    "domanda": "Cosa si intende per chiarezza dei requisiti ?",
-    "risposta1": "Non ci sono ambiguità nei requisiti",
-    "risposta2": "I requisiti possono essere implementati e rilasciati",
-    "risposta3": "Non ci sono requisiti funzionali e non funzionali che si contraddicono",
-    "corretta": "Non ci sono ambiguità nei requisiti"
-  },
-  {
-    "domanda": "Cosa si intende per realismo dei requisiti ?",
-    "risposta1": "Non ci sono ambiguità nei requisiti",
-    "risposta2": "I requisiti possono essere implementati e rilasciati",
-    "risposta3": "Per ogni funzione del sistema è possibile individuare un insieme di requisiti funzionali",
-    "corretta": "I requisiti possono essere implementati e rilasciati"
-  },
-  {
-    "domanda": "Cosa si intende per tracciabilità dei requisiti ?",
-    "risposta1": "Non ci sono ambiguità nei requisiti",
-    "risposta2": "I requisiti possono essere implementati e rilasciati",
-    "risposta3": "Per ogni funzione del sistema è possibile individuare un insieme di requisiti funzionali",
-    "corretta": "Per ogni funzione del sistema è possibile individuare un insieme di requisiti funzionali"
-  },
-  {
-    "domanda": "Quale di questi requisiti vanno affrontati durante il design ma non durante l’implementazione ?",
-    "risposta1": "Requisiti ad alta priorità",
-    "risposta2": "Requisiti a media priorità",
-    "risposta3": "Requisiti a bassa priorità",
-    "corretta": "Requisiti a media priorità"
-  },
-  {
-    "domanda": "Cosa si intende per interface engineering ?",
-    "risposta1": "Lo sviluppo parte da zero, non esiste un sistema precedente",
-    "risposta2": "Riprogettazione o reimplementazione di un sistema esistente con nuove tecnologie",
-    "risposta3": "Fornire i servizi di un sistema esistente in un nuovo ambiente operativo",
-    "corretta": "Fornire i servizi di un sistema esistente in un nuovo ambiente operativo"
-  },
-  {
-    "domanda": "Che tipo di scenari sono usati per descrivere un sistema futuro?",
-    "risposta1": "as-is scenarios",
-    "risposta2": "visionary scenarios",
-    "risposta3": "training scenarios",
-    "corretta": "visionary scenarios"
-  },
-  {
-    "domanda": "Che tipo di scenari sono usati per descrivere un sistema esistente ?",
-    "risposta1": "as-is scenarios",
-    "risposta2": "visionary scenarios",
-    "risposta3": "training scenarios",
-    "corretta": "as-is scenarios"
-  },
-  {
-    "domanda": "Che tipo di scenari sono usati per guidare un utente nuovo nell’utilizzo del sistema ?",
-    "risposta1": "as-is scenarios",
-    "risposta2": "visionary scenarios",
-    "risposta3": "training scenarios",
-    "corretta": "training scenarios"
-  },
-  {
-    "domanda": "Perché si usano gli scenari ?",
-    "risposta1": "Per individuare i requisiti del sistema",
-    "risposta2": "Per analizzare le associazioni tra gli oggetti del sistema",
-    "risposta3": "Per analizzare il flusso di eventi di un caso d’uso",
-    "corretta": "Per individuare i requisiti del sistema"
-  },
-  {
-    "domanda": "Come si descrive un caso d’uso ?",
-    "risposta1": "Mediante uno scenario",
-    "risposta2": "Mediante un flusso di eventi",
-    "risposta3": "Mediante un insieme di requisiti funzionali",
-    "corretta": "Mediante un flusso di eventi"
-  },
-  {
-    "domanda": "Cosa esprime una relazione di inclusione tra casi d’uso ?",
-    "risposta1": "Una variante del normale flusso di eventi di un caso d’uso",
-    "risposta2": "Una specializzazione di un caso d’uso",
-    "risposta3": "Una decomposizione funzionale di un caso d’uso",
-    "corretta": "Una decomposizione funzionale di un caso d’uso"
-  },
-  {
-    "domanda": "Cosa esprime una relazione di estensione tra casi d’uso ?",
-    "risposta1": "Una variante del normale flusso di eventi di un caso d’uso",
-    "risposta2": "Una specializzazione di un caso d’uso",
-    "risposta3": "Una decomposizione funzionale di un caso d’uso",
-    "corretta": "Una variante del normale flusso di eventi di un caso d’uso"
-  },
-  {
-    "domanda": "Cosa esprime una relazione di generalizzazione tra casi d’uso ?",
-    "risposta1": "Una variante del normale flusso di eventi di un caso d’uso",
-    "risposta2": "Una specializzazione di un caso d’uso",
-    "risposta3": "Una decomposizione funzionale di un caso d’uso",
-    "corretta": "Una specializzazione di un caso d’uso"
-  },
-  {
-    "domanda": "Un oggetto che interagisce con un attore in un sequence diagram è:",
-    "risposta1": "Un entity object",
-    "risposta2": "Un boundary object",
-    "risposta3": "Un control object",
-    "corretta": "Un boundary object"
-  },
-  {
-    "domanda": "Quale di queste categorie di requisiti non funzionali indica la facilità di cambiamenti al sistema dopo il rilascio ?",
-    "risposta1": "Reliability",
-    "risposta2": "Performance",
-    "risposta3": "Supportability",
-    "corretta": "Supportability"
-  },
-  {
-    "domanda": "Quale di queste categorie di preudo-requirements indica vincoli legati alle modalità di rilascio del sistema?",
-    "risposta1": "Interface requirements",
-    "risposta2": "Packaging requirements",
-    "risposta3": "Operations requirements",
-    "corretta": "Packaging requirements"
-  },
-  {
-    "domanda": "Una trasformazione applicata agli oggetti di una classe e definita in fase di analisi è chiamata:",
-    "risposta1": "Operazione",
-    "risposta2": "Signature",
-    "risposta3": "Metodo",
-    "corretta": "Operazione"
-  },
-  {
-    "domanda": "Una connessione tra due istanze di oggetti è chiamata:",
-    "risposta1": "Associazione",
-    "risposta2": "Link",
-    "risposta3": "Relazione",
-    "corretta": "Link"
-  },
-  {
-    "domanda": "Una associazione è:",
-    "risposta1": "Una connessione tra due istanze di oggetti",
-    "risposta2": "Una dipendenza tra classi",
-    "risposta3": "Un mapping bidirezionale tra classi",
-    "corretta": "Un mapping bidirezionale tra classi"
-  },
-  {
-    "domanda": "Quale di questi tipi di oggetti cambia meno frequentemente in un sistema software ?",
-    "risposta1": "Boundary object",
-    "risposta2": "Control object",
-    "risposta3": "Entity object",
-    "corretta": "Entity object"
-  },
-  {
-    "domanda": "Cosa indica un ruolo ?",
-    "risposta1": "Una estremità dell’associazione",
-    "risposta2": "La navigabilità dell’associazione",
-    "risposta3": "La direzione del nome dell’associazione",
-    "corretta": "Una estremità dell’associazione"
-  },
-  {
-    "domanda": "Cosa indica la direzione di una associazione ?",
-    "risposta1": "Una estremità dell’associazione",
-    "risposta2": "La navigabilità dell’associazione",
-    "risposta3": "La direzione del nome dell’associazione",
-    "corretta": "La navigabilità dell’associazione"
-  },
-  {
-    "domanda": "Cosa indicano le frecce in un diagramma di sequenza ?",
-    "risposta1": "Eventi inviati da un oggetto ad un altro",
-    "risposta2": "Relazioni tra oggetti",
-    "risposta3": "Dipendenze tra oggetti",
-    "corretta": "Eventi inviati da un oggetto ad un altro"
-  },
-  {
-    "domanda": "Cosa indica la linea tratteggiata verticale sotto un oggetto in un diagramma di sequenza ?",
-    "risposta1": "L’invio di un messaggio all’oggetto",
-    "risposta2": "Il periodo di attivazione di una operazione dell’oggetto",
-    "risposta3": "Il periodo durante il quale è possibile inviare un messaggio all’oggetto",
-    "corretta": "Il periodo durante il quale è possibile inviare un messaggio all’oggetto"
-  },
-  {
-    "domanda": "Cosa indica un rettangolo verticale sotto un oggetto in un diagramma di sequenza ?",
-    "risposta1": "L’invio di un messaggio all’oggetto",
-    "risposta2": "Il periodo di attivazione di una operazione dell’oggetto",
-    "risposta3": "Il periodo durante il quale è possibile inviare un messaggio all’oggetto",
-    "corretta": "Il periodo di attivazione di una operazione dell’oggetto"
-  },
-  {
-    "domanda": "Cosa dovrebbe contenere la prima colonna di un diagramma di sequenza ?",
-    "risposta1": "L’attore che inizia il caso d’uso",
-    "risposta2": "Un boundary object",
-    "risposta3": "Il control object che gestisce il caso d’uso",
-    "corretta": "L’attore che inizia il caso d’uso"
-  },
-  {
-    "domanda": "Cosa dovrebbe contenere la seconda colonna di un diagramma di sequenza ?",
-    "risposta1": "L’attore che inizia il caso d’uso",
-    "risposta2": "Un boundary object",
-    "risposta3": "Il control object che gestisce il caso d’uso",
-    "corretta": "Un boundary object"
-  },
-  {
-    "domanda": "Cosa dovrebbe contenere la terza colonna di un diagramma di sequenza ?",
-    "risposta1": "L’attore che inizia il caso d’uso",
-    "risposta2": "Un boundary object",
-    "risposta3": "Il control object che gestisce il caso d’uso",
-    "corretta": "Il control object che gestisce il caso d’uso"
-  },
-  {
-    "domanda": "Quali di queste affermazioni non è corretta ?",
-    "risposta1": "Un boundary object accede ad un entity object",
-    "risposta2": "Un entity object accede ad un control object",
-    "risposta3": "Un control object crea un boundary object",
-    "corretta": "Un boundary object accede ad un entity object"
-  },
-  {
-    "domanda": "In un diagramma di stato, quando viene valutata la condizione di guardia su una transizione ?",
-    "risposta1": "Quando il sistema si trova nello stato sorgente della transizione",
-    "risposta2": "Quando si verifica l’azione indicata sulla transizione",
-    "risposta3": "Quando si verifica l’evento indicato sulla transizione",
-    "corretta": "Quando si verifica l’azione indicata sulla transizione"
-  },
-  {
-    "domanda": "Quale di queste affermazioni non si riferisce ad un’attività in un diagramma di stato ?",
-    "risposta1": "Operazione che prende tempo per essere completata",
-    "risposta2": "E’ associata ad un evento",
-    "risposta3": "E’ associata ad uno stato",
-    "corretta": "Operazione che prende tempo per essere completata"
-  },
-  {
-    "domanda": "Quale di queste affermazioni non si riferisce ad un’azione in un diagramma di stato ?",
-    "risposta1": "Operazione che prende tempo per essere completata",
-    "risposta2": "E’ associata ad uno stato",
-    "risposta3": "E’ associata ad un evento",
-    "corretta": "E’ associata ad uno stato"
-  },
-  {
-    "domanda": "Quale delle seguenti affermazioni è falsa relativamente al Pilot testing:",
-    "risposta1": "Il Beta test di accettazione è realizzato da un numero limitato di utenti nell'ambiente di utilizzo",
-    "risposta2": "Nessuna linea guida o scenario è fornito agli utenti",
-    "risposta3": "L'Alpha test è un test pilota con il cliente che esercita il sistema nell'ambiente di sviluppo",
-    "risposta4": "Sistemi pilota sono utili quando un sistema è costruito senza un insieme di richieste specifiche, o senza un particolare cliente in mente",
-    "corretta": "L'Alpha test è un test pilota con il cliente che esercita il sistema nell'ambiente di sviluppo"
-  },
-  {
-    "domanda": "Se il mio obiettivo è fornire implementazioni diverse per uno stesso sottosistema",
-    "risposta1": "Uso un adapter pattern",
-    "risposta2": "Uso un bridge pattern",
-    "risposta3": "uso un façade pattern",
-    "risposta4": "Uso un proxy pattern",
-    "corretta": "Uso un bridge pattern"
-  },
-  {
-    "domanda": "Quale di queste affermazioni è vera:",
-    "risposta1": "II testing white-box consente di capire se non ho implementato delle funzionalità",
-    "risposta2": "Il testing black-box consente di capire se non ho implementato delle funzionalità",
-    "risposta3": "Il testing white-box consente di migliorare le performance",
-    "risposta4": "Il testing black-box consente di individuare caratteristiche non richieste",
-    "corretta": "Il testing black-box consente di capire se non ho implementato delle funzionalità"
-  },
-  {
-    "domanda": "Quale di queste affermazioni è vera?",
-    "risposta1": "Un test driver è una implementazione parziale di una componente che dipende dalla componente testata",
-    "risposta2": "Un test Stub è una implementazione completa di componenti da cui la componente testata dipende",
-    "risposta3": "Un test driver è una implementazione parziale di una componente da cui ia componente testata dipende",
-    "risposta4": "Un test driver è una implementazione completa di componenti da cui la componente testata dipende",
-    "corretta": "Un test driver è una implementazione parziale di una componente che dipende dalla componente testata"
-  },
-  {
-    "domanda": "Quale delle seguenti affermazioni è falsa relativamente al testing di integrazione?:",
-    "risposta1": "Sviluppare test Stub e test driver per un test di integrazione sistematico è time-consuming",
-    "risposta2": "L'ordine in cui le componenti sono integrate non influenza lo sforzo richiesto per l'integrazione",
-    "risposta3": "Rileva bug che non sono stati determinati durante lo unit testing, focalizzandosi su un insieme di componenti che sono integrate",
-    "risposta4": "Due o più componenti sono integrate e analizzate, e quando dei bug sono rilevati nuove componenti possono essere aggiunte per riparare i bug",
-    "corretta": "L'ordine in cui le componenti sono integrate non influenza lo sforzo richiesto per l'integrazione"
-  },
-  {
-    "domanda": "Quale delle seguenti affermazioni è falsa relativamente al white-box testing?",
-    "risposta1": "è necessario testare un numero potenzialmente infinito di percorsi",
-    "risposta2": "Consente di rilevare casi d'uso mancanti",
-    "risposta3": "Si assicura che tutti i path nel programma siano eseguiti",
-    "risposta4": "I test white-box spesso verificano ciò che è fatto, invece di ciò che dovrebbe essere fatto",
-    "corretta": "Consente di rilevare casi d'uso mancanti"
-  },
-  {
-    "domanda": "Gli UML Deployment diagram sono utili per mostrare il progetto del sistema dopo che le seguenti decisioni sono state prese:",
-    "risposta1": "Consistenza dei nodi",
-    "risposta2": "Testing di integrazione",
-    "risposta3": "Complessità dei nodi",
-    "risposta4": "Decomposizione in sottosistemi",
-    "corretta": "Decomposizione in sottosistemi"
-  },
-  {
-    "domanda": "Se devo effettuare una trasformazione prima sul codice sorgente e poi sul modello a oggetti faccio",
-    "risposta1": "Prima operazioni di Object model transformation e poi di forward engineering",
-    "risposta2": "Prima operazioni di refactoring e poi di reverse engineering",
-    "risposta3": "Prima operazioni di forward engineering e poi di refactoring",
-    "risposta4": "Prima operazioni di refactoring e poi di forward engineering",
-    "corretta": "Prima operazioni di refactoring e poi di reverse engineering"
-  },
-  {
-    "domanda": "Quale di queste affermazioni è vera? Usando Unit testing",
-    "risposta1": "Aumenta la complessità testando più unità in parallelo",
-    "risposta2": "Facilita la modifica del codice del modulo in momenti successivi (rafactoring)",
-    "risposta3": "Diverse unità non possono essere testate in parallelo",
-    "risposta4": "È più facile correggere i bug, poiché molte componenti sono coinvolte in parallelo",
-    "corretta": "Facilita la modifica del codice del modulo in momenti successivi (rafactoring)"
-  },
-  {
-    "domanda": "Se il mio obiettivo è quello di realizzare una architettura chiusa",
-    "risposta1": "Uso un proxy pattern",
-    "risposta2": "Uso un bridge pattern",
-    "risposta3": "Uso un façade pattern",
-    "risposta4": "Uso un adapter pattern",
-    "corretta": "Uso un façade pattern"
-  },
-  {
-    "domanda": "Aggiungere associazioni ridondanti ad un diagramma delle classi in fase di Object design serve a:",
-    "risposta1": "Memorizzare attributi derivati",
-    "risposta2": "Ritardare calcoli costosi",
-    "risposta3": "Favorire la tracciabilità",
-    "risposta4": "Ottimizzare cammini di accesso",
-    "corretta": "Ottimizzare cammini di accesso"
-  },
-  {
-    "domanda": "Quale delle seguenti affermazioni è corretta? In una architettura client/server:",
-    "risposta1": "I Server conoscono le interfacce dei Client",
-    "risposta2": "Gli utenti interagiscono solo con il Client",
-    "risposta3": "Il flusso di controllo nei client e nei server è vincolato",
-    "risposta4": "I Client non conoscono l'interfaccia del Server (i suoi servizi)",
-    "corretta": "Gli utenti interagiscono solo con il Client"
-  },
-  {
-    "domanda": "In una architettura a layer (indicare la risposta corretta):",
-    "risposta1": "Un layer può dipendere solo dai layer di livello più basso",
-    "risposta2": "Un layer ha conoscenza dei layer dei livelli più alti",
-    "risposta3": "Un layer non può dipendere dal un layer al livello più basso",
-    "risposta4": "Un layer può dipendere solo dai layer di livello più alto",
-    "corretta": "Un layer può dipendere solo dai layer di livello più basso"
-  },
-  {
-    "domanda": "Quale delle seguenti affermazioni è corretta?",
-    "risposta1": "Le architetture chiuse sono meno portabili",
-    "risposta2": "Se un sottosistema è un layer, spesso è chiamato macchina virtuale",
-    "risposta3": "Le architetture chiuse sono più efficienti",
-    "risposta4": "Le architetture chiuse complicano la manutenzione",
-    "corretta": "Se un sottosistema è un layer, spesso è chiamato macchina virtuale"
-  },
-  {
-    "domanda": "Il modello di analisi è composto dei seguenti modelli:",
-    "risposta1": "Da tutti gli oggetti del sistema",
-    "risposta2": "Modello funzionale",
-    "risposta3": "Sequence diagram",
-    "risposta4": "Modello dell'architettura del sistema",
-    "corretta": "Modello funzionale"
-  },
-  {
-    "domanda": "Quale delle seguenti affermazioni è corretta:",
-    "risposta1": "Il sequence diagram consente di specificare la struttura degli oggetti",
-    "risposta2": "Il sequence diagram è più intuitivo degli use case",
-    "risposta3": "Il sequence diagram è particolarmente adatto alla comunicazione con il cliente",
-    "risposta4": "Il sequence diagram fornisce una prospettiva diversa che consente di individuare oggetti mancanti e aree non chiare nelle specifiche",
-    "corretta": "Il sequence diagram fornisce una prospettiva diversa che consente di individuare oggetti mancanti e aree non chiare nelle specifiche"
-  },
-  {
-    "domanda": "Quale delle seguenti affermazione non è corretta relativamente al system design?",
-    "risposta1": "Vengono prese decisioni relative al controllo degli accessi",
-    "risposta2": "Vengono prese decisioni relative al controllo del flusso globale",
-    "risposta3": "Vengono prese decisioni relative alla memorizzazione dei dati",
-    "risposta4": "Vengono prese decisioni relative alla specifica delle interfacce delle classi",
-    "corretta": "Vengono prese decisioni relative alla specifica delle interfacce delle classi"
-  },
-  {
-    "domanda": "L'obiettivo dell'analisi dei requisiti è fomire un modello del sistema che sia:",
-    "risposta1": "Portabile",
-    "risposta2": "Formale",
-    "risposta3": "Corretto",
-    "risposta4": "Tracciabile",
-    "corretta": "Corretto"
-  },
-  {
-    "domanda": "Quale delle seguenti non è una attività dell'analisi dei requisiti?",
-    "risposta1": "Identificare le associazioni",
-    "risposta2": "Identificare gli attori che interagiscono con il sistema",
-    "risposta3": "Identificare gli oggetti Boundary",
-    "risposta4": "Modellare le relazioni di ereditarietà",
-    "corretta": "Identificare gli attori che interagiscono con il sistema"
-  },
-  {
-    "domanda": "Quale di queste affermazioni, relative ad un deployment diagram è falsa ?",
-    "risposta1": "Mostra la struttura del sistema a run-time",
-    "risposta2": "Mostra le classi con tutti i suoi dettagli",
-    "risposta3": "Mostra il mapping hardware/software",
-    "risposta4": "Mostra le dipendenze tra componenti e interfacce dei sottosistemi",
-    "corretta": "Mostra la struttura del sistema a run-time"
-  },
-  {
-    "domanda": "(Sequence Diagram) Quale delle seguenti affermazioni non è corretta:",
-    "risposta1": "Gli oggetti Boundary possono accedere a oggetti Entity",
-    "risposta2": "Oggetti Control e Boundary accedono a oggetti Entity",
-    "risposta3": "Gli oggetti Entity possono accedere agli oggetti Control e Boundary",
-    "risposta4": "Gli oggetti Control sono creati dagli oggetti Boundary che iniziano gli use case",
-    "corretta": "Gli oggetti Entity possono accedere agli oggetti Control e Boundary"
-  },
-  {
-    "domanda": "Quali delle seguenti attività non sono di solito portate avanti dal project manager",
-    "risposta1": "Scelta e valutazione delle tecnologie",
-    "risposta2": "Selezione e valutazione del personale",
-    "risposta3": "Stima del costo del progetto",
-    "risposta4": "Monitoraggio e revisioni del progetto",
-    "risposta5": "Pianificazione e temporizzazione delle attività e dei tasks",
-    "corretta": "Scelta e valutazione delle tecnologie"
-  },
-  {
-    "domanda": "Solitamente, quale delle seguenti fasi di un progetto software è la più costosa?",
-    "risposta1": "Manutenzione",
-    "risposta2": "Implementazione",
-    "risposta3": "Testing",
-    "risposta4": "Progettazione",
-    "corretta": "Manutenzione"
-  },
-  {
-    "domanda": "In UML quale dei seguenti è un diagramma delle interazioni (Interaction Diagrams)?",
-    "risposta1": "Navigational Diagram",
-    "risposta2": "Deployment Diagram",
-    "risposta3": "Use case Diagram",
-    "risposta4": "Collaboration Diagram",
-    "corretta": "Collaboration Diagram"
-  },
-  {
-    "domanda": "Quale delle seguenti affermazioni non è corretta?",
-    "risposta1": "Object Constraint Language consente di specificare i contratti in UML",
-    "risposta2": "Un Class Diagram è tipicamente usato per modellare le relazioni tra oggetti dei sequence diagram",
-    "risposta3": "Use Case Diagram che non e utilizzata per modellare gli elementi hardware e softwate di un sistema",
-    "risposta4": "Il Component Diagram è un diagramma fisico",
-    "corretta": "Un Class Diagram è tipicamente usato per modellare le relazioni tra oggetti dei sequence diagram"
-  },
-  {
-    "domanda": "Quale delle seguenti euristiche è corretta:",
-    "risposta1": "In fase di analisi si identifica un oggetto Control per ogni use case",
-    "risposta2": "In fase di analisi si identifica un oggetto Entity per ogni Control",
-    "risposta3": "Il sequence diagram è particolarmente adatto alla comunicazione con il cliente",
-    "risposta4": "La vita di un oggetto Control dovrebbe corrispondere alla durata di uno use case",
-    "corretta": "La vita di un oggetto Control dovrebbe corrispondere alla durata di uno use case"
-  },
-  {
-    "domanda": "Un class diagram è tipicamente usato modellare:",
-    "risposta1": "La struttura dinamica del sistema",
-    "risposta2": "Lo schema logico di un database",
-    "risposta3": "Le relazioni tra oggetti dei sequence diagram individuati",
-    "risposta4": "Il glossario di un sistema: sono prese decisioni relativamente alle astrazioni da considerare",
-    "corretta": "Il glossario di un sistema: sono prese decisioni relativamente alle astrazioni da considerare"
-  },
-  {
-    "domanda": "Quale dei seguenti NON è un attributo di qualità del software indicato dall'acronimo FURPS?",
-    "risposta1": "Performance",
-    "risposta2": "Scalability",
-    "risposta3": "Supportabilità",
-    "risposta4": "Usability",
-    "corretta": "Scalability"
-  },
-  {
-    "domanda": "(Sequence Diagram) Quale delle seguenti affermazioni è corretta:",
-    "risposta1": "Gli oggetti Control determinano l'ordine dell'interazione degli oggetti",
-    "risposta2": "Gli oggetti Boundary rappresentano le interazioni solo tra gli oggetti del sistema",
-    "risposta3": "Gli oggetti Entity accedono agli oggetti Control",
-    "risposta4": "Gli oggetti Entity rappresentano le entità visibili del sistema rispetto al dominio applicativo",
-    "corretta": "Gli oggetti Control determinano l'ordine dell'interazione degli oggetti"
-  },
-  {
-    "domanda": "Cosa è l'interfaccia di un sottosistema?",
-    "risposta1": "Un insieme di associazioni, eventi e vincoli legati tra di loro",
-    "risposta2": "Un gruppo di operazioni che condividono uno scopo comune",
-    "risposta3": "Una descrizione completa delle interazioni del sottosistema con l'attore",
-    "risposta4": "Un insieme di operazioni con signature completamente specificata",
-    "corretta": "Un insieme di operazioni con signature completamente specificata"
-  },
-  {
-    "domanda": "Quando introduciamo una dipendenza in un component diagram, quale delle seguenti affermazioni non è corretta:",
-    "risposta1": "Quando una è modificata, altre componenti che dipendono da questa potrebbero richiedere modifiche",
-    "risposta2": "I cicli sono ammessi",
-    "risposta3": "La dipendenza non può essere transitiva",
-    "corretta": "La dipendenza non può essere transitiva"
-  },
-  {
-    "domanda": "Quale delle seguenti affermazioni è corretta? In una architettura client/server le funzioni eseguite dal server di database sono:",
-    "risposta1": "Elaborazioni decentralizzate",
-    "risposta2": "Garantire la sicurezza del Database",
-    "risposta3": "Evitare la concorrenza delle operazioni",
-    "risposta4": "Gestione decentralizzata dei dati",
-    "corretta": "Garantire la sicurezza del Database"
-  },
-  {
-    "domanda": "Quale delle seguenti affermazioni è corretta? I File come opzione per la gestione della memorizzazione:",
-    "risposta1": "Non consentono operazioni di basso livello",
-    "risposta2": "Le applicazioni devono aggiungere codice per fornire un opportuno livello di astrazione",
-    "risposta3": "Nessuna delle precedenti",
-    "risposta4": "Sono costosi",
-    "corretta": "Le applicazioni devono aggiungere codice per fornire un opportuno livello di astrazione"
-  },
-  {
-    "domanda": "Quale delle seguenti attività non rientra in quelle da fare per la specifica delle interfacce, durante robject design:",
-    "risposta1": "Mantenere traccia dei contratti nel codice sorgente",
-    "risposta2": "Identificare attributi e operazioni mancanti",
-    "risposta3": "Specificare le invarianti",
-    "risposta4": "Definire la visibilità di ogni operazione",
-    "corretta": "Mantenere traccia dei contratti nel codice sorgente"
-  },
-  {
-    "domanda": "Come vanno implementate le associazioni 'molti-a-molti' tra oggetti persistenti in un DB relazionale ?",
-    "risposta1": "Con una ulteriore tabella oltre a quelle corrispondenti alle classi dell'associazione",
-    "risposta2": "Con due tabelle e due chiavi esterne",
-    "risposta3": "Con una chiave esterna inserita nelle due tabelle corrispondenti alle classi dell'associazione",
-    "risposta4": "Con una chiave esterna inserita in una delle due tabelle corrispondenti alle classi dell'associazione",
-    "corretta": "Con una ulteriore tabella oltre a quelle corrispondenti alle classi dell'associazione"
-  },
-  {
-    "domanda": "Se devo effettuare una trasformazione prima sull modello a oggetti e poi ottengo il codice, faccio",
-    "risposta1": "Prima operazioni di refactoring e poi di reverse engineering",
-    "risposta2": "Prima operazioni di object model transformation e poi di refoctoting",
-    "risposta3": "Prima operazioni di object model transformation e poi di forward engineering",
-    "corretta": "Prima operazioni di object model transformation e poi di forward engineering"
-  },
-  {
-    "domanda": "Quando si effettua un test di regressione",
-    "risposta1": "Dopo aver effettuato delle modifiche al modello durante il testing di sistema",
-    "risposta2": "Dopo aver effettuato il testing di sistema e prima di effettuare il testing di accettazione",
-    "risposta3": "Dopo aver effettuato delle modifiche al codice per correggere un fault",
-    "risposta4": "Dopo aver effettuato il test di integrazione e prima di effettuare il test di sistema",
-    "corretta": "Dopo aver effettuato delle modifiche al codice per correggere un fault"
-  },
-  {
-    "domanda": "(Testing) Quale di queste affermazioni è vera?",
-    "risposta1": "con il bottom up integration testing ho bisogno di driver",
-    "risposta2": "con integration testing integro i sottosistemi dopo averli testati",
-    "risposta3": "con il sandwich testing non ho bisogno di driver",
-    "risposta4": "con il top down integration testing ho bisogno di driver",
-    "corretta": "con il bottom up integration testing ho bisogno di driver"
-  },
-  {
-    "domanda": "(Test driver/stub) Quale di queste affermazioni è vera?",
-    "risposta1": "Un test driver è una implementazione parziale di una componente da cui la componente testata dipende",
-    "risposta2": "Un test driver è una implementazione completa di componenti da cui la componente testata dipende",
-    "risposta3": "Un test Stub è una implementazione completa di componenti da cui la componente testata dipende",
-    "risposta4": "Un test driver è una implementazione parziale di una componente che dipende dalla componente testata",
-    "corretta": "Un test driver è una implementazione parziale di una componente che dipende dalla componente testata"
-  },
-  {
-    "domanda": "Quale delle seguenti affermazioni è corretta per una architettura a repository?",
-    "risposta1": "I sottosistemi accedono e modificano una singola struttura dati chiamata repository.",
-    "risposta2": "I sottosistemi sono fortemente accoppiati",
-    "risposta3": "Il repository ha conoscenza degli altri sottosistemi",
-    "corretta": "I sottosistemi accedono e modificano una singola struttura dati chiamata repository."
-  },
-  {
-    "domanda": "Quale di queste affermazioni si riferisce ad un diagramma di stato?",
-    "risposta1": "Serve ad individuare le relazioni temporali tra oggetti nel tempo",
-    "risposta2": "Serve ad individuare la sequenza di operazioni come risposta ad uno o più eventi",
-    "risposta3": "Serve ad individuare i cambiamenti degli oggetti nel tempo",
-    "corretta": "Serve ad individuare i cambiamenti degli oggetti nel tempo"
-  },
-  {
-    "domanda": "Quale di queste affermazioni non si riferisce ad un diagramma di sequenza?",
-    "risposta1": "Serve ad individuare i cambiamenti degli oggetti nel tempo",
-    "risposta2": "Serve ad individuare le relazioni temporali tra oggetti nel tempo",
-    "risposta3": "Serve ad individuare la sequenza di operazioni come risposta ad uno o più eventi",
-    "corretta": "Serve ad individuare i cambiamenti degli oggetti nel tempo"
-  },
-  {
-    "domanda": "Quale di questi prodotti dell’analisi dei requisiti vanno usati durante la fase di definizione degli obiettivi di design?",
-    "risposta1": "Modello dei casi d’uso",
-    "risposta2": "Modello a oggetti",
-    "risposta3": "Requisiti non funzionali",
-    "corretta": "Requisiti non funzionali"
-  },
-  {
-    "domanda": "Quale di questi prodotti dell’analisi dei requisiti vanno usati durante la fase di decomposizione del sistema?",
-    "risposta1": "Modello dei casi d’uso",
-    "risposta2": "Modello a oggetti",
-    "risposta3": "Requisiti non funzionali",
-    "corretta": "Modello dei casi d’uso"
-  },
-  {
-    "domanda": "Quale di questi prodotti dell’analisi dei requisiti vanno usati durante la fase di design relativa a mapping hardware/software e a gestione dei dati persistenti?",
-    "risposta1": "Modello dei casi d’uso",
-    "risposta2": "Modello a oggetti",
-    "risposta3": "Requisiti non funzionali",
-    "corretta": "Modello a oggetti"
-  },
-  {
-    "domanda": "Come viene rappresentato un sottosistema in UML?",
-    "risposta1": "Con una classe",
-    "risposta2": "Con un caso d’uso",
-    "risposta3": "Con un package",
-    "corretta": "Con un package"
-  },
-  {
-    "domanda": "Cosa è un servizio di un sottosistema?",
-    "risposta1": "Un insieme di operazioni con signature completamente specificata",
-    "risposta2": "Un gruppo di operazioni che condividono uno scopo comune",
-    "risposta3": "Un insieme di associazioni, eventi e vincoli legati tra di loro",
-    "corretta": "Un gruppo di operazioni che condividono uno scopo comune"
-  },
-  {
-    "domanda": "Quali di queste affermazioni è vera ?",
-    "risposta1": "L’accoppiamento misura le dipendenze tra le classi di un sottosistema",
-    "risposta2": "In un sistema con elevato accoppiamento le modifiche ad un sottosistema hanno forte impatto sugli altri sottosistemi",
-    "risposta3": "L’obiettivo del system design è massimizzare l’accoppiamento",
-    "corretta": "In un sistema con elevato accoppiamento le modifiche ad un sottosistema hanno forte impatto sugli altri sottosistemi"
-  },
-  {
-    "domanda": "Quali di queste affermazioni è vera ?",
-    "risposta1": "La coesione misura le dipendenze tra i sottosistemi di un sistema",
-    "risposta2": "In sottosistemi con elevata coesione le modifiche ad un sottosistema hanno forte impatto sugli altri sottosistemi",
-    "risposta3": "Le classi di un sottosistema con elevata coesione eseguono task simili",
-    "corretta": "Le classi di un sottosistema con elevata coesione eseguono task simili"
-  },
-  {
-    "domanda": "A cosa servono le partizioni di un sistema ?",
-    "risposta1": "A dividere verticalmente un sistema in sottosistemi debolmente accoppiati",
-    "risposta2": "A dividere orizzontalmente un sistema in sottosistemi a diversi livelli di astrazione",
-    "risposta3": "A dividere un sistema sia orizzontalmente che verticalmente in sottosistemi indipendenti",
-    "corretta": "A dividere verticalmente un sistema in sottosistemi debolmente accoppiati"
-  },
-  {
-    "domanda": "A cosa servono i layer di un sistema ?",
-    "risposta1": "A dividere verticalmente un sistema in sottosistemi debolmente accoppiati",
-    "risposta2": "A dividere orizzontalmente un sistema in sottosistemi a diversi livelli di astrazione",
-    "risposta3": "A dividere un sistema sia orizzontalmente che verticalmente in sottosistemi indipendenti",
-    "corretta": "A dividere orizzontalmente un sistema in sottosistemi a diversi livelli di astrazione"
-  },
-  {
-    "domanda": "A chi fornisce servizi un layer di un sistema ?",
-    "risposta1": "Ai layer di livello più basso",
-    "risposta2": "Ai layer dello stesso livello",
-    "risposta3": "Ai layer di livello più alto",
-    "corretta": "Ai layer di livello più alto"
-  },
-  {
-    "domanda": "In un’architettura software aperta:",
-    "risposta1": "I sottosistemi di un livello possono accedere solo ai sottosistemi del livello immediatamente inferiore",
-    "risposta2": "I sottosistemi di un livello possono accedere ai sottosistemi di qualunque livello inferiore",
-    "risposta3": "I sottosistemi di un livello possono accedere sia ai sottosistemi dei livelli inferiori che a quelli dei livelli superiori",
-    "corretta": "I sottosistemi di un livello possono accedere ai sottosistemi di qualunque livello inferiore"
-  },
-  {
-    "domanda": "Quali sono gli obiettivi di design di un’architettura software aperta ?",
-    "risposta1": "Manutenibilità",
-    "risposta2": "Efficienza",
-    "risposta3": "Affidabilità",
-    "corretta": "Efficienza"
-  },
-  {
-    "domanda": "Quali sono gli obiettivi di design di un’architettura software chiusa ?",
-    "risposta1": "Usabilità",
-    "risposta2": "Efficienza",
-    "risposta3": "Manutenibilità",
-    "corretta": "Manutenibilità"
-  },
-  {
-    "domanda": "Quale di queste affermazioni è falsa?",
-    "risposta1": "In un’architettura client-server, il server fornisce i servizi al client",
-    "risposta2": "In un’architettura client-server, il server conosce l’interfaccia del client",
-    "risposta3": "Una repository architecture è un caso particolare di architettura client-server",
-    "corretta": "Una repository architecture è un caso particolare di architettura client-server"
-  },
-  {
-    "domanda": "Quali di queste affermazioni è vera ?",
-    "risposta1": "In un’architettura peer-to-peer non c’è differenza tra client e server",
-    "risposta2": "Un’architettura peer-to-peer favorisce una gestione centralizzata dei dati",
-    "risposta3": "Un’architettura peer-to-peer consente di evitare problemi di deadlock",
-    "corretta": "In un’architettura peer-to-peer non c’è differenza tra client e server"
-  },
-  {
-    "domanda": "Un’architettura model-view-controller, il sottosistema “model”:",
-    "risposta1": "E’ responsabile della conoscenza del dominio applicativo",
-    "risposta2": "E’ responsabile della visualizzazione degli oggetti del dominio applicativo",
-    "risposta3": "E’ responsabile della sequenza dei interazioni con l’utente",
-    "corretta": "E’ responsabile della conoscenza del dominio applicativo"
-  },
-  {
-    "domanda": "Le relazioni tra i componenti in un component diagram sono",
-    "risposta1": "associazioni",
-    "risposta2": "dipendenze",
-    "risposta3": "Generalizzazioni",
-    "corretta": "associazioni"
-  },
-  {
-    "domanda": "Quale di queste affermazioni relative ad un component diagram è falsa ?",
-    "risposta1": "Mostra il mapping hardware/software",
-    "risposta2": "Mostra la struttura del sistema a compilation time",
-    "risposta3": "Mostra la struttura a design time",
-    "corretta": "Mostra il mapping hardware/software"
-  },
-  {
-    "domanda": "Le relazioni tra i nodi di un deployment diagram sono",
-    "risposta1": "associazioni",
-    "risposta2": "dipendenze",
-    "risposta3": "Generalizzazioni",
-    "corretta": "dipendenze"
-  },
-  {
-    "domanda": "In un thin client model",
-    "risposta1": "Il sistema è two thier e la logica applicativa è eseguita sul server",
-    "risposta2": "Il sistema è two thier e la logica applicativa è eseguita sul client",
-    "risposta3": "Il sistema è three thier e la logica applicativa è eseguita sul client",
-    "corretta": "Il sistema è two thier e la logica applicativa è eseguita sul server"
-  },
-  {
-    "domanda": "Un invariante è",
-    "risposta1": "Un predicato che deve essere vero prima dell’invocazione di un metodo di una classe",
-    "risposta2": "Un predicato che è vero dopo l’invocazione di un metodo di una classe",
-    "risposta3": "Un predicato che è vero prima e dopo l’invocazione di un metodo di una classe",
-    "corretta": "Un predicato che è vero prima e dopo l’invocazione di un metodo di una classe"
-  },
-  {
-    "domanda": "Quale di queste affermazioni relative a JavaDoc è corretta ?",
-    "risposta1": "Il commento che precede un metodo consente di specificare la precondizione del metodo",
-    "risposta2": "Il commento che precede un metodo consente di specificare la postcondizione del metodo",
-    "risposta3": "Il commento che precede un metodo consente di specificare l’invariante della classe",
-    "corretta": "Il commento che precede un metodo consente di specificare la precondizione del metodo"
-  },
-  {
-    "domanda": "Se devo realizzare una associazione qualificata uso come struttura dati",
-    "risposta1": "Una tabella",
-    "risposta2": "Un insieme",
-    "risposta3": "Una lista",
-    "corretta": "Una tabella"
-  },
-  {
-    "domanda": "Se devo estendere una classe mi interessa conoscere",
-    "risposta1": "Tutti i membri privati, protetti e pubblici della classe",
-    "risposta2": "Solo i membri protetti e pubblici della classe",
-    "risposta3": "Solo i membri pubblici della classe",
-    "corretta": "Solo i membri protetti e pubblici della classe"
-  },
-  {
-    "domanda": "La realizzazione delle associazioni del modello a oggetti",
-    "risposta1": "E’ una trasformazione del modello a oggetti",
-    "risposta2": "E’ una trasformazione di tipo forward engineering",
-    "risposta3": "E’ una trasformazione di refactoring",
-    "corretta": "E’ una trasformazione del modello a oggetti"
-  },
-  {
-    "domanda": "Se devo memorizzare dati voluminosi e necessari per un periodo breve di tempo",
-    "risposta1": "uso una struttura dati in memoria",
-    "risposta2": "uso un file",
-    "risposta3": "uso un database",
-    "corretta": "uso un file"
-  },
-  {
-    "domanda": "Se eredito un contratto in UML quale di queste affermazioni non è corretta ?",
-    "risposta1": "La precondizione del metodo nella sottoclasse consente al metodo di gestire meno casi del corrispondente metodo nella superclasse",
-    "risposta2": "Il metodo nella sottoclasse deve assicurare la stessa postcondizione del corrispondente metodo nella superclasse",
-    "risposta3": "L’invariante della sottoclasse può essere più restrittivo dell’invariante della superclasse",
-    "corretta": "La precondizione del metodo nella sottoclasse consente al metodo di gestire meno casi del corrispondente metodo nella superclasse"
-  },
-  {
-    "domanda": "Quali di questi operazioni non è opportuno implementare durante la realizzazione di contratti ?",
-    "risposta1": "Controllare che la precondizione all’inizio di un metodo sia soddisfatta",
-    "risposta2": "Controllare che la postcondizione all’uscita di un metodo sia soddisfatta",
-    "risposta3": "Incapsulare il codice di controllo in metodi separati ai fini del riuso",
-    "corretta": "Incapsulare il codice di controllo in metodi separati ai fini del riuso"
-  },
-  {
-    "domanda": "L’evento percepito dall’utente come differenza tra comportamento atteso di un sistema software e comportamento esibito dal sistema software viene denominato",
-    "risposta1": "Failure",
-    "risposta2": "Fault",
-    "risposta3": "Error",
-    "corretta": "Failure"
-  },
-  {
-    "domanda": "Nel testing di integrazione bottom-up ho bisogno di realizzare",
-    "risposta1": "Test Driver",
-    "risposta2": "Test Stub",
-    "risposta3": "Sia test driver che test stub",
-    "corretta": "Test Driver"
-  },
-  {
-    "domanda": "Quale di queste affermazioni è falsa ?",
-    "risposta1": "Nel testing white box la derivazione dei casi di test mira a coprire la maggior parte di una classe di elementi della struttura del codice",
-    "risposta2": "Nel testing white box il numero di casi di test da eseguire dipende dal criterio di copertura adottato",
-    "risposta3": "Nel testing white-box non si controlla se l’output prodotto in corrispondenza di un input è uguale all’output atteso",
-    "corretta": "Nel testing white-box non si controlla se l’output prodotto in corrispondenza di un input è uguale all’output atteso"
-  },
-  {
-    "domanda": "(UML class diagram) Quali delle seguenti affermazioni sono vere:",
-    "risposta1": "I ruoli non forniscono una modalità per attraversare relazioni da una classe ad un’altra",
-    "risposta2": "I ruoli sono spesso usati per relazioni tra oggetti della stessa classe",
-    "risposta3": "I nomi di ruolo possono essere usati in alternativa ai nomi delle associazioni",
-    "risposta4": "I nomi di ruoli devono essere consistenti con i nomi della classe e degli attributi",
-    "corretta": "I ruoli sono spesso usati per relazioni tra oggetti della stessa classe"
-  },
-  {
-    "domanda": "(Sequence Diagram) quali di queste affermazioni non sono corrette:",
-    "risposta1": "Una classe stabilisce i messaggi a cui un oggetto può rispondere",
-    "risposta2": "Gli oggetti sono attivati quando vengono istanziati",
-    "risposta3": "I messaggi sono inviati da oggetti",
-    "risposta4": "E’ uno dei principali input per l’implementazione dello scenario",
-    "corretta": "E’ uno dei principali input per l’implementazione dello scenario"
-  },
-  {
-    "domanda": "Relativamente alla identificazione degli oggetti Boundary, quali delle seguenti affermazione non è corretta?",
-    "risposta1": "Identificare i controlli della Ui di cui l’utente ha bisogno per iniziare lo Use case",
-    "risposta2": "Non considerare i messaggi che il sistema usa per rispondere all’utente",
-    "risposta3": "Non modellare aspetti visuali della UI",
-    "risposta4": "Identificare form di cui l’utente ha bisogno per inserire dati nel sistema",
-    "corretta": "Non considerare i messaggi che il sistema usa per rispondere all’utente"
-  },
-  {
-    "domanda": "Quale delle seguenti affermazioni non è corretta:",
-    "risposta1": "il modello di ciclo di vita del software 'V' enfatizza la relazione tra le fasi di test ed i prodotti generati durante le fasi di sviluppo iniziali?",
-    "risposta2": "Il modello di sviluppo del software 'a cascata' (waterfall) è particolarmente adeguato in una situazione in cui i requisiti sono ben definiti",
-    "risposta3": "I modelli di sviluppo del software evolutivi sono specificamente concepiti per aiutare il cliente nell’individuazione dei requisiti",
-    "risposta4": "Il modello a spirale prevede la gestione dei rischi",
-    "corretta": "I modelli di sviluppo del software evolutivi sono specificamente concepiti per aiutare il cliente nell’individuazione dei requisiti"
-  },
-  {
-    "domanda": "Un servizio è (indicare la/e risposta/e corrette):",
-    "risposta1": "una interfaccia di un sottosistema",
-    "risposta2": "un insieme di operazioni correlate fornite dal sottosistema per uno specifico scopo",
-    "risposta3": "un insieme di operazioni correlate fornite da un nodo hardware",
-    "risposta4": "descritto in termini di prototipi",
-    "corretta": "un insieme di operazioni correlate fornite dal sottosistema per uno specifico scopo"
-  },
-  {
-    "domanda": "Quale delle seguenti affermazioni non è corretta relativamente alle finalità dello Scheduling di progetto?",
-    "risposta1": "Divide il progetto in attività e mansioni (tasks) e stima il tempo e le risorse necessarie per completare ogni singola mansione",
-    "risposta2": "Sono necessari intuito ed esperienza",
-    "risposta3": "Organizza le mansioni in modo concorrente, per ottimizzare la forza lavoro",
-    "risposta4": "Massimizza le dipendenza tra le singole mansioni per favorire la comprensione de 'organizzazione delle attività e dei task",
-    "corretta": "Massimizza le dipendenza tra le singole mansioni per favorire la comprensione de 'organizzazione delle attività e dei task"
-  },
-  {
-    "domanda": "Durante l’ispezione ai fini del fault detection (indicare le risposte corrette)",
-    "risposta1": "Lo sviluppatore presenta gli artefatti",
-    "risposta2": "Lo sviluppatore interviene solo se si richiedono chiarimenti",
-    "risposta3": "Si controlla l’efficienza degli algoritmi con le richieste funzionati",
-    "risposta4": "Lo sviluppatore presenta il codice sorgente",
-    "corretta": "Lo sviluppatore interviene solo se si richiedono chiarimenti"
-  },
-  {
-    "domanda": "Quale di queste non è una attività di ottimizzazione effettuata durante la fase di object design e implementazione del sistema?",
-    "risposta1": "Trasformazione di oggetti in attributi",
-    "risposta2": "Memorizzazione di attributi derivati",
-    "risposta3": "Aggiungere associazioni ridondanti",
-    "risposta4": "Ristrutturazione della gerarchia delle classi",
-    "corretta": "Ristrutturazione della gerarchia delle classi"
-  },
-  {
-    "domanda": "Quale delle seguenti figure non è prevista per la suddivisione delle responsabilità durante la raccolta e l’analisi dei requisiti?",
-    "risposta1": "Revisore",
-    "risposta2": "Utente finale",
-    "risposta3": "Manager della qualità",
-    "risposta4": "Architetto",
-    "corretta": "Manager della qualità"
-  },
-  {
-    "domanda": "Quale delle seguenti affermazioni è corretta?",
-    "risposta1": "Una macchina virtuale è un’astrazione di un nodo hardware",
-    "risposta2": "Le macchine virtuali non possono implementare architetture chiuse",
-    "risposta3": "Una macchina virtuale è l’implementazione di un modo hardware",
-    "risposta4": "Una macchina virtuale è un sottosistema connesso a macchine virtuali di livello più alto e più basso attraverso associazioni 'provides services for'",
-    "corretta": "Una macchina virtuale è un sottosistema connesso a macchine virtuali di livello più alto e più basso attraverso associazioni 'provides services for'"
-  },
-  {
-    "domanda": "Quale delle seguenti affermazioni è corretta? In una architettura client/server le funzioni eseguite dal client sono:",
-    "risposta1": "Fornire interfaccia utente standard",
-    "risposta2": "Iniziare la transazione quando i dati sono stati collezionati",
-    "risposta3": "Elaborazione back-end dei data, per verificare vincoli",
-    "corretta": "Iniziare la transazione quando i dati sono stati collezionati"
-  },
-  {
-    "domanda": "Nell’ingegneria del software, quale tra le seguenti è una tecnica utilizzata nell’attività chiamata 'requirement elicitation'?",
-    "risposta1": "Earned value",
-    "risposta2": "Analisi empirica",
-    "risposta3": "Brain storming",
-    "risposta4": "Functional analysis",
-    "corretta": "Brain storming"
-  },
-  {
-    "domanda": "Quali dei seguenti è un tipo di white-box testing?",
-    "risposta1": "Path Testing",
-    "risposta2": "Method Testing",
-    "risposta3": "Condition Testing",
-    "risposta4": "Sequence Testing",
-    "corretta": "Path Testing"
-  },
-  {
-    "domanda": "Quale di queste non è una attività di ottimizzazione effettuata durante la fase di object design e implementazione del sistema?",
-    "risposta1": "Ristrutturazione della gerarchia delle classi",
-    "risposta2": "Aggiungere associazioni ridondanti",
-    "risposta3": "Trasformazione di oggetti in attributi",
-    "risposta4": "Memorizzazione di attributi derivati",
-    "corretta": "Ristrutturazione della gerarchia delle classi"
-  },
-  {
-    "domanda": "Quale delle seguenti affermazioni è falsa relativamente alla strategia Top-down per i testing di integrazione?",
-    "risposta1": "Testa prima i layer al top o i sottosistemi di controllo",
-    "risposta2": "I test driver sono usati per simulare le componenti del laver al bottom che non sono state ancora integrate",
-    "risposta3": "I test cases possono essere definiti in termine delle funzionalità del sistema",
-    "risposta4": "I test stub sono usati per simulare le componenti dei layer al bottom che non sono state ancora integrate",
-    "corretta": "I test driver sono usati per simulare le componenti del laver al bottom che non sono state ancora integrate"
-  },
-  {
-    "domanda": "Quale delle seguenti affermazioni è falsa relativamente all’impatto dei requisiti sul testing di sistema",
-    "risposta1": "La qualità dei requisiti non funzionali e dei vincoli influenza il Performance Testing",
-    "risposta2": "Il tipo di rappresentazione degli use case influenza il Functional Testing",
-    "risposta3": "La qualità della decomposizione dei sottosistemi influenza lo Structure Testing",
-    "risposta4": "Più espliciti sono i requisiti più facili sono da testare sono da testare",
-    "corretta": "Il tipo di rappresentazione degli use case influenza il Functional Testing"
-  }
+    {
+        "domanda": "Cosa è un metodo?",
+        "risposta1": "Un sistema per fare qualcosa in modo migliore",
+        "risposta2": "Un procedimento generale per risolvere classi di problemi",
+        "risposta3": "Un particolare approccio o filosofia per fare qualcosa",
+        "corretta": "Un procedimento generale per risolvere classi di problemi",
+        "tag": [
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Quale di queste affermazioni NON è appropriata per il modello di processo a cascata?",
+        "risposta1": "Le fasi del processo sono in progressione sequenziale",
+        "risposta2": "I semilavorati all'uscita di una fase sono congelati e non possono essere più modificati",
+        "risposta3": "Le funzionalità del sistema sono sviluppate in maniera incrementale",
+        "corretta": "Le funzionalità del sistema sono sviluppate in maniera incrementale",
+        "tag": [
+            "requisiti",
+            "testing & qualità",
+            "processi & gestione"
+        ]
+    },
+    {
+        "domanda": "Un prototipo viene sviluppato per:",
+        "risposta1": "Ridurre i costi di sviluppo",
+        "risposta2": "Rilasciare rapidamente al cliente una prima versione del sistema",
+        "risposta3": "Interagire con il committente per convalidare i requisiti",
+        "corretta": "Interagire con il committente per convalidare i requisiti",
+        "tag": [
+            "requisiti"
+        ]
+    },
+    {
+        "domanda": "Quale tipo di prototipazione parte con i requisiti meglio compresi?",
+        "risposta1": "Prototipazione esplorativa",
+        "risposta2": "Prototipazione throw-away",
+        "risposta3": "Prototipazione mock-ups",
+        "corretta": "Prototipazione esplorativa",
+        "tag": [
+            "requisiti"
+        ]
+    },
+    {
+        "domanda": "Quale tipo di prototipazione tende a realizzare l'interfaccia utente?",
+        "risposta1": "Prototipazione esplorativa",
+        "risposta2": "Prototipazione breadboards",
+        "risposta3": "Prototipazione mock-ups",
+        "corretta": "Prototipazione mock-ups",
+        "tag": [
+            "requisiti",
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Quale di queste affermazioni è appropriata per il modello di processo incrementale?",
+        "risposta1": "Ogni versione produce funzionalità/sottosistemi più affidabili",
+        "risposta2": "Ogni versione aggiunge nuove funzionalità/sottosistemi al sistema",
+        "risposta3": "Ogni versione raffina le funzionalità/sottosistemi che sono presenti fin dall'inizio",
+        "corretta": "Ogni versione aggiunge nuove funzionalità/sottosistemi al sistema",
+        "tag": [
+            "requisiti",
+            "testing & qualità",
+            "processi & gestione"
+        ]
+    },
+    {
+        "domanda": "Quale di queste affermazioni è appropriata per il modello di processo iterativo?",
+        "risposta1": "Ogni versione raffina le funzionalità/sottosistemi che sono presenti fin dall’inizio",
+        "risposta2": "Ogni versione aggiunge nuove funzionalità/sottosistemi al sistema",
+        "risposta3": "I requisiti a più alta priorità vengono rilasciati per primi",
+        "corretta": "Ogni versione raffina le funzionalità/sottosistemi che sono presenti fin dall’inizio",
+        "tag": [
+            "requisiti",
+            "processi & gestione"
+        ]
+    },
+    {
+        "domanda": "Cosa è un team?",
+        "risposta1": "Un insieme di persone a cui è assegnato un task comune, ma che lavorano individualmente e senza necessità di interazione",
+        "risposta2": "Un insieme di persone che rivedono un work product e che propongono azioni",
+        "risposta3": "Un piccolo insieme di persone che lavorano in stretta interazione sulla stessa attività o task",
+        "corretta": "Un insieme di persone a cui è assegnato un task comune, ma che lavorano individualmente e senza necessità di interazione",
+        "tag": [
+            "processi & gestione"
+        ]
+    },
+    {
+        "domanda": "Il tempo durante il quale un certo lavoro in un progetto deve essere fatto, viene denominato:",
+        "risposta1": "Work-product",
+        "risposta2": "Schedule",
+        "risposta3": "Task",
+        "corretta": "Schedule",
+        "tag": [
+            "ingegneria del software",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Il lavoro che deve essere eseguito da un partecipante al progetto, viene denominato:",
+        "risposta1": "Work-product",
+        "risposta2": "Schedule",
+        "risposta3": "Task",
+        "corretta": "Task",
+        "tag": [
+            "ingegneria del software",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Quale di queste affermazioni non è valida per una struttura organizzativa di reporting gerarchica?",
+        "risposta1": "Lo stato è riportato dall’alto verso il basso",
+        "risposta2": "Le decisioni vengono comunicate dall’alto verso il basso",
+        "risposta3": "Le informazioni relative a stato e decisioni sono unidirezionali",
+        "corretta": "Lo stato è riportato dall’alto verso il basso",
+        "tag": [
+            "ingegneria del software",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Cosa è un liason all’interno di un team?",
+        "risposta1": "Il leader del team",
+        "risposta2": "Il responsabile della comunicazione con un altro team",
+        "risposta3": "Il consulente amministrativo del team",
+        "corretta": "Il responsabile della comunicazione con un altro team",
+        "tag": [
+            "processi & gestione"
+        ]
+    },
+    {
+        "domanda": "Che tipo di ruolo è un configuration manager?",
+        "risposta1": "Uno sviluppatore",
+        "risposta2": "Un manager",
+        "risposta3": "Un liason",
+        "corretta": "Un liason",
+        "tag": [
+            "progettazione",
+            "processi & gestione"
+        ]
+    },
+    {
+        "domanda": "Che cosa è un GANNT ?",
+        "risposta1": "Un grafico a barre che descrive lo schedule e la durata dei vari task",
+        "risposta2": "Un grafo che descrive le dipendenze tra i task del progetto",
+        "risposta3": "Un grafo che descrive le dipendenze tra i work-product del progetto",
+        "corretta": "Un grafico a barre che descrive lo schedule e la durata dei vari task",
+        "tag": [
+            "processi & gestione"
+        ]
+    },
+    {
+        "domanda": "Che cosa è un PERT?",
+        "risposta1": "Un grafico a barre che descrive lo schedule e la durata dei vari task",
+        "risposta2": "Un grafo che descrive le dipendenze tra i task del progetto",
+        "risposta3": "Un grafo che descrive le dipendenze tra i work-product del progetto",
+        "corretta": "Un grafo che descrive le dipendenze tra i task del progetto",
+        "tag": [
+            "processi & gestione"
+        ]
+    },
+    {
+        "domanda": "Quale dei seguenti non è una comunicaizione pianificata?",
+        "risposta1": "Definizione del problema",
+        "risposta2": "Review di progetto",
+        "risposta3": "Richiesta di modifica",
+        "corretta": "Richiesta di modifica",
+        "tag": [
+            "ingegneria del software",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Quale dei seguenti è una comunicazione non pianificata?",
+        "risposta1": "Risoluzione di un problema",
+        "risposta2": "Ispezione",
+        "risposta3": "Rilascio",
+        "corretta": "Risoluzione di un problema",
+        "tag": [
+            "processi & gestione"
+        ]
+    },
+    {
+        "domanda": "Quale dei seguenti meccanismi di comunicazione è asincrono?",
+        "risposta1": "Intervista strutturata",
+        "risposta2": "Riunione",
+        "risposta3": "Posta elettronica",
+        "corretta": "Posta elettronica",
+        "tag": [
+            "processi & gestione"
+        ]
+    },
+    {
+        "domanda": "Cosa è un modello ?",
+        "risposta1": "Un’astrazione che descrive il sistema o un sottoinsieme di un sistema",
+        "risposta2": "Un insieme di regole grafiche o testuali per rappresentare viste",
+        "risposta3": "Una vista di aspetti del sistema",
+        "corretta": "Un’astrazione che descrive il sistema o un sottoinsieme di un sistema",
+        "tag": [
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Cosa è una vista?",
+        "risposta1": "Un’astrazione che descrive il sistema o un sottoinsieme di un sistema",
+        "risposta2": "Una visualizzazione di particolari aspetti di un modello",
+        "risposta3": "Un insieme di regole grafiche o testuali",
+        "corretta": "Una visualizzazione di particolari aspetti di un modello",
+        "tag": [
+            "ingegneria del software",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Cosa è una notazione ?",
+        "risposta1": "Un’astrazione che descrive il sistema o un sottoinsieme di un sistema",
+        "risposta2": "Una visualizzazione di particolari aspetti di un modello",
+        "risposta3": "Un insieme di regole grafiche o testuali per rappresentare viste",
+        "corretta": "Un insieme di regole grafiche o testuali per rappresentare viste",
+        "tag": [
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Cosa è UML ?",
+        "risposta1": "Una notazione grafica per progettare sistemi software",
+        "risposta2": "Un insieme di linguaggi per modellare software",
+        "risposta3": "Un modello astratto per descrivere sistemi software",
+        "corretta": "Un insieme di linguaggi per modellare software",
+        "tag": [
+            "uml"
+        ]
+    },
+    {
+        "domanda": "Quale di questi diagrammi non è usato per descrivere il comportamento dinamico di un sistema software ?",
+        "risposta1": "Sequence diagram",
+        "risposta2": "Activity diagram",
+        "risposta3": "Use case diagram",
+        "corretta": "Use case diagram",
+        "tag": [
+            "requisiti",
+            "uml",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "I diagrammi dei casi d’uso:",
+        "risposta1": "Descrivono il comportamento funzionale del sistema così come visto dagli utenti",
+        "risposta2": "Descrivono il comportamento dinamico tra gli attori e il sistema e tra gli oggetti del sistema",
+        "risposta3": "Descrivono il comportamento dinamico di un sistema, in particolare il workflow",
+        "corretta": "Descrivono il comportamento funzionale del sistema così come visto dagli utenti",
+        "tag": [
+            "requisiti",
+            "uml",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "I diagrammi delle attività:",
+        "risposta1": "Descrivono il comportamento funzionale del sistema così come visto dagli utenti",
+        "risposta2": "Descrivono il comportamento dinamico tra gli attori e il sistema e tra gli oggetti del sistema",
+        "risposta3": "Descrivono il comportamento dinamico di un sistema, in particolare il workflow",
+        "corretta": "Descrivono il comportamento dinamico di un sistema, in particolare il workflow",
+        "tag": [
+            "uml",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "I diagrammi di sequenza:",
+        "risposta1": "Descrivono il comportamento funzionale del sistema così come visto dagli utenti",
+        "risposta2": "Descrivono il comportamento dinamico tra gli attori e il sistema e tra gli oggetti del sistema",
+        "risposta3": "Descrivono il comportamento dinamico di un sistema, in particolare il workflow",
+        "corretta": "Descrivono il comportamento dinamico tra gli attori e il sistema e tra gli oggetti del sistema",
+        "tag": [
+            "requisiti",
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "I diagrammi di stato:",
+        "risposta1": "Descrivono la struttura statica del sistema: oggetti, attributi e relazioni",
+        "risposta2": "Descrivono il comportamento dinamico tra gli attori e il sistema e tra gli oggetti del sistema",
+        "risposta3": "Descrivono il comportamento dinamico di un singolo oggetto come una macchina a stati finiti",
+        "corretta": "Descrivono il comportamento dinamico di un singolo oggetto come una macchina a stati finiti",
+        "tag": [
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "I diagrammi delle classi:",
+        "risposta1": "Descrivono la struttura statica del sistema: oggetti, attributi e relazioni",
+        "risposta2": "Descrivono il comportamento dinamico tra gli attori e il sistema e tra gli oggetti del sistema",
+        "risposta3": "Descrivono il comportamento dinamico di un singolo oggetto come una macchina a stati finiti",
+        "corretta": "Descrivono la struttura statica del sistema: oggetti, attributi e relazioni",
+        "tag": [
+            "uml",
+            "progettazione",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "In UML le classi e gli oggetti (istanze) sono rappresentate con:",
+        "risposta1": "Rettangoli",
+        "risposta2": "Ovali",
+        "risposta3": "Rettangoli con angoli arrotondati",
+        "corretta": "Rettangoli",
+        "tag": [
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "In UML i casi d’uso sono rappresentati con:",
+        "risposta1": "Rettangoli",
+        "risposta2": "Ovali",
+        "risposta3": "Rettangoli con angoli arrotondati",
+        "corretta": "Ovali",
+        "tag": [
+            "uml"
+        ]
+    },
+    {
+        "domanda": "In UML gli stati sono rappresentati con:",
+        "risposta1": "Rettangoli",
+        "risposta2": "Ovali",
+        "risposta3": "Rettangoli con angoli arrotondati",
+        "corretta": "Rettangoli con angoli arrotondati",
+        "tag": [
+            "uml"
+        ]
+    },
+    {
+        "domanda": "Quale di questi elementi non è parte di un diagramma dei casi d’uso:",
+        "risposta1": "Attore",
+        "risposta2": "Caso d'uso",
+        "risposta3": "Classe",
+        "corretta": "Classe",
+        "tag": [
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Quale di questi elementi non è parte di un diagramma di sequenza:",
+        "risposta1": "Attore",
+        "risposta2": "Caso d'uso",
+        "risposta3": "Oggetti",
+        "corretta": "Caso d'uso",
+        "tag": [
+            "requisiti",
+            "uml"
+        ]
+    },
+    {
+        "domanda": "Che tipo di relazione può esistere tra un attore e un caso d’uso:",
+        "risposta1": "Associazione",
+        "risposta2": "Dipendenza",
+        "risposta3": "Generalizzazione",
+        "corretta": "Associazione",
+        "tag": [
+            "requisiti",
+            "uml"
+        ]
+    },
+    {
+        "domanda": "Che tipo di relazione può esistere tra due attori:",
+        "risposta1": "Associazione",
+        "risposta2": "Dipendenza",
+        "risposta3": "Generalizzazione",
+        "corretta": "Generalizzazione",
+        "tag": [
+            "requisiti",
+            "uml"
+        ]
+    },
+    {
+        "domanda": "Quale di queste relazioni non esiste tra due casi d’uso:",
+        "risposta1": "Associazione",
+        "risposta2": "Dipendenza",
+        "risposta3": "Generalizzazione",
+        "corretta": "Associazione",
+        "tag": [
+            "uml"
+        ]
+    },
+    {
+        "domanda": "Quali di questi è un requisito funzionale:",
+        "risposta1": "Il sistema deve visualizzare l’ora in base alla sua locazione",
+        "risposta2": "Il tempo di risposta deve essere meno di un secondo",
+        "risposta3": "Il linguaggio di implementazione deve essere Java",
+        "corretta": "Il sistema deve visualizzare l’ora in base alla sua locazione",
+        "tag": [
+            "requisiti",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Quali di questi è un requisito non funzionale:",
+        "risposta1": "Il sistema deve visualizzare l’ora in base alla sua locazione",
+        "risposta2": "Il tempo di risposta deve essere meno di un secondo",
+        "risposta3": "Il linguaggio di implementazione deve essere Java",
+        "corretta": "Il tempo di risposta deve essere meno di un secondo",
+        "tag": [
+            "requisiti"
+        ]
+    },
+    {
+        "domanda": "Cosa si intende per correttezza dei requisiti ?",
+        "risposta1": "I requisiti rappresentano la vista dell’utente",
+        "risposta2": "Sono descritti tutti i possibili scenari del sistema",
+        "risposta3": "Non ci sono requisiti funzionali e non funzionali che si contraddicono",
+        "corretta": "I requisiti rappresentano la vista dell’utente",
+        "tag": [
+            "requisiti"
+        ]
+    },
+    {
+        "domanda": "Cosa si intende per completezza dei requisiti ?",
+        "risposta1": "I requisiti rappresentano la vista dell’utente",
+        "risposta2": "Sono descritti tutti i possibili scenari del sistema",
+        "risposta3": "Non ci sono requisiti funzionali e non funzionali che si contraddicono",
+        "corretta": "Sono descritti tutti i possibili scenari del sistema",
+        "tag": [
+            "requisiti",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Cosa si intende per consistenza dei requisiti ?",
+        "risposta1": "I requisiti rappresentano la vista dell’utente",
+        "risposta2": "Sono descritti tutti i possibili scenari del sistema",
+        "risposta3": "Non ci sono requisiti funzionali e non funzionali che si contraddicono",
+        "corretta": "Non ci sono requisiti funzionali e non funzionali che si contraddicono",
+        "tag": [
+            "requisiti"
+        ]
+    },
+    {
+        "domanda": "Cosa si intende per chiarezza dei requisiti ?",
+        "risposta1": "Non ci sono ambiguità nei requisiti",
+        "risposta2": "I requisiti possono essere implementati e rilasciati",
+        "risposta3": "Non ci sono requisiti funzionali e non funzionali che si contraddicono",
+        "corretta": "Non ci sono ambiguità nei requisiti",
+        "tag": [
+            "requisiti"
+        ]
+    },
+    {
+        "domanda": "Cosa si intende per realismo dei requisiti ?",
+        "risposta1": "Non ci sono ambiguità nei requisiti",
+        "risposta2": "I requisiti possono essere implementati e rilasciati",
+        "risposta3": "Per ogni funzione del sistema è possibile individuare un insieme di requisiti funzionali",
+        "corretta": "I requisiti possono essere implementati e rilasciati",
+        "tag": [
+            "requisiti"
+        ]
+    },
+    {
+        "domanda": "Cosa si intende per tracciabilità dei requisiti ?",
+        "risposta1": "Non ci sono ambiguità nei requisiti",
+        "risposta2": "I requisiti possono essere implementati e rilasciati",
+        "risposta3": "Per ogni funzione del sistema è possibile individuare un insieme di requisiti funzionali",
+        "corretta": "Per ogni funzione del sistema è possibile individuare un insieme di requisiti funzionali",
+        "tag": [
+            "requisiti",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Quale di questi requisiti vanno affrontati durante il design ma non durante l’implementazione ?",
+        "risposta1": "Requisiti ad alta priorità",
+        "risposta2": "Requisiti a media priorità",
+        "risposta3": "Requisiti a bassa priorità",
+        "corretta": "Requisiti a media priorità",
+        "tag": [
+            "requisiti",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Cosa si intende per interface engineering ?",
+        "risposta1": "Lo sviluppo parte da zero, non esiste un sistema precedente",
+        "risposta2": "Riprogettazione o reimplementazione di un sistema esistente con nuove tecnologie",
+        "risposta3": "Fornire i servizi di un sistema esistente in un nuovo ambiente operativo",
+        "corretta": "Fornire i servizi di un sistema esistente in un nuovo ambiente operativo",
+        "tag": [
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Che tipo di scenari sono usati per descrivere un sistema futuro?",
+        "risposta1": "as-is scenarios",
+        "risposta2": "visionary scenarios",
+        "risposta3": "training scenarios",
+        "corretta": "visionary scenarios",
+        "tag": [
+            "requisiti",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Che tipo di scenari sono usati per descrivere un sistema esistente ?",
+        "risposta1": "as-is scenarios",
+        "risposta2": "visionary scenarios",
+        "risposta3": "training scenarios",
+        "corretta": "as-is scenarios",
+        "tag": [
+            "requisiti",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Che tipo di scenari sono usati per guidare un utente nuovo nell’utilizzo del sistema ?",
+        "risposta1": "as-is scenarios",
+        "risposta2": "visionary scenarios",
+        "risposta3": "training scenarios",
+        "corretta": "training scenarios",
+        "tag": [
+            "requisiti",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Perché si usano gli scenari ?",
+        "risposta1": "Per individuare i requisiti del sistema",
+        "risposta2": "Per analizzare le associazioni tra gli oggetti del sistema",
+        "risposta3": "Per analizzare il flusso di eventi di un caso d’uso",
+        "corretta": "Per individuare i requisiti del sistema",
+        "tag": [
+            "requisiti",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Come si descrive un caso d’uso ?",
+        "risposta1": "Mediante uno scenario",
+        "risposta2": "Mediante un flusso di eventi",
+        "risposta3": "Mediante un insieme di requisiti funzionali",
+        "corretta": "Mediante un flusso di eventi",
+        "tag": [
+            "ingegneria del software",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Cosa esprime una relazione di inclusione tra casi d’uso ?",
+        "risposta1": "Una variante del normale flusso di eventi di un caso d’uso",
+        "risposta2": "Una specializzazione di un caso d’uso",
+        "risposta3": "Una decomposizione funzionale di un caso d’uso",
+        "corretta": "Una decomposizione funzionale di un caso d’uso",
+        "tag": [
+            "requisiti"
+        ]
+    },
+    {
+        "domanda": "Cosa esprime una relazione di estensione tra casi d’uso ?",
+        "risposta1": "Una variante del normale flusso di eventi di un caso d’uso",
+        "risposta2": "Una specializzazione di un caso d’uso",
+        "risposta3": "Una decomposizione funzionale di un caso d’uso",
+        "corretta": "Una variante del normale flusso di eventi di un caso d’uso",
+        "tag": [
+            "ingegneria del software",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Cosa esprime una relazione di generalizzazione tra casi d’uso ?",
+        "risposta1": "Una variante del normale flusso di eventi di un caso d’uso",
+        "risposta2": "Una specializzazione di un caso d’uso",
+        "risposta3": "Una decomposizione funzionale di un caso d’uso",
+        "corretta": "Una specializzazione di un caso d’uso",
+        "tag": [
+            "uml"
+        ]
+    },
+    {
+        "domanda": "Un oggetto che interagisce con un attore in un sequence diagram è:",
+        "risposta1": "Un entity object",
+        "risposta2": "Un boundary object",
+        "risposta3": "Un control object",
+        "corretta": "Un boundary object",
+        "tag": [
+            "requisiti",
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Quale di queste categorie di requisiti non funzionali indica la facilità di cambiamenti al sistema dopo il rilascio ?",
+        "risposta1": "Reliability",
+        "risposta2": "Performance",
+        "risposta3": "Supportability",
+        "corretta": "Supportability",
+        "tag": [
+            "requisiti",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Quale di queste categorie di preudo-requirements indica vincoli legati alle modalità di rilascio del sistema?",
+        "risposta1": "Interface requirements",
+        "risposta2": "Packaging requirements",
+        "risposta3": "Operations requirements",
+        "corretta": "Packaging requirements",
+        "tag": [
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Una trasformazione applicata agli oggetti di una classe e definita in fase di analisi è chiamata:",
+        "risposta1": "Operazione",
+        "risposta2": "Signature",
+        "risposta3": "Metodo",
+        "corretta": "Operazione",
+        "tag": [
+            "uml",
+            "progettazione",
+            "processi & gestione"
+        ]
+    },
+    {
+        "domanda": "Una connessione tra due istanze di oggetti è chiamata:",
+        "risposta1": "Associazione",
+        "risposta2": "Link",
+        "risposta3": "Relazione",
+        "corretta": "Link",
+        "tag": [
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Una associazione è:",
+        "risposta1": "Una connessione tra due istanze di oggetti",
+        "risposta2": "Una dipendenza tra classi",
+        "risposta3": "Un mapping bidirezionale tra classi",
+        "corretta": "Un mapping bidirezionale tra classi",
+        "tag": [
+            "uml"
+        ]
+    },
+    {
+        "domanda": "Quale di questi tipi di oggetti cambia meno frequentemente in un sistema software ?",
+        "risposta1": "Boundary object",
+        "risposta2": "Control object",
+        "risposta3": "Entity object",
+        "corretta": "Entity object",
+        "tag": [
+            "uml",
+            "progettazione",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Cosa indica un ruolo ?",
+        "risposta1": "Una estremità dell’associazione",
+        "risposta2": "La navigabilità dell’associazione",
+        "risposta3": "La direzione del nome dell’associazione",
+        "corretta": "Una estremità dell’associazione",
+        "tag": [
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Cosa indica la direzione di una associazione ?",
+        "risposta1": "Una estremità dell’associazione",
+        "risposta2": "La navigabilità dell’associazione",
+        "risposta3": "La direzione del nome dell’associazione",
+        "corretta": "La navigabilità dell’associazione",
+        "tag": [
+            "uml"
+        ]
+    },
+    {
+        "domanda": "Cosa indicano le frecce in un diagramma di sequenza ?",
+        "risposta1": "Eventi inviati da un oggetto ad un altro",
+        "risposta2": "Relazioni tra oggetti",
+        "risposta3": "Dipendenze tra oggetti",
+        "corretta": "Eventi inviati da un oggetto ad un altro",
+        "tag": [
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Cosa indica la linea tratteggiata verticale sotto un oggetto in un diagramma di sequenza ?",
+        "risposta1": "L’invio di un messaggio all’oggetto",
+        "risposta2": "Il periodo di attivazione di una operazione dell’oggetto",
+        "risposta3": "Il periodo durante il quale è possibile inviare un messaggio all’oggetto",
+        "corretta": "Il periodo durante il quale è possibile inviare un messaggio all’oggetto",
+        "tag": [
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Cosa indica un rettangolo verticale sotto un oggetto in un diagramma di sequenza ?",
+        "risposta1": "L’invio di un messaggio all’oggetto",
+        "risposta2": "Il periodo di attivazione di una operazione dell’oggetto",
+        "risposta3": "Il periodo durante il quale è possibile inviare un messaggio all’oggetto",
+        "corretta": "Il periodo di attivazione di una operazione dell’oggetto",
+        "tag": [
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Cosa dovrebbe contenere la prima colonna di un diagramma di sequenza ?",
+        "risposta1": "L’attore che inizia il caso d’uso",
+        "risposta2": "Un boundary object",
+        "risposta3": "Il control object che gestisce il caso d’uso",
+        "corretta": "L’attore che inizia il caso d’uso",
+        "tag": [
+            "requisiti",
+            "uml"
+        ]
+    },
+    {
+        "domanda": "Cosa dovrebbe contenere la seconda colonna di un diagramma di sequenza ?",
+        "risposta1": "L’attore che inizia il caso d’uso",
+        "risposta2": "Un boundary object",
+        "risposta3": "Il control object che gestisce il caso d’uso",
+        "corretta": "Un boundary object",
+        "tag": [
+            "uml"
+        ]
+    },
+    {
+        "domanda": "Cosa dovrebbe contenere la terza colonna di un diagramma di sequenza ?",
+        "risposta1": "L’attore che inizia il caso d’uso",
+        "risposta2": "Un boundary object",
+        "risposta3": "Il control object che gestisce il caso d’uso",
+        "corretta": "Il control object che gestisce il caso d’uso",
+        "tag": [
+            "uml"
+        ]
+    },
+    {
+        "domanda": "Quali di queste affermazioni non è corretta ?",
+        "risposta1": "Un boundary object accede ad un entity object",
+        "risposta2": "Un entity object accede ad un control object",
+        "risposta3": "Un control object crea un boundary object",
+        "corretta": "Un boundary object accede ad un entity object",
+        "tag": [
+            "ingegneria del software",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "In un diagramma di stato, quando viene valutata la condizione di guardia su una transizione ?",
+        "risposta1": "Quando il sistema si trova nello stato sorgente della transizione",
+        "risposta2": "Quando si verifica l’azione indicata sulla transizione",
+        "risposta3": "Quando si verifica l’evento indicato sulla transizione",
+        "corretta": "Quando si verifica l’azione indicata sulla transizione",
+        "tag": [
+            "uml"
+        ]
+    },
+    {
+        "domanda": "Quale di queste affermazioni non si riferisce ad un’attività in un diagramma di stato ?",
+        "risposta1": "Operazione che prende tempo per essere completata",
+        "risposta2": "E’ associata ad un evento",
+        "risposta3": "E’ associata ad uno stato",
+        "corretta": "Operazione che prende tempo per essere completata",
+        "tag": [
+            "uml"
+        ]
+    },
+    {
+        "domanda": "Quale di queste affermazioni non si riferisce ad un’azione in un diagramma di stato ?",
+        "risposta1": "Operazione che prende tempo per essere completata",
+        "risposta2": "E’ associata ad uno stato",
+        "risposta3": "E’ associata ad un evento",
+        "corretta": "E’ associata ad uno stato",
+        "tag": [
+            "uml"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti affermazioni è falsa relativamente al Pilot testing:",
+        "risposta1": "Il Beta test di accettazione è realizzato da un numero limitato di utenti nell'ambiente di utilizzo",
+        "risposta2": "Nessuna linea guida o scenario è fornito agli utenti",
+        "risposta3": "L'Alpha test è un test pilota con il cliente che esercita il sistema nell'ambiente di sviluppo",
+        "risposta4": "Sistemi pilota sono utili quando un sistema è costruito senza un insieme di richieste specifiche, o senza un particolare cliente in mente",
+        "corretta": "L'Alpha test è un test pilota con il cliente che esercita il sistema nell'ambiente di sviluppo",
+        "tag": [
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Se il mio obiettivo è fornire implementazioni diverse per uno stesso sottosistema",
+        "risposta1": "Uso un adapter pattern",
+        "risposta2": "Uso un bridge pattern",
+        "risposta3": "uso un façade pattern",
+        "risposta4": "Uso un proxy pattern",
+        "corretta": "Uso un bridge pattern",
+        "tag": [
+            "pattern & architettura"
+        ]
+    },
+    {
+        "domanda": "Quale di queste affermazioni è vera:",
+        "risposta1": "II testing white-box consente di capire se non ho implementato delle funzionalità",
+        "risposta2": "Il testing black-box consente di capire se non ho implementato delle funzionalità",
+        "risposta3": "Il testing white-box consente di migliorare le performance",
+        "risposta4": "Il testing black-box consente di individuare caratteristiche non richieste",
+        "corretta": "Il testing black-box consente di capire se non ho implementato delle funzionalità",
+        "tag": [
+            "requisiti",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Quale di queste affermazioni è vera?",
+        "risposta1": "Un test driver è una implementazione parziale di una componente che dipende dalla componente testata",
+        "risposta2": "Un test Stub è una implementazione completa di componenti da cui la componente testata dipende",
+        "risposta3": "Un test driver è una implementazione parziale di una componente da cui ia componente testata dipende",
+        "risposta4": "Un test driver è una implementazione completa di componenti da cui la componente testata dipende",
+        "corretta": "Un test driver è una implementazione parziale di una componente che dipende dalla componente testata",
+        "tag": [
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti affermazioni è falsa relativamente al testing di integrazione?:",
+        "risposta1": "Sviluppare test Stub e test driver per un test di integrazione sistematico è time-consuming",
+        "risposta2": "L'ordine in cui le componenti sono integrate non influenza lo sforzo richiesto per l'integrazione",
+        "risposta3": "Rileva bug che non sono stati determinati durante lo unit testing, focalizzandosi su un insieme di componenti che sono integrate",
+        "risposta4": "Due o più componenti sono integrate e analizzate, e quando dei bug sono rilevati nuove componenti possono essere aggiunte per riparare i bug",
+        "corretta": "L'ordine in cui le componenti sono integrate non influenza lo sforzo richiesto per l'integrazione",
+        "tag": [
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti affermazioni è falsa relativamente al white-box testing?",
+        "risposta1": "è necessario testare un numero potenzialmente infinito di percorsi",
+        "risposta2": "Consente di rilevare casi d'uso mancanti",
+        "risposta3": "Si assicura che tutti i path nel programma siano eseguiti",
+        "risposta4": "I test white-box spesso verificano ciò che è fatto, invece di ciò che dovrebbe essere fatto",
+        "corretta": "Consente di rilevare casi d'uso mancanti",
+        "tag": [
+            "requisiti",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Gli UML Deployment diagram sono utili per mostrare il progetto del sistema dopo che le seguenti decisioni sono state prese:",
+        "risposta1": "Consistenza dei nodi",
+        "risposta2": "Testing di integrazione",
+        "risposta3": "Complessità dei nodi",
+        "risposta4": "Decomposizione in sottosistemi",
+        "corretta": "Decomposizione in sottosistemi",
+        "tag": [
+            "uml",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Se devo effettuare una trasformazione prima sul codice sorgente e poi sul modello a oggetti faccio",
+        "risposta1": "Prima operazioni di Object model transformation e poi di forward engineering",
+        "risposta2": "Prima operazioni di refactoring e poi di reverse engineering",
+        "risposta3": "Prima operazioni di forward engineering e poi di refactoring",
+        "risposta4": "Prima operazioni di refactoring e poi di forward engineering",
+        "corretta": "Prima operazioni di refactoring e poi di reverse engineering",
+        "tag": [
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Quale di queste affermazioni è vera? Usando Unit testing",
+        "risposta1": "Aumenta la complessità testando più unità in parallelo",
+        "risposta2": "Facilita la modifica del codice del modulo in momenti successivi (rafactoring)",
+        "risposta3": "Diverse unità non possono essere testate in parallelo",
+        "risposta4": "È più facile correggere i bug, poiché molte componenti sono coinvolte in parallelo",
+        "corretta": "Facilita la modifica del codice del modulo in momenti successivi (rafactoring)",
+        "tag": [
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Se il mio obiettivo è quello di realizzare una architettura chiusa",
+        "risposta1": "Uso un proxy pattern",
+        "risposta2": "Uso un bridge pattern",
+        "risposta3": "Uso un façade pattern",
+        "risposta4": "Uso un adapter pattern",
+        "corretta": "Uso un façade pattern",
+        "tag": [
+            "pattern & architettura"
+        ]
+    },
+    {
+        "domanda": "Aggiungere associazioni ridondanti ad un diagramma delle classi in fase di Object design serve a:",
+        "risposta1": "Memorizzare attributi derivati",
+        "risposta2": "Ritardare calcoli costosi",
+        "risposta3": "Favorire la tracciabilità",
+        "risposta4": "Ottimizzare cammini di accesso",
+        "corretta": "Ottimizzare cammini di accesso",
+        "tag": [
+            "uml",
+            "progettazione",
+            "processi & gestione"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti affermazioni è corretta? In una architettura client/server:",
+        "risposta1": "I Server conoscono le interfacce dei Client",
+        "risposta2": "Gli utenti interagiscono solo con il Client",
+        "risposta3": "Il flusso di controllo nei client e nei server è vincolato",
+        "risposta4": "I Client non conoscono l'interfaccia del Server (i suoi servizi)",
+        "corretta": "Gli utenti interagiscono solo con il Client",
+        "tag": [
+            "pattern & architettura"
+        ]
+    },
+    {
+        "domanda": "In una architettura a layer (indicare la risposta corretta):",
+        "risposta1": "Un layer può dipendere solo dai layer di livello più basso",
+        "risposta2": "Un layer ha conoscenza dei layer dei livelli più alti",
+        "risposta3": "Un layer non può dipendere dal un layer al livello più basso",
+        "risposta4": "Un layer può dipendere solo dai layer di livello più alto",
+        "corretta": "Un layer può dipendere solo dai layer di livello più basso",
+        "tag": [
+            "pattern & architettura"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti affermazioni è corretta?",
+        "risposta1": "Le architetture chiuse sono meno portabili",
+        "risposta2": "Se un sottosistema è un layer, spesso è chiamato macchina virtuale",
+        "risposta3": "Le architetture chiuse sono più efficienti",
+        "risposta4": "Le architetture chiuse complicano la manutenzione",
+        "corretta": "Se un sottosistema è un layer, spesso è chiamato macchina virtuale",
+        "tag": [
+            "pattern & architettura"
+        ]
+    },
+    {
+        "domanda": "Il modello di analisi è composto dei seguenti modelli:",
+        "risposta1": "Da tutti gli oggetti del sistema",
+        "risposta2": "Modello funzionale",
+        "risposta3": "Sequence diagram",
+        "risposta4": "Modello dell'architettura del sistema",
+        "corretta": "Modello funzionale",
+        "tag": [
+            "requisiti"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti affermazioni è corretta:",
+        "risposta1": "Il sequence diagram consente di specificare la struttura degli oggetti",
+        "risposta2": "Il sequence diagram è più intuitivo degli use case",
+        "risposta3": "Il sequence diagram è particolarmente adatto alla comunicazione con il cliente",
+        "risposta4": "Il sequence diagram fornisce una prospettiva diversa che consente di individuare oggetti mancanti e aree non chiare nelle specifiche",
+        "corretta": "Il sequence diagram fornisce una prospettiva diversa che consente di individuare oggetti mancanti e aree non chiare nelle specifiche",
+        "tag": [
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti affermazione non è corretta relativamente al system design?",
+        "risposta1": "Vengono prese decisioni relative al controllo degli accessi",
+        "risposta2": "Vengono prese decisioni relative al controllo del flusso globale",
+        "risposta3": "Vengono prese decisioni relative alla memorizzazione dei dati",
+        "risposta4": "Vengono prese decisioni relative alla specifica delle interfacce delle classi",
+        "corretta": "Vengono prese decisioni relative alla specifica delle interfacce delle classi",
+        "tag": [
+            "requisiti",
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "L'obiettivo dell'analisi dei requisiti è fomire un modello del sistema che sia:",
+        "risposta1": "Portabile",
+        "risposta2": "Formale",
+        "risposta3": "Corretto",
+        "risposta4": "Tracciabile",
+        "corretta": "Corretto",
+        "tag": [
+            "requisiti",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti non è una attività dell'analisi dei requisiti?",
+        "risposta1": "Identificare le associazioni",
+        "risposta2": "Identificare gli attori che interagiscono con il sistema",
+        "risposta3": "Identificare gli oggetti Boundary",
+        "risposta4": "Modellare le relazioni di ereditarietà",
+        "corretta": "Identificare gli attori che interagiscono con il sistema",
+        "tag": [
+            "requisiti",
+            "uml",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Quale di queste affermazioni, relative ad un deployment diagram è falsa ?",
+        "risposta1": "Mostra la struttura del sistema a run-time",
+        "risposta2": "Mostra le classi con tutti i suoi dettagli",
+        "risposta3": "Mostra il mapping hardware/software",
+        "risposta4": "Mostra le dipendenze tra componenti e interfacce dei sottosistemi",
+        "corretta": "Mostra la struttura del sistema a run-time",
+        "tag": [
+            "uml",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "(Sequence Diagram) Quale delle seguenti affermazioni non è corretta:",
+        "risposta1": "Gli oggetti Boundary possono accedere a oggetti Entity",
+        "risposta2": "Oggetti Control e Boundary accedono a oggetti Entity",
+        "risposta3": "Gli oggetti Entity possono accedere agli oggetti Control e Boundary",
+        "risposta4": "Gli oggetti Control sono creati dagli oggetti Boundary che iniziano gli use case",
+        "corretta": "Gli oggetti Entity possono accedere agli oggetti Control e Boundary",
+        "tag": [
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Quali delle seguenti attività non sono di solito portate avanti dal project manager",
+        "risposta1": "Scelta e valutazione delle tecnologie",
+        "risposta2": "Selezione e valutazione del personale",
+        "risposta3": "Stima del costo del progetto",
+        "risposta4": "Monitoraggio e revisioni del progetto",
+        "risposta5": "Pianificazione e temporizzazione delle attività e dei tasks",
+        "corretta": "Scelta e valutazione delle tecnologie",
+        "tag": [
+            "uml"
+        ]
+    },
+    {
+        "domanda": "Solitamente, quale delle seguenti fasi di un progetto software è la più costosa?",
+        "risposta1": "Manutenzione",
+        "risposta2": "Implementazione",
+        "risposta3": "Testing",
+        "risposta4": "Progettazione",
+        "corretta": "Manutenzione",
+        "tag": [
+            "processi & gestione"
+        ]
+    },
+    {
+        "domanda": "In UML quale dei seguenti è un diagramma delle interazioni (Interaction Diagrams)?",
+        "risposta1": "Navigational Diagram",
+        "risposta2": "Deployment Diagram",
+        "risposta3": "Use case Diagram",
+        "risposta4": "Collaboration Diagram",
+        "corretta": "Collaboration Diagram",
+        "tag": [
+            "uml"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti affermazioni non è corretta?",
+        "risposta1": "Object Constraint Language consente di specificare i contratti in UML",
+        "risposta2": "Un Class Diagram è tipicamente usato per modellare le relazioni tra oggetti dei sequence diagram",
+        "risposta3": "Use Case Diagram che non e utilizzata per modellare gli elementi hardware e softwate di un sistema",
+        "risposta4": "Il Component Diagram è un diagramma fisico",
+        "corretta": "Un Class Diagram è tipicamente usato per modellare le relazioni tra oggetti dei sequence diagram",
+        "tag": [
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti euristiche è corretta:",
+        "risposta1": "In fase di analisi si identifica un oggetto Control per ogni use case",
+        "risposta2": "In fase di analisi si identifica un oggetto Entity per ogni Control",
+        "risposta3": "Il sequence diagram è particolarmente adatto alla comunicazione con il cliente",
+        "risposta4": "La vita di un oggetto Control dovrebbe corrispondere alla durata di uno use case",
+        "corretta": "La vita di un oggetto Control dovrebbe corrispondere alla durata di uno use case",
+        "tag": [
+            "requisiti",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Un class diagram è tipicamente usato modellare:",
+        "risposta1": "La struttura dinamica del sistema",
+        "risposta2": "Lo schema logico di un database",
+        "risposta3": "Le relazioni tra oggetti dei sequence diagram individuati",
+        "risposta4": "Il glossario di un sistema: sono prese decisioni relativamente alle astrazioni da considerare",
+        "corretta": "Il glossario di un sistema: sono prese decisioni relativamente alle astrazioni da considerare",
+        "tag": [
+            "uml",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Quale dei seguenti NON è un attributo di qualità del software indicato dall'acronimo FURPS?",
+        "risposta1": "Performance",
+        "risposta2": "Scalability",
+        "risposta3": "Supportabilità",
+        "risposta4": "Usability",
+        "corretta": "Scalability",
+        "tag": [
+            "ingegneria del software",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "(Sequence Diagram) Quale delle seguenti affermazioni è corretta:",
+        "risposta1": "Gli oggetti Control determinano l'ordine dell'interazione degli oggetti",
+        "risposta2": "Gli oggetti Boundary rappresentano le interazioni solo tra gli oggetti del sistema",
+        "risposta3": "Gli oggetti Entity accedono agli oggetti Control",
+        "risposta4": "Gli oggetti Entity rappresentano le entità visibili del sistema rispetto al dominio applicativo",
+        "corretta": "Gli oggetti Control determinano l'ordine dell'interazione degli oggetti",
+        "tag": [
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Cosa è l'interfaccia di un sottosistema?",
+        "risposta1": "Un insieme di associazioni, eventi e vincoli legati tra di loro",
+        "risposta2": "Un gruppo di operazioni che condividono uno scopo comune",
+        "risposta3": "Una descrizione completa delle interazioni del sottosistema con l'attore",
+        "risposta4": "Un insieme di operazioni con signature completamente specificata",
+        "corretta": "Un insieme di operazioni con signature completamente specificata",
+        "tag": [
+            "requisiti",
+            "uml",
+            "pattern & architettura"
+        ]
+    },
+    {
+        "domanda": "Quando introduciamo una dipendenza in un component diagram, quale delle seguenti affermazioni non è corretta:",
+        "risposta1": "Quando una è modificata, altre componenti che dipendono da questa potrebbero richiedere modifiche",
+        "risposta2": "I cicli sono ammessi",
+        "risposta3": "La dipendenza non può essere transitiva",
+        "corretta": "La dipendenza non può essere transitiva",
+        "tag": [
+            "uml"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti affermazioni è corretta? In una architettura client/server le funzioni eseguite dal server di database sono:",
+        "risposta1": "Elaborazioni decentralizzate",
+        "risposta2": "Garantire la sicurezza del Database",
+        "risposta3": "Evitare la concorrenza delle operazioni",
+        "risposta4": "Gestione decentralizzata dei dati",
+        "corretta": "Garantire la sicurezza del Database",
+        "tag": [
+            "pattern & architettura"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti affermazioni è corretta? I File come opzione per la gestione della memorizzazione:",
+        "risposta1": "Non consentono operazioni di basso livello",
+        "risposta2": "Le applicazioni devono aggiungere codice per fornire un opportuno livello di astrazione",
+        "risposta3": "Nessuna delle precedenti",
+        "risposta4": "Sono costosi",
+        "corretta": "Le applicazioni devono aggiungere codice per fornire un opportuno livello di astrazione",
+        "tag": [
+            "ingegneria del software",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti attività non rientra in quelle da fare per la specifica delle interfacce, durante robject design:",
+        "risposta1": "Mantenere traccia dei contratti nel codice sorgente",
+        "risposta2": "Identificare attributi e operazioni mancanti",
+        "risposta3": "Specificare le invarianti",
+        "risposta4": "Definire la visibilità di ogni operazione",
+        "corretta": "Mantenere traccia dei contratti nel codice sorgente",
+        "tag": [
+            "requisiti",
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Come vanno implementate le associazioni 'molti-a-molti' tra oggetti persistenti in un DB relazionale ?",
+        "risposta1": "Con una ulteriore tabella oltre a quelle corrispondenti alle classi dell'associazione",
+        "risposta2": "Con due tabelle e due chiavi esterne",
+        "risposta3": "Con una chiave esterna inserita nelle due tabelle corrispondenti alle classi dell'associazione",
+        "risposta4": "Con una chiave esterna inserita in una delle due tabelle corrispondenti alle classi dell'associazione",
+        "corretta": "Con una ulteriore tabella oltre a quelle corrispondenti alle classi dell'associazione",
+        "tag": [
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Se devo effettuare una trasformazione prima sull modello a oggetti e poi ottengo il codice, faccio",
+        "risposta1": "Prima operazioni di refactoring e poi di reverse engineering",
+        "risposta2": "Prima operazioni di object model transformation e poi di refoctoting",
+        "risposta3": "Prima operazioni di object model transformation e poi di forward engineering",
+        "corretta": "Prima operazioni di object model transformation e poi di forward engineering",
+        "tag": [
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Quando si effettua un test di regressione",
+        "risposta1": "Dopo aver effettuato delle modifiche al modello durante il testing di sistema",
+        "risposta2": "Dopo aver effettuato il testing di sistema e prima di effettuare il testing di accettazione",
+        "risposta3": "Dopo aver effettuato delle modifiche al codice per correggere un fault",
+        "risposta4": "Dopo aver effettuato il test di integrazione e prima di effettuare il test di sistema",
+        "corretta": "Dopo aver effettuato delle modifiche al codice per correggere un fault",
+        "tag": [
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "(Testing) Quale di queste affermazioni è vera?",
+        "risposta1": "con il bottom up integration testing ho bisogno di driver",
+        "risposta2": "con integration testing integro i sottosistemi dopo averli testati",
+        "risposta3": "con il sandwich testing non ho bisogno di driver",
+        "risposta4": "con il top down integration testing ho bisogno di driver",
+        "corretta": "con il bottom up integration testing ho bisogno di driver",
+        "tag": [
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "(Test driver/stub) Quale di queste affermazioni è vera?",
+        "risposta1": "Un test driver è una implementazione parziale di una componente da cui la componente testata dipende",
+        "risposta2": "Un test driver è una implementazione completa di componenti da cui la componente testata dipende",
+        "risposta3": "Un test Stub è una implementazione completa di componenti da cui la componente testata dipende",
+        "risposta4": "Un test driver è una implementazione parziale di una componente che dipende dalla componente testata",
+        "corretta": "Un test driver è una implementazione parziale di una componente che dipende dalla componente testata",
+        "tag": [
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti affermazioni è corretta per una architettura a repository?",
+        "risposta1": "I sottosistemi accedono e modificano una singola struttura dati chiamata repository.",
+        "risposta2": "I sottosistemi sono fortemente accoppiati",
+        "risposta3": "Il repository ha conoscenza degli altri sottosistemi",
+        "corretta": "I sottosistemi accedono e modificano una singola struttura dati chiamata repository.",
+        "tag": [
+            "pattern & architettura"
+        ]
+    },
+    {
+        "domanda": "Quale di queste affermazioni si riferisce ad un diagramma di stato?",
+        "risposta1": "Serve ad individuare le relazioni temporali tra oggetti nel tempo",
+        "risposta2": "Serve ad individuare la sequenza di operazioni come risposta ad uno o più eventi",
+        "risposta3": "Serve ad individuare i cambiamenti degli oggetti nel tempo",
+        "corretta": "Serve ad individuare i cambiamenti degli oggetti nel tempo",
+        "tag": [
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Quale di queste affermazioni non si riferisce ad un diagramma di sequenza?",
+        "risposta1": "Serve ad individuare i cambiamenti degli oggetti nel tempo",
+        "risposta2": "Serve ad individuare le relazioni temporali tra oggetti nel tempo",
+        "risposta3": "Serve ad individuare la sequenza di operazioni come risposta ad uno o più eventi",
+        "corretta": "Serve ad individuare i cambiamenti degli oggetti nel tempo",
+        "tag": [
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Quale di questi prodotti dell’analisi dei requisiti vanno usati durante la fase di definizione degli obiettivi di design?",
+        "risposta1": "Modello dei casi d’uso",
+        "risposta2": "Modello a oggetti",
+        "risposta3": "Requisiti non funzionali",
+        "corretta": "Requisiti non funzionali",
+        "tag": [
+            "requisiti",
+            "progettazione",
+            "processi & gestione"
+        ]
+    },
+    {
+        "domanda": "Quale di questi prodotti dell’analisi dei requisiti vanno usati durante la fase di decomposizione del sistema?",
+        "risposta1": "Modello dei casi d’uso",
+        "risposta2": "Modello a oggetti",
+        "risposta3": "Requisiti non funzionali",
+        "corretta": "Modello dei casi d’uso",
+        "tag": [
+            "requisiti",
+            "testing & qualità",
+            "processi & gestione"
+        ]
+    },
+    {
+        "domanda": "Quale di questi prodotti dell’analisi dei requisiti vanno usati durante la fase di design relativa a mapping hardware/software e a gestione dei dati persistenti?",
+        "risposta1": "Modello dei casi d’uso",
+        "risposta2": "Modello a oggetti",
+        "risposta3": "Requisiti non funzionali",
+        "corretta": "Modello a oggetti",
+        "tag": [
+            "requisiti",
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Come viene rappresentato un sottosistema in UML?",
+        "risposta1": "Con una classe",
+        "risposta2": "Con un caso d’uso",
+        "risposta3": "Con un package",
+        "corretta": "Con un package",
+        "tag": [
+            "uml",
+            "pattern & architettura"
+        ]
+    },
+    {
+        "domanda": "Cosa è un servizio di un sottosistema?",
+        "risposta1": "Un insieme di operazioni con signature completamente specificata",
+        "risposta2": "Un gruppo di operazioni che condividono uno scopo comune",
+        "risposta3": "Un insieme di associazioni, eventi e vincoli legati tra di loro",
+        "corretta": "Un gruppo di operazioni che condividono uno scopo comune",
+        "tag": [
+            "pattern & architettura"
+        ]
+    },
+    {
+        "domanda": "Quali di queste affermazioni è vera ?",
+        "risposta1": "L’accoppiamento misura le dipendenze tra le classi di un sottosistema",
+        "risposta2": "In un sistema con elevato accoppiamento le modifiche ad un sottosistema hanno forte impatto sugli altri sottosistemi",
+        "risposta3": "L’obiettivo del system design è massimizzare l’accoppiamento",
+        "corretta": "In un sistema con elevato accoppiamento le modifiche ad un sottosistema hanno forte impatto sugli altri sottosistemi",
+        "tag": [
+            "pattern & architettura",
+            "progettazione",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Quali di queste affermazioni è vera ?",
+        "risposta1": "La coesione misura le dipendenze tra i sottosistemi di un sistema",
+        "risposta2": "In sottosistemi con elevata coesione le modifiche ad un sottosistema hanno forte impatto sugli altri sottosistemi",
+        "risposta3": "Le classi di un sottosistema con elevata coesione eseguono task simili",
+        "corretta": "Le classi di un sottosistema con elevata coesione eseguono task simili",
+        "tag": [
+            "uml",
+            "pattern & architettura",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "A cosa servono le partizioni di un sistema ?",
+        "risposta1": "A dividere verticalmente un sistema in sottosistemi debolmente accoppiati",
+        "risposta2": "A dividere orizzontalmente un sistema in sottosistemi a diversi livelli di astrazione",
+        "risposta3": "A dividere un sistema sia orizzontalmente che verticalmente in sottosistemi indipendenti",
+        "corretta": "A dividere verticalmente un sistema in sottosistemi debolmente accoppiati",
+        "tag": [
+            "pattern & architettura",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "A cosa servono i layer di un sistema ?",
+        "risposta1": "A dividere verticalmente un sistema in sottosistemi debolmente accoppiati",
+        "risposta2": "A dividere orizzontalmente un sistema in sottosistemi a diversi livelli di astrazione",
+        "risposta3": "A dividere un sistema sia orizzontalmente che verticalmente in sottosistemi indipendenti",
+        "corretta": "A dividere orizzontalmente un sistema in sottosistemi a diversi livelli di astrazione",
+        "tag": [
+            "pattern & architettura",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "A chi fornisce servizi un layer di un sistema ?",
+        "risposta1": "Ai layer di livello più basso",
+        "risposta2": "Ai layer dello stesso livello",
+        "risposta3": "Ai layer di livello più alto",
+        "corretta": "Ai layer di livello più alto",
+        "tag": [
+            "pattern & architettura",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "In un’architettura software aperta:",
+        "risposta1": "I sottosistemi di un livello possono accedere solo ai sottosistemi del livello immediatamente inferiore",
+        "risposta2": "I sottosistemi di un livello possono accedere ai sottosistemi di qualunque livello inferiore",
+        "risposta3": "I sottosistemi di un livello possono accedere sia ai sottosistemi dei livelli inferiori che a quelli dei livelli superiori",
+        "corretta": "I sottosistemi di un livello possono accedere ai sottosistemi di qualunque livello inferiore",
+        "tag": [
+            "pattern & architettura"
+        ]
+    },
+    {
+        "domanda": "Quali sono gli obiettivi di design di un’architettura software aperta ?",
+        "risposta1": "Manutenibilità",
+        "risposta2": "Efficienza",
+        "risposta3": "Affidabilità",
+        "corretta": "Efficienza",
+        "tag": [
+            "pattern & architettura",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Quali sono gli obiettivi di design di un’architettura software chiusa ?",
+        "risposta1": "Usabilità",
+        "risposta2": "Efficienza",
+        "risposta3": "Manutenibilità",
+        "corretta": "Manutenibilità",
+        "tag": [
+            "pattern & architettura",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Quale di queste affermazioni è falsa?",
+        "risposta1": "In un’architettura client-server, il server fornisce i servizi al client",
+        "risposta2": "In un’architettura client-server, il server conosce l’interfaccia del client",
+        "risposta3": "Una repository architecture è un caso particolare di architettura client-server",
+        "corretta": "Una repository architecture è un caso particolare di architettura client-server",
+        "tag": [
+            "pattern & architettura"
+        ]
+    },
+    {
+        "domanda": "Quali di queste affermazioni è vera ?",
+        "risposta1": "In un’architettura peer-to-peer non c’è differenza tra client e server",
+        "risposta2": "Un’architettura peer-to-peer favorisce una gestione centralizzata dei dati",
+        "risposta3": "Un’architettura peer-to-peer consente di evitare problemi di deadlock",
+        "corretta": "In un’architettura peer-to-peer non c’è differenza tra client e server",
+        "tag": [
+            "pattern & architettura"
+        ]
+    },
+    {
+        "domanda": "Un’architettura model-view-controller, il sottosistema “model”:",
+        "risposta1": "E’ responsabile della conoscenza del dominio applicativo",
+        "risposta2": "E’ responsabile della visualizzazione degli oggetti del dominio applicativo",
+        "risposta3": "E’ responsabile della sequenza dei interazioni con l’utente",
+        "corretta": "E’ responsabile della conoscenza del dominio applicativo",
+        "tag": [
+            "pattern & architettura"
+        ]
+    },
+    {
+        "domanda": "Le relazioni tra i componenti in un component diagram sono",
+        "risposta1": "associazioni",
+        "risposta2": "dipendenze",
+        "risposta3": "Generalizzazioni",
+        "corretta": "associazioni",
+        "tag": [
+            "uml"
+        ]
+    },
+    {
+        "domanda": "Quale di queste affermazioni relative ad un component diagram è falsa ?",
+        "risposta1": "Mostra il mapping hardware/software",
+        "risposta2": "Mostra la struttura del sistema a compilation time",
+        "risposta3": "Mostra la struttura a design time",
+        "corretta": "Mostra il mapping hardware/software",
+        "tag": [
+            "uml"
+        ]
+    },
+    {
+        "domanda": "Le relazioni tra i nodi di un deployment diagram sono",
+        "risposta1": "associazioni",
+        "risposta2": "dipendenze",
+        "risposta3": "Generalizzazioni",
+        "corretta": "dipendenze",
+        "tag": [
+            "uml"
+        ]
+    },
+    {
+        "domanda": "In un thin client model",
+        "risposta1": "Il sistema è two thier e la logica applicativa è eseguita sul server",
+        "risposta2": "Il sistema è two thier e la logica applicativa è eseguita sul client",
+        "risposta3": "Il sistema è three thier e la logica applicativa è eseguita sul client",
+        "corretta": "Il sistema è two thier e la logica applicativa è eseguita sul server",
+        "tag": [
+            "pattern & architettura",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Un invariante è",
+        "risposta1": "Un predicato che deve essere vero prima dell’invocazione di un metodo di una classe",
+        "risposta2": "Un predicato che è vero dopo l’invocazione di un metodo di una classe",
+        "risposta3": "Un predicato che è vero prima e dopo l’invocazione di un metodo di una classe",
+        "corretta": "Un predicato che è vero prima e dopo l’invocazione di un metodo di una classe",
+        "tag": [
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Quale di queste affermazioni relative a JavaDoc è corretta ?",
+        "risposta1": "Il commento che precede un metodo consente di specificare la precondizione del metodo",
+        "risposta2": "Il commento che precede un metodo consente di specificare la postcondizione del metodo",
+        "risposta3": "Il commento che precede un metodo consente di specificare l’invariante della classe",
+        "corretta": "Il commento che precede un metodo consente di specificare la precondizione del metodo",
+        "tag": [
+            "requisiti",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Se devo realizzare una associazione qualificata uso come struttura dati",
+        "risposta1": "Una tabella",
+        "risposta2": "Un insieme",
+        "risposta3": "Una lista",
+        "corretta": "Una tabella",
+        "tag": [
+            "uml"
+        ]
+    },
+    {
+        "domanda": "Se devo estendere una classe mi interessa conoscere",
+        "risposta1": "Tutti i membri privati, protetti e pubblici della classe",
+        "risposta2": "Solo i membri protetti e pubblici della classe",
+        "risposta3": "Solo i membri pubblici della classe",
+        "corretta": "Solo i membri protetti e pubblici della classe",
+        "tag": [
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "La realizzazione delle associazioni del modello a oggetti",
+        "risposta1": "E’ una trasformazione del modello a oggetti",
+        "risposta2": "E’ una trasformazione di tipo forward engineering",
+        "risposta3": "E’ una trasformazione di refactoring",
+        "corretta": "E’ una trasformazione del modello a oggetti",
+        "tag": [
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Se devo memorizzare dati voluminosi e necessari per un periodo breve di tempo",
+        "risposta1": "uso una struttura dati in memoria",
+        "risposta2": "uso un file",
+        "risposta3": "uso un database",
+        "corretta": "uso un file",
+        "tag": [
+            "ingegneria del software",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Se eredito un contratto in UML quale di queste affermazioni non è corretta ?",
+        "risposta1": "La precondizione del metodo nella sottoclasse consente al metodo di gestire meno casi del corrispondente metodo nella superclasse",
+        "risposta2": "Il metodo nella sottoclasse deve assicurare la stessa postcondizione del corrispondente metodo nella superclasse",
+        "risposta3": "L’invariante della sottoclasse può essere più restrittivo dell’invariante della superclasse",
+        "corretta": "La precondizione del metodo nella sottoclasse consente al metodo di gestire meno casi del corrispondente metodo nella superclasse",
+        "tag": [
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "Quali di questi operazioni non è opportuno implementare durante la realizzazione di contratti ?",
+        "risposta1": "Controllare che la precondizione all’inizio di un metodo sia soddisfatta",
+        "risposta2": "Controllare che la postcondizione all’uscita di un metodo sia soddisfatta",
+        "risposta3": "Incapsulare il codice di controllo in metodi separati ai fini del riuso",
+        "corretta": "Incapsulare il codice di controllo in metodi separati ai fini del riuso",
+        "tag": [
+            "ingegneria del software",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "L’evento percepito dall’utente come differenza tra comportamento atteso di un sistema software e comportamento esibito dal sistema software viene denominato",
+        "risposta1": "Failure",
+        "risposta2": "Fault",
+        "risposta3": "Error",
+        "corretta": "Failure",
+        "tag": [
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Nel testing di integrazione bottom-up ho bisogno di realizzare",
+        "risposta1": "Test Driver",
+        "risposta2": "Test Stub",
+        "risposta3": "Sia test driver che test stub",
+        "corretta": "Test Driver",
+        "tag": [
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Quale di queste affermazioni è falsa ?",
+        "risposta1": "Nel testing white box la derivazione dei casi di test mira a coprire la maggior parte di una classe di elementi della struttura del codice",
+        "risposta2": "Nel testing white box il numero di casi di test da eseguire dipende dal criterio di copertura adottato",
+        "risposta3": "Nel testing white-box non si controlla se l’output prodotto in corrispondenza di un input è uguale all’output atteso",
+        "corretta": "Nel testing white-box non si controlla se l’output prodotto in corrispondenza di un input è uguale all’output atteso",
+        "tag": [
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "(UML class diagram) Quali delle seguenti affermazioni sono vere:",
+        "risposta1": "I ruoli non forniscono una modalità per attraversare relazioni da una classe ad un’altra",
+        "risposta2": "I ruoli sono spesso usati per relazioni tra oggetti della stessa classe",
+        "risposta3": "I nomi di ruolo possono essere usati in alternativa ai nomi delle associazioni",
+        "risposta4": "I nomi di ruoli devono essere consistenti con i nomi della classe e degli attributi",
+        "corretta": "I ruoli sono spesso usati per relazioni tra oggetti della stessa classe",
+        "tag": [
+            "uml",
+            "progettazione"
+        ]
+    },
+    {
+        "domanda": "(Sequence Diagram) quali di queste affermazioni non sono corrette:",
+        "risposta1": "Una classe stabilisce i messaggi a cui un oggetto può rispondere",
+        "risposta2": "Gli oggetti sono attivati quando vengono istanziati",
+        "risposta3": "I messaggi sono inviati da oggetti",
+        "risposta4": "E’ uno dei principali input per l’implementazione dello scenario",
+        "corretta": "E’ uno dei principali input per l’implementazione dello scenario",
+        "tag": [
+            "requisiti",
+            "uml"
+        ]
+    },
+    {
+        "domanda": "Relativamente alla identificazione degli oggetti Boundary, quali delle seguenti affermazione non è corretta?",
+        "risposta1": "Identificare i controlli della Ui di cui l’utente ha bisogno per iniziare lo Use case",
+        "risposta2": "Non considerare i messaggi che il sistema usa per rispondere all’utente",
+        "risposta3": "Non modellare aspetti visuali della UI",
+        "risposta4": "Identificare form di cui l’utente ha bisogno per inserire dati nel sistema",
+        "corretta": "Non considerare i messaggi che il sistema usa per rispondere all’utente",
+        "tag": [
+            "uml",
+            "progettazione",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti affermazioni non è corretta:",
+        "risposta1": "il modello di ciclo di vita del software 'V' enfatizza la relazione tra le fasi di test ed i prodotti generati durante le fasi di sviluppo iniziali?",
+        "risposta2": "Il modello di sviluppo del software 'a cascata' (waterfall) è particolarmente adeguato in una situazione in cui i requisiti sono ben definiti",
+        "risposta3": "I modelli di sviluppo del software evolutivi sono specificamente concepiti per aiutare il cliente nell’individuazione dei requisiti",
+        "risposta4": "Il modello a spirale prevede la gestione dei rischi",
+        "corretta": "I modelli di sviluppo del software evolutivi sono specificamente concepiti per aiutare il cliente nell’individuazione dei requisiti",
+        "tag": [
+            "requisiti"
+        ]
+    },
+    {
+        "domanda": "Un servizio è (indicare la/e risposta/e corrette):",
+        "risposta1": "una interfaccia di un sottosistema",
+        "risposta2": "un insieme di operazioni correlate fornite dal sottosistema per uno specifico scopo",
+        "risposta3": "un insieme di operazioni correlate fornite da un nodo hardware",
+        "risposta4": "descritto in termini di prototipi",
+        "corretta": "un insieme di operazioni correlate fornite dal sottosistema per uno specifico scopo",
+        "tag": [
+            "pattern & architettura"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti affermazioni non è corretta relativamente alle finalità dello Scheduling di progetto?",
+        "risposta1": "Divide il progetto in attività e mansioni (tasks) e stima il tempo e le risorse necessarie per completare ogni singola mansione",
+        "risposta2": "Sono necessari intuito ed esperienza",
+        "risposta3": "Organizza le mansioni in modo concorrente, per ottimizzare la forza lavoro",
+        "risposta4": "Massimizza le dipendenza tra le singole mansioni per favorire la comprensione de 'organizzazione delle attività e dei task",
+        "corretta": "Massimizza le dipendenza tra le singole mansioni per favorire la comprensione de 'organizzazione delle attività e dei task",
+        "tag": [
+            "uml"
+        ]
+    },
+    {
+        "domanda": "Durante l’ispezione ai fini del fault detection (indicare le risposte corrette)",
+        "risposta1": "Lo sviluppatore presenta gli artefatti",
+        "risposta2": "Lo sviluppatore interviene solo se si richiedono chiarimenti",
+        "risposta3": "Si controlla l’efficienza degli algoritmi con le richieste funzionati",
+        "risposta4": "Lo sviluppatore presenta il codice sorgente",
+        "corretta": "Lo sviluppatore interviene solo se si richiedono chiarimenti",
+        "tag": [
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Quale di queste non è una attività di ottimizzazione effettuata durante la fase di object design e implementazione del sistema?",
+        "risposta1": "Trasformazione di oggetti in attributi",
+        "risposta2": "Memorizzazione di attributi derivati",
+        "risposta3": "Aggiungere associazioni ridondanti",
+        "risposta4": "Ristrutturazione della gerarchia delle classi",
+        "corretta": "Ristrutturazione della gerarchia delle classi",
+        "tag": [
+            "uml",
+            "progettazione",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti figure non è prevista per la suddivisione delle responsabilità durante la raccolta e l’analisi dei requisiti?",
+        "risposta1": "Revisore",
+        "risposta2": "Utente finale",
+        "risposta3": "Manager della qualità",
+        "risposta4": "Architetto",
+        "corretta": "Manager della qualità",
+        "tag": [
+            "requisiti"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti affermazioni è corretta?",
+        "risposta1": "Una macchina virtuale è un’astrazione di un nodo hardware",
+        "risposta2": "Le macchine virtuali non possono implementare architetture chiuse",
+        "risposta3": "Una macchina virtuale è l’implementazione di un modo hardware",
+        "risposta4": "Una macchina virtuale è un sottosistema connesso a macchine virtuali di livello più alto e più basso attraverso associazioni 'provides services for'",
+        "corretta": "Una macchina virtuale è un sottosistema connesso a macchine virtuali di livello più alto e più basso attraverso associazioni 'provides services for'",
+        "tag": [
+            "pattern & architettura"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti affermazioni è corretta? In una architettura client/server le funzioni eseguite dal client sono:",
+        "risposta1": "Fornire interfaccia utente standard",
+        "risposta2": "Iniziare la transazione quando i dati sono stati collezionati",
+        "risposta3": "Elaborazione back-end dei data, per verificare vincoli",
+        "corretta": "Iniziare la transazione quando i dati sono stati collezionati",
+        "tag": [
+            "uml",
+            "pattern & architettura"
+        ]
+    },
+    {
+        "domanda": "Nell’ingegneria del software, quale tra le seguenti è una tecnica utilizzata nell’attività chiamata 'requirement elicitation'?",
+        "risposta1": "Earned value",
+        "risposta2": "Analisi empirica",
+        "risposta3": "Brain storming",
+        "risposta4": "Functional analysis",
+        "corretta": "Brain storming",
+        "tag": [
+            "uml"
+        ]
+    },
+    {
+        "domanda": "Quali dei seguenti è un tipo di white-box testing?",
+        "risposta1": "Path Testing",
+        "risposta2": "Method Testing",
+        "risposta3": "Condition Testing",
+        "risposta4": "Sequence Testing",
+        "corretta": "Path Testing",
+        "tag": [
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Quale di queste non è una attività di ottimizzazione effettuata durante la fase di object design e implementazione del sistema?",
+        "risposta1": "Ristrutturazione della gerarchia delle classi",
+        "risposta2": "Aggiungere associazioni ridondanti",
+        "risposta3": "Trasformazione di oggetti in attributi",
+        "risposta4": "Memorizzazione di attributi derivati",
+        "corretta": "Ristrutturazione della gerarchia delle classi",
+        "tag": [
+            "uml",
+            "progettazione",
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti affermazioni è falsa relativamente alla strategia Top-down per i testing di integrazione?",
+        "risposta1": "Testa prima i layer al top o i sottosistemi di controllo",
+        "risposta2": "I test driver sono usati per simulare le componenti del laver al bottom che non sono state ancora integrate",
+        "risposta3": "I test cases possono essere definiti in termine delle funzionalità del sistema",
+        "risposta4": "I test stub sono usati per simulare le componenti dei layer al bottom che non sono state ancora integrate",
+        "corretta": "I test driver sono usati per simulare le componenti del laver al bottom che non sono state ancora integrate",
+        "tag": [
+            "testing & qualità"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti affermazioni è falsa relativamente all’impatto dei requisiti sul testing di sistema",
+        "risposta1": "La qualità dei requisiti non funzionali e dei vincoli influenza il Performance Testing",
+        "risposta2": "Il tipo di rappresentazione degli use case influenza il Functional Testing",
+        "risposta3": "La qualità della decomposizione dei sottosistemi influenza lo Structure Testing",
+        "risposta4": "Più espliciti sono i requisiti più facili sono da testare sono da testare",
+        "corretta": "Il tipo di rappresentazione degli use case influenza il Functional Testing",
+        "tag": [
+            "requisiti",
+            "testing & qualità"
+        ]
+    }
 ]

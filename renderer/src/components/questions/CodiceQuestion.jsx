@@ -26,7 +26,7 @@ export function CodiceQuestion({ question, savedAnswer, onAnswer }) {
   const isJava = question.tipo === 'java';
   const defaultStarter = question.starter || (isJava ? STARTER_JAVA : STARTER_C);
   const [code, setCode] = useState(savedAnswer?.codice ?? defaultStarter);
-  const [status, setStatus] = useState(savedAnswer ? 'idle' : 'idle'); // idle | running
+  const [status, setStatus] = useState('idle'); // idle | running
   const [result, setResult] = useState(savedAnswer?.risultato ?? null);
 
   const handleRun = async () => {
