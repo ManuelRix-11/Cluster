@@ -1,0 +1,139 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.instructions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(108, 99, 255, 0.08);
+  border: 1px solid rgba(108, 99, 255, 0.2);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.icon {
+  font-size: 1.2rem;
+}
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 12px;
+}
+
+.matrixTable {
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.cornerCell {
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-family: 'Fira Code', monospace;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+  border-right: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.colHeader, .rowHeader {
+  padding: 8px 10px;
+  font-size: 0.88rem;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+}
+
+.colHeader {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.rowHeader {
+  border-right: 2px solid rgba(255, 255, 255, 0.15);
+  white-space: nowrap;
+}
+
+.headerIdx {
+  font-size: 0.72rem;
+  color: var(--muted);
+  font-family: 'Fira Code', monospace;
+}
+
+.headerLabel {
+  font-size: 0.92rem;
+  color: #c084fc;
+}
+
+.cell {
+  width: 48px;
+  height: 44px;
+  padding: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+  vertical-align: middle;
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.15s ease;
+}
+
+.fixedCell {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.fixedValue {
+  font-family: 'Fira Code', monospace;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #94a3b8;
+}
+
+.highlightedCell {
+  background: rgba(168, 85, 247, 0.25) !important;
+  border-color: #a855f7 !important;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+}
+
+.cellInput {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-family: 'Fira Code', monospace;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+  outline: none;
+  border-radius: 4px;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.cellInput:focus {
+  background: rgba(108, 99, 255, 0.2);
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.progress {
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+.progress strong {
+  color: #fff;
+}

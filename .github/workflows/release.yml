@@ -1,0 +1,35 @@
+name: Build & Release
+
+on:
+  push:
+    tags:
+      - 'v*' # Si attiva quando fai il push di un tag come v0.8.1, v1.0.0, ecc.
+  workflow_dispatch: # Ti permette di avviarla anche manualmente dalla scheda Actions di GitHub
+
+permissions:
+  contents: write # Permette a GitHub Actions di creare la release e caricare i file .exe
+
+jobs:
+  release-windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout del codice
+        uses: actions/checkout@v4
+
+      - name: Configurazione Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Installazione dipendenze
+        run: npm install
+
+      - name: Build del frontend con Vite
+        run: npx vite build
+
+      - name: Compilazione e Pubblicazione su GitHub Releases
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx electron-builder --win --x64 --publish always

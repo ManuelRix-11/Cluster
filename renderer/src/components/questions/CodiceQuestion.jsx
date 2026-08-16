@@ -74,7 +74,7 @@ export function CodiceQuestion({ question, savedAnswer, onAnswer }) {
     <div className={styles.wrap}>
       <div className={styles.editorWrap}>
         <Editor
-          height="300px"
+          height="480px"
           language={isJava ? 'java' : 'c'}
           theme="vs-dark"
           value={code}

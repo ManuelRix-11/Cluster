@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { marked } from 'marked';
+import { renderMarkdown } from '../utils/markdown';
 import styles from './Study.module.css';
 
 export function Study() {
@@ -18,7 +18,7 @@ export function Study() {
     setActiveNote(relpath);
     if (window.electronAPI?.loadNote) {
       const md = await window.electronAPI.loadNote(relpath);
-      setHtmlContent(marked(md));
+      setHtmlContent(renderMarkdown(md));
     }
   };
 

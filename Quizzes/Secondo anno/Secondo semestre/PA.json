@@ -1,0 +1,1618 @@
+[
+  {
+    "tipo": "dp_matrix",
+    "domanda": "### Esercizio DP: Allineamento di Sequenze ($X = \\text{\"mamma\"}, Y = \\text{\"mia\"}$)\n\nSi considerino le stringhe $X = \\text{\"mamma\"}$ ($m=5$) e $Y = \\text{\"mia\"}$ ($n=3$).\nI costi associati sono:\n- **Gap** (inserimento/cancellazione): $\\delta = 5$\n- **Match**: $0$\n- **Mismatch tra vocali**: $3$\n- **Mismatch tra consonanti**: $4$\n- **Mismatch tra vocale e consonante**: $7$\n\nCompila la tabella $M[i, j]$ per l'allineamento ottimale tra i prefissi $X_i$ e $Y_j$.",
+    "row_labels": [
+      "-",
+      "m",
+      "a",
+      "m",
+      "m",
+      "a"
+    ],
+    "col_labels": [
+      "-",
+      "m",
+      "i",
+      "a"
+    ],
+    "initial_grid": [
+      [
+        0,
+        5,
+        10,
+        15
+      ],
+      [
+        5,
+        null,
+        null,
+        null
+      ],
+      [
+        10,
+        null,
+        null,
+        null
+      ],
+      [
+        15,
+        null,
+        null,
+        null
+      ],
+      [
+        20,
+        null,
+        null,
+        null
+      ],
+      [
+        25,
+        null,
+        null,
+        null
+      ]
+    ],
+    "expected_matrix": [
+      [
+        0,
+        5,
+        10,
+        15
+      ],
+      [
+        5,
+        0,
+        5,
+        10
+      ],
+      [
+        10,
+        5,
+        3,
+        5
+      ],
+      [
+        15,
+        10,
+        8,
+        7
+      ],
+      [
+        20,
+        15,
+        13,
+        12
+      ],
+      [
+        25,
+        20,
+        18,
+        13
+      ]
+    ],
+    "require_backtracking": false,
+    "tag": [
+      "programmazione dinamica",
+      "allineamento sequenze",
+      "matrice_dp"
+    ]
+  },
+  {
+    "tipo": "dp_matrix",
+    "domanda": "### Esercizio DP: Allineamento di Sequenze con Gap Costante ($X = \\text{\"casa\"}, Y = \\text{\"caso\"}$)\n\nSi considerino le stringhe $X = \\text{\"casa\"}$ e $Y = \\text{\"caso\"}$.\nParametri di costo:\n- **Gap penalty**: $\\delta = 2$\n- **Match**: $0$\n- **Mismatch**: $3$\n\nCompila l'intera tabella $M[i, j]$ per calcolare l'Edit Distance minima.",
+    "row_labels": [
+      "-",
+      "c",
+      "a",
+      "s",
+      "a"
+    ],
+    "col_labels": [
+      "-",
+      "c",
+      "a",
+      "s",
+      "o"
+    ],
+    "initial_grid": [
+      [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      [
+        2,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        4,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        6,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        8,
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "expected_matrix": [
+      [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      [
+        2,
+        0,
+        2,
+        4,
+        6
+      ],
+      [
+        4,
+        2,
+        0,
+        2,
+        4
+      ],
+      [
+        6,
+        4,
+        2,
+        0,
+        2
+      ],
+      [
+        8,
+        6,
+        4,
+        2,
+        3
+      ]
+    ],
+    "require_backtracking": false,
+    "tag": [
+      "programmazione dinamica",
+      "allineamento sequenze",
+      "matrice_dp"
+    ]
+  },
+  {
+    "tipo": "dp_matrix",
+    "domanda": "### Esercizio DP: Longest Common Subsequence ($X = \\text{\"ABCBDAB\"}, Y = \\text{\"BDCAB\"}$)\n\nCalcola la tabella DP $L[i, j]$ della lunghezza della più lunga sottosequenza comune (LCS) tra $X = \\text{\"ABCBDAB\"}$ e $Y = \\text{\"BDCAB\"}$ per i primi 4 caratteri $X[1\\dots 4] = \\text{\"ABCB\"}$ e $Y[1\\dots 4] = \\text{\"BDCA\"}$.",
+    "row_labels": [
+      "-",
+      "A",
+      "B",
+      "C",
+      "B"
+    ],
+    "col_labels": [
+      "-",
+      "B",
+      "D",
+      "C",
+      "A"
+    ],
+    "initial_grid": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        0,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        0,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        0,
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "expected_matrix": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        1,
+        2,
+        2
+      ],
+      [
+        0,
+        1,
+        1,
+        2,
+        2
+      ]
+    ],
+    "require_backtracking": false,
+    "tag": [
+      "programmazione dinamica",
+      "lcs",
+      "matrice_dp"
+    ]
+  },
+  {
+    "tipo": "dp_matrix",
+    "domanda": "### Esercizio DP: Tabella dello Zaino 0/1 (Knapsack)\n\nSi consideri uno zaino di capacità massima $W = 5$ con $n = 3$ oggetti aventi pesi e valori:\n- Oggetto 1: $w_1 = 2, v_1 = 3$\n- Oggetto 2: $w_2 = 3, v_2 = 4$\n- Oggetto 3: $w_3 = 4, v_3 = 5$\n\nCompila la tabella di programmazione dinamica $M[i, w]$ ($0 \\le i \\le 3$, $0 \\le w \\le 5$) per determinare il massimo valore ottenibile.",
+    "row_labels": [
+      "i=0 (-)",
+      "i=1 (w=2,v=3)",
+      "i=2 (w=3,v=4)",
+      "i=3 (w=4,v=5)"
+    ],
+    "col_labels": [
+      "w=0",
+      "w=1",
+      "w=2",
+      "w=3",
+      "w=4",
+      "w=5"
+    ],
+    "initial_grid": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        0,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        0,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "expected_matrix": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        3,
+        3,
+        3,
+        3
+      ],
+      [
+        0,
+        0,
+        3,
+        4,
+        4,
+        7
+      ],
+      [
+        0,
+        0,
+        3,
+        4,
+        5,
+        7
+      ]
+    ],
+    "require_backtracking": false,
+    "tag": [
+      "programmazione dinamica",
+      "zaino",
+      "matrice_dp"
+    ]
+  },
+  {
+    "tipo": "dp_matrix",
+    "domanda": "### Esercizio DP: Struttura Secondaria RNA ($S = \\text{\"ACCGGU\"}$)\n\nSi consideri la stringa di RNA $S = s_1 s_2 s_3 s_4 = \\text{\"ACGU\"}$ con le basi complementari $\\{A, U\\}$ e $\\{C, G\\}$. Nessuna base può appaiarsi se la distanza tra indici è $< 1$ (assenza di nodi troppo stretti).\nCompila la tabella $OPT[i, j]$ per $1 \\le i \\le j \\le 4$ contenente il numero massimo di appaiamenti validi.",
+    "row_labels": [
+      "i=1 (A)",
+      "i=2 (C)",
+      "i=3 (G)",
+      "i=4 (U)"
+    ],
+    "col_labels": [
+      "j=1 (A)",
+      "j=2 (C)",
+      "j=3 (G)",
+      "j=4 (U)"
+    ],
+    "initial_grid": [
+      [
+        0,
+        0,
+        null,
+        null
+      ],
+      [
+        0,
+        0,
+        0,
+        null
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "expected_matrix": [
+      [
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "require_backtracking": false,
+    "tag": [
+      "programmazione dinamica",
+      "rna",
+      "matrice_dp"
+    ]
+  },
+  {
+    "tipo": "graph_tracer",
+    "domanda": "### Esecuzione Passo-Passo: Algoritmo di Kruskal (MST)\n\nSia $G = (V, E)$ un grafo pesato con $V = \\{1, 2, 3, 4, 5\\}$ e i seguenti archi con rispettivi pesi:\n- $(1,2)$ peso $1$\n- $(2,3)$ peso $2$\n- $(1,3)$ peso $3$\n- $(3,4)$ peso $4$\n- $(4,5)$ peso $5$\n- $(2,5)$ peso $6$\n- $(3,5)$ peso $7$\n\nEsegui l'algoritmo di Kruskal selezionando gli archi in ordine di peso crescente. Specifica per ciascun passo l'azione (**ACCETTA** se connette componenti disgiunte, **SCARTA** se forma un ciclo) e calcola il costo totale finale.",
+    "available_edges": [
+      {
+        "name": "(1,2)",
+        "label": "(1,2) - peso 1"
+      },
+      {
+        "name": "(2,3)",
+        "label": "(2,3) - peso 2"
+      },
+      {
+        "name": "(1,3)",
+        "label": "(1,3) - peso 3"
+      },
+      {
+        "name": "(3,4)",
+        "label": "(3,4) - peso 4"
+      },
+      {
+        "name": "(4,5)",
+        "label": "(4,5) - peso 5"
+      },
+      {
+        "name": "(2,5)",
+        "label": "(2,5) - peso 6"
+      },
+      {
+        "name": "(3,5)",
+        "label": "(3,5) - peso 7"
+      }
+    ],
+    "expected_steps": [
+      {
+        "edge": "(1,2)",
+        "action": "ACCETTA"
+      },
+      {
+        "edge": "(2,3)",
+        "action": "ACCETTA"
+      },
+      {
+        "edge": "(1,3)",
+        "action": "SCARTA"
+      },
+      {
+        "edge": "(3,4)",
+        "action": "ACCETTA"
+      },
+      {
+        "edge": "(4,5)",
+        "action": "ACCETTA"
+      }
+    ],
+    "expected_total_cost": 12,
+    "tag": [
+      "grafi",
+      "kruskal",
+      "spanning tree",
+      "graph_tracer"
+    ]
+  },
+  {
+    "tipo": "graph_tracer",
+    "domanda": "### Esecuzione Passo-Passo: Kruskal su Grafo a 6 Nodi\n\nSia $G = (V, E)$ un grafo con $V = \\{A, B, C, D, E, F\\}$ e i seguenti archi ordinati per peso:\n1. $(A, B)$ peso $2$\n2. $(B, C)$ peso $3$\n3. $(A, C)$ peso $4$\n4. $(C, D)$ peso $5$\n5. $(B, D)$ peso $6$\n6. $(D, E)$ peso $7$\n7. $(E, F)$ peso $8$\n8. $(D, F)$ peso $9$\n\nTraccia i primi 6 passi dell'algoritmo di Kruskal determinando gli archi accettati nell'MST e quelli scartati, e inserisci il peso totale dell'albero.",
+    "available_edges": [
+      {
+        "name": "(A,B)",
+        "label": "(A,B) - peso 2"
+      },
+      {
+        "name": "(B,C)",
+        "label": "(B,C) - peso 3"
+      },
+      {
+        "name": "(A,C)",
+        "label": "(A,C) - peso 4"
+      },
+      {
+        "name": "(C,D)",
+        "label": "(C,D) - peso 5"
+      },
+      {
+        "name": "(B,D)",
+        "label": "(B,D) - peso 6"
+      },
+      {
+        "name": "(D,E)",
+        "label": "(D,E) - peso 7"
+      },
+      {
+        "name": "(E,F)",
+        "label": "(E,F) - peso 8"
+      },
+      {
+        "name": "(D,F)",
+        "label": "(D,F) - peso 9"
+      }
+    ],
+    "expected_steps": [
+      {
+        "edge": "(A,B)",
+        "action": "ACCETTA"
+      },
+      {
+        "edge": "(B,C)",
+        "action": "ACCETTA"
+      },
+      {
+        "edge": "(A,C)",
+        "action": "SCARTA"
+      },
+      {
+        "edge": "(C,D)",
+        "action": "ACCETTA"
+      },
+      {
+        "edge": "(B,D)",
+        "action": "SCARTA"
+      },
+      {
+        "edge": "(D,E)",
+        "action": "ACCETTA"
+      }
+    ],
+    "expected_total_cost": 25,
+    "tag": [
+      "grafi",
+      "kruskal",
+      "spanning tree",
+      "graph_tracer"
+    ],
+    "mermaid": "graph LR\n    A((A)) ---|2| B((B))\n    B ---|3| C((C))\n    A ---|4| C\n    C ---|5| D((D))\n    B ---|6| D\n    D ---|7| E((E))\n    E ---|8| F((F))\n    D ---|9| F"
+  },
+  {
+    "tipo": "graph_tracer",
+    "domanda": "### Esecuzione Passo-Passo: Algoritmo di Prim (MST dalla sorgente A)\n\nSia $G = (V, E)$ un grafo con vertici $\\{A, B, C, D\\}$ e archi:\n- $(A,B): 1$, $(A,C): 4$, $(B,C): 2$, $(B,D): 6$, $(C,D): 3$\n\nPartendo dal vertice $A$, traccia l'ordine dei 3 archi di taglio minimo estratti dalla coda a priorità nell'algoritmo di Prim e calcola il costo totale dell'MST.",
+    "available_edges": [
+      {
+        "name": "(A,B)",
+        "label": "(A,B) - peso 1"
+      },
+      {
+        "name": "(B,C)",
+        "label": "(B,C) - peso 2"
+      },
+      {
+        "name": "(C,D)",
+        "label": "(C,D) - peso 3"
+      },
+      {
+        "name": "(A,C)",
+        "label": "(A,C) - peso 4"
+      },
+      {
+        "name": "(B,D)",
+        "label": "(B,D) - peso 6"
+      }
+    ],
+    "expected_steps": [
+      {
+        "edge": "(A,B)",
+        "action": "ACCETTA"
+      },
+      {
+        "edge": "(B,C)",
+        "action": "ACCETTA"
+      },
+      {
+        "edge": "(C,D)",
+        "action": "ACCETTA"
+      }
+    ],
+    "expected_total_cost": 6,
+    "tag": [
+      "grafi",
+      "prim",
+      "spanning tree",
+      "graph_tracer"
+    ],
+    "mermaid": "graph LR\n    A((A)) ---|1| B((B))\n    A ---|4| C((C))\n    B ---|2| C\n    B ---|6| D((D))\n    C ---|3| D"
+  },
+  {
+    "tipo": "dp_recurrence",
+    "domanda": "### Formulazione di Ricorrenza DP: Zaino 0/1 Classico\n\nSi consideri il problema dello Zaino 0/1 con $n$ oggetti (peso $w_i$, valore $v_i$) e capacità totale $W$.\nSia $OPT(i, w)$ il valore massimo per i primi $i$ oggetti con capacità residua $w$.\n\nCostruisci la relazione ricorsiva di Bellman definendo caso base, ramo di esclusione, ramo di inclusione e operatore.",
+    "function_name": "OPT(i, w)",
+    "initial_base_val": "0",
+    "initial_base_cond": "i = 0 \\lor w = 0",
+    "expected_recurrence": {
+      "baseVal": "0",
+      "excludeExpr": "OPT(i-1, w)",
+      "includeExpr": "v_i + OPT(i-1, w - w_i)",
+      "combiner": "\\max"
+    },
+    "correct_formula_display": "OPT(i, w) = \\max(OPT(i-1, w), v_i + OPT(i-1, w - w_i))",
+    "tag": [
+      "programmazione dinamica",
+      "zaino",
+      "dp_recurrence"
+    ]
+  },
+  {
+    "tipo": "dp_recurrence",
+    "domanda": "### Formulazione DP: Weighted Interval Scheduling (Intervalli Pesati)\n\nSiano dati $n$ intervalli ordinati per tempo di fine crescente $f_1 \\le f_2 \\le \\dots \\le f_n$, con pesi $v_j > 0$. Sia $p(j)$ l'indice del più grande intervallo $i < j$ disgiunto da $j$ ($p(j) = 0$ se non esiste).\nSia $OPT(j)$ il valore massimo ottenibile considerando un sottoinsieme ammissibile dei primi $j$ intervalli.\n\nFormula la relazione ricorsiva $OPT(j)$.",
+    "function_name": "OPT(j)",
+    "initial_base_val": "0",
+    "initial_base_cond": "j = 0",
+    "expected_recurrence": {
+      "baseVal": "0",
+      "excludeExpr": "OPT(j-1)",
+      "includeExpr": "v_j + OPT(p(j))",
+      "combiner": "\\max"
+    },
+    "correct_formula_display": "OPT(j) = \\max(OPT(j-1), v_j + OPT(p(j))) con base OPT(0) = 0",
+    "tag": [
+      "programmazione dinamica",
+      "scheduling",
+      "dp_recurrence"
+    ]
+  },
+  {
+    "tipo": "dp_recurrence",
+    "domanda": "### Formulazione DP: Problema del Cambio Monete (Minimo Numero di Monete)\n\nSiano dati $k$ tagli di monete $c_1 < c_2 < \\dots < c_k$ (con $c_1 = 1$) e un importo intero $V \\ge 0$.\nSia $OPT(v)$ il numero minimo di monete necessarie per comporre il valore esatto $v$.\n\nFormula la relazione ricorsiva di Bellman $OPT(v)$ per $v > 0$.",
+    "function_name": "OPT(v)",
+    "initial_base_val": "0",
+    "initial_base_cond": "v = 0",
+    "expected_recurrence": {
+      "baseVal": "0",
+      "excludeExpr": "OPT(v-1)",
+      "includeExpr": "1 + OPT(v - c_i)",
+      "combiner": "\\min"
+    },
+    "correct_formula_display": "OPT(v) = 1 + \\min_{i: c_i \\le v} OPT(v - c_i) con base OPT(0) = 0",
+    "tag": [
+      "programmazione dinamica",
+      "cambio monete",
+      "dp_recurrence"
+    ]
+  },
+  {
+    "tipo": "dp_recurrence",
+    "domanda": "### Formulazione DP: Taglio delle Barre (Rod Cutting)\n\nData una barra di lunghezza intera $n$ e una tabella di prezzi $p_1, p_2, \\dots, p_n$ per le barre di lunghezza $1, 2, \\dots, n$.\nSia $OPT(j)$ il ricavo massimo ottenibile tagliando e vendendo una barra di lunghezza $j$.\n\nFormula la ricorrenza di Bellman per $OPT(j)$ considerando il primo taglio di lunghezza $i$ ($1 \\le i \\le j$).",
+    "function_name": "OPT(j)",
+    "initial_base_val": "0",
+    "initial_base_cond": "j = 0",
+    "expected_recurrence": {
+      "baseVal": "0",
+      "excludeExpr": "OPT(j-1)",
+      "includeExpr": "p_i + OPT(j - i)",
+      "combiner": "\\max"
+    },
+    "correct_formula_display": "OPT(j) = \\max_{1 \\le i \\le j} (p_i + OPT(j - i)) con base OPT(0) = 0",
+    "tag": [
+      "programmazione dinamica",
+      "rod cutting",
+      "dp_recurrence"
+    ]
+  },
+  {
+    "tipo": "dp_matrix",
+    "domanda": "### Esercizio di Programmazione Dinamica: Allineamento di Sequenze\n\nSi considerino le due stringhe $X = \\text{\"mamma\"}$ (lunghezza $m = 5$) e $Y = \\text{\"mia\"}$ (lunghezza $n = 3$).\nI costi associati sono:\n- **Gap** (inserimento/cancellazione): $\\delta = 5$\n- **Match** (caratteri identici): $0$\n- **Mismatch tra vocali**: $3$\n- **Mismatch tra consonanti**: $4$\n- **Mismatch tra vocale e consonante**: $7$\n\nCompila la tabella di programmazione dinamica $M[i, j]$ per determinare il costo minimo di allineamento.",
+    "row_labels": [
+      "-",
+      "m",
+      "a",
+      "m",
+      "m",
+      "a"
+    ],
+    "col_labels": [
+      "-",
+      "m",
+      "i",
+      "a"
+    ],
+    "initial_grid": [
+      [
+        0,
+        5,
+        10,
+        15
+      ],
+      [
+        5,
+        null,
+        null,
+        null
+      ],
+      [
+        10,
+        null,
+        null,
+        null
+      ],
+      [
+        15,
+        null,
+        null,
+        null
+      ],
+      [
+        20,
+        null,
+        null,
+        null
+      ],
+      [
+        25,
+        null,
+        null,
+        null
+      ]
+    ],
+    "expected_matrix": [
+      [
+        0,
+        5,
+        10,
+        15
+      ],
+      [
+        5,
+        0,
+        5,
+        10
+      ],
+      [
+        10,
+        5,
+        3,
+        5
+      ],
+      [
+        15,
+        10,
+        8,
+        7
+      ],
+      [
+        20,
+        15,
+        13,
+        12
+      ],
+      [
+        25,
+        20,
+        18,
+        13
+      ]
+    ],
+    "require_backtracking": false,
+    "tag": [
+      "programmazione dinamica",
+      "allineamento sequenze",
+      "matrice_dp"
+    ]
+  },
+  {
+    "tipo": "graph_tracer",
+    "domanda": "### Esercizio su Grafi: Esecuzione di Kruskal (Minimo Albero di Ricoprimento)\n\nSia dato il grafo non orientato pesato $G = (V, E)$ con $V = \\{1, 2, 3, 4, 5\\}$ e i seguenti archi con i rispettivi pesi:\n- $(1,2)$ peso $1$\n- $(2,3)$ peso $2$\n- $(1,3)$ peso $3$\n- $(3,4)$ peso $4$\n- $(4,5)$ peso $5$\n- $(2,5)$ peso $6$\n- $(3,5)$ peso $7$\n\nEsegui l'algoritmo di Kruskal passo dopo passo nell'ordine di peso crescente degli archi. Indica per ogni passo se l'arco viene **ACCETTATO** o **SCARTATO** (perché formerebbe un ciclo), e calcola il costo totale dell'albero di ricoprimento minimo (MST).",
+    "available_edges": [
+      {
+        "name": "(1,2)",
+        "label": "(1,2) - peso 1"
+      },
+      {
+        "name": "(2,3)",
+        "label": "(2,3) - peso 2"
+      },
+      {
+        "name": "(1,3)",
+        "label": "(1,3) - peso 3"
+      },
+      {
+        "name": "(3,4)",
+        "label": "(3,4) - peso 4"
+      },
+      {
+        "name": "(4,5)",
+        "label": "(4,5) - peso 5"
+      },
+      {
+        "name": "(2,5)",
+        "label": "(2,5) - peso 6"
+      },
+      {
+        "name": "(3,5)",
+        "label": "(3,5) - peso 7"
+      }
+    ],
+    "expected_steps": [
+      {
+        "edge": "(1,2)",
+        "action": "ACCETTA"
+      },
+      {
+        "edge": "(2,3)",
+        "action": "ACCETTA"
+      },
+      {
+        "edge": "(1,3)",
+        "action": "SCARTA"
+      },
+      {
+        "edge": "(3,4)",
+        "action": "ACCETTA"
+      },
+      {
+        "edge": "(4,5)",
+        "action": "ACCETTA"
+      }
+    ],
+    "expected_total_cost": 12,
+    "tag": [
+      "grafi",
+      "kruskal",
+      "spanning tree",
+      "graph_tracer"
+    ]
+  },
+  {
+    "tipo": "dp_recurrence",
+    "domanda": "### Formulazione di Ricorrenza: Problema dello Zaino 0/1 (Knapsack)\n\nSi consideri il problema dello Zaino 0/1 con $n$ oggetti, in cui ogni oggetto $i$ ha valore $v_i > 0$ e peso $w_i > 0$, e capienza massima intera $W$.\nSia $OPT(i, w)$ il valore massimo ottenibile considerando un sottoinsieme dei primi $i$ oggetti con capacità residua $w$.\n\nFormula la corretta equazione ricorsiva di Bellman definendo:\n1. Il caso base ($i=0$ o $w=0$).\n2. Il ramo in cui l'oggetto $i$ **non viene inserito** nello zaino.\n3. Il ramo in cui l'oggetto $i$ **viene inserito** nello zaino (per $w_i \\le w$).\n4. L'operatore di ottimizzazione appropriato.",
+    "function_name": "OPT(i, w)",
+    "initial_base_val": "0",
+    "initial_base_cond": "i = 0 \\lor w = 0",
+    "expected_recurrence": {
+      "baseVal": "0",
+      "excludeExpr": "OPT(i-1, w)",
+      "includeExpr": "v_i + OPT(i-1, w - w_i)",
+      "combiner": "\\max"
+    },
+    "correct_formula_display": "OPT(i, w) = \\max(OPT(i-1, w), v_i + OPT(i-1, w - w_i)) con caso base OPT(0, w) = 0",
+    "tag": [
+      "programmazione dinamica",
+      "zaino",
+      "dp_recurrence"
+    ]
+  },
+  {
+    "domanda": "Sia $G = (V, E)$ un grafo non orientato con $V = \\{1, 2, 3, 4, 5, 6, 7\\}$ ed $E = \\{(1,3), (1,4), (2,5), (2,6), (3,6), (4,5), (5,7), (6,7)\\}$. L'albero della visita in profondità (DFS) di $G$ a partire dal vertice 1, analizzando i vertici adiacenti in ordine crescente di indice, ha profondità (lunghezza in archi del cammino più lungo dalla radice a una foglia):",
+    "risposta1": "6",
+    "risposta2": "4",
+    "risposta3": "5",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "6",
+    "tag": [
+      "grafi",
+      "dfs"
+    ],
+    "mermaid": "graph LR\n    1((1)) --- 3((3))\n    1 --- 4((4))\n    2((2)) --- 5((5))\n    2 --- 6((6))\n    3 --- 6\n    4 --- 5\n    5 --- 7((7))\n    6 --- 7"
+  },
+  {
+    "domanda": "Sia $G = (V, E)$ un grafo non orientato con $V = \\{1, 2, 3, 4, 5, 6\\}$ ed $E = \\{(1,3), (2,3), (4,5), (5,6)\\}$. Quale delle seguenti affermazioni su $G$ è vera?",
+    "risposta1": "G non è un grafo connesso e possiede esattamente 2 componenti connesse.",
+    "risposta2": "G è un grafo connesso.",
+    "risposta3": "G è un grafo fortemente connesso.",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "G non è un grafo connesso e possiede esattamente 2 componenti connesse.",
+    "tag": [
+      "grafi",
+      "componenti connesse"
+    ],
+    "mermaid": "graph LR\n    1((1)) --- 3((3))\n    2((2)) --- 3\n    4((4)) --- 5((5))\n    5 --- 6((6))"
+  },
+  {
+    "domanda": "Un albero DFS generato dalla visita in profondità di un grafo connesso non orientato $G$ è sempre anche un albero di ricoprimento (spanning tree) di $G$?",
+    "risposta1": "Sì, sempre",
+    "risposta2": "No, mai",
+    "risposta3": "Solo se il grafo è privo di cicli",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "Sì, sempre",
+    "tag": [
+      "grafi",
+      "dfs",
+      "spanning tree"
+    ]
+  },
+  {
+    "domanda": "In un grafo orientato (diretto) $G = (V, E)$, quale delle seguenti affermazioni è corretta?",
+    "risposta1": "Un grafo diretto ammette un ordinamento topologico dei vertici se e solo se è aciclico (DAG).",
+    "risposta2": "Ogni grafo diretto con almeno un vertice senza archi entranti è necessariamente aciclico.",
+    "risposta3": "Un grafo diretto aciclico non può avere più di un vertice con grado entrante nullo.",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "Un grafo diretto ammette un ordinamento topologico dei vertici se e solo se è aciclico (DAG).",
+    "tag": [
+      "grafi",
+      "dag",
+      "ordinamento topologico"
+    ]
+  },
+  {
+    "domanda": "Sia $G$ un grafo diretto aciclico (DAG) con $n$ vertici ed $m$ archi. Qual è la complessità temporale per calcolare un ordinamento topologico dei vertici di $G$?",
+    "risposta1": "O(n + m)",
+    "risposta2": "O(n \\log n)",
+    "risposta3": "O(n^2)",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "O(n + m)",
+    "tag": [
+      "grafi",
+      "dag",
+      "ordinamento topologico",
+      "complessita"
+    ]
+  },
+  {
+    "domanda": "Sia $G$ un grafo connesso e $C$ un suo ciclo semplice che attraversa ogni vertice di $V$ esattamente una volta. Se da $C$ eliminiamo un qualsiasi arco $e \\in C$, il sottografo risultante è necessariamente:",
+    "risposta1": "Un albero di ricoprimento (spanning tree) di G",
+    "risposta2": "Un albero BFS di G",
+    "risposta3": "Un ordinamento topologico di G",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "Un albero di ricoprimento (spanning tree) di G",
+    "tag": [
+      "grafi",
+      "alberi",
+      "spanning tree"
+    ]
+  },
+  {
+    "domanda": "Dato un grafo $G = (V, E)$ rappresentato tramite matrice di adiacenza di dimensione $n \\times n$, determinare se esiste un arco tra il vertice $u$ e il vertice $v$ richiede tempo:",
+    "risposta1": "O(1)",
+    "risposta2": "O(n)",
+    "risposta3": "O(\\log n)",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "O(1)",
+    "tag": [
+      "grafi",
+      "strutture dati",
+      "complessita"
+    ]
+  },
+  {
+    "domanda": "Dato un grafo $G = (V, E)$ con $n$ vertici ed $m$ archi rappresentato mediante liste di adiacenza, lo spazio di memoria totale occupato dalla struttura è:",
+    "risposta1": "O(n + m)",
+    "risposta2": "O(n^2)",
+    "risposta3": "O(m \\log n)",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "O(n + m)",
+    "tag": [
+      "grafi",
+      "strutture dati",
+      "complessita"
+    ]
+  },
+  {
+    "domanda": "Durante l'esecuzione della visita BFS (Breadth-First Search) su un grafo non orientato, quale proprietà caratterizza i livelli dell'albero BFS generato?",
+    "risposta1": "Il livello di un nodo v nell'albero corrisponde esattamente alla distanza minima (in numero di archi) dalla radice s a v.",
+    "risposta2": "La profondità dell'albero è sempre uguale a n - 1.",
+    "risposta3": "Non possono esistere archi tra nodi dello stesso livello.",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "Il livello di un nodo v nell'albero corrisponde esattamente alla distanza minima (in numero di archi) dalla radice s a v.",
+    "tag": [
+      "grafi",
+      "bfs",
+      "cammini minimi"
+    ]
+  },
+  {
+    "domanda": "In un grafo bipartito $G = (V, E)$, qual è la condizione necessaria e sufficiente sui cicli del grafo?",
+    "risposta1": "G non contiene alcun ciclo di lunghezza dispari.",
+    "risposta2": "G non contiene alcun ciclo semplice.",
+    "risposta3": "Tutti i vertici hanno grado pari.",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "G non contiene alcun ciclo di lunghezza dispari.",
+    "tag": [
+      "grafi",
+      "grafi bipartiti"
+    ]
+  },
+  {
+    "domanda": "In un grafo connesso con $n$ vertici ed $m$ archi, quale relazione asintotica è sempre valida tra $m$ ed $n$?",
+    "risposta1": "\\log m = \\Theta(\\log n)",
+    "risposta2": "\\log m = o(\\log n)",
+    "risposta3": "\\log n = \\omega(\\log m)",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "\\log m = \\Theta(\\log n)",
+    "tag": [
+      "complessita",
+      "asintotica",
+      "grafi"
+    ]
+  },
+  {
+    "domanda": "La funzione $f(n) = n^3 + 4n^2 + 100$ appartiene alla classe asintotica:",
+    "risposta1": "\\Theta(n^3)",
+    "risposta2": "O(n^2)",
+    "risposta3": "\\Omega(n^4)",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "\\Theta(n^3)",
+    "tag": [
+      "complessita",
+      "asintotica"
+    ]
+  },
+  {
+    "domanda": "Qual è il tempo di esecuzione del seguente frammento di pseudocodice in funzione di $n$?\n\n```text\nfor i = 1 to n do\n    for j = i + 1 to n do\n        x = x + 1\n```",
+    "risposta1": "O(n^2)",
+    "risposta2": "O(n \\log n)",
+    "risposta3": "O(n)",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "O(n^2)",
+    "tag": [
+      "complessita",
+      "pseudocodice"
+    ]
+  },
+  {
+    "domanda": "Qual è il tempo di esecuzione del seguente frammento di pseudocodice in funzione di $n$?\n\n```text\ni = 1\nwhile i <= n do\n    i = 2 * i\n```",
+    "risposta1": "O(\\log n)",
+    "risposta2": "O(n)",
+    "risposta3": "O(n \\log n)",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "O(\\log n)",
+    "tag": [
+      "complessita",
+      "pseudocodice"
+    ]
+  },
+  {
+    "domanda": "Qual è il tempo di esecuzione del seguente frammento di pseudocodice in funzione di $n$?\n\n```text\nfor i = 1 to ceil(n / 2) do\n    for j = 1 to ceil(log n) do\n        x = x + 1\n```",
+    "risposta1": "O(n \\log n)",
+    "risposta2": "O(n^2)",
+    "risposta3": "O(\\log n)",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "O(n \\log n)",
+    "tag": [
+      "complessita",
+      "pseudocodice"
+    ]
+  },
+  {
+    "domanda": "Qual è il tempo di esecuzione del seguente frammento di pseudocodice in funzione di $n$?\n\n```text\nfor i = 1 to n do\n    j = 1\n    while j < n do\n        j = j * 2\n```",
+    "risposta1": "O(n \\log n)",
+    "risposta2": "O(n^2)",
+    "risposta3": "O(n)",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "O(n \\log n)",
+    "tag": [
+      "complessita",
+      "pseudocodice"
+    ]
+  },
+  {
+    "domanda": "Data la relazione di ricorrenza $T(n) = 2T(n/2) + O(n)$ con $T(1) = O(1)$, per il Teorema Principale (Master Theorem) la soluzione asintotica è:",
+    "risposta1": "O(n \\log n)",
+    "risposta2": "O(n^2)",
+    "risposta3": "O(n)",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "O(n \\log n)",
+    "tag": [
+      "ricorrenze",
+      "master theorem",
+      "complessita"
+    ]
+  },
+  {
+    "domanda": "Data la relazione di ricorrenza $T(n) = 4T(n/2) + O(n)$ con $T(1) = O(1)$, la soluzione asintotica è:",
+    "risposta1": "O(n^2)",
+    "risposta2": "O(n \\log n)",
+    "risposta3": "O(n^3)",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "O(n^2)",
+    "tag": [
+      "ricorrenze",
+      "master theorem",
+      "complessita"
+    ]
+  },
+  {
+    "domanda": "Data la relazione di ricorrenza $T(n) = T(n/2) + O(1)$, la soluzione asintotica è:",
+    "risposta1": "O(\\log n)",
+    "risposta2": "O(n)",
+    "risposta3": "O(n \\log n)",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "O(\\log n)",
+    "tag": [
+      "ricorrenze",
+      "master theorem",
+      "complessita"
+    ]
+  },
+  {
+    "domanda": "Data la relazione di ricorrenza $T(n) = 8T(n/2) + O(n^2)$, la soluzione asintotica è:",
+    "risposta1": "O(n^3)",
+    "risposta2": "O(n^2 \\log n)",
+    "risposta3": "O(n^2)",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "O(n^3)",
+    "tag": [
+      "ricorrenze",
+      "master theorem",
+      "complessita"
+    ]
+  },
+  {
+    "domanda": "Lo spazio di memoria e il tempo di esecuzione dell'algoritmo di programmazione dinamica studiato per la struttura secondaria ottimale di una molecola di RNA di lunghezza $n$ sono rispettivamente:",
+    "risposta1": "O(n^2) spazio e O(n^3) tempo",
+    "risposta2": "O(n^2) spazio e O(n^2 \\log n) tempo",
+    "risposta3": "O(n) spazio e O(n^2) tempo",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "O(n^2) spazio e O(n^3) tempo",
+    "tag": [
+      "programmazione dinamica",
+      "rna",
+      "complessita"
+    ]
+  },
+  {
+    "domanda": "Se un algoritmo di programmazione dinamica calcola una tabella 2D di dimensione $n \\times n$, dove ogni singola cella $(i, j)$ richiede tempo $O(n)$ per essere riempita esaminando tutte le possibili combinazioni intermedie, il tempo totale dell'algoritmo è:",
+    "risposta1": "O(n^3)",
+    "risposta2": "O(n^2)",
+    "risposta3": "O(n^4)",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "O(n^3)",
+    "tag": [
+      "programmazione dinamica",
+      "complessita"
+    ]
+  },
+  {
+    "domanda": "Nel problema dell'Allineamento di Sequenze (Sequence Alignment) tra due stringhe $X$ di lunghezza $m$ e $Y$ di lunghezza $n$, la complessità spaziale e temporale dell'algoritmo DP standard è:",
+    "risposta1": "O(m \\cdot n) sia di tempo che di spazio",
+    "risposta2": "O(m + n) di tempo e O(m \\cdot n) di spazio",
+    "risposta3": "O(m^2 n^2) di tempo e O(m+n) di spazio",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "O(m \\cdot n) sia di tempo che di spazio",
+    "tag": [
+      "programmazione dinamica",
+      "allineamento sequenze",
+      "stringhe"
+    ]
+  },
+  {
+    "domanda": "Nel problema dell'Allineamento di Sequenze tra due stringhe $X = x_1 \\dots x_m$ e $Y = y_1 \\dots y_n$, se $OPT(i, j)$ denota il costo minimo per allineare $X_i$ con $Y_j$ con costo di gap $\\delta$, qual è il valore di base di $OPT(0, j)$?",
+    "risposta1": "j \\cdot \\delta",
+    "risposta2": "0",
+    "risposta3": "\\delta",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "j \\cdot \\delta",
+    "tag": [
+      "programmazione dinamica",
+      "allineamento sequenze"
+    ]
+  },
+  {
+    "domanda": "Nel problema dello Zaino 0/1 (Knapsack) con $n$ oggetti e capienza massima intera $W$, l'algoritmo basato su programmazione dinamica che impiega tempo $O(n \\cdot W)$ è definito:",
+    "risposta1": "Pseudo-polinomiale (poiché W cresce esponenzialmente rispetto al numero di bit necessari a rappresentarlo)",
+    "risposta2": "Strettamente polinomiale in ogni circostanza",
+    "risposta3": "Completamente esponenziale in n a prescindere da W",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "Pseudo-polinomiale (poiché W cresce esponenzialmente rispetto al numero di bit necessari a rappresentarlo)",
+    "tag": [
+      "programmazione dinamica",
+      "zaino",
+      "complessita"
+    ]
+  },
+  {
+    "domanda": "Nel problema del Weighted Interval Scheduling con $n$ intervalli, ordinati gli intervalli per tempo di fine crescente e calcolati i valori $p(j)$ in tempo $O(n \\log n)$, il calcolo della tabella 1D dei valori ottimi $M[1 \\dots n]$ tramite programmazione dinamica richiede tempo:",
+    "risposta1": "O(n)",
+    "risposta2": "O(n^2)",
+    "risposta3": "O(2^n)",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "O(n)",
+    "tag": [
+      "programmazione dinamica",
+      "scheduling",
+      "complessita"
+    ]
+  },
+  {
+    "domanda": "L'algoritmo di Bellman-Ford per il calcolo dei cammini minimi da una sorgente singola su un grafo orientato $G = (V, E)$ con pesi arbitrari (senza cicli negativi) impiega tempo:",
+    "risposta1": "O(n \\cdot m)",
+    "risposta2": "O(m \\log n)",
+    "risposta3": "O(n^3)",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "O(n \\cdot m)",
+    "tag": [
+      "programmazione dinamica",
+      "cammini minimi",
+      "grafi"
+    ]
+  },
+  {
+    "domanda": "Quale algoritmo di programmazione dinamica consente di trovare i cammini minimi tra TUTTE le coppie di vertici (All-Pairs Shortest Paths) in un grafo con pesi reali in tempo $O(n^3)$?",
+    "risposta1": "Algoritmo di Floyd-Warshall",
+    "risposta2": "Algoritmo di Kruskal",
+    "risposta3": "Algoritmo di Ford-Fulkerson",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "Algoritmo di Floyd-Warshall",
+    "tag": [
+      "programmazione dinamica",
+      "cammini minimi"
+    ]
+  },
+  {
+    "domanda": "Nell'implementazione dell'algoritmo di Kruskal per il Minimo Albero di Ricoprimento (MST) su un grafo connesso con $n$ vertici ed $m$ archi usando la struttura dati Union-Find, quante operazioni UNION vengono eseguite in totale?",
+    "risposta1": "n - 1",
+    "risposta2": "m - 1",
+    "risposta3": "n",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "n - 1",
+    "tag": [
+      "greedy",
+      "kruskal",
+      "spanning tree",
+      "union-find"
+    ]
+  },
+  {
+    "domanda": "Dato un insieme di punti e una metrica di distanza, nel problema del $k$-clustering con massimo spacing, la nozione di 'spacing' indica:",
+    "risposta1": "La minima distanza tra due punti appartenenti a due cluster distinti",
+    "risposta2": "Il diametro massimo tra punti appartenenti allo stesso cluster",
+    "risposta3": "La distanza media complessiva di tutti i punti",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "La minima distanza tra due punti appartenenti a due cluster distinti",
+    "tag": [
+      "greedy",
+      "clustering"
+    ]
+  },
+  {
+    "domanda": "L'algoritmo greedy di Kruskal applicato per risolvere il $k$-clustering con massimo spacing termina la fusione dei componenti quando rimangono esattamente:",
+    "risposta1": "k cluster distinti (corrispondenti all'albero MST privato dei suoi k - 1 archi più costosi)",
+    "risposta2": "1 singolo cluster unificato",
+    "risposta3": "k/2 cluster",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "k cluster distinti (corrispondenti all'albero MST privato dei suoi k - 1 archi più costosi)",
+    "tag": [
+      "greedy",
+      "clustering",
+      "kruskal"
+    ]
+  },
+  {
+    "domanda": "Nel problema dell'Interval Scheduling non pesato, quale strategia greedy è provata essere ottima?",
+    "risposta1": "Selezionare l'intervallo compatibile avente il minimo tempo di fine (Earliest Finish Time)",
+    "risposta2": "Selezionare l'intervallo con il minimo tempo di inizio",
+    "risposta3": "Selezionare l'intervallo con la durata più breve",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "Selezionare l'intervallo compatibile avente il minimo tempo di fine (Earliest Finish Time)",
+    "tag": [
+      "greedy",
+      "scheduling"
+    ]
+  },
+  {
+    "domanda": "Nel problema dello Scheduling con Minimizzazione del Ritardo (Minimizing Lateness), la regola greedy che ordina le attività per scadenza crescente (Earliest Deadline First) produce una schedulazione che:",
+    "risposta1": "È sempre ottima e priva di inversioni o tempi morti (idle time)",
+    "risposta2": "Minimizza il ritardo solo se tutte le attività hanno la stessa durata",
+    "risposta3": "Ha ritardo massimo sempre uguale a zero",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "È sempre ottima e priva di inversioni o tempi morti (idle time)",
+    "tag": [
+      "greedy",
+      "scheduling"
+    ]
+  },
+  {
+    "domanda": "Dato un alfabeto $\\Sigma$ con frequenze note dei caratteri, l'albero della Codifica di Huffman generato dall'algoritmo greedy è un albero binario:",
+    "risposta1": "Pieno (full binary tree), in cui ciascun nodo interno ha esattamente 2 figli",
+    "risposta2": "Perfettamente bilanciato",
+    "risposta3": "In cui tutte le foglie hanno la medesima profondità",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "Pieno (full binary tree), in cui ciascun nodo interno ha esattamente 2 figli",
+    "tag": [
+      "greedy",
+      "huffman",
+      "alberi"
+    ]
+  },
+  {
+    "domanda": "Cosa afferma la 'Cut Property' fondamentale per gli algoritmi di Minimo Albero di Ricoprimento (MST)?",
+    "risposta1": "Dato un qualsiasi taglio $(S, V \\setminus S)$ del grafo, l'arco di costo minimo che attraversa il taglio appartiene a ogni MST di G.",
+    "risposta2": "L'arco di costo massimo in un taglio appartiene sempre all'MST.",
+    "risposta3": "Ogni taglio contiene esattamente un solo arco dell'MST.",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "Dato un qualsiasi taglio $(S, V \\setminus S)$ del grafo, l'arco di costo minimo che attraversa il taglio appartiene a ogni MST di G.",
+    "tag": [
+      "greedy",
+      "spanning tree",
+      "cut property"
+    ]
+  },
+  {
+    "domanda": "Cosa afferma la 'Cycle Property' nel contesto del Minimo Albero di Ricoprimento (MST)?",
+    "risposta1": "Sia $C$ un ciclo semplice in $G$. L'arco di costo strettamente massimo in $C$ non appartiene ad alcun MST di $G$.",
+    "risposta2": "L'arco di costo massimo in $C$ appartiene sempre all'MST.",
+    "risposta3": "Tutti gli archi del ciclo appartengono all'MST.",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "Sia $C$ un ciclo semplice in $G$. L'arco di costo strettamente massimo in $C$ non appartiene ad alcun MST di $G$.",
+    "tag": [
+      "greedy",
+      "spanning tree",
+      "cycle property"
+    ]
+  },
+  {
+    "domanda": "L'algoritmo di Dijkstra per i cammini minimi da sorgente singola su grafi con pesi non negativi, implementato mediante min-heap binario, ha complessità:",
+    "risposta1": "O(m \\log n)",
+    "risposta2": "O(n^2)",
+    "risposta3": "O(m \\cdot n)",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "O(m \\log n)",
+    "tag": [
+      "greedy",
+      "dijkstra",
+      "cammini minimi",
+      "complessita"
+    ]
+  },
+  {
+    "domanda": "Nell'algoritmo QUICKSORT, cosa viene eseguito nella fase 'Combina' (terza fase del paradigma Divide et Impera)?",
+    "risposta1": "Nulla (l'array è già ordinato sul posto al termine delle chiamate ricorsive)",
+    "risposta2": "Chiama la procedura Merge per fondere i due sotto-array",
+    "risposta3": "Esegue una scansione lineare per riposizionare il pivot",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "Nulla (l'array è già ordinato sul posto al termine delle chiamate ricorsive)",
+    "tag": [
+      "divide et impera",
+      "quicksort"
+    ]
+  },
+  {
+    "domanda": "Nell'algoritmo MERGESORT, la procedura di fusione `Merge` che unisce due sotto-array ordinati di dimensione complessiva $n$ richiede tempo:",
+    "risposta1": "O(n)",
+    "risposta2": "O(n \\log n)",
+    "risposta3": "O(1)",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "O(n)",
+    "tag": [
+      "divide et impera",
+      "mergesort",
+      "complessita"
+    ]
+  },
+  {
+    "domanda": "Il problema del Conteggio delle Inversioni (Counting Inversions) in un array di $n$ numeri può essere risolto in tempo:",
+    "risposta1": "O(n \\log n) modificando la procedura di Merge di Mergesort",
+    "risposta2": "O(n^2) come limite inferiore invalicabile",
+    "risposta3": "O(n) in ogni circostanza",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "O(n \\log n) modificando la procedura di Merge di Mergesort",
+    "tag": [
+      "divide et impera",
+      "conteggio inversioni",
+      "complessita"
+    ]
+  },
+  {
+    "domanda": "L'algoritmo Divide et Impera per trovare la coppia di punti più vicini (Closest Pair of Points) nel piano bidimensionale ha complessità:",
+    "risposta1": "O(n \\log n)",
+    "risposta2": "O(n^2)",
+    "risposta3": "O(n^3)",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "O(n \\log n)",
+    "tag": [
+      "divide et impera",
+      "geometria computazionale",
+      "complessita"
+    ]
+  },
+  {
+    "domanda": "L'algoritmo di moltiplicazione tra matrici di Strassen migliora la complessità canonica $O(n^3)$ portandola asintoticamente a:",
+    "risposta1": "O(n^{\\log_2 7}) \\approx O(n^{2.807})",
+    "risposta2": "O(n^2 \\log n)",
+    "risposta3": "O(n^2)",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "O(n^{\\log_2 7}) \\approx O(n^{2.807})",
+    "tag": [
+      "divide et impera",
+      "moltiplicazione matrici",
+      "complessita"
+    ]
+  },
+  {
+    "domanda": "In una rete di flusso con sorgente $s$ e pozzo $t$, cosa stabilisce il Teorema del Flusso Massimo e Taglio Minimo (Max-Flow Min-Cut Theorem)?",
+    "risposta1": "Il valore del flusso massimo da s a t è esattamente uguale alla capacità del taglio (s, t) di capacità minima.",
+    "risposta2": "Il flusso massimo è sempre strettamente minore della capacità del taglio minimo.",
+    "risposta3": "Tutti i tagli (s, t) hanno la medesima capacità.",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "Il valore del flusso massimo da s a t è esattamente uguale alla capacità del taglio (s, t) di capacità minima.",
+    "tag": [
+      "flusso",
+      "max-flow min-cut",
+      "reti di flusso"
+    ]
+  },
+  {
+    "domanda": "Dato un flusso ammissibile $f$ su una rete $G$, se esiste un cammino orientato da $s$ a $t$ nel grafo residuo $G_f$, allora:",
+    "risposta1": "Il flusso f non è massimo e può essere incrementato lungo il cammino aumentante.",
+    "risposta2": "Il flusso f è sicuramente già massimo.",
+    "risposta3": "La capacità del taglio minimo è nulla.",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "Il flusso f non è massimo e può essere incrementato lungo il cammino aumentante.",
+    "tag": [
+      "flusso",
+      "grafo residuo",
+      "ford-fulkerson"
+    ]
+  },
+  {
+    "domanda": "Se tutte le capacità degli archi in una rete di flusso sono valori interi, l'algoritmo di Ford-Fulkerson garantisce che:",
+    "risposta1": "Termina sempre e produce un flusso massimo in cui ogni arco trasporta una quantità intera (Teorema dell'Integralità).",
+    "risposta2": "Potrebbe divergere in un ciclo infinito.",
+    "risposta3": "Il flusso massimo trovato può avere valori frazionari irriducibili.",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "Termina sempre e produce un flusso massimo in cui ogni arco trasporta una quantità intera (Teorema dell'Integralità).",
+    "tag": [
+      "flusso",
+      "ford-fulkerson",
+      "integralita"
+    ]
+  },
+  {
+    "domanda": "L'algoritmo di Edmonds-Karp per il calcolo del flusso massimo, che seleziona sempre il cammino aumentante con il minor numero di archi tramite visita BFS, ha complessità:",
+    "risposta1": "O(m^2 \\cdot n)",
+    "risposta2": "O(n^4)",
+    "risposta3": "O(m \\cdot C) dove C è la capacità massima",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "O(m^2 \\cdot n)",
+    "tag": [
+      "flusso",
+      "edmonds-karp",
+      "complessita"
+    ]
+  },
+  {
+    "domanda": "Il problema del Bipartite Matching (accoppiamento massimo in un grafo bipartito con $n$ nodi ed $m$ archi) può essere ricondotto a un problema di flusso massimo e risolto in tempo:",
+    "risposta1": "O(m \\cdot n)",
+    "risposta2": "O(2^n)",
+    "risposta3": "O(n!)",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "O(m \\cdot n)",
+    "tag": [
+      "flusso",
+      "bipartite matching",
+      "riduzioni"
+    ]
+  },
+  {
+    "domanda": "Dato un problema decisionale $X$, l'appartenenza di $X$ alla classe NP significa formalmente che:",
+    "risposta1": "Per ogni istanza 'Sì' esiste un certificato di lunghezza polinomiale verificabile in tempo polinomiale da un algoritmo deterministico.",
+    "risposta2": "Il problema può essere risolto in tempo polinomiale su una macchina di Turing deterministica.",
+    "risposta3": "Il problema richiede tempo esponenziale per ogni istanza.",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "Per ogni istanza 'Sì' esiste un certificato di lunghezza polinomiale verificabile in tempo polinomiale da un algoritmo deterministico.",
+    "tag": [
+      "np-completezza",
+      "classi di complessita"
+    ]
+  },
+  {
+    "domanda": "Siano $A$ e $B$ due problemi decisionali tali che $A \\le_p B$ (riduzione polinomiale da $A$ a $B$). Se è noto che $B \\in P$, cosa possiamo concludere?",
+    "risposta1": "Anche A appartiene a P (A in P)",
+    "risposta2": "A è NP-completo",
+    "risposta3": "B non è in NP",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "Anche A appartiene a P (A in P)",
+    "tag": [
+      "np-completezza",
+      "riduzioni"
+    ]
+  },
+  {
+    "domanda": "Siano $A$ e $B$ due problemi decisionali tali che $A \\le_p B$. Se $A$ è NP-completo e $B \\in NP$, cosa si deduce?",
+    "risposta1": "B è NP-completo",
+    "risposta2": "P = NP",
+    "risposta3": "A appartiene a P",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "B è NP-completo",
+    "tag": [
+      "np-completezza",
+      "riduzioni"
+    ]
+  },
+  {
+    "domanda": "In un grafo non orientato $G = (V, E)$, un sottoinsieme $S \\subseteq V$ è un Vertex Cover (Copertura dei Vertici) di dimensione $k$ se e solo se il complemento $V \\setminus S$ è:",
+    "risposta1": "Un Independent Set (Insieme Indipendente) di dimensione |V| - k",
+    "risposta2": "Una Cricca (Clique) di dimensione k",
+    "risposta3": "Un albero di ricoprimento di G",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "Un Independent Set (Insieme Indipendente) di dimensione |V| - k",
+    "tag": [
+      "np-completezza",
+      "vertex cover",
+      "independent set",
+      "riduzioni"
+    ]
+  },
+  {
+    "domanda": "Quale dei seguenti problemi è stato provato essere NP-completo dal Teorema di Cook-Levin come primo problema capostipite?",
+    "risposta1": "SAT (Soddisfacibilità Booleana)",
+    "risposta2": "Dijkstra",
+    "risposta3": "Mergesort",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "SAT (Soddisfacibilità Booleana)",
+    "tag": [
+      "np-completezza",
+      "teorema cook-levin",
+      "sat"
+    ]
+  },
+  {
+    "domanda": "Il problema del 3-SAT (Soddisfacibilità di formule booleane in CNF con esattamente 3 letterali per clausola) è:",
+    "risposta1": "NP-completo",
+    "risposta2": "Risolvibile in tempo lineare O(n)",
+    "risposta3": "Risolvibile tramite l'algoritmo di Kruskal",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "NP-completo",
+    "tag": [
+      "np-completezza",
+      "sat",
+      "3-sat"
+    ]
+  },
+  {
+    "domanda": "Il problema del Commesso Viaggiatore (TSP - Traveling Salesperson Problem nella versione decisionale) è:",
+    "risposta1": "NP-completo",
+    "risposta2": "Risolvibile in tempo polinomiale tramite programmazione dinamica in O(n^2)",
+    "risposta3": "Risolvibile con l'algoritmo di Bellman-Ford",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "NP-completo",
+    "tag": [
+      "np-completezza",
+      "tsp"
+    ]
+  },
+  {
+    "domanda": "Il problema dell'Insieme Indipendente (Independent Set: dato un grafo $G$ e un intero $k$, decidere se esiste un insieme di almeno $k$ vertici a due a due non adiacenti) è:",
+    "risposta1": "NP-completo",
+    "risposta2": "Risolvibile in tempo O(n log n)",
+    "risposta3": "Risolvibile in tempo lineare O(n + m)",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "NP-completo",
+    "tag": [
+      "np-completezza",
+      "independent set"
+    ]
+  },
+  {
+    "domanda": "Il problema del Set Cover (Copertura di Insiemi: dati un universo $U$ e una famiglia di sottoinsiemi, selezionare al più $k$ sottoinsiemi la cui unione copre $U$) è:",
+    "risposta1": "NP-completo",
+    "risposta2": "Risolvibile in tempo O(n^2)",
+    "risposta3": "Risolvibile con un algoritmo greedy esatto",
+    "risposta4": "Nessuna delle risposte precedenti",
+    "corretta": "NP-completo",
+    "tag": [
+      "np-completezza",
+      "set cover"
+    ]
+  }
+]

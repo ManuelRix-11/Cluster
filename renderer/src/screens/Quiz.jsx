@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
+import { renderMarkdown } from '../utils/markdown';
 import styles from './Quiz.module.css';
 import { Multipla } from '../components/questions/Multipla';
 import { Aperta } from '../components/questions/Aperta';
 import { CanvasQuestion } from '../components/questions/CanvasQuestion';
 import { CodiceQuestion } from '../components/questions/CodiceQuestion';
 import { MatematicaQuestion } from '../components/questions/MatematicaQuestion';
+import { DPMatrixQuestion } from '../components/questions/DPMatrixQuestion';
+import { GraphTracerQuestion } from '../components/questions/GraphTracerQuestion';
+import { DPRecurrenceQuestion } from '../components/questions/DPRecurrenceQuestion';
+import { Mermaid } from '../components/common/Mermaid';
 import { getTags } from '../utils/tags';
 
 // ponytail: Minimum Viable Quiz. Shuffle basic arrays, track answers, no unrequested abstractions.
@@ -53,9 +58,9 @@ export function Quiz({ quizData, quizName, onFinish }) {
   if (!currentQ) return <div className="screen-body">Nessuna domanda trovata nel quiz.</div>;
 
   return (
-    <div className={`${styles.quizLayout} ${currentQ.tipo === 'canvas' ? styles.quizLayoutCanvas : ''}`}>
+    <div className={`${styles.quizLayout} ${currentQ.tipo === 'canvas' ? styles.quizLayoutCanvas : ''} ${currentQ.mermaid ? styles.quizLayoutWide : ''}`}>
       {/* Card domanda */}
-      <div className={`card ${styles.cardQuiz} ${currentQ.tipo === 'canvas' ? styles.cardQuizCanvas : ''}`}>
+      <div className={`card ${styles.cardQuiz} ${currentQ.tipo === 'canvas' ? styles.cardQuizCanvas : ''} ${currentQ.mermaid ? styles.cardQuizWide : ''}`}>
         {currentTags.length > 0 && (
           <div className={styles.header}>
             <div className={styles.tags}>
@@ -65,7 +70,24 @@ export function Quiz({ quizData, quizName, onFinish }) {
         )}
 
         <div className={styles.body}>
-          <div className={styles.text}>{currentQ.domanda}</div>
+          {currentQ.mermaid ? (
+            <div className={styles.splitQuestionLayout}>
+              <div className={styles.textContent}>
+                <div 
+                  className={styles.text} 
+                  dangerouslySetInnerHTML={{ __html: renderMarkdown(currentQ.domanda || '') }} 
+                />
+              </div>
+              <div className={styles.diagramWrapper}>
+                <Mermaid chart={currentQ.mermaid} />
+              </div>
+            </div>
+          ) : (
+            <div 
+              className={styles.text} 
+              dangerouslySetInnerHTML={{ __html: renderMarkdown(currentQ.domanda || '') }} 
+            />
+          )}
           
           {currentQ.immagine && window.electronAPI && (
             <img 
@@ -82,6 +104,12 @@ export function Quiz({ quizData, quizName, onFinish }) {
               <CodiceQuestion key={currentIndex} question={currentQ} savedAnswer={answers[currentIndex]} onAnswer={handleAnswer} />
             ) : currentQ.tipo === 'matematica' ? (
               <MatematicaQuestion key={currentIndex} question={currentQ} savedAnswer={answers[currentIndex]} onAnswer={handleAnswer} />
+            ) : (currentQ.tipo === 'dp_matrix' || currentQ.tipo === 'matrice_dp') ? (
+              <DPMatrixQuestion key={currentIndex} question={currentQ} savedAnswer={answers[currentIndex]} onAnswer={handleAnswer} />
+            ) : (currentQ.tipo === 'graph_tracer' || currentQ.tipo === 'kruskal_tracer' || currentQ.tipo === 'tracer') ? (
+              <GraphTracerQuestion key={currentIndex} question={currentQ} savedAnswer={answers[currentIndex]} onAnswer={handleAnswer} />
+            ) : (currentQ.tipo === 'dp_recurrence' || currentQ.tipo === 'ricorrenza_dp') ? (
+              <DPRecurrenceQuestion key={currentIndex} question={currentQ} savedAnswer={answers[currentIndex]} onAnswer={handleAnswer} />
             ) : currentQ.risposta1 !== undefined ? (
               <Multipla key={currentIndex} question={currentQ} savedAnswer={answers[currentIndex]} onAnswer={handleAnswer} />
             ) : (

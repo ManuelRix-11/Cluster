@@ -16,4 +16,14 @@ contextBridge.exposeInMainWorld('electronAPI', {
   listNotes:      () => ipcRenderer.invoke('notes:list'),
   loadNote:       (relpath) => ipcRenderer.invoke('notes:load', relpath),
   openExternal:   (url) => ipcRenderer.invoke('window:openExternal', url),
+  // Auto Updater
+  checkForUpdates: () => ipcRenderer.invoke('updater:check'),
+  installUpdate:   () => ipcRenderer.invoke('updater:install'),
+  getVersion:      () => ipcRenderer.invoke('app:version'),
+  onUpdaterStatus: (callback) => {
+    const handler = (_, data) => callback(data)
+    ipcRenderer.on('updater:status', handler)
+    return () => ipcRenderer.removeListener('updater:status', handler)
+  }
 })
+

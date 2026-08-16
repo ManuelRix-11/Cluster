@@ -33,6 +33,17 @@ body {
   overflow-x: hidden;
 }
 
+select {
+  background-color: #161828;
+  color: #e8e8f0;
+}
+
+select option {
+  background-color: #161828;
+  color: #ffffff;
+  padding: 8px 12px;
+}
+
 /* ── Scrollbar personalizzata ────────────────────────────────────────────── */
 ::-webkit-scrollbar {
   width: 6px;
@@ -471,10 +482,12 @@ main {
 .screen-body {
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: safe center;
   width: 100%;
-  padding: 24px 16px;
+  padding: 24px 16px 40px;
+  box-sizing: border-box;
 }
 
 /* Schermate con app-header: header in cima, .screen-body centra il resto */
@@ -901,6 +914,19 @@ main {
   margin: 8px 0 12px;
   padding-left: 10px;
   border-left: 2px solid var(--accent);
+}
+
+.semester-section--next {
+  margin-top: 24px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.quiz-list-empty-inline {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-style: italic;
+  padding: 10px 12px;
 }
 
 .quiz-list-empty {
@@ -1972,9 +1998,8 @@ body.electron #score-fixed {
 
 /* ── App Footer ─────────────────────────────────────────────────────────── */
 .app-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  position: relative;
+  margin-top: auto;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -1982,9 +2007,14 @@ body.electron #score-fixed {
   padding: 16px 24px;
   box-sizing: border-box;
   font-size: 0.8rem;
-  opacity: 0.7;
+  opacity: 0.75;
   pointer-events: none;
   z-index: 50;
+  transition: opacity 0.2s ease;
+}
+
+.app-footer:hover {
+  opacity: 0.95;
 }
 
 .app-footer a {
@@ -1992,13 +2022,54 @@ body.electron #score-fixed {
 }
 
 .footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   font-weight: 700;
   font-size: 1.15rem;
   color: #fff;
+  pointer-events: auto;
+}
+
+.footer-author-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.footer-author-link:hover {
+  transform: scale(1.05);
 }
 
 .footer-brand .dot {
   color: var(--accent);
+}
+
+.collab-x {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--muted);
+  opacity: 0.6;
+  user-select: none;
+  line-height: 1;
+}
+
+.footer-collab-logo {
+  height: 31px;
+  width: auto;
+  object-fit: contain;
+  vertical-align: middle;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.2s ease;
+  filter: brightness(1) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
+  pointer-events: auto;
+  display: block;
+}
+
+.footer-collab-logo:hover {
+  transform: scale(1.06);
+  filter: brightness(1.1) drop-shadow(0 0 10px rgba(168, 85, 247, 0.5));
 }
 
 .footer-copy {

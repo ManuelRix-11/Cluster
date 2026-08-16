@@ -1,4 +1,5 @@
 import React from 'react';
+import { renderMarkdownInline } from '../../utils/markdown';
 import styles from './Multipla.module.css';
 
 export function Multipla({ question, savedAnswer, onAnswer }) {
@@ -36,7 +37,10 @@ export function Multipla({ question, savedAnswer, onAnswer }) {
             onClick={() => handleSelect(op)}
           >
             <span className={styles.label}>{labels[i] ?? (i + 1)}</span>
-            <span className={styles.text}>{op}</span>
+            <span 
+              className={styles.text} 
+              dangerouslySetInnerHTML={{ __html: renderMarkdownInline(op) }} 
+            />
           </button>
         );
       })}

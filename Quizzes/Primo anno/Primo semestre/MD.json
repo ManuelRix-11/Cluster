@@ -1,0 +1,613 @@
+[
+  {
+    "domanda": "### Dimostrazione per Induzione: Somma di Pari Successivi\n\nSi vuole dimostrare per induzione su $n$ che:\n$$\\sum_{k=2}^n 2k = 4 + 6 + 8 + \\dots + 2n = n(n + 1) - 2, \\quad \\forall n \\ge 2$$\n\n**Passo 1 (Base dell'induzione)**:\nQual è la verifica corretta del passo base per $n = 2$?",
+    "risposta1": "Primo membro: $2(2) = 4$; Secondo membro: $2(2+1) - 2 = 6 - 2 = 4$. L'uguaglianza $4 = 4$ è verificata.",
+    "risposta2": "Primo membro: $2(1) = 2$; Secondo membro: $1(1+1) - 2 = 0$.",
+    "risposta3": "Primo membro: $4 + 6 = 10$; Secondo membro: $2(3) - 2 = 4$.",
+    "risposta4": "Il passo base non è necessario poiché la formula vale per tutti i numeri naturali.",
+    "corretta": "Primo membro: $2(2) = 4$; Secondo membro: $2(2+1) - 2 = 6 - 2 = 4$. L'uguaglianza $4 = 4$ è verificata.",
+    "tag": [
+      "induzione",
+      "passo-base",
+      "aritmetica"
+    ]
+  },
+  {
+    "domanda": "### Dimostrazione per Induzione: Somma di Pari Successivi (Passo Induttivo)\n\nAssumendo vera l'ipotesi induttiva $P(n): 4 + 6 + \\dots + 2n = n(n + 1) - 2$, si vuole dimostrare la tesi per $n+1$:\n$$4 + 6 + \\dots + 2n + 2(n+1) = (n+1)(n+2) - 2$$\n\nQuale passaggio algebrico completa correttamente la dimostrazione?",
+    "risposta1": "$[n(n+1) - 2] + 2(n+1) = (n+1)(n + 2) - 2$, raccogliendo a fattor comune $(n+1)$ tra $n(n+1)$ e $2(n+1)$.",
+    "risposta2": "$[n(n+1) - 2] + 2n = n^2 + 3n - 2$.",
+    "risposta3": "$n(n+1) + 2(n+1) = (n+1)^2 - 2$.",
+    "risposta4": "$2(n+1)(n+2) - 2 = n(n+1) - 2$.",
+    "corretta": "$[n(n+1) - 2] + 2(n+1) = (n+1)(n + 2) - 2$, raccogliendo a fattor comune $(n+1)$ tra $n(n+1)$ e $2(n+1)$.",
+    "tag": [
+      "induzione",
+      "passo-induttivo",
+      "algebra"
+    ]
+  },
+  {
+    "domanda": "### Dimostrazione per Induzione: Progressione Aritmetica con Ragione 3\n\nSi consideri l'identità da dimostrare per induzione:\n$$1 + 4 + 7 + \\dots + (1 + 3n) = \\frac{(n + 1)(2 + 3n)}{2}, \\quad \\forall n \\ge 1$$\n\nSe per ipotesi induttiva la somma dei primi $n$ termini è $\\frac{(n+1)(2+3n)}{2}$, sommando il termine successivo $(1 + 3(n+1)) = (3n+4)$ si ottiene:",
+    "risposta1": "$\\frac{(n+1)(2+3n) + 2(3n+4)}{2} = \\frac{3n^2 + 11n + 10}{2} = \\frac{(n+2)(3n+5)}{2} = \\frac{((n+1)+1)(2+3(n+1))}{2}$",
+    "risposta2": "$\\frac{(n+1)(2+3n) + (3n+4)}{2} = \\frac{3n^2 + 8n + 6}{2}$",
+    "risposta3": "$\\frac{(n+2)(2+3n)}{2} + (3n+4) = \\frac{(n+1)(3n+5)}{2}$",
+    "risposta4": "$\\frac{3n^2 + 5n + 2}{2}$",
+    "corretta": "$\\frac{(n+1)(2+3n) + 2(3n+4)}{2} = \\frac{3n^2 + 11n + 10}{2} = \\frac{(n+2)(3n+5)}{2} = \\frac{((n+1)+1)(2+3(n+1))}{2}$",
+    "tag": [
+      "induzione",
+      "serie",
+      "algebra"
+    ]
+  },
+  {
+    "domanda": "### Dimostrazione per Induzione: Somma di Quadrati\n\nSi consideri la celebre formula della somma dei primi $n$ quadrati:\n$$1^2 + 2^2 + 3^2 + \\dots + n^2 = \\frac{n(n + 1)(2n + 1)}{6}, \\quad \\forall n \\ge 1$$\n\nNel passo induttivo, sommando $(n+1)^2$ all'ipotesi induttiva, quale scomposizione per raccoglimento permette di ottenere la tesi per $n+1$?",
+    "risposta1": "Raccogliere $\\frac{n+1}{6}$: $\\frac{n+1}{6} \\cdot [n(2n+1) + 6(n+1)] = \\frac{n+1}{6}(2n^2 + 7n + 6) = \\frac{(n+1)(n+2)(2n+3)}{6}$.",
+    "risposta2": "Moltiplicare per 6 entrambi i membri ottenendo $n^3 + 3n^2 + 2n + 6(n+1)^2$.",
+    "risposta3": "Sviluppare tutti i quadrati senza raccogliere alcun termine comune.",
+    "risposta4": "Sostituire direttamente $n$ con $n+1$ senza sommare il termine $(n+1)^2$.",
+    "corretta": "Raccogliere $\\frac{n+1}{6}$: $\\frac{n+1}{6} \\cdot [n(2n+1) + 6(n+1)] = \\frac{n+1}{6}(2n^2 + 7n + 6) = \\frac{(n+1)(n+2)(2n+3)}{6}$.",
+    "tag": [
+      "induzione",
+      "sommatorie",
+      "quadrati"
+    ]
+  },
+  {
+    "domanda": "### Dimostrazione per Induzione: Somma di Dispari da 5 a $2n-1$\n\nSi consideri l'identità:\n$$5 + 7 + 9 + \\dots + (2n - 1) = n^2 - 4, \\quad \\forall n \\ge 3$$\n\nQual è il passo base $P(3)$ e come si conclude il passo induttivo sommando il termine successivo $(2(n+1) - 1) = 2n + 1$?",
+    "risposta1": "Passo base: $2(3)-1 = 5$ e $3^2 - 4 = 5$ (verificato). Passo induttivo: $(n^2 - 4) + (2n + 1) = (n^2 + 2n + 1) - 4 = (n+1)^2 - 4$.",
+    "risposta2": "Passo base: $n=1 \\implies 5 = 1 - 4 = -3$.",
+    "risposta3": "Passo base: $n=3 \\implies 5 + 7 + 9 = 21$.",
+    "risposta4": "Passo induttivo: $(n^2 - 4) + 2n = n^2 + 2n - 4$.",
+    "corretta": "Passo base: $2(3)-1 = 5$ e $3^2 - 4 = 5$ (verificato). Passo induttivo: $(n^2 - 4) + (2n + 1) = (n^2 + 2n + 1) - 4 = (n+1)^2 - 4$.",
+    "tag": [
+      "induzione",
+      "dispari"
+    ]
+  },
+  {
+    "domanda": "### Studio di Applicazioni: Immagini e Proprietà\n\nSi considerino le seguenti applicazioni:\n- $f: x \\in \\mathbb{N}_0 \\to -x + 3 \\in \\mathbb{Z}$\n- $g: z \\in \\mathbb{Z} \\to |z| + 2 \\in \\mathbb{N}$\n\nSi determini la controimmagine $f^{-1}(\\{-5, 0\\})$ e si stabilisca se $f$ è suriettiva su $\\mathbb{Z}$.",
+    "risposta1": "$f^{-1}(\\{-5, 0\\}) = \\{3, 8\\}$; $f$ NON è suriettiva perché nessun elemento di $\\mathbb{N}_0$ ha immagine maggiore di $3$ in $\\mathbb{Z}$.",
+    "risposta2": "$f^{-1}(\\{-5, 0\\}) = \\{-8, -3\\}$; $f$ è suriettiva.",
+    "risposta3": "$f^{-1}(\\{-5, 0\\}) = \\{5, 0\\}$; $f$ è biettiva.",
+    "risposta4": "$f^{-1}(\\{-5, 0\\}) = \\emptyset$; $f$ è iniettiva e suriettiva.",
+    "corretta": "$f^{-1}(\\{-5, 0\\}) = \\{3, 8\\}$; $f$ NON è suriettiva perché nessun elemento di $\\mathbb{N}_0$ ha immagine maggiore di $3$ in $\\mathbb{Z}$.",
+    "tag": [
+      "funzioni",
+      "controimmagine",
+      "suriettivita"
+    ]
+  },
+  {
+    "domanda": "### Studio di Applicazioni: Composizione $g \\circ f$\n\nDate le applicazioni:\n- $f: x \\in \\mathbb{N}_0 \\to -x + 3 \\in \\mathbb{Z}$\n- $g: z \\in \\mathbb{Z} \\to |z| + 2 \\in \\mathbb{N}$\n\nQual è l'espressione analitica della funzione composta $(g \\circ f)(x)$ per ogni $x \\in \\mathbb{N}_0$ e quale è l'immagine $g(\\{2, -2\\})$?",
+    "risposta1": "$(g \\circ f)(x) = |x - 3| + 2$; $g(\\{2, -2\\}) = \\{4\\}$.",
+    "risposta2": "$(g \\circ f)(x) = -|x| + 5$; $g(\\{2, -2\\}) = \\{0, 4\\}$.",
+    "risposta3": "$(g \\circ f)(x) = |x + 3| - 2$; $g(\\{2, -2\\}) = \\{2\\}$.",
+    "risposta4": "$(g \\circ f)(x) = |3 - x|$; $g(\\{2, -2\\}) = \\{-4, 4\\}$.",
+    "corretta": "$(g \\circ f)(x) = |x - 3| + 2$; $g(\\{2, -2\\}) = \\{4\\}$.",
+    "tag": [
+      "funzioni",
+      "composizione",
+      "immagine"
+    ]
+  },
+  {
+    "domanda": "### Cardinalità e Conteggio di Applicazioni\n\nSiano $S = \\{1, 2, 3, 4, 5\\}$ ($|S| = 5$) e $T = \\{a, b, c, d, e, f\\}$ ($|T| = 6$).\n\n1. Quante sono le applicazioni **iniettive** da $S$ in $T$?\n2. Esistono applicazioni **suriettive** da $S$ in $T$?",
+    "risposta1": "Applicazioni iniettive: $D_{6, 5} = \\frac{6!}{(6-5)!} = 6! = 720$; NON esistono applicazioni suriettive poiché $|S| < |T|$.",
+    "risposta2": "Applicazioni iniettive: $6^5 = 7776$; Esistono $720$ applicazioni suriettive.",
+    "risposta3": "Applicazioni iniettive: $\\binom{6}{5} = 6$; Esistono infinite applicazioni suriettive.",
+    "risposta4": "Applicazioni iniettive: $5^6 = 15625$; NON esistono applicazioni suriettive.",
+    "corretta": "Applicazioni iniettive: $D_{6, 5} = \\frac{6!}{(6-5)!} = 6! = 720$; NON esistono applicazioni suriettive poiché $|S| < |T|$.",
+    "tag": [
+      "funzioni",
+      "calcolo-combinatorio",
+      "cardinalita"
+    ]
+  },
+  {
+    "domanda": "### Studio di Biettività e Inversa\n\nSi consideri l'applicazione:\n$$f: x \\in \\mathbb{N}_0 \\to x + 1 \\in \\mathbb{N}$$\n\nQuale affermazione è corretta riguardo alla biettività di $f$ e alla sua funzione inversa $f^{-1}$?",
+    "risposta1": "$f$ è **biettiva** (iniettiva perché $x_1+1 = x_2+1 \\implies x_1 = x_2$, suriettiva perché $\\forall y \\in \\mathbb{N}, \\exists x = y - 1 \\in \\mathbb{N}_0$). L'inversa è $f^{-1}(y) = y - 1$.",
+    "risposta2": "$f$ è solo iniettiva ma non suriettiva perché $0 \\notin \\mathbb{N}$.",
+    "risposta3": "$f$ è solo suriettiva ma non iniettiva.",
+    "risposta4": "$f$ non è invertibile.",
+    "corretta": "$f$ è **biettiva** (iniettiva perché $x_1+1 = x_2+1 \\implies x_1 = x_2$, suriettiva perché $\\forall y \\in \\mathbb{N}, \\exists x = y - 1 \\in \\mathbb{N}_0$). L'inversa è $f^{-1}(y) = y - 1$.",
+    "tag": [
+      "funzioni",
+      "biettivita",
+      "inversa"
+    ]
+  },
+  {
+    "domanda": "### Immagini e Controimmagini con Multipli\n\nSi consideri l'applicazione $f: x \\in \\mathbb{N} \\to -3x \\in \\mathbb{Z}$.\n\nSi calcolino:\n- L'immagine $f(\\{1, 2, 3\\})$\n- La controimmagine $f^{-1}(\\{-3, 9, -6\\})$",
+    "risposta1": "$f(\\{1, 2, 3\\}) = \\{-3, -6, -9\\}$ e $f^{-1}(\\{-3, 9, -6\\}) = \\{1, 2\\}$ (poiché $9$ non appartiene all'immagine di $\\mathbb{N}$).",
+    "risposta2": "$f(\\{1, 2, 3\\}) = \\{-3, -6, -9\\}$ e $f^{-1}(\\{-3, 9, -6\\}) = \\{1, -3, 2\\}$.",
+    "risposta3": "$f(\\{1, 2, 3\\}) = \\{3, 6, 9\\}$ e $f^{-1}(\\{-3, 9, -6\\}) = \\emptyset$.",
+    "risposta4": "$f(\\{1, 2, 3\\}) = \\{-1, -2, -3\\}$ e $f^{-1}(\\{-3, 9, -6\\}) = \\{1, 2, 3\\}$.",
+    "corretta": "$f(\\{1, 2, 3\\}) = \\{-3, -6, -9\\}$ e $f^{-1}(\\{-3, 9, -6\\}) = \\{1, 2\\}$ (poiché $9$ non appartiene all'immagine di $\\mathbb{N}$).",
+    "tag": [
+      "funzioni",
+      "controimmagine",
+      "insiemi"
+    ]
+  },
+  {
+    "domanda": "### Algoritmo di Euclide e Coefficienti di Bézout (126 e 35)\n\nApplicando l'algoritmo euclideo delle divisioni successive agli interi $126$ e $35$, si ottiene:\n- $126 = 35 \\cdot 3 + 21$\n- $35 = 21 \\cdot 1 + 14$\n- $21 = 14 \\cdot 1 + 7$\n- $14 = 7 \\cdot 2 + 0$\n\nQual è il $\\gcd(126, 35)$ e la sua identità di Bézout $126x + 35y = \\gcd(126, 35)$?",
+    "risposta1": "$\\gcd(126, 35) = 7$, con identità di Bézout: $7 = 126 \\cdot (-1) + 35 \\cdot 4$.",
+    "risposta2": "$\\gcd(126, 35) = 14$, con identità di Bézout: $14 = 126 \\cdot 1 - 35 \\cdot 3$.",
+    "risposta3": "$\\gcd(126, 35) = 7$, con identità di Bézout: $7 = 126 \\cdot 2 - 35 \\cdot 7$.",
+    "risposta4": "$\\gcd(126, 35) = 1$, con identità di Bézout: $1 = 126 \\cdot 3 - 35 \\cdot 11$.",
+    "corretta": "$\\gcd(126, 35) = 7$, con identità di Bézout: $7 = 126 \\cdot (-1) + 35 \\cdot 4$.",
+    "tag": [
+      "aritmetica-modulare",
+      "euclide",
+      "bezout"
+    ]
+  },
+  {
+    "domanda": "### Algoritmo di Euclide e Risolubilità Congruenziale (494 e 214)\n\nDati i numeri $494$ e $214$, l'algoritmo di Euclide fornisce $\\gcd(494, 214) = 2 = 494 \\cdot (-39) + 214 \\cdot 90$.\n\nL'equazione congruenziale $214x \\equiv 4 \\pmod{494}$ ammette soluzioni in $\\mathbb{Z}$?",
+    "risposta1": "Sì, ammette soluzioni perché $\\gcd(214, 494) = 2$ divide $4$. L'equazione ammette esattamente $2$ soluzioni distinte modulo $494$.",
+    "risposta2": "No, non ammette soluzioni perché $\\gcd(214, 494) \\neq 1$.",
+    "risposta3": "Sì, ammette un'unica soluzione modulo $494$.",
+    "risposta4": "No, perché $494$ non è un numero primo.",
+    "corretta": "Sì, ammette soluzioni perché $\\gcd(214, 494) = 2$ divide $4$. L'equazione ammette esattamente $2$ soluzioni distinte modulo $494$.",
+    "tag": [
+      "congruenze",
+      "euclide",
+      "bezout"
+    ]
+  },
+  {
+    "domanda": "### Risoluzione di Equazione Congruenziale: $11x \\equiv 1 \\pmod{167}$\n\nSi risolva l'equazione congruenziale $11x \\equiv 1 \\pmod{167}$, determinando l'inverso moltiplicativo di $11$ modulo $167$.\nPoiché $167 = 11 \\cdot 15 + 2$ e $11 = 2 \\cdot 5 + 1$, si ha $1 = 11 - 2 \\cdot 5 = 11 - (167 - 11 \\cdot 15) \\cdot 5 = 11 \\cdot 76 - 167 \\cdot 5$.\n\nQual è l'insieme delle soluzioni intere dell'equazione?",
+    "risposta1": "$x \\equiv 76 \\pmod{167}$ (ovvero $x = 76 + 167k, \\forall k \\in \\mathbb{Z}$).",
+    "risposta2": "$x \\equiv 61 \\pmod{167}$.",
+    "risposta3": "$x \\equiv 15 \\pmod{167}$.",
+    "risposta4": "L'equazione non ammette soluzioni in $\\mathbb{Z}$.",
+    "corretta": "$x \\equiv 76 \\pmod{167}$ (ovvero $x = 76 + 167k, \\forall k \\in \\mathbb{Z}$).",
+    "tag": [
+      "congruenze",
+      "inverso-modulare"
+    ]
+  },
+  {
+    "domanda": "### Invertibilità Modulare: $50x \\equiv 1 \\pmod{313}$\n\nSi stabilisca se $50$ è invertibile modulo $313$ e in caso affermativo se ne determini l'inverso.\n(Poiché $\\gcd(50, 313) = 1$, con Bézout: $313 = 50 \\cdot 6 + 13$, $50 = 13 \\cdot 3 + 11$, $13 = 11 \\cdot 1 + 2$, $11 = 2 \\cdot 5 + 1$).",
+    "risposta1": "$50$ è invertibile modulo $313$ e il suo inverso è $75$ (infatti $50 \\cdot 75 = 3750 = 313 \\cdot 11 + 3107 \\equiv 1 \\pmod{313}$).",
+    "risposta2": "$50$ non è invertibile modulo $313$ perché $50$ è pari.",
+    "risposta3": "$50$ è invertibile e il suo inverso è $250$.",
+    "risposta4": "$50$ è invertibile e il suo inverso è $13$.",
+    "corretta": "$50$ è invertibile modulo $313$ e il suo inverso è $75$ (infatti $50 \\cdot 75 = 3750 = 313 \\cdot 11 + 3107 \\equiv 1 \\pmod{313}$).",
+    "tag": [
+      "congruenze",
+      "inverso-modulare",
+      "bezout"
+    ]
+  },
+  {
+    "domanda": "### Sistema di Equazioni Congruenziali (Teorema Cinese del Resto)\n\nSi consideri il sistema di congruenze lineari:\n$$\\begin{cases} x \\equiv 3 \\pmod 9 \\\\ x \\equiv 4 \\pmod{10} \\\\ x \\equiv 6 \\pmod{11} \\end{cases}$$\n\nI moduli $9, 10, 11$ sono a due a due coprimi ($M = 9 \\cdot 10 \\cdot 11 = 990$). Qual è l'insieme delle soluzioni intere del sistema?",
+    "risposta1": "$x \\equiv 94 \\pmod{990}$ (infatti $94 = 9(10)+4 = 10(9)+4 = 11(8)+6$, $94 \\equiv 3 \\pmod 9$, $94 \\equiv 4 \\pmod{10}$, $94 \\equiv 6 \\pmod{11}$).",
+    "risposta2": "$x \\equiv 344 \\pmod{990}$.",
+    "risposta3": "$x \\equiv 120 \\pmod{990}$.",
+    "risposta4": "Il sistema non ammette soluzioni.",
+    "corretta": "$x \\equiv 94 \\pmod{990}$ (infatti $94 = 9(10)+4 = 10(9)+4 = 11(8)+6$, $94 \\equiv 3 \\pmod 9$, $94 \\equiv 4 \\pmod{10}$, $94 \\equiv 6 \\pmod{11}$).",
+    "tag": [
+      "congruenze",
+      "teorema-cinese-del-resto"
+    ]
+  },
+  {
+    "domanda": "### Elementi Invertibili nell'Insieme delle Classi di Resto $\\mathbb{Z}_{15}(\\cdot)$\n\nSia $\\mathbb{Z}_{15} = \\{\\bar{0}, \\bar{1}, \\dots, \\bar{14}\\}$ il monoide moltiplicativo delle classi di resto modulo $15$.\n\nQuali sono tutti e soli gli elementi invertibili $\\mathcal{U}(\\mathbb{Z}_{15})$?",
+    "risposta1": "Gli elementi coprimi con 15: $\\{\\bar{1}, \\bar{2}, \\bar{4}, \\bar{7}, \\bar{8}, \\bar{11}, \\bar{13}, \\bar{14}\\}$ (in totale $\\varphi(15) = 8$ elementi).",
+    "risposta2": "Tutti gli elementi non nulli: $\\{\\bar{1}, \\bar{2}, \\dots, \\bar{14}\\}$.",
+    "risposta3": "Solo i numeri primi: $\\{\\bar{2}, \\bar{3}, \\bar{5}, \\bar{7}, \\bar{11}, \\bar{13}\\}$.",
+    "risposta4": "Solo gli elementi dispari: $\\{\\bar{1}, \\bar{3}, \\bar{5}, \\bar{7}, \\bar{9}, \\bar{11}, \\bar{13}\\}$.",
+    "corretta": "Gli elementi coprimi con 15: $\\{\\bar{1}, \\bar{2}, \\bar{4}, \\bar{7}, \\bar{8}, \\bar{11}, \\bar{13}, \\bar{14}\\}$ (in totale $\\varphi(15) = 8$ elementi).",
+    "tag": [
+      "anelli",
+      "classi-di-resto",
+      "invertibili"
+    ]
+  },
+  {
+    "domanda": "### Tavola di Moltiplicazione e Struttura di $\\mathbb{Z}_6(\\cdot)$\n\nSia $\\mathbb{Z}_6 = \\{\\bar{0}, \\bar{1}, \\bar{2}, \\bar{3}, \\bar{4}, \\bar{5}\\}$.\nQuali sono l'elemento neutro e gli elementi simmetrizzabili (invertibili) rispetto alla moltiplicazione?",
+    "risposta1": "Elemento neutro: $\\bar{1}$; Elementi simmetrizzabili: $\\bar{1}$ (con $\\bar{1}^{-1} = \\bar{1}$) e $\\bar{5}$ (con $\\bar{5}^{-1} = \\bar{5}$, poiché $5 \\cdot 5 = 25 \\equiv 1 \\pmod 6$).",
+    "risposta2": "Elemento neutro: $\\bar{0}$; Elementi simmetrizzabili: tutti gli elementi non nulli.",
+    "risposta3": "Elemento neutro: $\\bar{1}$; Elementi simmetrizzabili: $\\bar{1}, \\bar{2}, \\bar{3}, \\bar{4}, \\bar{5}$.",
+    "risposta4": "Non esiste elemento neutro.",
+    "corretta": "Elemento neutro: $\\bar{1}$; Elementi simmetrizzabili: $\\bar{1}$ (con $\\bar{1}^{-1} = \\bar{1}$) e $\\bar{5}$ (con $\\bar{5}^{-1} = \\bar{5}$, poiché $5 \\cdot 5 = 25 \\equiv 1 \\pmod 6$).",
+    "tag": [
+      "anelli",
+      "classi-di-resto",
+      "monoidi"
+    ]
+  },
+  {
+    "domanda": "### Struttura Algebrica: Operazione Personalizzata su $\\mathbb{Z}$\n\nIn $\\mathbb{Z}$ si consideri l'operazione binaria $\\star$ definita da:\n$$n \\star m = n + m + 2, \\quad \\forall n, m \\in \\mathbb{Z}$$\n\nQuali proprietà possiede la struttura $(\\mathbb{Z}, \\star)$?",
+    "risposta1": "È un **gruppo abeliano**: è associativa, commutativa, possiede elemento neutro $e = -2$ (infatti $n \\star (-2) = n - 2 + 2 = n$) e ogni $n$ ha inverso $n' = -n - 4$.",
+    "risposta2": "Non è associativa.",
+    "risposta3": "È solo un semigruppo privo di elemento neutro.",
+    "risposta4": "L'elemento neutro è $e = 0$.",
+    "corretta": "È un **gruppo abeliano**: è associativa, commutativa, possiede elemento neutro $e = -2$ (infatti $n \\star (-2) = n - 2 + 2 = n$) e ogni $n$ ha inverso $n' = -n - 4$.",
+    "tag": [
+      "strutture-algebriche",
+      "gruppi",
+      "assiomi"
+    ]
+  },
+  {
+    "domanda": "### Calcolo Autovalori di Matrice $3 \\times 3$\n\nSi consideri la matrice:\n$$A = \\begin{pmatrix} 1 & -1 & 0 \\\\ 0 & 3 & 0 \\\\ -1 & 1 & 1 \\end{pmatrix} \\in M_3(\\mathbb{R})$$\n\nQuali sono gli autovalori di $A$ in $\\mathbb{R}$ con le relative molteplicità algebriche ($m_a$)?",
+    "risposta1": "$\\lambda_1 = 3$ con $m_a(3) = 1$, e $\\lambda_2 = 1$ con $m_a(1) = 2$.",
+    "risposta2": "$\\lambda_1 = 1, \\lambda_2 = 2, \\lambda_3 = 3$ tutti con molteplicità 1.",
+    "risposta3": "$\\lambda_1 = 0, \\lambda_2 = 3, \\lambda_3 = -1$.",
+    "risposta4": "La matrice non ammette autovalori reali.",
+    "corretta": "$\\lambda_1 = 3$ con $m_a(3) = 1$, e $\\lambda_2 = 1$ con $m_a(1) = 2$.",
+    "tag": [
+      "algebra-lineare",
+      "matrici",
+      "autovalori"
+    ]
+  },
+  {
+    "domanda": "### Autovettori e Diagonalizzabilità su $\\mathbb{R}$\n\nData la matrice $A = \\begin{pmatrix} 1 & -1 & 0 \\\\ 0 & 3 & 0 \\\\ -1 & 1 & 1 \\end{pmatrix}$, i cui autovalori sono $\\lambda = 3$ ($m_a=1$) e $\\lambda = 1$ ($m_a=2$):\n- Per $\\lambda = 1$: $(A - I)v = 0 \\implies \\begin{pmatrix} 0 & -1 & 0 \\\\ 0 & 2 & 0 \\\\ -1 & 1 & 0 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = 0 \\implies y=0, x=0, z \\text{ libero}$.\n\nQual è la dimensione dell'autospazio $V_1$ e la matrice $A$ è diagonalizzabile su $\\mathbb{R}$?",
+    "risposta1": "$\\dim(V_1) = 1 < m_a(1) = 2 \\implies$ la matrice $A$ **NON è diagonalizzabile** su $\\mathbb{R}$.",
+    "risposta2": "$\\dim(V_1) = 2 = m_a(1) \\implies$ la matrice $A$ è diagonalizzabile.",
+    "risposta3": "$\\dim(V_1) = 3 \\implies$ la matrice è invertibile e diagonalizzabile.",
+    "risposta4": "$\\dim(V_1) = 0$.",
+    "corretta": "$\\dim(V_1) = 1 < m_a(1) = 2 \\implies$ la matrice $A$ **NON è diagonalizzabile** su $\\mathbb{R}$.",
+    "tag": [
+      "algebra-lineare",
+      "autospazi",
+      "diagonalizzabilita"
+    ]
+  },
+  {
+    "domanda": "### Autovalori e Autovettori: Matrice Triangolare Superiore a Blocchi\n\nSi consideri la matrice:\n$$A = \\begin{pmatrix} 3 & -1 & 0 \\\\ 0 & 2 & 0 \\\\ -2 & 1 & 3 \\end{pmatrix} \\in M_3(\\mathbb{R})$$\n\nQuali sono gli autovalori reali di $A$ e i relativi autospazi?",
+    "risposta1": "Autovalori: $\\lambda = 3$ ($m_a = 2$) con $V_3 = \\text{span}\\{(0, 0, 1)\\}$ (molteplicità geometrica 1), $\\lambda = 2$ ($m_a = 1$) con $V_2 = \\text{span}\\{(1, 1, -1)\\}$.",
+    "risposta2": "Autovalori: $\\lambda = 3$ con $V_3 = \\text{span}\\{(1,0,0), (0,0,1)\\}$ e $\\lambda = 2$ con $V_2 = \\text{span}\\{(0,1,0)\\}$.",
+    "risposta3": "Autovalori: $\\lambda = 0, 2, 3$.",
+    "risposta4": "Autovalori: $\\lambda = -3$ e $\\lambda = -2$.",
+    "corretta": "Autovalori: $\\lambda = 3$ ($m_a = 2$) con $V_3 = \\text{span}\\{(0, 0, 1)\\}$ (molteplicità geometrica 1), $\\lambda = 2$ ($m_a = 1$) con $V_2 = \\text{span}\\{(1, 1, -1)\\}$.",
+    "tag": [
+      "algebra-lineare",
+      "autovalori",
+      "autovettori"
+    ]
+  },
+  {
+    "domanda": "### Rango di Matrice Parametrica in $k \\in \\mathbb{R}$\n\nSi consideri la matrice:\n$$B = \\begin{pmatrix} k - 2 & 0 & 0 \\\\ 3k & k & 2k - 1 \\\\ 2k - 1 & 0 & 1 \\end{pmatrix} \\in M_3(\\mathbb{R})$$\n\nIl determinante di $B$ è $\\det(B) = k(k - 2) \\cdot 1 = k(k - 2)$. Qual è il rango di $B$ al variare di $k \\in \\mathbb{R}$?",
+    "risposta1": "Per $k \\neq 0$ e $k \\neq 2$, $\\text{rk}(B) = 3$. Per $k = 0$, $\\text{rk}(B) = 2$. Per $k = 2$, $\\text{rk}(B) = 2$.",
+    "risposta2": "Per ogni $k \\in \\mathbb{R}$, $\\text{rk}(B) = 3$.",
+    "risposta3": "Per $k = 0$, $\\text{rk}(B) = 1$; per $k = 2$, $\\text{rk}(B) = 0$.",
+    "risposta4": "Il rango non dipende da $k$ ed è sempre pari a 2.",
+    "corretta": "Per $k \\neq 0$ e $k \\neq 2$, $\\text{rk}(B) = 3$. Per $k = 0$, $\\text{rk}(B) = 2$. Per $k = 2$, $\\text{rk}(B) = 2$.",
+    "tag": [
+      "algebra-lineare",
+      "rango",
+      "determinante"
+    ]
+  },
+  {
+    "domanda": "### Invertibilità e Calcolo Matrice Inversa\n\nSi consideri la matrice $A = \\begin{pmatrix} 1 & 4 & 2 \\\\ -1 & 0 & 0 \\\\ 2 & 3 & 0 \\end{pmatrix} \\in M_3(\\mathbb{R})$.\n\nSviluppando il determinante lungo la terza colonna: $\\det(A) = 2 \\cdot (-3 - 0) = -6 \\neq 0$. Qual è la matrice inversa $A^{-1}$?",
+    "risposta1": "$A^{-1} = -\\frac{1}{6} \\begin{pmatrix} 0 & 6 & 0 \\\\ 0 & -4 & -2 \\\\ -3 & 5 & 4 \\end{pmatrix} = \\begin{pmatrix} 0 & -1 & 0 \\\\ 0 & 2/3 & 1/3 \\\\ 1/2 & -5/6 & -2/3 \\end{pmatrix}$.",
+    "risposta2": "$A^{-1} = \\begin{pmatrix} 1 & -1 & 2 \\\\ 4 & 0 & 3 \\\\ 2 & 0 & 0 \\end{pmatrix}$.",
+    "risposta3": "La matrice non è invertibile.",
+    "risposta4": "$A^{-1} = \\begin{pmatrix} 0 & 1 & 0 \\\\ 1 & 0 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}$.",
+    "corretta": "$A^{-1} = -\\frac{1}{6} \\begin{pmatrix} 0 & 6 & 0 \\\\ 0 & -4 & -2 \\\\ -3 & 5 & 4 \\end{pmatrix} = \\begin{pmatrix} 0 & -1 & 0 \\\\ 0 & 2/3 & 1/3 \\\\ 1/2 & -5/6 & -2/3 \\end{pmatrix}$.",
+    "tag": [
+      "algebra-lineare",
+      "matrice-inversa",
+      "determinante"
+    ]
+  },
+  {
+    "domanda": "### Risoluzione Sistema Lineare Sovradeterminato in $\\mathbb{R}$\n\nSi consideri il sistema lineare:\n$$\\begin{cases} y + z = 1 \\\\ x + y + z = 2 \\\\ 2x + y + z = 1 \\\\ x + 2y + 2z = 3 \\end{cases}$$\n\nSottraendo la prima equazione dalla seconda si ottiene $x = 1$. Sostituendo nella terza equazione si ha $2(1) + (y+z) = 1 \\implies 2 + 1 = 1 \\implies 3 = 1$ (contraddizione).\n\nCosa si deduce tramite il Teorema di Rouché-Capelli?",
+    "risposta1": "Il rango della matrice incompleta è $\\text{rk}(A) = 2$, mentre il rango della completa è $\\text{rk}(A|b) = 3$. Il sistema è **incompatibile** (nessuna soluzione).",
+    "risposta2": "Il sistema ammette una soluzione unica $(1, 0, 1)$.",
+    "risposta3": "Il sistema ammette $\\infty^1$ soluzioni.",
+    "risposta4": "Il sistema ammette $\\infty^2$ soluzioni.",
+    "corretta": "Il rango della matrice incompleta è $\\text{rk}(A) = 2$, mentre il rango della completa è $\\text{rk}(A|b) = 3$. Il sistema è **incompatibile** (nessuna soluzione).",
+    "tag": [
+      "sistemi-lineari",
+      "rouche-capelli",
+      "compatibilita"
+    ]
+  },
+  {
+    "domanda": "### Risoluzione Sistema Lineare con Infinite Soluzioni in $\\mathbb{R}$\n\nSi risolva il sistema lineare in $\\mathbb{R}$:\n$$\\begin{cases} x + z = 0 \\\\ -x - 3y = -1 \\\\ 2x + 3y + z = 1 \\end{cases}$$\n\nSommando la seconda e la terza equazione si ottiene $x + z = 0$, che coincide con la prima equazione (una riga è linearmente dipendente).\n\nQual è l'insieme delle soluzioni del sistema?",
+    "risposta1": "$\\infty^1$ soluzioni dipendenti dal parametro $z \\in \\mathbb{R}$: $(x, y, z) = \\left(-z, \\frac{1 + z}{3}, z\\right)$.",
+    "risposta2": "Un'unica soluzione $(x, y, z) = (0, 1/3, 0)$.",
+    "risposta3": "Nessuna soluzione (sistema incompatibile).",
+    "risposta4": "$\\infty^2$ soluzioni dipendenti da $y$ e $z$.",
+    "corretta": "$\\infty^1$ soluzioni dipendenti dal parametro $z \\in \\mathbb{R}$: $(x, y, z) = \\left(-z, \\frac{1 + z}{3}, z\\right)$.",
+    "tag": [
+      "sistemi-lineari",
+      "gauss",
+      "soluzioni-parametriche"
+    ]
+  },
+  {
+    "domanda": "### Risoluzione Sistema Lineare a 4 Incognite in $\\mathbb{R}$\n\nSi consideri il sistema lineare nelle incognite $(x, y, z, t) \\in \\mathbb{R}^4$:\n$$\\begin{cases} x - z + t = 5 \\\\ 2y - 2z - 3t = -2 \\\\ x + 3y - 2z + t = 2 \\end{cases}$$\n\nQual è la struttura dello spazio delle soluzioni?",
+    "risposta1": "Il sistema ha rango 3 con 4 incognite, quindi ammette $\\infty^1$ soluzioni (spazio affine di dimensione 1).",
+    "risposta2": "Il sistema ammette un'unica soluzione in $\\mathbb{R}^4$.",
+    "risposta3": "Il sistema è incompatibile.",
+    "risposta4": "Il sistema ammette $\\infty^2$ soluzioni.",
+    "corretta": "Il sistema ha rango 3 con 4 incognite, quindi ammette $\\infty^1$ soluzioni (spazio affine di dimensione 1).",
+    "tag": [
+      "sistemi-lineari",
+      "rouche-capelli",
+      "dimensione"
+    ]
+  },
+  {
+    "domanda": "### Insieme Parzialmente Ordinato: Somma delle Cifre\n\nSia $S = \\{1, 4, 11, 20, 100, 3000\\}$ dotato della relazione d'ordine:\n$$x \\le y \\iff (x = y) \\lor (\\text{somma\\_cifre}(x) < \\text{somma\\_cifre}(y))$$\n\nSomme cifre:\n- $\\Sigma(1) = 1, \\Sigma(100) = 1$\n- $\\Sigma(11) = 2, \\Sigma(20) = 2$\n- $\\Sigma(3000) = 3$\n- $\\Sigma(4) = 4$\n\nQuali sono gli elementi minimali, massimali, minimo e massimo di $(S, \\le)$?",
+    "risposta1": "Elementi minimali: $\\{1, 100\\}$; Minimo: **NON esiste** (ci sono 2 minimali incomparabili); Elemento massimale e Massimo: $4$.",
+    "risposta2": "Minimo: $1$; Massimo: $3000$; Minimali: $\\{1\\}$; Massimali: $\\{3000\\}$.",
+    "risposta3": "Minimo: $1$; Massimo: $4$; (S, <=) è totalmente ordinato.",
+    "risposta4": "Minimali: $\\{1, 4, 11\\}$; Massimali: $\\{100, 3000\\}$.",
+    "corretta": "Elementi minimali: $\\{1, 100\\}$; Minimo: **NON esiste** (ci sono 2 minimali incomparabili); Elemento massimale e Massimo: $4$.",
+    "mermaid": "graph BT\n    1((1))\n    100((100))\n    11((11))\n    20((20))\n    3000((3000))\n    4((4))\n    1 --> 11\n    1 --> 20\n    100 --> 11\n    100 --> 20\n    11 --> 3000\n    20 --> 3000\n    3000 --> 4",
+    "tag": [
+      "relazioni-ordine",
+      "hasse",
+      "estremi",
+      "reticoli"
+    ]
+  },
+  {
+    "domanda": "### Proprietà d'Ordine: Totale Ordine e $\\inf / \\sup$\n\nNel poset $(S, \\le)$ con $S = \\{1, 4, 11, 20, 100, 3000\\}$ ordinato per somma delle cifre:\n\n1. $(S, \\le)$ è totalmente ordinato?\n2. Esistono $\\inf\\{1, 11\\}$ e $\\sup\\{11, 20\\}$ in $S$?",
+    "risposta1": "1. NON è totalmente ordinato (es. $1$ e $100$ hanno stessa somma cifre ma sono distinti, quindi incomparabili).\n2. $\\inf\\{1, 11\\} = 1$; $\\sup\\{11, 20\\} = 3000$.",
+    "risposta2": "1. È totalmente ordinato.\n2. $\\inf\\{1, 11\\}$ non esiste e $\\sup\\{11, 20\\} = 4$.",
+    "risposta3": "1. Non è parzialmente ordinato.\n2. $\\inf\\{1, 11\\} = 100$ e $\\sup\\{11, 20\\} = 11$.",
+    "risposta4": "1. È un reticolo booleano.\n2. Entrambi non esistono.",
+    "corretta": "1. NON è totalmente ordinato (es. $1$ e $100$ hanno stessa somma cifre ma sono distinti, quindi incomparabili).\n2. $\\inf\\{1, 11\\} = 1$; $\\sup\\{11, 20\\} = 3000$.",
+    "mermaid": "graph BT\n    1((1)) --> 11((11))\n    1 --> 20((20))\n    100((100)) --> 11\n    100 --> 20\n    11 --> 3000((3000))\n    20 --> 3000\n    3000 --> 4((4))",
+    "tag": [
+      "relazioni-ordine",
+      "hasse",
+      "inf-sup"
+    ]
+  },
+  {
+    "domanda": "### Relazione di Divisibilità e Diagramma di Hasse: $S = \\{2, 4, 6, 8, 12\\}$\n\nSi consideri l'insieme ordinato $(S, \\mid)$ dove $\\mid$ denota la relazione 'divide' ($a \\mid b \\iff \\exists c : b = ac$):\n- $2 \\mid 4, 2 \\mid 6, 2 \\mid 8, 2 \\mid 12$\n- $4 \\mid 8, 4 \\mid 12$\n- $6 \\mid 12$\n\nQuali sono gli elementi minimali, massimali, minimo e massimo?",
+    "risposta1": "Minimo (e unico minimale): $2$; Massimali: $\\{8, 12\\}$; Massimo: **NON esiste** (poiché $8 \\nmid 12$ e $12 \\nmid 8$).",
+    "risposta2": "Minimo: $2$; Massimo: $12$; Massimali: $\\{12\\}$.",
+    "risposta3": "Minimali: $\\{2, 4\\}$; Massimali: $\\{8, 12\\}$; Minimo non esiste.",
+    "risposta4": "Massimo: $8$; Minimo: $2$.",
+    "corretta": "Minimo (e unico minimale): $2$; Massimali: $\\{8, 12\\}$; Massimo: **NON esiste** (poiché $8 \\nmid 12$ e $12 \\nmid 8$).",
+    "mermaid": "graph BT\n    2((2)) --> 4((4))\n    2 --> 6((6))\n    4 --> 8((8))\n    4 --> 12((12))\n    6 --> 12",
+    "tag": [
+      "relazioni-ordine",
+      "divisibilita",
+      "hasse",
+      "estremi"
+    ]
+  },
+  {
+    "domanda": "### Calcolo di Estremo Inferiore e Superiore nel Poset di Divisibilità\n\nNel poset $(S, \\mid)$ con $S = \\{2, 4, 6, 8, 12\\}$:\n1. Calcolare $\\inf_S\\{4, 8\\}$.\n2. Calcolare $\\sup_S\\{4, 6\\}$.",
+    "risposta1": "$\\inf_S\\{4, 8\\} = 4$ (poiché $4 \\mid 8$); $\\sup_S\\{4, 6\\} = 12$ (il minimo comune multiplo tra 4 e 6 appartenente a $S$).",
+    "risposta2": "$\\inf_S\\{4, 8\\} = 2$; $\\sup_S\\{4, 6\\} = 24$ (non appartenente a $S$).",
+    "risposta3": "$\\inf_S\\{4, 8\\} = 8$; $\\sup_S\\{4, 6\\} = 4$.",
+    "risposta4": "Entrambi non esistono in $S$.",
+    "corretta": "$\\inf_S\\{4, 8\\} = 4$ (poiché $4 \\mid 8$); $\\sup_S\\{4, 6\\} = 12$ (il minimo comune multiplo tra 4 e 6 appartenente a $S$).",
+    "mermaid": "graph BT\n    2((2)) --> 4((4))\n    2 --> 6((6))\n    4 --> 8((8))\n    4 --> 12((12))\n    6 --> 12",
+    "tag": [
+      "relazioni-ordine",
+      "inf-sup",
+      "divisibilita"
+    ]
+  },
+  {
+    "domanda": "### Relazione d'Ordine sul Numero di Cifre\n\nSia $S = \\{1, 3, 13, 22, 111, 4120\\}$ con la relazione:\n$$x \\# y \\iff (x = y) \\lor (\\text{num\\_cifre}(x) < \\text{num\\_cifre}(y))$$\n\nQuali sono $\\inf_S\\{13, 22\\}$ e $\\sup_S\\{3, 13\\}$?",
+    "risposta1": "$\\inf_S\\{13, 22\\}$ NON esiste (i minoranti sono $\\{1, 3\\}$, ma non hanno un massimo); $\\sup_S\\{3, 13\\} = 13$ (poiché $3 \\# 13$).",
+    "risposta2": "$\\inf_S\\{13, 22\\} = 1$; $\\sup_S\\{3, 13\\} = 4120$.",
+    "risposta3": "$\\inf_S\\{13, 22\\} = 13$; $\\sup_S\\{3, 13\\} = 3$.",
+    "risposta4": "$\\inf_S\\{13, 22\\} = 3$; $\\sup_S\\{3, 13\\} = 111$.",
+    "corretta": "$\\inf_S\\{13, 22\\}$ NON esiste (i minoranti sono $\\{1, 3\\}$, ma non hanno un massimo); $\\sup_S\\{3, 13\\} = 13$ (poiché $3 \\# 13$).",
+    "mermaid": "graph BT\n    1((1))\n    3((3))\n    13((13))\n    22((22))\n    111((111))\n    4120((4120))\n    1 --> 13\n    1 --> 22\n    3 --> 13\n    3 --> 22\n    13 --> 111\n    22 --> 111\n    111 --> 4120",
+    "tag": [
+      "relazioni-ordine",
+      "hasse",
+      "inf-sup"
+    ]
+  },
+  {
+    "domanda": "### Relazione di Equivalenza: Congruenza Modulo 2\n\nSia $S = \\{1, -1, 2, -2, 3, -3, 4, 100\\} \\subseteq \\mathbb{Z}$ con la relazione:\n$$x R y \\iff x \\equiv y \\pmod 2 \\iff 2 \\mid (x - y)$$\n\nQual è l'insieme quoziente $S/R$?",
+    "risposta1": "$S/R = \\{ [1]_R, [2]_R \\} = \\{ \\{1, -1, 3, -3\\}, \\{2, -2, 4, 100\\} \\}$.",
+    "risposta2": "$S/R = \\{ \\{1, 2\\}, \\{-1, -2\\}, \\{3, 4\\}, \\{-3, 100\\} \\}$.",
+    "risposta3": "$S/R = \\{ \\{1, 3\\}, \\{-1, -3\\}, \\{2, 4\\}, \\{-2, 100\\} \\}$.",
+    "risposta4": "$S/R = S$.",
+    "corretta": "$S/R = \\{ [1]_R, [2]_R \\} = \\{ \\{1, -1, 3, -3\\}, \\{2, -2, 4, 100\\} \\}$.",
+    "tag": [
+      "relazioni-equivalenza",
+      "insieme-quoziente",
+      "partizioni"
+    ]
+  },
+  {
+    "domanda": "### Relazione di Equivalenza: Prodotto Positivo\n\nSia $S = \\{1, -1, 2, -2, 3, -3, 4, 100\\}$ con la relazione:\n$$x R y \\iff xy > 0$$\n\nQuali sono le classi di equivalenza e l'insieme quoziente $S/R$?",
+    "risposta1": "$S/R = \\{ S^+, S^- \\} = \\{ \\{1, 2, 3, 4, 100\\}, \\{-1, -2, -3\\} \\}$.",
+    "risposta2": "$S/R = \\{ \\{1, -1\\}, \\{2, -2\\}, \\{3, -3\\}, \\{4, 100\\} \\}$.",
+    "risposta3": "$S/R$ è costituito da 8 classi singolette.",
+    "risposta4": "La relazione $R$ non è di equivalenza.",
+    "corretta": "$S/R = \\{ S^+, S^- \\} = \\{ \\{1, 2, 3, 4, 100\\}, \\{-1, -2, -3\\} \\}$.",
+    "tag": [
+      "relazioni-equivalenza",
+      "segno",
+      "insieme-quoziente"
+    ]
+  },
+  {
+    "domanda": "### Verifica di Partizioni di un Insieme\n\nSia $S = \\{a, b, 5, 7\\}$. Si considerino le seguenti famiglie di sottoinsiemi:\n- $\\mathcal{F}_1 = \\{\\emptyset, \\{a, b\\}, \\{5, 7\\}\\}$\n- $\\mathcal{F}_2 = \\{\\{a\\}, \\{b, 5, 7\\}\\}$\n\nQuale di esse è una partizione valida di $S$?",
+    "risposta1": "Solo $\\mathcal{F}_2$ è una partizione di $S$ (perché i blocchi sono non vuoti, a due a due disgiunti e la loro unione è $S$). $\\mathcal{F}_1$ non è una partizione perché contiene l'insieme vuoto $\\emptyset$.",
+    "risposta2": "Entrambe sono partizioni valide di $S$.",
+    "risposta3": "Nessuna delle due è una partizione.",
+    "risposta4": "Solo $\\mathcal{F}_1$ è una partizione.",
+    "corretta": "Solo $\\mathcal{F}_2$ è una partizione di $S$ (perché i blocchi sono non vuoti, a due a due disgiunti e la loro unione è $S$). $\\mathcal{F}_1$ non è una partizione perché contiene l'insieme vuoto $\\emptyset$.",
+    "tag": [
+      "partizioni",
+      "insiemi",
+      "fondamenti"
+    ]
+  },
+  {
+    "domanda": "### Sottospazi Vettoriali e Basi in $\\mathbb{R}^3$\n\nSi consideri il sottoinsieme di $\\mathbb{R}^3$:\n$$K = \\{(2x, -3y, z) : x, y, z \\in \\mathbb{R}\\} \\subseteq \\mathbb{R}^3$$\n\nQual è la dimensione di $K$ come $\\mathbb{R}$-spazio vettoriale e quale terna di vettori ne costituisce una base canonica riscalata?",
+    "risposta1": "$\\dim(K) = 3$ (coincide con l'intero $\\mathbb{R}^3$). Una base è data da $\\mathcal{B} = \\{(2, 0, 0), (0, -3, 0), (0, 0, 1)\\}$.",
+    "risposta2": "$\\dim(K) = 1$, base $\\{(2, -3, 1)\\}$.",
+    "risposta3": "$\\dim(K) = 2$, base $\\{(2, 0, 0), (0, -3, 0)\\}$.",
+    "risposta4": "$K$ non è un sottospazio vettoriale.",
+    "corretta": "$\\dim(K) = 3$ (coincide con l'intero $\\mathbb{R}^3$). Una base è data da $\\mathcal{B} = \\{(2, 0, 0), (0, -3, 0), (0, 0, 1)\\}$.",
+    "tag": [
+      "spazi-vettoriali",
+      "basi",
+      "dimensione"
+    ]
+  },
+  {
+    "domanda": "### Dipendenza Lineare e Generatori in $\\mathbb{R}^3$\n\nIn $\\mathbb{R}^3$, si considerino i quattro vettori:\n$$v_1 = (2, 0, 0), \\quad v_2 = (0, 1, 0), \\quad v_3 = (0, -1, 2), \\quad v_4 = (0, 0, 2)$$\n\nI vettori $v_1, v_2, v_3, v_4$ sono linearmente indipendenti e possono formare una base di $\\mathbb{R}^3$?",
+    "risposta1": "NON sono linearmente indipendenti e NON possono formare una base (in $\\mathbb{R}^3$ una base deve avere esattamente $3$ vettori; inoltre $v_3 = -v_2 + v_4$).",
+    "risposta2": "Sono linearmente indipendenti e formano una base.",
+    "risposta3": "Sono linearmente indipendenti ma non generano $\\mathbb{R}^3$.",
+    "risposta4": "Formano una base ortonormale.",
+    "corretta": "NON sono linearmente indipendenti e NON possono formare una base (in $\\mathbb{R}^3$ una base deve avere esattamente $3$ vettori; inoltre $v_3 = -v_2 + v_4$).",
+    "tag": [
+      "spazi-vettoriali",
+      "indipendenza-lineare",
+      "basi"
+    ]
+  },
+  {
+    "domanda": "### Dimostrazione per Induzione: Somma di Multipli di 5\n\nSi consideri l'identità da dimostrare per induzione:\n$$10 + 15 + 20 + \\dots + 5n = \\frac{5(n^2 + n - 2)}{2}, \\quad \\forall n \\ge 2$$\n\nQual è la verifica del passo base per $n = 2$ e l'impostazione corretta del passo induttivo?",
+    "risposta1": "Passo base: $5(2) = 10$ e $\\frac{5(4+2-2)}{2} = 10$ (verificato). Passo induttivo: $\\frac{5(n^2+n-2)}{2} + 5(n+1) = \\frac{5(n^2+3n)}{2} = \\frac{5((n+1)^2 + (n+1) - 2)}{2}$.",
+    "risposta2": "Passo base: $n=1 \\implies 5 = 0$.",
+    "risposta3": "Passo induttivo: $\\frac{5(n^2+n-2)}{2} + 5n = \\frac{5(n^2+2n-2)}{2}$.",
+    "risposta4": "La formula non è dimostrabile per induzione.",
+    "corretta": "Passo base: $5(2) = 10$ e $\\frac{5(4+2-2)}{2} = 10$ (verificato). Passo induttivo: $\\frac{5(n^2+n-2)}{2} + 5(n+1) = \\frac{5(n^2+3n)}{2} = \\frac{5((n+1)^2 + (n+1) - 2)}{2}$.",
+    "tag": [
+      "induzione",
+      "sommatorie"
+    ]
+  },
+  {
+    "domanda": "### Dimostrazione per Induzione: Somma dei Primi $n$ Dispari\n\nSi consideri la classica formula della somma dei primi $n$ numeri dispari:\n$$1 + 3 + 5 + \\dots + (2n - 1) = n^2, \\quad \\forall n \\ge 1$$\n\nQual è la deduzione del passo induttivo sommando $(2(n+1) - 1) = 2n + 1$?",
+    "risposta1": "Per ipotesi induttiva la somma è $n^2$. Aggiungendo il termine $(2n+1)$ si ottiene $n^2 + 2n + 1 = (n+1)^2$, che coincide con la tesi per $n+1$.",
+    "risposta2": "$n^2 + (2n-1) = n^2 + 2n - 1$.",
+    "risposta3": "$(n+1)^2 - 1 = n^2$.",
+    "risposta4": "$n^2 + 2(n+1) = n^2 + 2n + 2$.",
+    "corretta": "Per ipotesi induttiva la somma è $n^2$. Aggiungendo il termine $(2n+1)$ si ottiene $n^2 + 2n + 1 = (n+1)^2$, che coincide con la tesi per $n+1$.",
+    "tag": [
+      "induzione",
+      "dispari"
+    ]
+  },
+  {
+    "domanda": "### Dimostrazione per Induzione: Progressione con Ragione 4\n\nSi consideri la sommatoria:\n$$1 + 5 + 9 + \\dots + (1 + 4n) = \\frac{(n + 1)(2 + 4n)}{2}, \\quad \\forall n \\ge 1$$\n\nSommando il termine successivo $(1 + 4(n+1)) = (4n + 5)$ all'ipotesi induttiva si ottiene:",
+    "risposta1": "$\\frac{(n+1)(2+4n) + 2(4n+5)}{2} = \\frac{4n^2 + 14n + 12}{2} = \\frac{(n+2)(4n+6)}{2} = \\frac{((n+1)+1)(2+4(n+1))}{2}$.",
+    "risposta2": "$\\frac{(n+1)(2+4n) + (4n+5)}{2} = \\frac{4n^2 + 10n + 7}{2}$.",
+    "risposta3": "$\\frac{(n+2)(2+4n)}{2}$.",
+    "risposta4": "$\\frac{(n+1)(4n+5)}{2}$.",
+    "corretta": "$\\frac{(n+1)(2+4n) + 2(4n+5)}{2} = \\frac{4n^2 + 14n + 12}{2} = \\frac{(n+2)(4n+6)}{2} = \\frac{((n+1)+1)(2+4(n+1))}{2}$.",
+    "tag": [
+      "induzione",
+      "progressioni"
+    ]
+  },
+  {
+    "domanda": "### Studio di Applicazioni: Iniettività di Parabola Traslata\n\nSi consideri l'applicazione $g: z \\in \\mathbb{Z} \\to (z - 2)^2 \\in \\mathbb{N}_0$.\n\nL'applicazione $g$ è iniettiva?",
+    "risposta1": "NO, non è iniettiva perché elementi simmetrici rispetto a $2$ hanno la stessa immagine (ad esempio $g(1) = (1-2)^2 = 1$ e $g(3) = (3-2)^2 = 1$, con $1 \\neq 3$).",
+    "risposta2": "Sì, è strettamente iniettiva su $\\mathbb{Z}$.",
+    "risposta3": "Sì, perché ogni quadrato perfetto ha un'unica radice quadrata intera.",
+    "risposta4": "È sia iniettiva che suriettiva.",
+    "corretta": "NO, non è iniettiva perché elementi simmetrici rispetto a $2$ hanno la stessa immagine (ad esempio $g(1) = (1-2)^2 = 1$ e $g(3) = (3-2)^2 = 1$, con $1 \\neq 3$).",
+    "tag": [
+      "funzioni",
+      "iniettivita",
+      "controesempi"
+    ]
+  },
+  {
+    "domanda": "### Studio di Applicazioni: Moltiplicazione per Costante su $\\mathbb{Z}$\n\nSi consideri l'applicazione $f: x \\in \\mathbb{Z} \\to 3x \\in \\mathbb{Z}$.\n\nQuale affermazione descrive correttamente le proprietà di $f$?",
+    "risposta1": "$f$ è **iniettiva** ($3x_1 = 3x_2 \\implies x_1 = x_2$) ma **NON suriettiva** (i numeri non multipli di 3, come $1$ o $2$, non appartengono all'immagine $f(\\mathbb{Z})$).",
+    "risposta2": "$f$ è biettiva.",
+    "risposta3": "$f$ è solo suriettiva ma non iniettiva.",
+    "risposta4": "$f$ non è né iniettiva né suriettiva.",
+    "corretta": "$f$ è **iniettiva** ($3x_1 = 3x_2 \\implies x_1 = x_2$) ma **NON suriettiva** (i numeri non multipli di 3, come $1$ o $2$, non appartengono all'immagine $f(\\mathbb{Z})$).",
+    "tag": [
+      "funzioni",
+      "iniettivita",
+      "suriettivita"
+    ]
+  },
+  {
+    "domanda": "### Composizione di Funzioni: Traslazione e Frazione\n\nSiano $f: x \\in \\mathbb{N} \\to -3x \\in \\mathbb{Z}$ e $g: z \\in \\mathbb{Z} \\to \\frac{1}{4}z \\in \\mathbb{Q}$.\n\n1. Qual è la composta $(g \\circ f)(x)$?\n2. $(g \\circ f)$ è iniettiva?",
+    "risposta1": "$(g \\circ f)(x) = -\\frac{3}{4}x$; è **iniettiva** (poiché composizione di due funzioni iniettive).",
+    "risposta2": "$(g \\circ f)(x) = -\\frac{4}{3}x$; non è iniettiva.",
+    "risposta3": "$(g \\circ f)(x) = 12x$; è suriettiva su $\\mathbb{Q}$.",
+    "risposta4": "$(g \\circ f)(x) = -3x + 1/4$.",
+    "corretta": "$(g \\circ f)(x) = -\\frac{3}{4}x$; è **iniettiva** (poiché composizione di due funzioni iniettive).",
+    "tag": [
+      "funzioni",
+      "composizione",
+      "razionali"
+    ]
+  },
+  {
+    "domanda": "### Autovalori e Diagonalizzabilità su $\\mathbb{Q}$\n\nSi consideri la matrice:\n$$A = \\begin{pmatrix} 1 & 2 & 1 \\\\ 0 & -3 & 0 \\\\ 0 & 1 & 2 \\end{pmatrix} \\in M_3(\\mathbb{Q})$$\n\nIl polinomio caratteristico è $p(\\lambda) = (1 - \\lambda)(-3 - \\lambda)(2 - \\lambda)$.\n\nQuali sono gli autovalori e la matrice è diagonalizzabile su $\\mathbb{Q}$?",
+    "risposta1": "Autovalori: $\\lambda_1 = 1, \\lambda_2 = -3, \\lambda_3 = 2$ (tre radici distinte in $\\mathbb{Q}$). La matrice $A$ **è diagonalizzabile** su $\\mathbb{Q}$.",
+    "risposta2": "Gli autovalori non appartengono a $\\mathbb{Q}$, quindi non è diagonalizzabile.",
+    "risposta3": "Autovalori: $\\lambda = 0, 1, 2$; non è diagonalizzabile.",
+    "risposta4": "Autovalori: $\\lambda_1 = 1$ (m.a. 3).",
+    "corretta": "Autovalori: $\\lambda_1 = 1, \\lambda_2 = -3, \\lambda_3 = 2$ (tre radici distinte in $\\mathbb{Q}$). La matrice $A$ **è diagonalizzabile** su $\\mathbb{Q}$.",
+    "tag": [
+      "algebra-lineare",
+      "autovalori",
+      "diagonalizzabilita"
+    ]
+  },
+  {
+    "domanda": "### Rango di Matrice Triangolare per Righe in $\\mathbb{R}$\n\nSi consideri la matrice:\n$$A = \\begin{pmatrix} 2 & 1 & 1 \\\\ 0 & 0 & 1 \\\\ 0 & 0 & 2 \\end{pmatrix} \\in M_3(\\mathbb{R})$$\n\nQual è il rango $\\text{rk}(A)$?",
+    "risposta1": "$\\text{rk}(A) = 2$ (la terza riga è il doppio della seconda riga, mentre le prime due righe sono linearmente indipendenti).",
+    "risposta2": "$\\text{rk}(A) = 3$.",
+    "risposta3": "$\\text{rk}(A) = 1$.",
+    "risposta4": "$\\text{rk}(A) = 0$.",
+    "corretta": "$\\text{rk}(A) = 2$ (la terza riga è il doppio della seconda riga, mentre le prime due righe sono linearmente indipendenti).",
+    "tag": [
+      "algebra-lineare",
+      "rango",
+      "matrici"
+    ]
+  },
+  {
+    "domanda": "### Rango di Matrice Rettangolare $4 \\times 3$\n\nSi calcoli il rango della matrice:\n$$A = \\begin{pmatrix} 1 & 0 & 5 \\\\ 0 & 1 & 1 \\\\ 2 & 0 & 1 \\\\ 3 & 0 & 2 \\end{pmatrix} \\in M_{4, 3}(\\mathbb{Q})$$\n\nEstraendo il minore $3 \\times 3$ formato dalle prime tre righe: $\\det \\begin{pmatrix} 1 & 0 & 5 \\\\ 0 & 1 & 1 \\\\ 2 & 0 & 1 \\end{pmatrix} = 1(1) - 5(-2) = 1 - 10 = -9 \\neq 0$.",
+    "risposta1": "$\\text{rk}(A) = 3$ (massimo rango possibile per una matrice $4 \\times 3$).",
+    "risposta2": "$\\text{rk}(A) = 4$.",
+    "risposta3": "$\\text{rk}(A) = 2$.",
+    "risposta4": "$\\text{rk}(A) = 1$.",
+    "corretta": "$\\text{rk}(A) = 3$ (massimo rango possibile per una matrice $4 \\times 3$).",
+    "tag": [
+      "algebra-lineare",
+      "rango",
+      "minori"
+    ]
+  },
+  {
+    "domanda": "### Risoluzione Sistema Lineare a 3 Equazioni e 4 Incognite\n\nSi consideri il sistema lineare in $\\mathbb{R}$:\n$$\\begin{cases} x - y + 2z + 2t = 1 \\\\ -x + 2z + 3t = 0 \\\\ 2y + z - t = 2 \\end{cases}$$\n\nIl rango della matrice dei coefficienti è 3 con 4 incognite. Qual è il numero di soluzioni?",
+    "risposta1": "Ammette $\\infty^{4-3} = \\infty^1$ soluzioni dipendenti da un parametro libero.",
+    "risposta2": "Ammette un'unica soluzione in $\\mathbb{R}^4$.",
+    "risposta3": "È incompatibile.",
+    "risposta4": "Ammette $\\infty^2$ soluzioni.",
+    "corretta": "Ammette $\\infty^{4-3} = \\infty^1$ soluzioni dipendenti da un parametro libero.",
+    "tag": [
+      "sistemi-lineari",
+      "rouche-capelli"
+    ]
+  },
+  {
+    "domanda": "### Tavola di Moltiplicazione e Divisori dello Zero in $\\mathbb{Z}_4(\\cdot)$\n\nSia $\\mathbb{Z}_4 = \\{\\bar{0}, \\bar{1}, \\bar{2}, \\bar{3}\\}$.\n\n1. Quali sono gli elementi invertibili $\\mathcal{U}(\\mathbb{Z}_4)$?\n2. Quali sono i divisori dello zero?",
+    "risposta1": "Elementi invertibili: $\\{\\bar{1}, \\bar{3}\\}$ (con $\\bar{1}^{-1} = \\bar{1}, \\bar{3}^{-1} = \\bar{3}$); Divisori dello zero: $\\bar{2}$ (poiché $\\bar{2} \\cdot \\bar{2} = \\bar{4} = \\bar{0}$).",
+    "risposta2": "Tutti gli elementi non nulli sono invertibili.",
+    "risposta3": "Non esistono divisori dello zero in $\\mathbb{Z}_4$.",
+    "risposta4": "Elemento invertibile solo $\\bar{1}$; divisori dello zero $\\bar{2}$ e $\\bar{3}$.",
+    "corretta": "Elementi invertibili: $\\{\\bar{1}, \\bar{3}\\}$ (con $\\bar{1}^{-1} = \\bar{1}, \\bar{3}^{-1} = \\bar{3}$); Divisori dello zero: $\\bar{2}$ (poiché $\\bar{2} \\cdot \\bar{2} = \\bar{4} = \\bar{0}$).",
+    "tag": [
+      "anelli",
+      "divisori-zero",
+      "invertibili"
+    ]
+  }
+]

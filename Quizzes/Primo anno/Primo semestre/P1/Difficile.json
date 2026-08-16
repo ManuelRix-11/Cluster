@@ -1,0 +1,468 @@
+[
+  {
+    "tipo": "codice",
+    "domanda": "### Gestione Parcheggio (Struct & Notazione Puntatore)\n\nData la seguente struct:\n```c\ntypedef struct {\n    char targa[10];\n    char modello[30];\n    int anno;\n} Macchina;\n```\n\nScrivere un programma C completo che:\n1. Legge il numero $N$ di macchine e chiama `Macchina *crea_parcheggio(int n)` per allocare dinamicamente l'array e popolarlo da standard input.\n2. Implementa la funzione `Macchina targa_vocali(Macchina *parcheggio, int n, int *trovata)` che restituisce la prima macchina la cui targa inizia con **due vocali** consecutive (case-insensitive). **È richiesto l'utilizzo della notazione puntatore `*(parcheggio + i)`**.\n3. Stampa `targa modello anno` dell'auto trovata (oppure `NESSUNA` se assente) e libera la memoria allocata.",
+    "tag": [
+      "struct",
+      "puntatori",
+      "allocazione-dinamica",
+      "stringhe"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <ctype.h>\n\ntypedef struct {\n    char targa[10];\n    char modello[30];\n    int anno;\n} Macchina;\n\n// Funzione ausiliaria per verificare se un carattere è vocale\nint is_vocale(char c) {\n    c = tolower(c);\n    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');\n}\n\n// I. Alloca dinamicamente e legge n macchine\nMacchina *crea_parcheggio(int n) {\n    // TODO: allocare e leggere n elementi\n}\n\n// II. Restituisce la prima macchina con targa che inizia con 2 vocali (notazione puntatore)\nMacchina targa_vocali(Macchina *parcheggio, int n, int *trovata) {\n    // TODO: cercare con notazione puntatore\n}\n\nint main() {\n    int n;\n    if(scanf(\"%d\", &n) != 1 || n <= 0) return 0;\n    \n    Macchina *parcheggio = crea_parcheggio(n);\n    int trovata = 0;\n    Macchina m = targa_vocali(parcheggio, n, &trovata);\n    \n    if(trovata) {\n        printf(\"%s %s %d\\n\", m.targa, m.modello, m.anno);\n    } else {\n        printf(\"NESSUNA\\n\");\n    }\n    \n    free(parcheggio);\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "3\nAB123CD Panda 2018\nEA999ZZ Golf 2021\nFE444AA Ypsilon 2019\n",
+        "expected": "EA999ZZ Golf 2021\n"
+      },
+      {
+        "stdin": "2\nAE001XY Ferrari 2023\nCD789JK Smart 2015\n",
+        "expected": "AE001XY Ferrari 2023\n"
+      },
+      {
+        "stdin": "2\nBC111DD Clio 2017\nGF555TT Punto 2012\n",
+        "expected": "NESSUNA\n"
+      },
+      {
+        "stdin": "4\nBA123ZZ Polo 2016\nOU888KK Tesla 2022\nEF333GG Audi 2020\nAA111AA BMW 2024\n",
+        "expected": "OU888KK Tesla 2022\n"
+      }
+    ]
+  },
+  {
+    "domanda": "Dato il seguente frammento di codice C, individuare l'errore e spiegare il suo comportamento a runtime:\n\n```c\nint n = -1, i;\nfor(i = 0; i > n; i++)\n    printf(\"%d\", i);\n```",
+    "risposta1": "Il ciclo è infinito perché la condizione i > n (0 > -1) è inizialmente vera e i++ incrementa continuamente i mantenendola sempre vera.",
+    "risposta2": "Il ciclo non viene mai eseguito perché i = 0 è minore di n.",
+    "risposta3": "Si verifica un errore di compilazione perché n è negativo.",
+    "risposta4": "La variabile i va in Segmentation Fault alla prima iterazione.",
+    "corretta": "Il ciclo è infinito perché la condizione i > n (0 > -1) è inizialmente vera e i++ incrementa continuamente i mantenendola sempre vera.",
+    "tag": [
+      "debug",
+      "cicli"
+    ]
+  },
+  {
+    "domanda": "In C, quale modalità di apertura con `fopen()` permette di aprire un file di testo in sola scrittura posizionandosi alla fine del file per aggiungere nuovi dati senza sovrascrivere il contenuto precedente?",
+    "risposta1": "\"a\" (append)",
+    "risposta2": "\"w\" (write)",
+    "risposta3": "\"r+\" (read/update)",
+    "risposta4": "\"w+\" (write/update)",
+    "corretta": "\"a\" (append)",
+    "tag": [
+      "file",
+      "teoria"
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### Gestione Foresta (Struct Albero & Max Foglie)\n\nData la struct:\n```c\ntypedef struct {\n    char specie[30];\n    int num_foglie;\n    float altezza;\n} Albero;\n```\n\nImplementare le seguenti funzioni:\n1. `void aggiungi_albero(Albero **foresta, int *n, Albero nuovo)`: rialloca l'array dinamico di `Albero` per accogliere un nuovo elemento in coda e aggiorna la dimensione `*n`.\n2. `Albero max_foglie(Albero *foresta, int n)`: trova e restituisce l'albero con il maggior numero di foglie. **Utilizzare rigorosamente la notazione puntatore `*(foresta + i)`**.\n3. Nel `main`, leggere $N$ alberi, aggiungere un albero extra da input con `aggiungi_albero` e stampare `specie num_foglie altezza` dell'albero con il massimo numero di foglie.",
+    "tag": [
+      "struct",
+      "puntatori",
+      "realloc",
+      "allocazione-dinamica"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\ntypedef struct {\n    char specie[30];\n    int num_foglie;\n    float altezza;\n} Albero;\n\n// II. Restituisce l'albero con il maggior numero di foglie (usare notazione puntatore)\nAlbero max_foglie(Albero *foresta, int n) {\n    // TODO: trovare albero con max num_foglie con notazione puntatore *(foresta + i)\n}\n\n// I. Alloca spazio per un nuovo albero e lo aggiunge in coda all'array\nvoid aggiungi_albero(Albero **foresta, int *n, Albero nuovo) {\n    // TODO: realloc su *foresta e inserimento\n}\n\nint main() {\n    int n;\n    if(scanf(\"%d\", &n) != 1 || n <= 0) return 0;\n    \n    Albero *foresta = (Albero *)malloc(n * sizeof(Albero));\n    for(int i = 0; i < n; i++) {\n        scanf(\"%s %d %f\", (foresta + i)->specie, &(foresta + i)->num_foglie, &(foresta + i)->altezza);\n    }\n    \n    Albero extra;\n    if(scanf(\"%s %d %f\", extra.specie, &extra.num_foglie, &extra.altezza) == 3) {\n        aggiungi_albero(&foresta, &n, extra);\n    }\n    \n    Albero top = max_foglie(foresta, n);\n    printf(\"%s %d %.1f\\n\", top.specie, top.num_foglie, top.altezza);\n    \n    free(foresta);\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "3\nQuercia 12000 15.5\nPino 4500 20.0\nFaggio 18500 18.2\nBetulla 8000 12.0\n",
+        "expected": "Faggio 18500 18.2\n"
+      },
+      {
+        "stdin": "2\nUlivo 3000 6.5\nCipresso 5000 14.0\nBaobab 25000 22.0\n",
+        "expected": "Baobab 25000 22.0\n"
+      },
+      {
+        "stdin": "1\nAbete 9000 18.0\nLarice 4000 10.0\n",
+        "expected": "Abete 9000 18.0\n"
+      }
+    ]
+  },
+  {
+    "domanda": "Dato il seguente codice C, quali errori di compilazione e logici sono presenti?\n\n```c\nint n = 15;\nfor(int i = 0; i < n; i++)\n    printf(\"%d\", var);\nprintf(\"%d\", i);\n```",
+    "risposta1": "La variabile 'var' non è dichiarata e la variabile 'i' è fuori scope nell'ultima printf perché dichiarata nel ciclo for.",
+    "risposta2": "Il ciclo for non può avere una variabile intera n.",
+    "risposta3": "La funzione printf non accetta il formato %d per interi.",
+    "risposta4": "Manca l'operatore di incremento i+=1.",
+    "corretta": "La variabile 'var' non è dichiarata e la variabile 'i' è fuori scope nell'ultima printf perché dichiarata nel ciclo for.",
+    "tag": [
+      "debug",
+      "scope"
+    ]
+  },
+  {
+    "domanda": "Qual è la differenza principale tra allocazione statica e allocazione dinamica della memoria in C?",
+    "risposta1": "L'allocazione statica risiede nello Stack/Data segment ed è decisa a tempo di compilazione; l'allocazione dinamica risiede nell'Heap, è gestita a runtime (malloc/free) e può essere ridimensionata.",
+    "risposta2": "L'allocazione statica usa solo puntatori mentre la dinamica usa solo array a dimensione fissa.",
+    "risposta3": "L'allocazione dinamica viene liberata automaticamente al termine di ogni funzione senza bisogno di free().",
+    "risposta4": "Non vi è alcuna differenza a runtime.",
+    "corretta": "L'allocazione statica risiede nello Stack/Data segment ed è decisa a tempo di compilazione; l'allocazione dinamica risiede nell'Heap, è gestita a runtime (malloc/free) e può essere ridimensionata.",
+    "tag": [
+      "memoria",
+      "teoria"
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### Confronto Array Dinamici & Ricerca Massimo (Puntatori)\n\nScrivere un programma C che realizzi le seguenti funzioni:\n1. `int *genera_array(int n)`: alloca dinamicamente e restituisce un array di $N$ interi.\n2. `int controlla_uguali(int *array1, int *array2, int n)`: confronta i due array elemento per elemento. Restituisce 1 se combaciano nello stesso ordine, 0 altrimenti (usare notazione puntatore `*(array + i)`).\n3. `int cerca_max(int *array, int n)`: restituisce l'elemento massimo dell'array (usare notazione puntatore `*(array + i)`).\n4. Nel `main`, leggere $N$, allocare e leggere due array di dimensione $N$, stampare `UGUALI: <1|0>` e `MAX: <valore>` del primo array, e liberare la memoria.",
+    "tag": [
+      "array",
+      "puntatori",
+      "allocazione-dinamica"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n\n// I. Crea e alloca dinamicamente un array di n interi\nint *genera_array(int n) {\n    // TODO: malloc\n}\n\n// II. Controlla se i due array contengono gli stessi elementi nello stesso ordine (ritorna 1 o 0)\nint controlla_uguali(int *array1, int *array2, int n) {\n    // TODO: notazione puntatore *(array1 + i)\n}\n\n// III. Restituisce il valore massimo nell'array usando la notazione puntatore\nint cerca_max(int *array, int n) {\n    // TODO: ricerca massimo con notazione puntatore\n}\n\nint main() {\n    int n;\n    if(scanf(\"%d\", &n) != 1 || n <= 0) return 0;\n    \n    int *arr1 = genera_array(n);\n    for(int i = 0; i < n; i++) {\n        scanf(\"%d\", arr1 + i);\n    }\n    \n    int *arr2 = genera_array(n);\n    for(int i = 0; i < n; i++) {\n        scanf(\"%d\", arr2 + i);\n    }\n    \n    int uguali = controlla_uguali(arr1, arr2, n);\n    int max1 = cerca_max(arr1, n);\n    \n    printf(\"UGUALI: %d\\n\", uguali);\n    printf(\"MAX: %d\\n\", max1);\n    \n    free(arr1);\n    free(arr2);\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "4\n10 45 23 8\n10 45 23 8\n",
+        "expected": "UGUALI: 1\nMAX: 45\n"
+      },
+      {
+        "stdin": "3\n1 2 3\n1 2 4\n",
+        "expected": "UGUALI: 0\nMAX: 3\n"
+      },
+      {
+        "stdin": "5\n-10 -5 -20 -1 -8\n-10 -5 -20 -1 -8\n",
+        "expected": "UGUALI: 1\nMAX: -1\n"
+      }
+    ]
+  },
+  {
+    "domanda": "Dato il seguente codice C, individuare l'errore di compilazione:\n\n```c\nint n = 15;\nint k;\nk + n = 10;\n```",
+    "risposta1": "L'espressione 'k + n' è una rvalue e non può trovarsi a sinistra dell'operatore di assegnamento '=' (richiede un lvalue modificabile come 'k').",
+    "risposta2": "La variabile k non è inizializzata a 0.",
+    "risposta3": "Il valore 10 supera il limite dell'operatore +.",
+    "risposta4": "Non è possibile sommare interi dichiarati su righe separate.",
+    "corretta": "L'espressione 'k + n' è una rvalue e non può trovarsi a sinistra dell'operatore di assegnamento '=' (richiede un lvalue modificabile come 'k').",
+    "tag": [
+      "debug",
+      "lvalue"
+    ]
+  },
+  {
+    "domanda": "Qual è la differenza fondamentale tra passaggio dei parametri 'per valore' e 'per riferimento' in C?",
+    "risposta1": "Nel passaggio per valore viene creata una copia locale della variabile; nel passaggio per riferimento (simulato tramite puntatori) viene passato l'indirizzo di memoria, consentendo alla funzione di modificare la variabile originale.",
+    "risposta2": "Il passaggio per valore usa la parola chiave ref, mentre quello per riferimento usa val.",
+    "risposta3": "Il passaggio per valore è possibile solo per struct, mentre il riferimento solo per tipi primitivi.",
+    "risposta4": "Non c'è differenza poiché in C tutti i parametri sono sempre passati per riferimento.",
+    "corretta": "Nel passaggio per valore viene creata una copia locale della variabile; nel passaggio per riferimento (simulato tramite puntatori) viene passato l'indirizzo di memoria, consentendo alla funzione di modificare la variabile originale.",
+    "tag": [
+      "puntatori",
+      "funzioni",
+      "teoria"
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### Anagrafica & Ricerca Omonimi (Struct Persona)\n\nData la seguente struct:\n```c\ntypedef struct {\n    char nome[30];\n    char cognome[30];\n    int eta;\n} Persona;\n```\n\nImplementare le seguenti funzioni:\n1. `void riempi_array(Persona **array, int n)`: alloca per riferimento l'array di $N$ `Persona` e legge i dati da standard input.\n2. `int controlla_uguali(Persona *array, int n, char *out_nome, char *out_cognome)`: controlla se esistono due persone con lo stesso nome e cognome. Se presenti, copia nome e cognome nei buffer di output e restituisce 1. Altrimenti restituisce 0 (**usare notazione puntatore `*(array + i)`**).\n3. `void libera_array(Persona *array)`: dealloca la memoria dinamica.\n4. Nel `main`, stampare `OMONIMIA: <nome> <cognome>` oppure `NESSUN OMONIMO`.",
+    "tag": [
+      "struct",
+      "puntatori",
+      "allocazione-dinamica",
+      "stringhe"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\ntypedef struct {\n    char nome[30];\n    char cognome[30];\n    int eta;\n} Persona;\n\n// I. Alloca per riferimento l'array di Persona e lo riempie da input\nvoid riempi_array(Persona **array, int n) {\n    // TODO: allocare *array con malloc e leggere n persone\n}\n\n// II. Controlla se ci sono omonimi (stesso nome e cognome) usando notazione puntatore\nint controlla_uguali(Persona *array, int n, char *out_nome, char *out_cognome) {\n    // TODO: confrontare coppie con notazione puntatore *(array + i)\n}\n\n// III. Libera la memoria allocata per l'array\nvoid libera_array(Persona *array) {\n    free(array);\n}\n\nint main() {\n    int n;\n    if(scanf(\"%d\", &n) != 1 || n <= 0) return 0;\n    \n    Persona *persone = NULL;\n    riempi_array(&persone, n);\n    \n    char omonimo_nome[30] = \"\";\n    char omonimo_cognome[30] = \"\";\n    \n    if(controlla_uguali(persone, n, omonimo_nome, omonimo_cognome)) {\n        printf(\"OMONIMIA: %s %s\\n\", omonimo_nome, omonimo_cognome);\n    } else {\n        printf(\"NESSUN OMONIMO\\n\");\n    }\n    \n    libera_array(persone);\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "4\nMario Rossi 25\nLuigi Verdi 30\nMario Rossi 50\nAnna Bianchi 22\n",
+        "expected": "OMONIMIA: Mario Rossi\n"
+      },
+      {
+        "stdin": "3\nPaolo Neri 40\nLaura Gialli 35\nSimone Viola 28\n",
+        "expected": "NESSUN OMONIMO\n"
+      },
+      {
+        "stdin": "3\nLuca Bruni 19\nLuca Bruni 25\nLuca Bruni 30\n",
+        "expected": "OMONIMIA: Luca Bruni\n"
+      }
+    ]
+  },
+  {
+    "domanda": "Dato il seguente codice C, individuare il comportamento del programma:\n\n```c\nint a = 35;\nprintf(\"%c\", a);\n```",
+    "risposta1": "Stampa il carattere '#' corrispondente al codice ASCII decimale 35 invece del numero '35'.",
+    "risposta2": "Genera errore di compilazione perché '%c' non accetta numeri interi.",
+    "risposta3": "Stampa il testo '35' senza problemi.",
+    "risposta4": "Stampa un valore casuale (garbage value).",
+    "corretta": "Stampa il carattere '#' corrispondente al codice ASCII decimale 35 invece del numero '35'.",
+    "tag": [
+      "debug",
+      "formattazione",
+      "ascii"
+    ]
+  },
+  {
+    "domanda": "Qual è il ruolo e il funzionamento della direttiva `#define` in C?",
+    "risposta1": "È una direttiva elaborata dal preprocessore che esegue una sostituzione puramente testuale nel codice sorgente prima della compilazione effettiva.",
+    "risposta2": "Alloca una variabile costante in memoria Stack a tempo di esecuzione.",
+    "risposta3": "Crea una funzione compilata in linguaggio macchina ad alta efficienza.",
+    "risposta4": "Include file di libreria standard come stdio.h.",
+    "corretta": "È una direttiva elaborata dal preprocessore che esegue una sostituzione puramente testuale nel codice sorgente prima della compilazione effettiva.",
+    "tag": [
+      "preprocessore",
+      "teoria"
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### Formattazione Stringhe Dinamiche (Puntatori doppi & toupper/tolower)\n\nDato un array di puntatori a stringhe `char **persone`, implementare:\n1. `void riempi(char **persone, int n)`: alloca dinamicamente con `malloc` la memoria per ogni singola stringa e la riempie da standard input usando la **notazione puntatore `*(persone + i)`**.\n2. `void aggiusta_lettere(char **persone, int n)`: trasforma ogni stringa impostando l'iniziale in maiuscolo (`toupper`) e tutte le lettere successive in minuscolo (`tolower`), scorrendo i caratteri con la notazione puntatore `*(str + j)`.\n3. `void libera_array(char **persone, int n)`: dealloca ciascuna stringa e infine il vettore di puntatori.\n4. Nel `main`, stampare ciascuna stringa formattata su una riga separata.",
+    "tag": [
+      "stringhe",
+      "puntatori-doppi",
+      "allocazione-dinamica"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <ctype.h>\n\n// I. Alloca ciascuna stringa e riempie l'array da input usando notazione puntatore\nvoid riempi(char **persone, int n) {\n    // TODO: per ogni elemento allocare *(persone + i) e leggere la stringa\n}\n\n// II. Mette l'iniziale in maiuscolo e il resto in minuscolo (notazione puntatore)\nvoid aggiusta_lettere(char **persone, int n) {\n    // TODO: manipolare i caratteri con notazione puntatore *(str + j)\n}\n\n// III. Libera la memoria allocata (singole stringhe e array principale)\nvoid libera_array(char **persone, int n) {\n    // TODO: free per ogni stringa e poi free(persone)\n}\n\nint main() {\n    int n;\n    if(scanf(\"%d\", &n) != 1 || n <= 0) return 0;\n    \n    char **persone = (char **)malloc(n * sizeof(char *));\n    riempi(persone, n);\n    aggiusta_lettere(persone, n);\n    \n    for(int i = 0; i < n; i++) {\n        printf(\"%s\\n\", *(persone + i));\n    }\n    \n    libera_array(persone, n);\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "3\nmARiO\ngIUSePPe\naNNA\n",
+        "expected": "Mario\nGiuseppe\nAnna\n"
+      },
+      {
+        "stdin": "4\nROBERTO\nfrancesca\nALESSANDRO\nmAtTeO\n",
+        "expected": "Roberto\nFrancesca\nAlessandro\nMatteo\n"
+      },
+      {
+        "stdin": "1\ncaPItalIZe\n",
+        "expected": "Capitalize\n"
+      }
+    ]
+  },
+  {
+    "domanda": "Dato il seguente ciclo for in C, quale errore impedisce la corretta compilazione?\n\n```c\nfor(int i = 0, float j = 1.1; i < j; j -= 0.1)\n    printf(\"%d\", j);\nprintf(\"%d\", i);\n```",
+    "risposta1": "Non è consentito dichiarare variabili di tipi differenti (int e float) nella stessa clausola di inizializzazione del ciclo for.",
+    "risposta2": "Il decremento j -= 0.1 non è un'espressione valida in C.",
+    "risposta3": "Il ciclo for richiede obbligatoriamente l'uso di tre variabili intere.",
+    "risposta4": "La condizione i < j non supporta il confronto tra int e float.",
+    "corretta": "Non è consentito dichiarare variabili di tipi differenti (int e float) nella stessa clausola di inizializzazione del ciclo for.",
+    "tag": [
+      "debug",
+      "sintassi",
+      "cicli"
+    ]
+  },
+  {
+    "domanda": "Qual è la differenza tra casting implicito ed esplicito in linguaggio C?",
+    "risposta1": "Il casting implicito (type promotion) è eseguito automaticamente dal compilatore tra tipi compatibili; il casting esplicito richiede la sintassi '(nuovo_tipo)espressione' da parte del programmatore.",
+    "risposta2": "Il casting implicito alloca nuova memoria dinamica, mentre il casting esplicito no.",
+    "risposta3": "Il casting esplicito funziona solo tra puntatori e mai su numeri float/int.",
+    "risposta4": "In C il casting esplicito è deprecato e non consentito dallo standard ANSI.",
+    "corretta": "Il casting implicito (type promotion) è eseguito automaticamente dal compilatore tra tipi compatibili; il casting esplicito richiede la sintassi '(nuovo_tipo)espressione' da parte del programmatore.",
+    "tag": [
+      "casting",
+      "tipi",
+      "teoria"
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### Rimozione Duplicati & Reallocazione Array Dinamico\n\nScrivere un programma C che gestisce un array dinamico di interi implementando:\n1. `void riempi(int *numeri, int n)`: popola l'array con $N$ interi da standard input.\n2. `int controlla_duplicati(int *numeri, int n)`: controlla se sono presenti duplicati (restituisce 1 se presenti, 0 altrimenti) usando la **notazione puntatore `*(numeri + i)`**.\n3. `void rimuovi_duplicati(int **numeri, int *n)`: elimina i duplicati mantenendo solo la prima occorrenza di ciascun valore nell'ordine di apparizione originale, realloca l'array alla nuova dimensione con `realloc` e aggiorna la dimensione `*n`.\n4. Nel `main`, stampare `DUPLICATI: <1|0>`, poi `DIM: <nuova_dimensione>` e gli elementi unici separati da spazio.",
+    "tag": [
+      "array",
+      "puntatori",
+      "realloc",
+      "algoritmi"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n\n// I. Riempie l'array con interi da standard input\nvoid riempi(int *numeri, int n) {\n    // TODO: scanf su numeri + i\n}\n\n// II. Restituisce 1 se ci sono duplicati nell'array, 0 altrimenti (notazione puntatore)\nint controlla_duplicati(int *numeri, int n) {\n    // TODO: notazione puntatore *(numeri + i)\n}\n\n// III. Rimuove le occorrenze duplicate, realloca con realloc e aggiorna *n\nvoid rimuovi_duplicati(int **numeri, int *n) {\n    // TODO: filtrare duplicati, reallocare *numeri e aggiornare *n\n}\n\nint main() {\n    int n;\n    if(scanf(\"%d\", &n) != 1 || n <= 0) return 0;\n    \n    int *numeri = (int *)malloc(n * sizeof(int));\n    riempi(numeri, n);\n    \n    int ha_dup = controlla_duplicati(numeri, n);\n    printf(\"DUPLICATI: %d\\n\", ha_dup);\n    \n    rimuovi_duplicati(&numeri, &n);\n    printf(\"DIM: %d\\n\", n);\n    for(int i = 0; i < n; i++) {\n        printf(\"%d%s\", *(numeri + i), (i == n - 1) ? \"\" : \" \");\n    }\n    printf(\"\\n\");\n    \n    free(numeri);\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "6\n1 3 1 1 3 5\n",
+        "expected": "DUPLICATI: 1\nDIM: 3\n1 3 5\n"
+      },
+      {
+        "stdin": "4\n10 20 30 40\n",
+        "expected": "DUPLICATI: 0\nDIM: 4\n10 20 30 40\n"
+      },
+      {
+        "stdin": "5\n7 7 7 7 7\n",
+        "expected": "DUPLICATI: 1\nDIM: 1\n7\n"
+      },
+      {
+        "stdin": "7\n4 2 8 2 4 9 1\n",
+        "expected": "DUPLICATI: 1\nDIM: 5\n4 2 8 9 1\n"
+      }
+    ]
+  },
+  {
+    "domanda": "Dato il seguente codice C privo di blocchi `{}`:\n\n```c\nwhile(1)\n    printf(\"ciao\");\n    break;\n```\n\nQual è il comportamento del programma?",
+    "risposta1": "Il ciclo while(1) esegue all'infinito la sola istruzione 'printf(\"ciao\");' poiché break è fuori dal corpo del ciclo e non viene mai raggiunto.",
+    "risposta2": "Stampa 'ciao' una sola volta ed esce immediatamente.",
+    "risposta3": "Genera errore di compilazione perché while(1) richiede obbligatoriamente le parentesi graffe.",
+    "risposta4": "Non stampa nulla e va in crash per stack overflow.",
+    "corretta": "Il ciclo while(1) esegue all'infinito la sola istruzione 'printf(\"ciao\");' poiché break è fuori dal corpo del ciclo e non viene mai raggiunto.",
+    "tag": [
+      "debug",
+      "cicli",
+      "blocchi"
+    ]
+  },
+  {
+    "domanda": "Come funziona l'operatore `sizeof()` in C e quando viene calcolato il suo valore per tipi ordinari?",
+    "risposta1": "È un operatore (non una funzione) valutato a tempo di compilazione che restituisce la dimensione in byte del tipo o dell'espressione fornita (di tipo size_t).",
+    "risposta2": "È una funzione di libreria che conta i caratteri di una stringa a tempo di esecuzione.",
+    "risposta3": "Restituisce il numero di bit contenuti in una variabile allocata dinamicamente.",
+    "risposta4": "Misura la velocità di esecuzione di un blocco di istruzioni.",
+    "corretta": "È un operatore (non una funzione) valutato a tempo di compilazione che restituisce la dimensione in byte del tipo o dell'espressione fornita (di tipo size_t).",
+    "tag": [
+      "sizeof",
+      "operatori",
+      "teoria"
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### Gestione Circo (Array di Puntatori a Struct)\n\nData la struct:\n```c\ntypedef struct Circo {\n    char nome_circo[50];\n    int num_spettacoli;\n    char nomi_clown[10][30];\n    int num_clown;\n} Circo;\n```\n\nImplementare le seguenti funzioni:\n1. `Circo **creaCirco(int n)`: alloca un array di $N$ puntatori a `Circo`, alloca dinamicamente ciascun singolo `Circo` e ne riempie i campi da standard input.\n2. `Circo *cerca_max(Circo **circo, int n)`: trova e restituisce il puntatore al circo con il massimo numero di spettacoli (**usare notazione puntatore `*(circo + i)`**).\n3. `void smantella_circo(Circo **circo, int n)`: dealloca correttamente ciascuna struttura e il vettore di puntatori.\n4. Nel `main`, stampare `nome_circo num_spettacoli` del circo con il maggior numero di spettacoli.",
+    "tag": [
+      "struct",
+      "puntatori-doppi",
+      "allocazione-dinamica"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\ntypedef struct Circo {\n    char nome_circo[50];\n    int num_spettacoli;\n    char nomi_clown[10][30];\n    int num_clown;\n} Circo;\n\n// I. Alloca array di puntatori Circo**, alloca ogni singolo Circo e popola da input\nCirco **creaCirco(int n) {\n    // TODO: allocare Circo** e ciascun *(array + i)\n}\n\n// II. Cerca il circo con il massimo numero di spettacoli usando notazione puntatore\nCirco *cerca_max(Circo **circo, int n) {\n    // TODO: ricerca massimo con notazione puntatore\n}\n\n// III. Dealloca ogni elemento e l'array principale\nvoid smantella_circo(Circo **circo, int n) {\n    // TODO: free di ciascun circo e dell'array\n}\n\nint main() {\n    int n;\n    if(scanf(\"%d\", &n) != 1 || n <= 0) return 0;\n    \n    Circo **circhi = creaCirco(n);\n    Circo *top = cerca_max(circhi, n);\n    \n    printf(\"%s %d\\n\", top->nome_circo, top->num_spettacoli);\n    \n    smantella_circo(circhi, n);\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "3\nOrfei 15 2 Pagliaccio Togni\nMedrano 22 1 ClownK\nMoira 18 3 Pierrot Totti Burlone\n",
+        "expected": "Medrano 22\n"
+      },
+      {
+        "stdin": "2\nCircoSole 50 1 Acrobata\nCircoLuna 30 2 ClownA ClownB\n",
+        "expected": "CircoSole 50\n"
+      },
+      {
+        "stdin": "1\nStarlight 12 1 Giocoliere\n",
+        "expected": "Starlight 12\n"
+      }
+    ]
+  },
+  {
+    "domanda": "Dato il seguente codice C, quali errori di sintassi impediscono la compilazione?\n\n```c\nint i = 1\ndo\n{\n    printf(\"E all'o, forz jamm\");\n}while(i<0)\n```",
+    "risposta1": "Manca il punto e virgola ';' dopo la dichiarazione 'int i = 1' e dopo la condizione di chiusura '}while(i<0);'.",
+    "risposta2": "Il costrutto do-while non accetta condizioni con operatore minore '<'.",
+    "risposta3": "La variabile i deve essere di tipo boolean.",
+    "risposta4": "La funzione printf non può contenere spazi nella stringa.",
+    "corretta": "Manca il punto e virgola ';' dopo la dichiarazione 'int i = 1' e dopo la condizione di chiusura '}while(i<0);'.",
+    "tag": [
+      "debug",
+      "sintassi",
+      "do-while"
+    ]
+  },
+  {
+    "domanda": "Qual è la differenza fondamentale tra `malloc()` e `calloc()` nella libreria standard C?",
+    "risposta1": "malloc() alloca un blocco di byte contigui lasciando la memoria non inizializzata (garbage); calloc() alloca la memoria e ne azzera tutti i byte (impostandoli a 0).",
+    "risposta2": "malloc() alloca su Stack mentre calloc() alloca su Heap.",
+    "risposta3": "calloc() può essere liberata solo con cfree() e non con free().",
+    "risposta4": "Non c'è alcuna differenza nei valori contenuti nella memoria allocata.",
+    "corretta": "malloc() alloca un blocco di byte contigui lasciando la memoria non inizializzata (garbage); calloc() alloca la memoria e ne azzera tutti i byte (impostandoli a 0).",
+    "tag": [
+      "malloc",
+      "calloc",
+      "memoria",
+      "teoria"
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### Libretto Universitario & Lode (Reallocazione Dinamica & Minimo)\n\nData la seguente struct:\n```c\ntypedef struct Esame {\n    char nome_esame[50];\n    int voto;\n    char prof[30];\n} Esame;\n```\n\nImplementare le seguenti funzioni:\n1. `void aggiungi_Esame(Esame ***libretto, int *n, char *nome, int voto, char *prof)`: realloca dinamicamente l'array di puntatori `Esame**` per inserire un nuovo esame alla fine. **Se il voto è $\\ge 30$, aggiunge automaticamente in coda al nome dell'esame la dicitura `\" L\"` (Lode)** (es. `\"Architettura\"` $\\to$ `\"Architettura L\"`). Aggiorna la dimensione `*n`.\n2. `Esame *cerca_min(Esame **libretto, int n)`: cerca e restituisce l'esame con il voto più basso (**usare notazione puntatore `*(libretto + i)`**).\n3. `void svuota_Libretto(Esame **libretto, int n)`: dealloca tutta la memoria.\n4. Nel `main`, stampare tutti gli esami nel libretto e infine `MIN: <nome_esame> <voto>`.",
+    "tag": [
+      "struct",
+      "realloc",
+      "puntatori-doppi",
+      "stringhe"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\ntypedef struct Esame {\n    char nome_esame[50];\n    int voto;\n    char prof[30];\n} Esame;\n\n// I. Aggiunge un nuovo esame reallocando l'array di puntatori. Se voto >= 30, appende ' L' al nome.\nvoid aggiungi_Esame(Esame ***libretto, int *n, char *nome, int voto, char *prof) {\n    // TODO: realloc su *libretto, allocare struct Esame, gestire la lode se voto >= 30, aggiornare *n\n}\n\n// II. Cerca e restituisce l'esame con il voto più basso (notazione puntatore)\nEsame *cerca_min(Esame **libretto, int n) {\n    // TODO: notazione puntatore *(libretto + i)\n}\n\n// III. Dealloca tutti gli esami e il vettore di puntatori\nvoid svuota_Libretto(Esame **libretto, int n) {\n    // TODO: free di ciascun esame e di libretto\n}\n\nint main() {\n    int n;\n    if(scanf(\"%d\", &n) != 1 || n < 0) return 0;\n    \n    Esame **libretto = NULL;\n    int count = 0;\n    \n    for(int i = 0; i < n; i++) {\n        char nome[50], prof[30];\n        int voto;\n        scanf(\"%s %d %s\", nome, &voto, prof);\n        aggiungi_Esame(&libretto, &count, nome, voto, prof);\n    }\n    \n    char extra_nome[50], extra_prof[30];\n    int extra_voto;\n    if(scanf(\"%s %d %s\", extra_nome, &extra_voto, extra_prof) == 3) {\n        aggiungi_Esame(&libretto, &count, extra_nome, extra_voto, extra_prof);\n    }\n    \n    for(int i = 0; i < count; i++) {\n        printf(\"%s %d %s\\n\", (*(libretto + i))->nome_esame, (*(libretto + i))->voto, (*(libretto + i))->prof);\n    }\n    \n    Esame *peggiore = cerca_min(libretto, count);\n    if(peggiore) {\n        printf(\"MIN: %s %d\\n\", peggiore->nome_esame, peggiore->voto);\n    }\n    \n    svuota_Libretto(libretto, count);\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "2\nAnalisi_1 28 Rossi\nArchitettura 30 Bianchi\nProgrammazione_1 30 Verdi\n",
+        "expected": "Analisi_1 28 Rossi\nArchitettura L 30 Bianchi\nProgrammazione_1 L 30 Verdi\nMIN: Analisi_1 28\n"
+      },
+      {
+        "stdin": "1\nAlgoritmi 18 Neri\nReti 24 Gialli\n",
+        "expected": "Algoritmi 18 Neri\nReti 24 Gialli\nMIN: Algoritmi 18\n"
+      },
+      {
+        "stdin": "3\nFisica 27 Viola\nGeometria 22 Neri\nBasiDati 30 Mario\nSistemi 30 Luca\n",
+        "expected": "Fisica 27 Viola\nGeometria 22 Neri\nBasiDati L 30 Mario\nSistemi L 30 Luca\nMIN: Geometria 22\n"
+      }
+    ]
+  },
+  {
+    "domanda": "Quando si utilizza `realloc(ptr, new_size)` in C, quale buona prassi è fondamentale adottare per evitare memory leak in caso di fallimento dell'allocazione?",
+    "risposta1": "Assegnare il risultato di realloc a un puntatore temporaneo e verificare che non sia NULL prima di sovrascrivere il puntatore originale 'ptr'.",
+    "risposta2": "Chiamare prima free(ptr) e poi realloc(ptr, new_size).",
+    "risposta3": "realloc non può mai fallire se la memoria è già stata allocata in precedenza.",
+    "risposta4": "Impostare ptr = NULL prima di chiamare realloc().",
+    "corretta": "Assegnare il risultato di realloc a un puntatore temporaneo e verificare che non sia NULL prima di sovrascrivere il puntatore originale 'ptr'.",
+    "tag": [
+      "realloc",
+      "memoria",
+      "teoria"
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### Ricerca Targa con 2 Vocali (Notazione Puntatore)\n\nData la struct `Macchina`, completare la funzione:\n```c\nint trova_targa_vocali(Macchina *parcheggio, int n, Macchina *res);\n```\nLa funzione deve scorrere l'array di `Macchina` tramite **notazione puntatore `*(parcheggio + i)`**, individuare la prima auto la cui targa inizia con 2 vocali (es. `\"EA123AA\"`, `\"OU999ZZ\"`), copiarla in `*res` e restituire `1`. Se nessuna auto soddisfa il criterio, restituisce `0`.",
+    "tag": [
+      "struct",
+      "puntatori",
+      "stringhe"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <ctype.h>\n\ntypedef struct {\n    char targa[10];\n    char modello[30];\n    int anno;\n} Macchina;\n\nint is_vocale(char c) {\n    c = tolower(c);\n    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');\n}\n\n// Trova la prima macchina con targa che inizia con 2 vocali.\n// Usa la notazione puntatore *(parcheggio + i). Ritorna 1 se trovata (e scrive in *res), 0 altrimenti.\nint trova_targa_vocali(Macchina *parcheggio, int n, Macchina *res) {\n    // TODO: implementare ricerca con notazione puntatore\n}\n\nint main() {\n    int n;\n    if(scanf(\"%d\", &n) != 1 || n <= 0) return 0;\n    Macchina *p = (Macchina*)malloc(n * sizeof(Macchina));\n    for(int i = 0; i < n; i++) {\n        scanf(\"%s %s %d\", (p+i)->targa, (p+i)->modello, &(p+i)->anno);\n    }\n    Macchina res;\n    if(trova_targa_vocali(p, n, &res)) {\n        printf(\"%s %s\\n\", res.targa, res.modello);\n    } else {\n        printf(\"NESSUNA\\n\");\n    }\n    free(p);\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "3\nAB123CD Panda 2018\nEA999ZZ Golf 2021\nFE444AA Ypsilon 2019\n",
+        "expected": "EA999ZZ Golf\n"
+      },
+      {
+        "stdin": "2\nBC111DD Clio 2017\nGF555TT Punto 2012\n",
+        "expected": "NESSUNA\n"
+      },
+      {
+        "stdin": "2\nOU888KK Tesla 2022\nAA111AA BMW 2024\n",
+        "expected": "OU888KK Tesla\n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### Ricerca Albero con Più Foglie (Puntatori a Struct)\n\nData la struct `Albero`, implementare la funzione:\n```c\nAlbero max_foglie(Albero *foresta, int n);\n```\nLa funzione scorre l'array di `n` alberi tramite **notazione puntatore `*(foresta + i)`** e restituisce la struct `Albero` che possiede il campo `num_foglie` maggiore.",
+    "tag": [
+      "struct",
+      "puntatori"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n\ntypedef struct {\n    char specie[30];\n    int num_foglie;\n    float altezza;\n} Albero;\n\n// Restituisce l'albero con il maggior numero di foglie usando notazione puntatore *(foresta + i)\nAlbero max_foglie(Albero *foresta, int n) {\n    // TODO: ricerca massimo con notazione puntatore\n}\n\nint main() {\n    int n;\n    if(scanf(\"%d\", &n) != 1 || n <= 0) return 0;\n    Albero *foresta = (Albero*)malloc(n * sizeof(Albero));\n    for(int i = 0; i < n; i++) {\n        scanf(\"%s %d %f\", (foresta+i)->specie, &(foresta+i)->num_foglie, &(foresta+i)->altezza);\n    }\n    Albero top = max_foglie(foresta, n);\n    printf(\"MAX: %s con %d foglie\\n\", top.specie, top.num_foglie);\n    free(foresta);\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "3\nQuercia 12000 15.5\nPino 4500 20.0\nFaggio 18500 18.2\n",
+        "expected": "MAX: Faggio con 18500 foglie\n"
+      },
+      {
+        "stdin": "2\nUlivo 3000 6.5\nCipresso 5000 14.0\n",
+        "expected": "MAX: Cipresso con 5000 foglie\n"
+      },
+      {
+        "stdin": "4\nSalice 7000 11.0\nBetulla 8500 14.0\nSequoia 95000 60.0\nAcero 12000 16.0\n",
+        "expected": "MAX: Sequoia con 95000 foglie\n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### Normalizzazione Maiuscole/Minuscole (Puntatori Doppi & Stringhe)\n\nDato un array di puntatori a stringhe `char **persone` di dimensione `n`, implementare la funzione:\n```c\nvoid aggiusta_lettere(char **persone, int n);\n```\nLa funzione deve modificare sul posto ciascuna stringa in modo che:\n- La prima lettera sia in **maiuscolo** (`toupper`).\n- Tutte le altre lettere siano in **minuscolo** (`tolower`).\n**È obbligatorio utilizzare la notazione a puntatore `*(persone + i)` e `*(str + j)`**.",
+    "tag": [
+      "stringhe",
+      "puntatori-doppi",
+      "ctype"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <ctype.h>\n\n// Converte la prima lettera di ciascuna stringa in maiuscolo e le altre in minuscolo.\n// Utilizzare rigorosamente la notazione puntatore *(persone + i) e *(str + j).\nvoid aggiusta_lettere(char **persone, int n) {\n    // TODO: manipolazione caratteri con notazione puntatore\n}\n\nint main() {\n    int n;\n    if(scanf(\"%d\", &n) != 1 || n <= 0) return 0;\n    char **persone = (char**)malloc(n * sizeof(char*));\n    char buf[100];\n    for(int i = 0; i < n; i++) {\n        scanf(\"%s\", buf);\n        *(persone + i) = (char*)malloc(strlen(buf) + 1);\n        strcpy(*(persone + i), buf);\n    }\n    aggiusta_lettere(persone, n);\n    for(int i = 0; i < n; i++) {\n        printf(\"%s\\n\", *(persone + i));\n        free(*(persone + i));\n    }\n    free(persone);\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "3\nmARiO\ngIUSePPe\naNNA\n",
+        "expected": "Mario\nGiuseppe\nAnna\n"
+      },
+      {
+        "stdin": "2\nUNIVERSITA\nsALERNO\n",
+        "expected": "Universita\nSalerno\n"
+      },
+      {
+        "stdin": "4\nPROGRAMMAZIONE\nsTRUTTURE\ndATI\naRCHITETTURA\n",
+        "expected": "Programmazione\nStrutture\nDati\nArchitettura\n"
+      }
+    ]
+  }
+]

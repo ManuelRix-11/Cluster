@@ -1,5 +1,6 @@
 // Processo principale Electron
 const { app, BrowserWindow, ipcMain, protocol, net, shell } = require('electron')
+const { autoUpdater } = require('electron-updater')
 const path = require('path')
 const fs   = require('fs')
 const os   = require('os')
@@ -11,6 +12,8 @@ protocol.registerSchemesAsPrivileged([
 ])
 
 app.name = 'Cluster'
+
+let mainWindow = null
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -28,6 +31,10 @@ function createWindow() {
       nodeIntegration:  false,
     },
   })
+
+  mainWindow = win
+  win.on('closed', () => { mainWindow = null })
+
   if (app.isPackaged) {
     win.loadFile('renderer/dist/index.html')
   } else {
@@ -35,7 +42,8 @@ function createWindow() {
     win.loadURL('http://localhost:5173').catch(() => {
       win.loadFile('renderer/dist/index.html')
     })
-  }}
+  }
+}
 
 // ── Controlli finestra ─────────────────────────────────────────────────────────
 ipcMain.handle('window:minimize', e => BrowserWindow.fromWebContents(e.sender).minimize())
@@ -55,16 +63,19 @@ ipcMain.handle('quizzes:list', (_, subpath) => {
   function readQuizEntry(full, entry, prefix) {
     let count = 0
     try {
-      const data = JSON.parse(fs.readFileSync(full, 'utf-8'))
-      count = Array.isArray(data) ? data.length : 0
+      const content = fs.readFileSync(full, 'utf-8').trim()
+      if (content) {
+        const data = JSON.parse(content)
+        count = Array.isArray(data) ? data.length : 0
+      }
     } catch {}
     const filename = prefix ? `${prefix}/${entry}` : entry
     return { filename, name: entry.replace(/\.json$/i, ''), count, hasLivelli: false }
   }
 
-  function scanQuizDir(base, prefix) {
-    return fs.readdirSync(base).flatMap(entry => {
-      const full = path.join(base, entry)
+  function scanSemesterDir(semDir, prefix) {
+    return fs.readdirSync(semDir).flatMap(entry => {
+      const full = path.join(semDir, entry)
       const stat = fs.statSync(full)
 
       if (stat.isDirectory()) {
@@ -72,15 +83,19 @@ ipcMain.handle('quizzes:list', (_, subpath) => {
         const livelli = fs.readdirSync(full)
           .filter(f => f.endsWith('.json'))
           .map(f => {
+            let count = 0
             try {
-              const data = JSON.parse(fs.readFileSync(path.join(full, f), 'utf-8'))
-              const rawName = f.replace(/\.json$/i, '').replace(/^[^_]+_/, '')
-              const nome = rawName.charAt(0).toUpperCase() + rawName.slice(1)
-              const filename = prefix ? `${prefix}/${entry}/${f}` : `${entry}/${f}`
-              return { filename, nome, count: Array.isArray(data) ? data.length : 0 }
-            } catch { return null }
+              const content = fs.readFileSync(path.join(full, f), 'utf-8').trim()
+              if (content) {
+                const data = JSON.parse(content)
+                count = Array.isArray(data) ? data.length : 0
+              }
+            } catch {}
+            const rawName = f.replace(/\.json$/i, '')
+            const nome = rawName.includes('_') ? rawName.replace(/^[^_]+_/, '') : rawName
+            const filename = prefix ? `${prefix}/${entry}/${f}` : `${entry}/${f}`
+            return { filename, nome, count }
           })
-          .filter(Boolean)
           .sort((a, b) => (ORDER[a.nome.toLowerCase()] ?? 99) - (ORDER[b.nome.toLowerCase()] ?? 99) || a.nome.localeCompare(b.nome))
 
         return [{ name: entry, hasLivelli: true, livelli }]
@@ -91,7 +106,69 @@ ipcMain.handle('quizzes:list', (_, subpath) => {
     })
   }
 
-  if (subpath) return scanQuizDir(dir, subpath)
+  if (subpath) {
+    // Cartella di un anno (es. "Primo anno") -> ricerca cartelle semestre e file diretti (es. Inglese.json)
+    const entries = fs.readdirSync(dir)
+    const semesterDirs = entries.filter(e => {
+      const full = path.join(dir, e)
+      return fs.statSync(full).isDirectory() && /semestre/i.test(e)
+    })
+
+    const standaloneEntries = entries.filter(e => !/semestre/i.test(e)).flatMap(entry => {
+      const full = path.join(dir, entry)
+      const stat = fs.statSync(full)
+      if (stat.isDirectory()) {
+        const ORDER = { facile: 0, medio: 1, difficile: 2 }
+        const livelli = fs.readdirSync(full)
+          .filter(f => f.endsWith('.json'))
+          .map(f => {
+            let count = 0
+            try {
+              const content = fs.readFileSync(path.join(full, f), 'utf-8').trim()
+              if (content) {
+                const data = JSON.parse(content)
+                count = Array.isArray(data) ? data.length : 0
+              }
+            } catch {}
+            const rawName = f.replace(/\.json$/i, '')
+            const nome = rawName.includes('_') ? rawName.replace(/^[^_]+_/, '') : rawName
+            const filename = `${subpath}/${entry}/${f}`
+            return { filename, nome, count }
+          })
+          .sort((a, b) => (ORDER[a.nome.toLowerCase()] ?? 99) - (ORDER[b.nome.toLowerCase()] ?? 99) || a.nome.localeCompare(b.nome))
+        return [{ name: entry, hasLivelli: true, livelli }]
+      }
+      if (entry.endsWith('.json')) return [readQuizEntry(full, entry, subpath)]
+      return []
+    })
+
+    if (semesterDirs.length > 0) {
+      const SEM_ORDER = { 'primo semestre': 1, 'secondo semestre': 2 }
+      semesterDirs.sort((a, b) => (SEM_ORDER[a.toLowerCase()] ?? 99) - (SEM_ORDER[b.toLowerCase()] ?? 99))
+
+      const semestri = semesterDirs.map(semName => {
+        const semPath = path.join(dir, semName)
+        const prefix = `${subpath}/${semName}`
+        return {
+          semestre: semName,
+          quizzes: scanSemesterDir(semPath, prefix)
+        }
+      })
+
+      return {
+        standalone: standaloneEntries,
+        semestri
+      }
+    }
+
+    return {
+      standalone: [],
+      semestri: [{
+        semestre: 'Quiz',
+        quizzes: standaloneEntries
+      }]
+    }
+  }
 
   // Root: directory = anni, file .json = quiz diretti
   return fs.readdirSync(dir).flatMap(entry => {
@@ -105,7 +182,8 @@ ipcMain.handle('quizzes:list', (_, subpath) => {
 
 // ── Carica un singolo quiz per filename (supporta sottocartelle) ──────────────
 ipcMain.handle('quizzes:load', (_, filename) => {
-  const p = path.join(app.getAppPath(), 'Quizzes', ...filename.split('/').map(s => path.basename(s)))
+  const parts = filename.split('/').filter(Boolean)
+  const p = path.join(app.getAppPath(), 'Quizzes', ...parts)
   if (!fs.existsSync(p)) throw new Error('File non trovato: ' + filename)
   return fs.readFileSync(p, 'utf-8')
 })
@@ -242,6 +320,63 @@ ipcMain.handle('notes:load', (_, relpath) => {
   return fs.readFileSync(p, 'utf-8')
 })
 
+// ── Auto Updater ─────────────────────────────────────────────────────────────
+autoUpdater.autoDownload = true
+autoUpdater.autoInstallOnAppQuit = true
+
+function sendUpdaterStatus(payload) {
+  if (mainWindow && !mainWindow.isDestroyed()) {
+    mainWindow.webContents.send('updater:status', payload)
+  }
+}
+
+autoUpdater.on('checking-for-update', () => {
+  sendUpdaterStatus({ status: 'checking' })
+})
+
+autoUpdater.on('update-available', info => {
+  sendUpdaterStatus({ status: 'available', version: info.version })
+})
+
+autoUpdater.on('update-not-available', () => {
+  sendUpdaterStatus({ status: 'not-available' })
+})
+
+autoUpdater.on('download-progress', progress => {
+  sendUpdaterStatus({
+    status: 'downloading',
+    percent: Math.round(progress.percent),
+    transferred: progress.transferred,
+    total: progress.total
+  })
+})
+
+autoUpdater.on('update-downloaded', info => {
+  sendUpdaterStatus({ status: 'downloaded', version: info.version })
+})
+
+autoUpdater.on('error', err => {
+  sendUpdaterStatus({ status: 'error', error: err?.message || 'Errore durante la ricerca di aggiornamenti' })
+})
+
+ipcMain.handle('updater:check', async () => {
+  if (!app.isPackaged) {
+    return { ok: false, message: 'Disponibile solo nella versione installata (.exe)' }
+  }
+  try {
+    const result = await autoUpdater.checkForUpdates()
+    return { ok: true, result }
+  } catch (err) {
+    return { ok: false, error: err.message }
+  }
+})
+
+ipcMain.handle('updater:install', () => {
+  autoUpdater.quitAndInstall()
+})
+
+ipcMain.handle('app:version', () => app.getVersion())
+
 app.whenReady().then(() => {
   // Protocollo quiz-local:// — serve file da images/ in modo sicuro
   protocol.handle('quiz-local', request => {
@@ -250,6 +385,13 @@ app.whenReady().then(() => {
     return net.fetch('file:///' + absPath.replace(/\\/g, '/'))
   })
   createWindow()
+
+  // Controllo aggiornamenti in background all'avvio (solo in produzione)
+  if (app.isPackaged) {
+    setTimeout(() => {
+      autoUpdater.checkForUpdates().catch(() => {})
+    }, 4000)
+  }
 })
 
 app.on('window-all-closed', () => { if (process.platform !== 'darwin') app.quit() })

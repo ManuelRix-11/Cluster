@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { renderMarkdown, renderMarkdownInline } from '../utils/markdown';
 import styles from './Result.module.css';
 import { getTags } from '../utils/tags';
 
@@ -81,7 +82,10 @@ export function Result({ questions, answers, quizName, onHome }) {
               <div key={i} className={`${styles.row} ${styles.saltata}`}>
                 <div className={styles.num}>{i + 1}</div>
                 <div className={styles.content}>
-                  <div className={styles.domanda}>{questions[i].domanda}</div>
+                  <div 
+                    className={styles.domanda} 
+                    dangerouslySetInnerHTML={{ __html: renderMarkdown(questions[i].domanda || '') }} 
+                  />
                   <div className={styles.risposta}>⏭️ <span className={styles.label}>Non risposta</span></div>
                 </div>
               </div>
@@ -97,11 +101,14 @@ export function Result({ questions, answers, quizName, onHome }) {
             <div key={i} className={`${styles.row} ${rowClass}`}>
               <div className={styles.num}>{i + 1}</div>
               <div className={styles.content}>
-                <div className={styles.domanda}>{item.domanda}</div>
+                <div 
+                  className={styles.domanda} 
+                  dangerouslySetInnerHTML={{ __html: renderMarkdown(item.domanda || '') }} 
+                />
                 <div className={styles.risposta}>
-                  {icona} <span className={styles.label}>La tua risposta:</span> <strong>{item.rispostaUtente}</strong>
+                  {icona} <span className={styles.label}>La tua risposta:</span> <strong dangerouslySetInnerHTML={{ __html: renderMarkdownInline(item.rispostaUtente || '') }} />
                   {!isOk && (
-                    <span className={styles.rispostaCorretta}> — Corretta: <strong>{item.rispostaCorretta}</strong></span>
+                    <span className={styles.rispostaCorretta}> — Corretta: <strong dangerouslySetInnerHTML={{ __html: renderMarkdownInline(item.rispostaCorretta || '') }} /></span>
                   )}
                 </div>
               </div>

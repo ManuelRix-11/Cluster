@@ -9,6 +9,8 @@ import { Result } from './screens/Result';
 import { Stats } from './screens/Stats';
 import { AppHeader } from './components/AppHeader';
 import { ElectronHUD } from './components/ElectronHUD';
+import { UpdateNotification } from './components/UpdateNotification';
+import lmLogo from './assets/lm.png';
 
 // ponytail: Minimum router con stato. Niente React Router.
 export default function App() {
@@ -68,25 +70,36 @@ export default function App() {
         {screen === 'result' && <Result questions={nav.result.questions} answers={nav.result.answers} quizName={nav.result.name} onHome={goHome} />}
       </main>
       
-      <footer className="app-footer">
-        <div className="footer-brand">
-          <a 
-            href="https://emanuele-ragozzini.netlify.app/" 
-            onClick={(e) => {
-              if (window.electronAPI) {
-                e.preventDefault();
-                window.electronAPI.openExternal('https://emanuele-ragozzini.netlify.app/');
-              }
-            }}
-            style={{textDecoration: 'none', color: 'inherit'}}
-          >
-            ER<span className="dot">.</span>
-          </a>
-        </div>
-        <div className="footer-copy">Fatto con ❤️ e caffè &middot; &copy; 2026 Emanuele Ragozzini &middot; Tutti i diritti riservati.</div>
-      </footer>
+      {screen !== 'study' && (
+        <footer className="app-footer">
+          <div className="footer-brand">
+            <a 
+              href="https://emanuele-ragozzini.netlify.app/" 
+              onClick={(e) => {
+                if (window.electronAPI) {
+                  e.preventDefault();
+                  window.electronAPI.openExternal('https://emanuele-ragozzini.netlify.app/');
+                }
+              }}
+              className="footer-author-link"
+              title="Emanuele Ragozzini"
+            >
+              ER<span className="dot">.</span>
+            </a>
+            <span className="collab-x" aria-hidden="true">✕</span>
+            <img 
+              src={lmLogo} 
+              alt="LiberaMente" 
+              className="footer-collab-logo" 
+              title="In collaborazione con LiberaMente" 
+            />
+          </div>
+          <div className="footer-copy">Fatto con ❤️ e caffè &middot; &copy; 2026 Emanuele Ragozzini &middot; Tutti i diritti riservati.</div>
+        </footer>
+      )}
       
       <ElectronHUD showDragStrip={screen === 'home'} />
+      <UpdateNotification />
     </>
   );
 }
