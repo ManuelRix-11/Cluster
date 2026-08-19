@@ -22,14 +22,102 @@ function shuffle(array) {
   return arr;
 }
 
+function isCodeQuestion(d) {
+  return d?.tipo === 'codice' || d?.tipo === 'java' || d?.tipo === 'c' || d?.tipo === 'cpp' || d?.tipo === 'python';
+}
+
+function isTreeQuestion(q) {
+  const tags = (Array.isArray(q.tag) ? q.tag : []).map(t => String(t).toLowerCase());
+  const files = (Array.isArray(q.files) ? q.files : []).map(f => f.name.toLowerCase());
+  const text = (q.domanda || '').toLowerCase();
+  return tags.includes('alberi') || tags.includes('btree') || tags.includes('albero') ||
+    files.some(f => f.includes('btree')) || text.includes('btree') || text.includes('albero');
+}
+
+function isStackQueueQuestion(q) {
+  const tags = (Array.isArray(q.tag) ? q.tag : []).map(t => String(t).toLowerCase());
+  const files = (Array.isArray(q.files) ? q.files : []).map(f => f.name.toLowerCase());
+  const text = (q.domanda || '').toLowerCase();
+  return tags.includes('pile') || tags.includes('code') || tags.includes('stack') || tags.includes('queue') ||
+    files.some(f => f.includes('stack') || f.includes('queue')) ||
+    text.includes('stack') || text.includes('queue') || text.includes('coda');
+}
+
+function isListQuestion(q) {
+  const tags = (Array.isArray(q.tag) ? q.tag : []).map(t => String(t).toLowerCase());
+  const files = (Array.isArray(q.files) ? q.files : []).map(f => f.name.toLowerCase());
+  const text = (q.domanda || '').toLowerCase();
+  return tags.includes('liste') || tags.includes('lista') || tags.includes('list') ||
+    files.some(f => f.includes('list')) || text.includes('adt list') || text.includes('lista');
+}
+
+// ponytail: PSD code exams require exactly 3 exercises: 1 on Binary Trees, 1 on Stacks/Queues, 1 on Lists
+function selectPSDCodeQuestions(quizData) {
+  const selected = [];
+  const used = new Set();
+
+  const lists = shuffle(quizData.filter(isListQuestion));
+  const stackQueue = shuffle(quizData.filter(isStackQueueQuestion));
+  const trees = shuffle(quizData.filter(isTreeQuestion));
+
+  // 1. Uno sulle liste
+  const listQ = lists.find(q => !used.has(q));
+  if (listQ) {
+    selected.push(listQ);
+    used.add(listQ);
+  }
+
+  // 2. Uno su stack e/o code
+  const sqQ = stackQueue.find(q => !used.has(q));
+  if (sqQ) {
+    selected.push(sqQ);
+    used.add(sqQ);
+  }
+
+  // 3. Uno sugli alberi binari
+  const treeQ = trees.find(q => !used.has(q));
+  if (treeQ) {
+    selected.push(treeQ);
+    used.add(treeQ);
+  }
+
+  // Fallback se necessario
+  if (selected.length < 3) {
+    const remaining = shuffle(quizData.filter(q => !used.has(q)));
+    for (const q of remaining) {
+      if (selected.length >= 3) break;
+      selected.push(q);
+      used.add(q);
+    }
+  }
+
+  return shuffle(selected);
+}
+
 export function Quiz({ quizData, quizName, onFinish }) {
   // Init state only once
   const [questions] = useState(() => {
+    const isPSD = 
+      /programmazione e strutture dati|\bpsd\b/i.test(quizName || '') ||
+      quizData.some(d => Array.isArray(d.tag) && d.tag.some(t => /psd/i.test(t)));
+
+    const isCodeQuiz = quizData.length > 0 && quizData.every(isCodeQuestion);
+
+    if (isCodeQuiz && isPSD) {
+      return selectPSDCodeQuestions(quizData);
+    }
+
+    if (isCodeQuiz) {
+      return shuffle(quizData).slice(0, 5);
+    }
+
     const canvasQs = shuffle(quizData.filter(d => d.tipo === 'canvas'));
-    const altre = shuffle(quizData.filter(d => d.tipo !== 'canvas'));
+    const codeQs = shuffle(quizData.filter(isCodeQuestion));
+    const altre = shuffle(quizData.filter(d => d.tipo !== 'canvas' && !isCodeQuestion(d)));
     
     let pool = [];
     if (canvasQs.length > 0) pool.push(...canvasQs.slice(0, 2));
+    if (codeQs.length > 0) pool.push(...(isPSD ? selectPSDCodeQuestions(codeQs) : codeQs.slice(0, 5)));
     
     const remainingSlots = 30 - pool.length; // max 30 as in original
     if (remainingSlots > 0) pool.push(...altre.slice(0, remainingSlots));

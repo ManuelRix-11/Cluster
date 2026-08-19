@@ -3,7 +3,10 @@ import logoSrc from '../assets/logoIUE.png';
 import studyIcon from '../assets/study.png';
 import examsIcon from '../assets/exams.png';
 
-export function Home({ onNavigate }) {
+export function Home({ onNavigate, onGoStudy, onGoEsami }) {
+  const handleStudy = onGoStudy || (() => onNavigate && onNavigate('study'));
+  const handleEsami = onGoEsami || (() => onNavigate && onNavigate('esami'));
+
   return (
     <div className="card card--anni">
       <div className="logo">
@@ -19,11 +22,11 @@ export function Home({ onNavigate }) {
       <p className="home-tagline">Hub di studio & simulatore d'esami · Informatica UNISA</p>
 
       <div id="anni-list">
-        <button className="anno-btn home-nav-btn" onClick={() => onNavigate('study')}>
+        <button className="anno-btn home-nav-btn" onClick={handleStudy}>
           <img src={studyIcon} alt="Appunti" style={{ height: '5rem', marginBottom: '8px', objectFit: 'contain' }} />
           <span className="anno-nome">Appunti</span>
         </button>
-        <button className="anno-btn home-nav-btn" onClick={() => onNavigate('esami')}>
+        <button className="anno-btn home-nav-btn" onClick={handleEsami}>
           <img src={examsIcon} alt="Esami" style={{ height: '5rem', marginBottom: '8px', objectFit: 'contain' }} />
           <span className="anno-nome">Esami</span>
         </button>

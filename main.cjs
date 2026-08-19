@@ -1,9 +1,10 @@
 // Processo principale Electron
-const { app, BrowserWindow, ipcMain, protocol, net, shell } = require('electron')
+const { app, BrowserWindow, ipcMain, protocol, net, shell, dialog } = require('electron')
 const { autoUpdater } = require('electron-updater')
 const path = require('path')
 const fs   = require('fs')
 const os   = require('os')
+const { pathToFileURL } = require('url')
 const { execSync } = require('child_process')
 
 // Deve essere chiamato PRIMA di app.ready
@@ -245,24 +246,43 @@ ipcMain.handle('stats:clear', () => {
 })
 
 // ── Compilazione C con gcc ────────────────────────────────────────────────────
-ipcMain.handle('c:run', (_, { code, stdin }) => {
-  const id  = Date.now()
-  const src = path.join(os.tmpdir(), `iue_${id}.c`)
-  const bin = path.join(os.tmpdir(), `iue_${id}`)
+ipcMain.handle('c:run', (_, payload) => {
+  const code = payload?.code
+  const stdin = payload?.stdin
+  const files = payload?.files
+  const id = Date.now() + '_' + Math.random().toString(36).substring(2, 7)
+  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'cluster_c_'))
+  const bin = path.join(tempDir, `prog_${id}.exe`)
+
   try {
-    fs.writeFileSync(src, code, 'utf-8')
-    execSync(`gcc "${src}" -o "${bin}" -lm`, { timeout: 10000 })
+    if (files && Array.isArray(files) && files.length > 0) {
+      const cFiles = []
+      for (const f of files) {
+        const filePath = path.join(tempDir, f.name)
+        fs.writeFileSync(filePath, f.content || '', 'utf-8')
+        if (f.name.endsWith('.c')) {
+          cFiles.push(`"${filePath}"`)
+        }
+      }
+      execSync(`gcc ${cFiles.join(' ')} -o "${bin}" -lm`, { timeout: 10000, cwd: tempDir })
+    } else {
+      const src = path.join(tempDir, `main.c`)
+      fs.writeFileSync(src, code || '', 'utf-8')
+      execSync(`gcc "${src}" -o "${bin}" -lm`, { timeout: 10000, cwd: tempDir })
+    }
+
     const out = execSync(`"${bin}"`, {
       input: stdin ?? '',
       timeout: 5000,
-      encoding: 'utf-8'
+      encoding: 'utf-8',
+      cwd: tempDir
     })
     return { ok: true, stdout: out, stderr: '' }
   } catch (err) {
-    return { ok: false, stdout: '', stderr: err.stderr?.toString() || err.message }
+    const errMsg = err.stderr?.toString() || err.stdout?.toString() || err.message || 'Errore di compilazione o esecuzione C'
+    return { ok: false, stdout: '', stderr: errMsg }
   } finally {
-    try { fs.unlinkSync(src) } catch {}
-    try { fs.unlinkSync(bin) } catch {}
+    try { fs.rmSync(tempDir, { recursive: true, force: true }) } catch {}
   }
 })
 
@@ -297,15 +317,15 @@ ipcMain.handle('java:run', (_, { code, stdin }) => {
 ipcMain.handle('notes:list', () => {
   const root = path.join(app.getAppPath(), 'Notes')
   if (!fs.existsSync(root)) return []
-  // ponytail: flat scan — cartelle = sezioni, .md dentro = note
+  // ponytail: recursive scan con accumulo corretto del prefisso rel
   function scan(dir, prefix) {
     return fs.readdirSync(dir).flatMap(entry => {
       const full = path.join(dir, entry)
+      const rel = prefix ? `${prefix}/${entry}` : entry
       if (fs.statSync(full).isDirectory()) {
-        return [{ type: 'section', name: entry, children: scan(full, entry) }]
+        return [{ type: 'section', name: entry, children: scan(full, rel) }]
       }
       if (entry.endsWith('.md') && entry !== 'README.md') {
-        const rel = prefix ? `${prefix}/${entry}` : entry
         return [{ type: 'note', name: entry.replace(/\.md$/i, ''), path: rel }]
       }
       return []
@@ -315,9 +335,290 @@ ipcMain.handle('notes:list', () => {
 })
 
 ipcMain.handle('notes:load', (_, relpath) => {
-  const p = path.join(app.getAppPath(), 'Notes', ...relpath.split('/').map(s => path.basename(s)))
+  const segments = relpath.split(/[\/\\]/).filter(Boolean).map(s => path.basename(s))
+  const p = path.join(app.getAppPath(), 'Notes', ...segments)
   if (!fs.existsSync(p)) throw new Error('Nota non trovata: ' + relpath)
   return fs.readFileSync(p, 'utf-8')
+})
+
+function escapeHtml(str) {
+  return String(str || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+}
+
+// ── Esportazione Note in PDF ──────────────────────────────────────────────────
+ipcMain.handle('notes:exportPDF', async (_, { title, htmlContent }) => {
+  try {
+    const safeTitle = (title || 'Appunto').replace(/[\\/:*?"<>|]/g, '_').trim()
+    const { canceled, filePath } = await dialog.showSaveDialog(mainWindow, {
+      title: 'Esporta appunto in PDF',
+      defaultPath: `${safeTitle}.pdf`,
+      filters: [{ name: 'Documenti PDF (*.pdf)', extensions: ['pdf'] }]
+    })
+
+    if (canceled || !filePath) return { canceled: true }
+
+    const printWin = new BrowserWindow({
+      show: false,
+      width: 1200,
+      height: 900,
+      webPreferences: {
+        nodeIntegration: false,
+        contextIsolation: true
+      }
+    })
+
+    const fullHtml = `<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <title>${escapeHtml(title || 'Appunto')}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/github.min.css">
+  <style>
+    @page {
+      size: A4;
+      margin: 16mm 14mm 18mm 14mm;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #ffffff;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .pdf-header {
+      border-bottom: 2px solid #6c63ff;
+      padding-bottom: 10px;
+      margin-bottom: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .pdf-header-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1e1b4b;
+      margin: 0;
+    }
+    .pdf-header-meta {
+      font-size: 11px;
+      color: #6b7280;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: #111827;
+      font-weight: 700;
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+    h1 {
+      font-size: 22px;
+      margin-top: 24px;
+      margin-bottom: 12px;
+      border-bottom: 1.5px solid #e5e7eb;
+      padding-bottom: 6px;
+    }
+    h2 {
+      font-size: 17px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #f3f4f6;
+      padding-bottom: 4px;
+    }
+    h3 {
+      font-size: 15px;
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
+    h4 {
+      font-size: 13.5px;
+      margin-top: 14px;
+      margin-bottom: 6px;
+    }
+    p {
+      margin-top: 0;
+      margin-bottom: 10px;
+      text-align: justify;
+    }
+    a {
+      color: #4f46e5;
+      text-decoration: none;
+    }
+    blockquote {
+      margin: 12px 0;
+      padding: 8px 14px;
+      border-left: 3.5px solid #6c63ff;
+      background: #f8f9ff;
+      color: #374151;
+      font-style: normal;
+      border-radius: 0 6px 6px 0;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .callout {
+      border-radius: 8px;
+      border: 1px solid #e5e7eb;
+      margin: 14px 0;
+      padding: 10px 14px;
+      background: #f9fafb;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .callout-header {
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+    pre {
+      background: #f6f8fa;
+      border: 1px solid #e1e4e8;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-family: "Fira Code", "Consolas", "Courier New", monospace;
+      font-size: 11.5px;
+      line-height: 1.45;
+      white-space: pre-wrap;
+      word-break: break-all;
+      page-break-inside: avoid;
+      break-inside: avoid;
+      margin: 12px 0;
+    }
+    code:not(pre code) {
+      font-family: "Fira Code", "Consolas", "Courier New", monospace;
+      font-size: 11.5px;
+      background: #f1f3f5;
+      padding: 2px 4px;
+      border-radius: 4px;
+      color: #c7254e;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 12px;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    th, td {
+      border: 1px solid #d1d5db;
+      padding: 6px 8px;
+      text-align: left;
+    }
+    th {
+      background: #f3f4f6;
+      font-weight: 600;
+    }
+    tr:nth-child(even) {
+      background: #f9fafb;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 14px auto;
+      border-radius: 6px;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    ul, ol {
+      margin-top: 0;
+      margin-bottom: 10px;
+      padding-left: 22px;
+    }
+    li {
+      margin-bottom: 3px;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #e5e7eb;
+      margin: 18px 0;
+    }
+    .katex-display {
+      margin: 10px 0;
+    }
+    .mermaid {
+      text-align: center;
+      margin: 14px 0;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .mermaid svg {
+      max-width: 100%;
+      height: auto;
+    }
+    .pdf-footer {
+      margin-top: 30px;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: #9ca3af;
+    }
+  </style>
+</head>
+<body>
+  <div class="pdf-header">
+    <div>
+      <div class="pdf-header-title">${escapeHtml(title || 'Appunto di Studio')}</div>
+      <div class="pdf-header-meta">Cluster — Informatica UNISA</div>
+    </div>
+    <div class="pdf-header-meta">Esportato il ${new Date().toLocaleDateString('it-IT')}</div>
+  </div>
+  <div class="markdown-content">
+    ${htmlContent}
+  </div>
+  <div class="pdf-footer">
+    <span>Cluster — Informatica UNISA</span>
+    <span>Pagina generata automaticamente</span>
+  </div>
+</body>
+</html>`
+
+    const tempFilePath = path.join(app.getPath('temp'), `cluster_pdf_${Date.now()}_${Math.random().toString(36).slice(2)}.html`)
+    fs.writeFileSync(tempFilePath, fullHtml, 'utf-8')
+
+    try {
+      await printWin.loadFile(tempFilePath)
+      
+      // Attendiamo che il DOM e le risorse siano caricate
+      await new Promise(r => setTimeout(r, 600))
+
+      const pdfBuffer = await printWin.webContents.printToPDF({
+        printBackground: true,
+        pageSize: 'A4',
+        margins: {
+          marginType: 'default'
+        }
+      })
+
+      fs.writeFileSync(filePath, pdfBuffer)
+      return { success: true, filePath }
+    } finally {
+      if (fs.existsSync(tempFilePath)) {
+        try { fs.unlinkSync(tempFilePath) } catch {}
+      }
+      if (printWin && !printWin.isDestroyed()) {
+        printWin.destroy()
+      }
+    }
+  } catch (err) {
+    console.error('PDF export error:', err)
+    return { success: false, error: err.message }
+  }
 })
 
 // ── Auto Updater ─────────────────────────────────────────────────────────────
@@ -379,10 +680,23 @@ ipcMain.handle('app:version', () => app.getVersion())
 
 app.whenReady().then(() => {
   // Protocollo quiz-local:// — serve file da images/ in modo sicuro
-  protocol.handle('quiz-local', request => {
-    const relPath = decodeURIComponent(new URL(request.url).pathname.substring(1))
-    const absPath = path.join(app.getAppPath(), relPath)
-    return net.fetch('file:///' + absPath.replace(/\\/g, '/'))
+  protocol.handle('quiz-local', async request => {
+    let relPath = decodeURIComponent(request.url.replace(/^quiz-local:\/*(local\/)?/i, ''))
+    
+    const candidates = [
+      path.join(app.getAppPath(), relPath),
+      path.join(app.getAppPath(), 'images', relPath),
+      path.join(process.cwd(), relPath),
+      path.join(process.cwd(), 'images', relPath)
+    ]
+    
+    for (const p of candidates) {
+      if (fs.existsSync(p) && fs.statSync(p).isFile()) {
+        return net.fetch(pathToFileURL(p).href)
+      }
+    }
+    
+    return new Response('File not found', { status: 404 })
   })
   createWindow()
 

@@ -1,0 +1,516 @@
+[
+  {
+    "domanda": "Quali sono l'indirizzo di rete e quello di broadcast per l'host `199.1.10.9/30`?",
+    "risposta1": "Indirizzo di rete: `199.1.10.8` | Indirizzo di broadcast: `199.1.10.11`",
+    "risposta2": "Indirizzo di rete: `199.1.10.0` | Indirizzo di broadcast: `199.1.10.15`",
+    "risposta3": "Indirizzo di rete: `199.1.10.8` | Indirizzo di broadcast: `199.1.10.12`",
+    "risposta4": "Indirizzo di rete: `199.1.10.9` | Indirizzo di broadcast: `199.1.10.10`",
+    "corretta": "Indirizzo di rete: `199.1.10.8` | Indirizzo di broadcast: `199.1.10.11`",
+    "tag": [
+      "indirizzamento",
+      "ip",
+      "subnetting",
+      "broadcast"
+    ]
+  },
+  {
+    "domanda": "In una tecnologia **10Base-T**, il mezzo trasmissivo è:",
+    "risposta1": "Costituito da due doppini intrecciati non schermati (UTP) di categoria 4 o 5, di derivazione telefonica.",
+    "risposta2": "Costituito da un cavo coassiale RG8, in una topologia a bus.",
+    "risposta3": "Costituito da un cavo UTP a 100 Mbps.",
+    "risposta4": "Costituito da fibra ottica monomodale a 10 Gbps.",
+    "corretta": "Costituito da due doppini intrecciati non schermati (UTP) di categoria 4 o 5, di derivazione telefonica.",
+    "tag": [
+      "livello-fisico",
+      "ethernet",
+      "10base-t"
+    ]
+  },
+  {
+    "domanda": "Che cosa si intende per **WAN**?",
+    "risposta1": "Wide Area Network, una tipologia di rete che copre grandi distanze geografiche (città, nazioni o continenti).",
+    "risposta2": "Wide Algorithm Network, un algoritmo per l'accesso a grandi reti.",
+    "risposta3": "Wireless Area Network, una tipologia di rete locale che fa uso di onde radio.",
+    "risposta4": "Web Access Node, un punto di accesso centralizzato per server web.",
+    "corretta": "Wide Area Network, una tipologia di rete che copre grandi distanze geografiche (città, nazioni o continenti).",
+    "tag": [
+      "architettura-reti",
+      "wan",
+      "basi"
+    ]
+  },
+  {
+    "domanda": "Un adattatore o scheda di rete Ethernet (NIC) serve a:",
+    "risposta1": "Connettere il proprio computer ad una rete locale con un protocollo MAC di tipo CSMA/CD.",
+    "risposta2": "Connettere il proprio computer ad una rete wireless di tipo CSMA/CA.",
+    "risposta3": "Raccogliere e memorizzare i messaggi di posta elettronica fino alla loro lettura da parte del client.",
+    "risposta4": "Tradurre dinamicamente gli indirizzi IP privati in indirizzi IP pubblici (NAT).",
+    "corretta": "Connettere il proprio computer ad una rete locale con un protocollo MAC di tipo CSMA/CD.",
+    "tag": [
+      "livello-collegamento",
+      "ethernet",
+      "csma-cd",
+      "mac"
+    ]
+  },
+  {
+    "domanda": "In che modo uno switch crea la tabella relativa all'associazione tra indirizzo MAC e porta (Forwarding Table)?",
+    "risposta1": "Attraverso l'algoritmo di backward learning (auto-apprendimento dell'indirizzo sorgente dei frame in ingresso su ciascuna porta).",
+    "risposta2": "Lo switch interroga ripetutamente le sue porte (polling) per conoscere l'indirizzo degli host connessi.",
+    "risposta3": "Lo switch deve essere configurato manualmente prima di essere inserito nella rete; la tabella è immessa dall'utente.",
+    "risposta4": "La tabella viene scaricata periodicamente da un server DHCP centrale.",
+    "corretta": "Attraverso l'algoritmo di backward learning (auto-apprendimento dell'indirizzo sorgente dei frame in ingresso su ciascuna porta).",
+    "tag": [
+      "switch",
+      "backward-learning",
+      "livello-collegamento",
+      "forwarding-table"
+    ]
+  },
+  {
+    "domanda": "Una **socket TCP** orientata alla connessione è identificata univocamente da:",
+    "risposta1": "Quattro parametri: Indirizzo IP sorgente, numero di porta sorgente, indirizzo IP destinazione, numero di porta destinazione.",
+    "risposta2": "Due parametri: Indirizzo IP destinazione, numero di porta destinazione.",
+    "risposta3": "Un servizio simile al DNS basato solo sull'indirizzo MAC.",
+    "risposta4": "Tre parametri: Indirizzo IP sorgente, indirizzo IP destinazione, checksum TCP.",
+    "corretta": "Quattro parametri: Indirizzo IP sorgente, numero di porta sorgente, indirizzo IP destinazione, numero di porta destinazione.",
+    "tag": [
+      "livello-trasporto",
+      "tcp",
+      "socket",
+      "demultiplexing"
+    ]
+  },
+  {
+    "domanda": "In che modo il controllo della congestione adottato dal protocollo **TCP Reno** reagisce ad un evento di **3 ACK duplicati** (Fast Retransmit / Fast Recovery)?",
+    "risposta1": "La finestra di congestione è dimezzata (`ssthresh = cwnd / 2`, `cwnd = ssthresh + 3 MSS`) ed entra in Congestion Avoidance crescendo linearmente.",
+    "risposta2": "Il mittente assegna alla finestra di congestione un valore di 1 MSS, dopodiché incrementa la finestra esponenzialmente fino a raggiungere una soglia.",
+    "risposta3": "Il mittente continua ad aumentare la sua velocità in modo esponenziale ignorando le perdite.",
+    "risposta4": "La connessione TCP viene chiusa con un flag FIN e riaperta da zero.",
+    "corretta": "La finestra di congestione è dimezzata (`ssthresh = cwnd / 2`, `cwnd = ssthresh + 3 MSS`) ed entra in Congestion Avoidance crescendo linearmente.",
+    "tag": [
+      "tcp",
+      "controllo-congestione",
+      "tcp-reno",
+      "fast-recovery"
+    ]
+  },
+  {
+    "domanda": "Indicare la differenza tra **risoluzione iterativa** e **risoluzione ricorsiva** nel protocollo DNS:",
+    "risposta1": "Nella risoluzione iterativa, il client invia una query al Local Name Server: se esso non possiede la risposta, comunica al client il nome del server successivo da contattare direttamente. Nella risoluzione ricorsiva, il server contattato si fa carico di interrogare a cascata gli altri server DNS fino a ottenere la risposta per il client.",
+    "risposta2": "Nella risoluzione iterativa, il client aspetta che il server contatti tutti gli altri server a cascata; nella ricorsiva il client interroga manualmente ogni server.",
+    "risposta3": "La risoluzione iterativa opera esclusivamente a livello di trasporto con UDP, mentre la ricorsiva impiega TCP a 100 Mbps.",
+    "risposta4": "Non esiste differenza: sono due denominazioni alternative per la propagazione della cache DNS.",
+    "corretta": "Nella risoluzione iterativa, il client invia una query al Local Name Server: se esso non possiede la risposta, comunica al client il nome del server successivo da contattare direttamente. Nella risoluzione ricorsiva, il server contattato si fa carico di interrogare a cascata gli altri server DNS fino a ottenere la risposta per il client.",
+    "tag": [
+      "dns",
+      "livello-applicazione",
+      "iterativo-ricorsivo"
+    ]
+  },
+  {
+    "domanda": "Quale funzione fornisce il protocollo **CSMA/CA** a differenza di **CSMA/CD**?",
+    "risposta1": "Evita la collisione dei pacchetti di dati sul canale radio (Collision Avoidance mediante attesa DIFS/SIFS, backoff esponenziale ed eventuali frame RTS/CTS).",
+    "risposta2": "Rilevamento in tempo reale delle collisioni durante la trasmissione sul cavo (Collision Detection).",
+    "risposta3": "Controllo esclusivo degli errori di parità nel pacchetto di dati.",
+    "risposta4": "Instradamento dinamico dei pacchetti tra diverse sottoreti IP.",
+    "corretta": "Evita la collisione dei pacchetti di dati sul canale radio (Collision Avoidance mediante attesa DIFS/SIFS, backoff esponenziale ed eventuali frame RTS/CTS).",
+    "tag": [
+      "wireless",
+      "csma-ca",
+      "csma-cd",
+      "livello-collegamento"
+    ]
+  },
+  {
+    "domanda": "Si debba suddividere la rete di classe A `81.0.0.0/8` in **64 subnets**. Indicare se la netmask necessaria è una `/14`:",
+    "risposta1": "Vero (poiché $64 = 2^6$, occorrono 6 bit aggiuntivi per la subnet: $8 + 6 = 14$ bit di prefisso).",
+    "risposta2": "Falso (occorre una netmask `/16`).",
+    "risposta3": "Falso (occorre una netmask `/12`).",
+    "risposta4": "Falso (le reti di classe A supportano solo netmask a byte interi `/8`, `/16`, `/24`).",
+    "corretta": "Vero (poiché $64 = 2^6$, occorrono 6 bit aggiuntivi per la subnet: $8 + 6 = 14$ bit di prefisso).",
+    "tag": [
+      "subnetting",
+      "cidr",
+      "classe-a"
+    ]
+  },
+  {
+    "domanda": "### Validità Indirizzi di Rete: `192.168.5.0/24` vs `192.168.5.23/24`\n\nIndicare quali delle seguenti affermazioni sulla validità come indirizzo di rete è corretta:",
+    "risposta1": "`192.168.5.0/24` è un indirizzo di rete valido (Sì), mentre `192.168.5.23/24` è un indirizzo di host e non di rete (No).",
+    "risposta2": "Entrambi sono indirizzi di rete validi (Sì, Sì).",
+    "risposta3": "Nessuno dei due è un indirizzo di rete valido (No, No).",
+    "risposta4": "`192.168.5.23/24` è una rete e `192.168.5.0/24` è un broadcast.",
+    "corretta": "`192.168.5.0/24` è un indirizzo di rete valido (Sì), mentre `192.168.5.23/24` è un indirizzo di host e non di rete (No).",
+    "tag": [
+      "indirizzamento-ip",
+      "subnetting",
+      "validita-reti"
+    ]
+  },
+  {
+    "domanda": "### Validità Indirizzi di Rete: Subnetting `/30` e `/29`\n\nConsiderando gli indirizzi `192.168.2.36/30` e `192.168.2.36/29`:\n- Con `/30` i blocchi sono di 4 indirizzi ($36 = 4 \\times 9$).\n- Con `/29` i blocchi sono di 8 indirizzi ($32$ e $40$ sono i multipli di 8).\n\nQuale delle due coppie identifica un indirizzo di rete valido?",
+    "risposta1": "`192.168.2.36/30`: **Sì** (è l'inizio di una sottorete /30); `192.168.2.36/29`: **No** (è un indirizzo host interno al blocco 32-39).",
+    "risposta2": "Entrambi identificano una rete valida (Sì, Sì).",
+    "risposta3": "Nessuno dei due identifica una rete valida (No, No).",
+    "risposta4": "`192.168.2.36/30`: No; `192.168.2.36/29`: Sì.",
+    "corretta": "`192.168.2.36/30`: **Sì** (è l'inizio di una sottorete /30); `192.168.2.36/29`: **No** (è un indirizzo host interno al blocco 32-39).",
+    "tag": [
+      "indirizzamento-ip",
+      "subnetting",
+      "validita-reti"
+    ]
+  },
+  {
+    "domanda": "### Validità Indirizzi di Rete: Subnetting `/28` e `/27`\n\nSi considerino le coppie `192.168.2.32/28` (blocchi da 16) e `192.168.2.32/27` (blocchi da 32).\nIdentificano una rete valida?",
+    "risposta1": "Sì per entrambe (`192.168.2.32/28`: **Sì**, `192.168.2.32/27`: **Sì**, poiché 32 è multiplo sia di 16 che di 32).",
+    "risposta2": "Solo `/28` è valida, `/27` no.",
+    "risposta3": "Solo `/27` è valida, `/28` no.",
+    "risposta4": "Nessuna delle due è una rete valida.",
+    "corretta": "Sì per entrambe (`192.168.2.32/28`: **Sì**, `192.168.2.32/27`: **Sì**, poiché 32 è multiplo sia di 16 che di 32).",
+    "tag": [
+      "indirizzamento-ip",
+      "subnetting",
+      "validita-reti"
+    ]
+  },
+  {
+    "domanda": "### Validità Indirizzi di Rete: Subnetting `/23` e `/21`\n\nSi considerino le seguenti coppie:\n- `192.168.2.0/23` (terzo ottetto pari $\\implies$ **Sì**) vs `192.168.3.0/23` (terzo ottetto dispari $\\implies$ **No**)\n- `192.168.16.0/21` (terzo ottetto multiplo di 8 $\\implies$ **Sì**) vs `192.168.12.0/21` (non multiplo di 8 $\\implies$ **No**)\n- `192.168.2.0/31` (**No**, non utilizzabile come rete standard per host generici)\n\nQuale affermazione riassume correttamente la validità delle reti?",
+    "risposta1": "`192.168.2.0/23` (Sì), `192.168.3.0/23` (No), `192.168.16.0/21` (Sì), `192.168.12.0/21` (No), `192.168.2.0/31` (No).",
+    "risposta2": "Tutte le configurazioni con `.0` finale sono reti valide indipendentemente dal prefisso.",
+    "risposta3": "Nessuna delle configurazioni indicate è valida.",
+    "risposta4": "`192.168.12.0/21` è valida mentre `192.168.16.0/21` non lo è.",
+    "corretta": "`192.168.2.0/23` (Sì), `192.168.3.0/23` (No), `192.168.16.0/21` (Sì), `192.168.12.0/21` (No), `192.168.2.0/31` (No).",
+    "tag": [
+      "indirizzamento-ip",
+      "subnetting",
+      "validita-reti"
+    ]
+  },
+  {
+    "domanda": "### Servizi e Protocolli: Posta Elettronica, Terminali Remoti, Web e Telefonia Internet\n\nIndicare le corrette combinazioni di protocolli a livello di **Applicazione** e **Trasporto** per i seguenti servizi di rete:\n1. **Posta elettronica**\n2. **Accesso a terminali remoti**\n3. **Web**\n4. **Telefonia Internet (VoIP)**",
+    "risposta1": "Posta: SMTP / TCP | Terminale: Telnet / TCP | Web: HTTP / TCP | Telefonia: Proprietario (o SIP/RTP) / UDP.",
+    "risposta2": "Posta: POP3 / UDP | Terminale: SSH / UDP | Web: HTTP / UDP | Telefonia: SIP / TCP.",
+    "risposta3": "Tutti i servizi utilizzano esclusivamente il protocollo TCP.",
+    "risposta4": "Posta: HTTP / TCP | Terminale: FTP / TCP | Web: SMTP / UDP | Telefonia: DNS / UDP.",
+    "corretta": "Posta: SMTP / TCP | Terminale: Telnet / TCP | Web: HTTP / TCP | Telefonia: Proprietario (o SIP/RTP) / UDP.",
+    "tag": [
+      "protocolli",
+      "livello-applicazione",
+      "livello-trasporto",
+      "smtp",
+      "http",
+      "telnet",
+      "udp"
+    ]
+  },
+  {
+    "domanda": "Nel protocollo **Slotted ALOHA**, un nodo che intende iniziare una comunicazione:",
+    "risposta1": "Attende l'inizio dello slot successivo; se si verifica una collisione, il nodo la rileva prima della fine dello slot e ritrasmette con probabilità $p$ durante gli slot successivi.",
+    "risposta2": "Inizia subito la comunicazione nello slot corrente senza attendere l'inizio dello slot successivo.",
+    "risposta3": "Ascolta la comunicazione nello slot corrente per assicurarsi che nessun altro stia comunicando e trasmette all'istante.",
+    "risposta4": "Richiede un token di autorizzazione al nodo master della rete.",
+    "corretta": "Attende l'inizio dello slot successivo; se si verifica una collisione, il nodo la rileva prima della fine dello slot e ritrasmette con probabilità $p$ durante gli slot successivi.",
+    "tag": [
+      "accesso-multiplo",
+      "aloha",
+      "slotted-aloha",
+      "collisioni"
+    ]
+  },
+  {
+    "domanda": "Un protocollo **CSMA 1-persistente** consente di:",
+    "risposta1": "Controllare continuamente se il canale è libero: appena il canale risulta libero, si trasmette immediatamente (con probabilità 1).",
+    "risposta2": "Controllare con probabilità 1% se il canale è libero, trasmettendo a intervalli fissi.",
+    "risposta3": "Controllare se il canale è libero dopo aver atteso un tempo casuale di backoff iniziale.",
+    "risposta4": "Trasmettere senza mai verificare lo stato di occupazione del canale.",
+    "corretta": "Controllare continuamente se il canale è libero: appena il canale risulta libero, si trasmette immediatamente (con probabilità 1).",
+    "tag": [
+      "accesso-multiplo",
+      "csma",
+      "1-persistente"
+    ]
+  },
+  {
+    "domanda": "In un protocollo **CSMA p-persistente**:",
+    "risposta1": "Il tempo è suddiviso in slot temporali: chi desidera trasmettere ascolta il canale e, quando lo trova libero, trasmette con probabilità $p$, oppure attende lo slot successivo con probabilità $1-p$.",
+    "risposta2": "In caso di collisione, la stazione attende un tempo fisso e ritrasmette sempre con probabilità 1.",
+    "risposta3": "Tutte le collisioni sono evitate a monte senza contesa sul mezzo.",
+    "risposta4": "La trasmissione avviene solo se $p$ nodi sono contemporaneamente attivi.",
+    "corretta": "Il tempo è suddiviso in slot temporali: chi desidera trasmettere ascolta il canale e, quando lo trova libero, trasmette con probabilità $p$, oppure attende lo slot successivo con probabilità $1-p$.",
+    "tag": [
+      "accesso-multiplo",
+      "csma",
+      "p-persistente"
+    ]
+  },
+  {
+    "domanda": "Che cos'è l'**Address Resolution Protocol (ARP)** (RFC 826)?",
+    "risposta1": "Come specificato da RFC 826, l'ARP è un protocollo di rete il cui compito è fornire la mappatura tra l'indirizzo IP (32 bit) e l'indirizzo MAC (48 bit) corrispondente di un terminale in una rete locale Ethernet.",
+    "risposta2": "Un protocollo il cui compito è fornire la mappatura tra l'indirizzo MAC (48 bit) e l'hostname del terminale.",
+    "risposta3": "Un protocollo per assegnare dinamicamente indirizzi IP agli host all'avvio.",
+    "risposta4": "Un protocollo di instradamento inter-AS basato su vettori di distanza.",
+    "corretta": "Come specificato da RFC 826, l'ARP è un protocollo di rete il cui compito è fornire la mappatura tra l'indirizzo IP (32 bit) e l'indirizzo MAC (48 bit) corrispondente di un terminale in una rete locale Ethernet.",
+    "tag": [
+      "arp",
+      "indirizzamento",
+      "mac",
+      "ip",
+      "livello-collegamento"
+    ]
+  },
+  {
+    "domanda": "Che cos'è lo **spettro di un segnale periodico**?",
+    "risposta1": "È una descrizione dei segnali nel dominio della frequenza: lo spettro delle ampiezze rappresenta l'ampiezza delle diverse armoniche in funzione della loro frequenza, e lo spettro delle fasi rappresenta la fase delle diverse armoniche in funzione della frequenza.",
+    "risposta2": "L'intervallo continuo di frequenze in cui sono contenute le prime 3 armoniche.",
+    "risposta3": "Lo sviluppo in serie di Taylor calcolato a partire dalle derivate temporali della funzione.",
+    "risposta4": "Un'onda quadra visualizzata sull'oscilloscopio nel dominio del tempo.",
+    "corretta": "È una descrizione dei segnali nel dominio della frequenza: lo spettro delle ampiezze rappresenta l'ampiezza delle diverse armoniche in funzione della loro frequenza, e lo spettro delle fasi rappresenta la fase delle diverse armoniche in funzione della frequenza.",
+    "tag": [
+      "livello-fisico",
+      "fourier",
+      "spettro",
+      "segnali"
+    ]
+  },
+  {
+    "domanda": "Cosa si intende per **banda di un segnale**?",
+    "risposta1": "È l'intervallo di frequenze (in Hz) in cui sono contenute tutte le armoniche significative di quel certo segnale.",
+    "risposta2": "È la rappresentazione sul piano delle frequenze della sola prima armonica fondamentale.",
+    "risposta3": "È la velocità massima espressa in bit al secondo su un cavo in fibra ottica.",
+    "risposta4": "È la frequenza di campionamento minima di Nyquist.",
+    "corretta": "È l'intervallo di frequenze (in Hz) in cui sono contenute tutte le armoniche significative di quel certo segnale.",
+    "tag": [
+      "livello-fisico",
+      "banda",
+      "frequenze",
+      "segnali"
+    ]
+  },
+  {
+    "domanda": "Supponendo di avere $n$ bit a disposizione per rappresentare i numeri di sequenza in una rete con protocollo **Go-Back-N**, indicare la dimensione massima ($W$) della finestra di trasmissione affinché non si verifichino ambiguità:",
+    "risposta1": "$W \\le 2^n - 1$",
+    "risposta2": "$W \\le 2^{n-1}$",
+    "risposta3": "$W = 2^n$",
+    "risposta4": "$W = n^2$",
+    "corretta": "$W \\le 2^n - 1$",
+    "tag": [
+      "livello-trasporto",
+      "go-back-n",
+      "finestra-scorrevole",
+      "numeri-sequenza"
+    ]
+  },
+  {
+    "domanda": "Indicare se la sequenza di bit `0101101000111` ricevuta da un host è priva di errori, considerando che il polinomio generatore è $G(x) = x^4 + x^2 + 1$ (in binario `10101`):",
+    "risposta1": "Vero (eseguendo la divisione modulo 2 per $G(x)$, il resto finale è pari a zero, attestando l'assenza di errori rilevati dal CRC).",
+    "risposta2": "Falso (il resto della divisione modulo 2 è diverso da zero).",
+    "risposta3": "Falso (il grado del polinomio generatore non è valido per questa lunghezza).",
+    "risposta4": "Indeterminato (occorre conoscere la parità longitudinale).",
+    "corretta": "Vero (eseguendo la divisione modulo 2 per $G(x)$, il resto finale è pari a zero, attestando l'assenza di errori rilevati dal CRC).",
+    "tag": [
+      "controllo-errori",
+      "crc",
+      "polinomi"
+    ]
+  },
+  {
+    "domanda": "In termini di estensione geografica, una rete di computer installata all'interno di un singolo edificio o campus è definita con la sigla:",
+    "risposta1": "LAN (Local Area Network)",
+    "risposta2": "WAN (Wide Area Network)",
+    "risposta3": "BAN (Body Area Network)",
+    "risposta4": "MAN (Metropolitan Area Network)",
+    "corretta": "LAN (Local Area Network)",
+    "tag": [
+      "architettura-reti",
+      "lan",
+      "tipologie"
+    ]
+  },
+  {
+    "domanda": "Quale problema fondamentale risolve il sottolivello **MAC** (Medium Access Control) del Data Link Layer?",
+    "risposta1": "Risolve il problema della condivisione e dell'accesso ordinato al mezzo trasmissivo comune (canale broadcast condiviso).",
+    "risposta2": "Risolve il problema della trasmissione affidabile con ritrasmissione end-to-end.",
+    "risposta3": "Risolve il problema della conversione di formato dei dati applicativi.",
+    "risposta4": "Risolve il problema dell'instradamento globale su scala geografica.",
+    "corretta": "Risolve il problema della condivisione e dell'accesso ordinato al mezzo trasmissivo comune (canale broadcast condiviso).",
+    "tag": [
+      "livello-collegamento",
+      "mac",
+      "mezzo-condiviso"
+    ]
+  },
+  {
+    "domanda": "Indicare qual è la principale funzione del sottolivello **LLC** (Logical Link Control, IEEE 802.2) nel Data Link Layer:",
+    "risposta1": "Mascherare allo strato di rete (Network Layer) le specifiche dei diversi protocolli 802 utilizzati a livello MAC (Ethernet, Token Ring, Wi-Fi), offrendo un'interfaccia uniforme.",
+    "risposta2": "Offrire al livello fisico supporto logico per modulare i segnali analogici.",
+    "risposta3": "Gestire la contesa del canale radio mediante collision avoidance.",
+    "risposta4": "Eseguire la crittografia a chiave pubblica dei pacchetti IP.",
+    "corretta": "Mascherare allo strato di rete (Network Layer) le specifiche dei diversi protocolli 802 utilizzati a livello MAC (Ethernet, Token Ring, Wi-Fi), offrendo un'interfaccia uniforme.",
+    "tag": [
+      "livello-collegamento",
+      "llc",
+      "ieee-802"
+    ]
+  },
+  {
+    "domanda": "Quale delle seguenti affermazioni relative ad una rete **Token Ring** (IEEE 802.5) è corretta?",
+    "risposta1": "Il token è un frame speciale che autorizza il nodo che lo riceve a trasmettere i propri dati; non vi può essere più di un token sulla rete e tutti i nodi lo ricevono a turno.",
+    "risposta2": "Sulla rete possono circolare contemporaneamente più token proporzionali al numero di host.",
+    "risposta3": "Un nodo che riceve il token può trasmettere all'infinito senza limiti di tempo.",
+    "risposta4": "La topologia Token Ring non prevede alcun meccanismo di rilascio del token dopo l'invio.",
+    "corretta": "Il token è un frame speciale che autorizza il nodo che lo riceve a trasmettere i propri dati; non vi può essere più di un token sulla rete e tutti i nodi lo ricevono a turno.",
+    "tag": [
+      "livello-collegamento",
+      "token-ring",
+      "mac"
+    ]
+  },
+  {
+    "domanda": "Cosa si intende per **Frequency-Hopping Spread Spectrum (FHSS)**?",
+    "risposta1": "È una tecnica di trasmissione radio in cui la frequenza portante viene variata a intervalli regolari in maniera pseudocasuale attraverso un codice prestabilito noto a trasmettitore e ricevitore.",
+    "risposta2": "È una tecnologia a banda larga in cui ogni bit è moltiplicato per una sequenza di chip a frequenza fissa (DSSS).",
+    "risposta3": "È una tecnica di modulazione analogica utilizzata esclusivamente nei cavi coassiali.",
+    "risposta4": "È un protocollo di routing dinamico per reti satellitari.",
+    "corretta": "È una tecnica di trasmissione radio in cui la frequenza portante viene variata a intervalli regolari in maniera pseudocasuale attraverso un codice prestabilito noto a trasmettitore e ricevitore.",
+    "tag": [
+      "wireless",
+      "spread-spectrum",
+      "fhss",
+      "livello-fisico"
+    ]
+  },
+  {
+    "domanda": "Una tecnologia trasmissiva di tipo **Broadcast** è caratterizzata da:",
+    "risposta1": "Un unico canale trasmissivo condiviso, in cui le informazioni trasmesse da un calcolatore sono ricevute da tutti gli altri calcolatori in ascolto sul canale.",
+    "risposta2": "Canali punto-a-punto dedicati tra ciascuna coppia di host.",
+    "risposta3": "Una connessione full-duplex priva di contesa per ciascun apparato.",
+    "risposta4": "La trasmissione di pacchetti unicamente su scala geografica intercontinentale.",
+    "corretta": "Un unico canale trasmissivo condiviso, in cui le informazioni trasmesse da un calcolatore sono ricevute da tutti gli altri calcolatori in ascolto sul canale.",
+    "tag": [
+      "architettura-reti",
+      "broadcast",
+      "canale-condiviso"
+    ]
+  },
+  {
+    "domanda": "Il **controllo di flusso** (Flow Control) è una funzionalità:",
+    "risposta1": "Del livello di trasporto che consente di controllare il flusso di dati tra sender e receiver per evitare che un mittente veloce saturi il buffer di ricezione del destinatario.",
+    "risposta2": "Del livello di rete che serve a prevenire il collasso da congestione dei router interni.",
+    "risposta3": "Del livello fisico per sincronizzare il clock dei ricetrasmettitori.",
+    "risposta4": "Del livello applicativo per gestire la sessione utente.",
+    "corretta": "Del livello di trasporto che consente di controllare il flusso di dati tra sender e receiver per evitare che un mittente veloce saturi il buffer di ricezione del destinatario.",
+    "tag": [
+      "livello-trasporto",
+      "controllo-flusso",
+      "buffer"
+    ]
+  },
+  {
+    "domanda": "Indicare a quale livello della pila **ISO/OSI** corrispondono le seguenti 4 attività:\n1. Gestione di connessioni multiple all'interno dello stesso elaboratore\n2. Trasmissione di pacchetti/frame di dati tra nodi adiacenti (link locale)\n3. Definizione dei servizi per l'utente e i programmi applicativi\n4. Scelta del cammino migliore (routing) per far arrivare un messaggio a destinazione",
+    "risposta1": "1: Trasporto | 2: Data Link | 3: Applicazione | 4: Network (Rete)",
+    "risposta2": "1: Data Link | 2: Trasporto | 3: Applicazione | 4: Network",
+    "risposta3": "1: Applicazione | 2: Data Link | 3: Network | 4: Trasporto",
+    "risposta4": "1: Network | 2: Sessione | 3: Presentazione | 4: Fisico",
+    "corretta": "1: Trasporto | 2: Data Link | 3: Applicazione | 4: Network (Rete)",
+    "tag": [
+      "iso-osi",
+      "architettura-livelli",
+      "pila-protocollare"
+    ]
+  },
+  {
+    "domanda": "Si supponga di utilizzare un codice di controllo errori del tipo **CRC su GF(5)**. Indicare il valore numerico decimale che assumerà il CRC per il messaggio `MSG = 10, 23, 110, 2, 24, 2, 1, 2, 23, 2`:",
+    "risposta1": "CRC = 4 (la somma dei valori è $10+23+110+2+24+2+1+2+23+2 = 199$; dividendo per $q=5$ si ha $199 = 39 \\times 5 + 4$, con resto 4).",
+    "risposta2": "CRC = 1",
+    "risposta3": "CRC = 2",
+    "risposta4": "CRC = 3",
+    "corretta": "CRC = 4 (la somma dei valori è $10+23+110+2+24+2+1+2+23+2 = 199$; dividendo per $q=5$ si ha $199 = 39 \\times 5 + 4$, con resto 4).",
+    "tag": [
+      "controllo-errori",
+      "crc",
+      "galois-fields"
+    ]
+  },
+  {
+    "domanda": "Il principio del **CRC (Cyclic Redundancy Check)** consiste nel trattare le sequenze binarie come polinomi binari. Una sequenza di $n$ bit costituisce:",
+    "risposta1": "Un polinomio di grado massimo $n - 1$ a coefficienti in $\\{0, 1\\}$.",
+    "risposta2": "Un polinomio di grado $n$.",
+    "risposta3": "Un polinomio a coefficienti reali frazionari.",
+    "risposta4": "Una serie di stringhe di testo prive di interpretazione algebrica.",
+    "corretta": "Un polinomio di grado massimo $n - 1$ a coefficienti in $\\{0, 1\\}$.",
+    "tag": [
+      "controllo-errori",
+      "crc",
+      "polinomi"
+    ]
+  },
+  {
+    "domanda": "Nel framing a livello Data Link, è possibile segnalare l'inizio o la fine di una trama con una **deliberata violazione delle regole di codifica del segnale** (Physical Layer Framing)?",
+    "risposta1": "Vero (ad esempio nella codifica Manchester, inserendo due transizioni alte o basse consecutive vietate, si crea un delimitatore univoco senza ricorrere a byte stuffing).",
+    "risposta2": "Falso (qualsiasi violazione di codifica viene sempre scartata come errore hardware distruttivo).",
+    "risposta3": "Falso (è vietato dagli standard internazionali IEEE).",
+    "risposta4": "Vero solo su cavi in fibra ottica sottomarini.",
+    "corretta": "Vero (ad esempio nella codifica Manchester, inserendo due transizioni alte o basse consecutive vietate, si crea un delimitatore univoco senza ricorrere a byte stuffing).",
+    "tag": [
+      "framing",
+      "livello-collegamento",
+      "codifica-segnale"
+    ]
+  },
+  {
+    "domanda": "Per il calcolo di un CRC, quale condizione deve sussistere tra il grado $r$ del polinomio generatore $G(x)$ ed il grado $p$ del polinomio $M(x)$ associato al messaggio da trasmettere?",
+    "risposta1": "$r \\le p$ (il grado del generatore deve essere minore o uguale a quello del messaggio per consentire la divisione e generare un resto di grado $< r$).",
+    "risposta2": "$r > p + 1$",
+    "risposta3": "$r = 2p$",
+    "risposta4": "Non vi è alcuna relazione di ordine tra i gradi.",
+    "corretta": "$r \\le p$ (il grado del generatore deve essere minore o uguale a quello del messaggio per consentire la divisione e generare un resto di grado $< r$).",
+    "tag": [
+      "controllo-errori",
+      "crc",
+      "polinomi"
+    ]
+  },
+  {
+    "domanda": "Qual è la differenza sostanziale tra un **Hub** e uno **Switch**?",
+    "risposta1": "Quando un pacchetto/frame dati arriva su una porta di un Hub, esso viene inoltrato in broadcast su tutte le altre porte (stesso dominio di collisione); in uno Switch il frame viene inoltrato selettivamente solo alla porta su cui è connesso l'host di destinazione.",
+    "risposta2": "L'Hub è un apparato di routing di livello 3 mentre lo Switch opera solo al livello 1.",
+    "risposta3": "Lo Switch inoltra i frame in broadcast e l'Hub usa la tabella di forwarding.",
+    "risposta4": "Tutti e due sono concentratori identici, ma l'Hub gestisce la crittografia WPA3.",
+    "corretta": "Quando un pacchetto/frame dati arriva su una porta di un Hub, esso viene inoltrato in broadcast su tutte le altre porte (stesso dominio di collisione); in uno Switch il frame viene inoltrato selettivamente solo alla porta su cui è connesso l'host di destinazione.",
+    "tag": [
+      "switch",
+      "hub",
+      "livello-collegamento",
+      "domini-collisione"
+    ]
+  },
+  {
+    "domanda": "Quale tecnologia di rete wireless utilizza la gamma di frequenze a **5 GHz** con modulazione OFDM?",
+    "risposta1": "IEEE 802.11a",
+    "risposta2": "IEEE 802.11b (opera a 2.4 GHz con DSSS)",
+    "risposta3": "IEEE 802.11g (opera a 2.4 GHz)",
+    "risposta4": "IEEE 802.3",
+    "corretta": "IEEE 802.11a",
+    "tag": [
+      "wireless",
+      "802.11a",
+      "5ghz",
+      "frequenze"
+    ]
+  },
+  {
+    "domanda": "Cos'è il **Dynamic Rate Shifting (DRS)** nelle reti wireless 802.11?",
+    "risposta1": "È un meccanismo del livello fisico (PHY) che consente di modificare automaticamente la velocità di trasmissione dei dati per compensare le variazioni del canale e l'attenuazione del segnale radio in base al rapporto SNR.",
+    "risposta2": "Una tecnica per misurare la distanza GPS dal punto di accesso.",
+    "risposta3": "Un comando manuale per limitare la banda dei dispositivi connessi.",
+    "risposta4": "Un algoritmo di compressione lossless dei pacchetti IP.",
+    "corretta": "È un meccanismo del livello fisico (PHY) che consente di modificare automaticamente la velocità di trasmissione dei dati per compensare le variazioni del canale e l'attenuazione del segnale radio in base al rapporto SNR.",
+    "tag": [
+      "wireless",
+      "dynamic-rate-shifting",
+      "phy",
+      "802.11"
+    ]
+  }
+]

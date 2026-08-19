@@ -1,0 +1,515 @@
+[
+  {
+    "tipo": "codice",
+    "domanda": "### ADT List: Ricerca dei Due Massimi (dueMassimo)\n\nAll'interno del file `main.c`, implementare l'operatore dell'**ADT List** `dueMassimo`, la procedura di stampa e il `main` di test:\n\n```c\nItem* dueMassimo(List l);\nvoid printDueMassimo(List l);\n```\n\n#### Specifiche delle Funzioni:\n1. `Item* dueMassimo(List l)`:\n   - Individua i **due Item di valore massimo** contenuti nella lista e li restituisce all'interno di un array di due elementi allocato dinamicamente (`Item*`):\n     - `ret[0]`: l'elemento di valore massimo assoluto della lista (oppure `NULL` se la lista è vuota).\n     - `ret[1]`: il secondo elemento di valore massimo (l'elemento più grande escludendo quello in prima posizione, oppure `NULL` se la lista contiene meno di due elementi).\n   - **Vincolo**: **NON alterare, clonare o ordinare la lista** (la lista deve preservare l'ordine originale al termine dell'operazione e l'algoritmo deve operare in $O(n)$ in un solo passaggio).\n   - Utilizzare esclusivamente le operazioni dell'interfaccia pubblica dell'ADT List (`list.h`).\n2. `void printDueMassimo(List l)`:\n   - Stampa la lista originale, i due massimi e la lista dopo l'operazione nel seguente formato esatto:\n     ```text\n     List prima: <elementi separati da spazio>\n     dueMassimo: <max1> <max2>\n     List dopo: <elementi separati da spazio>\n     ```\n\n#### Test da implementare nel `main()`:\n1. Una lista vuota.\n2. Una lista con il solo elemento `\"ciao\"`.\n3. Una lista con i due elementi `\"ciao\"`, `\"mondo\"` (in questo ordine).\n4. Una lista con gli elementi `\"albero\"`, `\"zenzero\"`, `\"barca\"`, `\"casa\"`, `\"tavolo\"` (in questo ordine).\n\n> **Nota Esame:** All'esame pratico di PSD sarà richiesto anche di scrivere/completare il file `makefile` per compilare il progetto multi-file (`gcc -c ...` e link finale). I moduli dell'ADT nelle altre tab sono in sola lettura e non modificabili.",
+    "tag": [
+      "liste",
+      "adt",
+      "massimo",
+      "psd"
+    ],
+    "activeFile": "main.c",
+    "files": [
+      {
+        "name": "main.c",
+        "readOnly": false,
+        "content": "#include <stdio.h>\n#include <stdlib.h>\n#include \"item.h\"\n#include \"list.h\"\n#include \"utils.h\"\n\n// I. Restituisce un array di 2 Item allocato con malloc contenente i due valori massimi della lista.\n// NON alterare, clonare o ordinare la lista.\nItem* dueMassimo(List l) {\n    // TODO: Scrivi qui il tuo codice\n}\n\n// II. Stampa la lista prima, i due massimi e la lista dopo\nvoid printDueMassimo(List l) {\n    // TODO: Scrivi qui il tuo codice\n}\n\nint main() {\n    // TODO: Istanzia le liste di test richieste nella traccia e testa printDueMassimo\n    \n    return 0;\n}\n"
+      },
+      {
+        "name": "list.h",
+        "readOnly": true,
+        "content": "#include \"item.h\"\r\n#include <stdbool.h>\r\n\r\ntypedef struct list *List;\r\n\r\nList newList();\r\nbool isEmpty(List);\r\nvoid addHead(List, Item);\r\nItem removeHead(List);\r\nItem getHead(List);\r\nint sizeList(List);\r\nvoid printList(List);\r\n\r\nItem searchList(List, Item, int *);\r\nItem removeListItem(List, Item);\r\nItem removeListItemPos(List, int );\r\nint addListItem (List, Item, int);\r\nint addListTail (List, Item);\r\nvoid reverseList(List);\r\nList cloneList (List);\r\n"
+      },
+      {
+        "name": "list.c",
+        "readOnly": true,
+        "content": "#include <stdio.h>\r\n#include <stdlib.h>\r\n#include <stdbool.h>\r\n#include \"item.h\"\r\n#include \"list.h\"\r\n\r\n\r\nstruct list {\r\n\tint size;\r\n\tstruct node *head;\r\n};\r\n\r\nstruct node {\r\n\tItem item;\r\n\tstruct node *next;\r\n};\r\n\r\nList newList(){\r\n\tList p;\r\n\tp = malloc(sizeof(struct list));\r\n\tp->size = 0;\r\n\tp->head = NULL;\r\n\treturn p;\r\n}\r\n\r\nbool isEmpty(List p){\r\n\treturn p->size==0;\r\n}\r\n\r\nvoid addHead(List p, Item item){\r\n\tstruct node * new_node;\r\n\tnew_node = malloc(sizeof(struct node));\r\n\tnew_node->item = item;\r\n\tnew_node->next = p->head;\r\n\tp->head = new_node;\r\n\t(p->size)++;\r\n}\r\n\r\nItem removeHead(List p){\r\n\tif(isEmpty(p))\r\n\t\treturn NULL;\r\n\r\n\tstruct node *ptr;\r\n\tptr = p->head;\r\n\tp->head = ptr->next;\r\n\tItem item;\r\n\titem = ptr->item;\r\n\tfree(ptr);\r\n\t(p->size)--;\r\n\treturn item;\r\n}\r\n\r\nItem getHead(List p){\r\n\tif(isEmpty(p))\r\n\t\treturn NULL;\r\n\treturn p->head->item;\r\n}\r\n\r\nint sizeList(List p){\r\n\treturn p->size;\r\n}\r\n\r\nvoid printList(List p){\r\n\tstruct node *ptr;\r\n\tfor(ptr = p->head; ptr!=NULL; ptr=ptr->next){\r\n\t\toutputItem(ptr->item);\r\n\t}\r\n}\r\n\r\nItem searchList(List list, Item item, int *pos){\r\n\tstruct node *temp;\r\n\t*pos=0;\r\n\tfor(temp=list->head;temp!=NULL;temp=temp->next,(*pos)++){\r\n\t\tif(cmpItem(temp->item,item)==0)\r\n\t\t\treturn temp->item;\r\n\t}\r\n\t(*pos)=-1;\r\n\treturn NULL;\r\n}\r\n\r\nItem removeListItem(List list, Item item){\r\n\tstruct node *p,*prev;\r\n\tItem ritorno;\r\n\tfor(p=list->head;p!=NULL;prev=p,p=p->next){\r\n\t\tif(cmpItem(p->item,item)==0){\r\n\t\t\tif(p==list->head)\r\n\t\t\t\treturn removeHead(list);\r\n\t\t\telse{\r\n\t\t\tprev->next=p->next;\r\n\t\t\tritorno=p->item;\r\n\t\t\tfree(p);\r\n\t\t\t(list->size)--;\r\n\t\t\treturn ritorno;\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\treturn NULL;\r\n}\r\n\r\nItem removeListItemPos(List list, int pos){\r\n\tstruct node *p,*prev;\r\n\tint i=0;\r\n\tItem ritorno;\r\n\tfor(p=list->head;p!=NULL;prev=p,p=p->next,i++)\r\n\t{\r\n\t\tif(i==pos)\r\n\t\t{\r\n\t\t\tif(p==list->head)\r\n\t\t\t\treturn removeHead(list);\r\n\t\t\telse{\r\n\t\t\t\tprev->next=p->next;\r\n\t\t\t\tritorno=p->item;\r\n\t\t\t\tfree(p);\r\n\t\t\t\t(list->size)--;\r\n\t\t\t\treturn ritorno;\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\treturn NULL;\r\n}\r\n\r\nint addListItem (List list, Item item, int pos){\r\n\tint i;\r\n\tstruct node *p;\r\n\tif (pos==0){\r\n\t\taddHead(list,item);\r\n\t\treturn 1;\r\n\t}\r\n\tif (pos > sizeList(list))\r\n\t\treturn 0;\r\n\r\n\tfor (p=list->head, i=0; p!=NULL && i<pos-1; i++,p=p->next);\r\n\r\n\tstruct node *new=malloc(sizeof(struct node));\r\n\tnew->next=p->next;\r\n\tp->next= new;\r\n\tnew->item=item;\r\n\t(list->size)++;\r\n\treturn 1;\r\n}\r\n\r\nint addListTail (List list, Item item){\r\n\treturn addListItem(list,item,sizeList(list));\r\n}\r\n\r\nvoid reverseList(List list){\r\n\tstruct node *p,*prev,*temp;\r\n\tfor (p=list->head; p!=NULL; prev=p,p=temp){\r\n\t\ttemp=p->next;\r\n\t\tp->next=prev;\r\n\t}\r\n\tlist->head=prev;\r\n}\r\n\r\nList cloneList (List list){\r\n\tList clone= newList();\r\n\tstruct node *p;\r\n\tfor(p=list->head; p!= NULL; p=p->next){\r\n\t\tItem a=cloneItem(p->item);\r\n\t\taddListTail(clone,a);\r\n\t}\r\n\treturn clone;\r\n}\r\n"
+      },
+      {
+        "name": "utils.h",
+        "readOnly": true,
+        "content": "#include \"item.h\"\n\nvoid swap(Item *a, Item *b);"
+      },
+      {
+        "name": "utils.c",
+        "readOnly": true,
+        "content": "#include \"item.h\"\r\n\r\nvoid swap(Item *a, Item *b){\r\n\tItem temp=*a;\r\n\t*a=*b;\r\n\t*b=temp;\r\n}"
+      },
+      {
+        "name": "item.h",
+        "readOnly": true,
+        "content": "#ifndef ITEM_H\n#define ITEM_H\n\ntypedef void *Item;\n\nItem inputItem();\nvoid outputItem(Item item);\nint cmpItem(Item item1, Item item2);\nItem cloneItem(Item item);\n\n#endif\n"
+      },
+      {
+        "name": "item-string.c",
+        "readOnly": true,
+        "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include \"item.h\"\n\n#define MAXSTRING 100\n\nItem inputItem() {\n    char *p = malloc(sizeof(char) * MAXSTRING);\n    if (scanf(\"%s\", p) != 1) return NULL;\n    return p;\n}\n\nvoid outputItem(Item item) {\n    if (item == NULL) return;\n    char *p = (char *)item;\n    printf(\"%s \", p);\n}\n\nint cmpItem(Item item1, Item item2) {\n    char *p1 = (char *)item1;\n    char *p2 = (char *)item2;\n    return strcmp(p1, p2);\n}\n\nItem cloneItem(Item item) {\n    if (item == NULL) return NULL;\n    char *val = (char *)item;\n    char *p = malloc(strlen(val) + 1);\n    strcpy(p, val);\n    return p;\n}\n"
+      }
+    ],
+    "test_cases": [
+      {
+        "stdin": "",
+        "expected": "List prima: \ndueMassimo: \nList dopo: \n\nList prima: ciao \ndueMassimo: ciao \nList dopo: ciao \n\nList prima: ciao mondo \ndueMassimo: mondo ciao \nList dopo: ciao mondo \n\nList prima: albero zenzero barca casa tavolo \ndueMassimo: zenzero tavolo \nList dopo: albero zenzero barca casa tavolo \n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### ADT BTree & Stack: Altezza, Numero Nodi & PreOrder Iterativo\n\nAll'interno del file `main.c`, implementare le funzioni per l'**ADT BTree**, la funzione di stampa e il `main` di test:\n\n```c\nint* heightAndNumNodes(BTree b);\nvoid preOrderIter(BTree b);\nvoid printHeightNumNodesAndPreorder(BTree b);\n```\n\n#### Specifiche delle Funzioni:\n1. `int* heightAndNumNodes(BTree b)`:\n   - Calcola contemporaneamente l'**altezza** e il **numero di nodi** dell'albero binario `b`.\n   - Restituisce un array dinamico di due interi (`int*`):\n     - `ret[0]`: l'altezza dell'albero (albero vuoto o singola radice hanno altezza 0).\n     - `ret[1]`: il numero totale di nodi dell'albero.\n   - **Vincolo**: Usare la tecnica della **ricorsione** scorrendo l'albero **una sola volta** per calcolare entrambi i valori.\n2. `void preOrderIter(BTree b)`:\n   - Esegue e stampa a video la visita **PreOrder (anticipata: Radice -> Sinistra -> Destra) in modalità ITERATIVA**, utilizzando l'**ADT Stack**.\n3. `void printHeightNumNodesAndPreorder(BTree b)`:\n   - Stampa altezza, numero nodi e visita preorder iterativa nel formato:\n     ```text\n     Albero:\n     Altezza albero: <h>\n     Numero nodi albero: <n>\n     Visita preorder iterativa: <visita>\n     ```\n\n#### Test da implementare nel `main()`:\n1. Un albero vuoto.\n2. Un albero consistente della sola radice contenente `\"2\"`.\n3. Un albero istanziato come segue:\n   ```text\n         7\n        / \\\n       3   9\n      / \\\n     1   5\n   ```\n\n> **Nota Esame:** All'esame pratico di PSD sarà richiesto anche di scrivere/completare il file `makefile` per compilare il progetto multi-file (`gcc -c ...` e link finale).",
+    "tag": [
+      "alberi",
+      "pile",
+      "adt",
+      "ricorsione",
+      "visite",
+      "psd"
+    ],
+    "activeFile": "main.c",
+    "files": [
+      {
+        "name": "main.c",
+        "readOnly": false,
+        "content": "#include <stdio.h>\n#include <stdlib.h>\n#include \"item.h\"\n#include \"btree.h\"\n#include \"stack.h\"\n\n// I. Calcola altezza (ret[0]) e numero di nodi (ret[1]) in UNA SOLA visita ricorsiva\nint* heightAndNumNodes(BTree b) {\n    // TODO: Scrivi qui il tuo codice ricorsivo\n}\n\n// II. Visita PreOrder iterativa mediante Stack\nvoid preOrderIter(BTree b) {\n    // TODO: Scrivi qui la visita iterativa con Stack\n}\n\n// III. Stampa altezza, numero nodi e visita preorder iterativa\nvoid printHeightNumNodesAndPreorder(BTree b) {\n    // TODO: Scrivi qui il tuo codice\n}\n\nint main() {\n    // TODO: Istanzia gli alberi di test richiesti nella traccia e testa printHeightNumNodesAndPreorder\n    \n    return 0;\n}\n"
+      },
+      {
+        "name": "btree.h",
+        "readOnly": true,
+        "content": "#include \"item.h\"\r\n\r\ntypedef struct node *BTree;\r\n\r\nBTree newTree();\r\nint isEmptyTree(BTree);\r\nBTree buildTree(BTree, BTree, Item);\r\nItem getBTreeRoot(BTree);\r\nBTree getLeft(BTree);\r\nBTree getRight(BTree);\r\nvoid preOrder(BTree);\r\nvoid postOrder(BTree);\r\nvoid inOrder(BTree);"
+      },
+      {
+        "name": "btree.c",
+        "readOnly": true,
+        "content": "#include <stdio.h>\r\n#include <stdlib.h>\r\n#include \"btree.h\"\r\n#include \"item.h\"\r\n\r\nstruct node{\r\n\tItem value;\r\n\tstruct node *left;\r\n\tstruct node *right;\r\n};\r\n\r\nBTree newTree(){\r\n\r\n\treturn NULL;\r\n}\r\n\r\nint isEmptyTree(BTree t){\r\n\tif(t==NULL)\r\n\t\treturn 1;\r\n\treturn 0;\r\n}\r\n\r\nBTree buildTree(BTree l, BTree r, Item value){\r\n\tBTree t=malloc(sizeof(struct node));\r\n\tt->left=l;\r\n\tt->right=r;\r\n\tt->value=value;\r\n\treturn t;\r\n\r\n}\r\n\r\nItem getBTreeRoot(BTree t){\r\n\tif(!isEmptyTree(t))\r\n\t\treturn t->value;\r\n\treturn NULL;\r\n}\r\n\r\nBTree getLeft(BTree t){\r\n\tif(!isEmptyTree(t))\r\n\t\treturn t->left;\r\n\treturn NULL;\r\n}\r\n\r\nBTree getRight(BTree t){\r\n\tif(!isEmptyTree(t))\r\n\t\treturn t->right;\r\n\treturn NULL;\r\n\r\n}\r\n\r\nvoid preOrder(BTree t){\r\n\tif(!isEmptyTree(t)){\r\n\t\toutputItem(t->value);\r\n\t\tpreOrder(t->left);\r\n\t\tpreOrder(t->right);\r\n\t}\r\n\r\n}\r\nvoid postOrder(BTree t){\r\n\tif(!isEmptyTree(t)){\r\n\t\tpostOrder(t->left);\r\n\t\tpostOrder(t->right);\r\n\t\toutputItem(t->value);\r\n\t}\r\n}\r\n\r\nvoid inOrder(BTree t){\r\n\tif(!isEmptyTree(t)){\r\n\t\t\r\n\t\tinOrder(t->left);\r\n\t\toutputItem(t->value);\r\n\t\tinOrder(t->right);\r\n\t}\r\n\r\n}"
+      },
+      {
+        "name": "stack.h",
+        "readOnly": true,
+        "content": "#include \"item.h\"\r\n\r\ntypedef struct stack *Stack;\r\n\r\nStack newStack(); \r\nint isEmptyStack(Stack); \r\nint push(Stack, Item);\r\nint pop(Stack);\r\nItem top(Stack);\r\nvoid printStack(Stack);\r\n"
+      },
+      {
+        "name": "stack.c",
+        "readOnly": true,
+        "content": "#include <stdio.h>\r\n#include <stdlib.h>\r\n#include \"stack.h\"\r\n#define MAXSTACK 50\r\n\r\nstruct stack {\r\n\tItem elements[MAXSTACK];\r\n\tint top;\r\n};\r\n\r\nStack newStack(){\r\n\tStack s = malloc(sizeof(struct stack));\r\n\ts->top = 0;\r\n\treturn s;\r\n}\r\n\r\nint isEmptyStack(Stack s){\r\n\treturn (s->top==0);\r\n} \r\n\r\nint push(Stack s, Item item){\r\n\tif (s->top>=MAXSTACK)\r\n\t\treturn 0;\r\n\ts->elements[s->top]=item;\r\n\ts->top++;\r\n\treturn 1;\r\n}\r\n\r\nint pop(Stack s){\r\n\tif(isEmptyStack(s))\r\n\t\treturn 0;\r\n\ts->top--;\r\n\treturn 1;\r\n}\r\n\r\nItem top(Stack s){\r\n\tif(isEmptyStack(s))\r\n\t\treturn NULL;\r\n\treturn s->elements[s->top-1];\r\n}\r\n\r\nvoid printStack(Stack s){\r\n\tint i;\r\n\tfor(i=s->top-1; i>=0; i--){\r\n\t\toutputItem(s->elements[i]);\r\n\t}\r\n}"
+      },
+      {
+        "name": "item.h",
+        "readOnly": true,
+        "content": "#ifndef ITEM_H\n#define ITEM_H\n\ntypedef void *Item;\n\nItem inputItem();\nvoid outputItem(Item item);\nint cmpItem(Item item1, Item item2);\nItem cloneItem(Item item);\n\n#endif\n"
+      },
+      {
+        "name": "item-string.c",
+        "readOnly": true,
+        "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include \"item.h\"\n\n#define MAXSTRING 100\n\nItem inputItem() {\n    char *p = malloc(sizeof(char) * MAXSTRING);\n    if (scanf(\"%s\", p) != 1) return NULL;\n    return p;\n}\n\nvoid outputItem(Item item) {\n    if (item == NULL) return;\n    char *p = (char *)item;\n    printf(\"%s \", p);\n}\n\nint cmpItem(Item item1, Item item2) {\n    char *p1 = (char *)item1;\n    char *p2 = (char *)item2;\n    return strcmp(p1, p2);\n}\n\nItem cloneItem(Item item) {\n    if (item == NULL) return NULL;\n    char *val = (char *)item;\n    char *p = malloc(strlen(val) + 1);\n    strcpy(p, val);\n    return p;\n}\n"
+      }
+    ],
+    "test_cases": [
+      {
+        "stdin": "",
+        "expected": "Albero:\nAltezza albero: 0\nNumero nodi albero: 0\nVisita preorder iterativa: \n\nAlbero:\nAltezza albero: 0\nNumero nodi albero: 1\nVisita preorder iterativa: 2 \n\nAlbero:\nAltezza albero: 2\nNumero nodi albero: 5\nVisita preorder iterativa: 7 3 1 5 9 \n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### ADT Stack: Inversione e Filtraggio Elementi Maggiori\n\nAll'interno del file `main.c`, implementare la procedura di inversione, la procedura di stampa e il `main` di test:\n\n```c\nvoid inverti(Stack s, Item el);\nvoid stampa(Stack s, Item el);\n```\n\n#### Specifiche delle Funzioni:\n1. `void inverti(Stack s, Item el)`:\n   - Modifica il contenuto dello stack `s` **invertendo l'ordine** degli elementi in esso contenuti e lasciando solo gli elementi **strettamente maggiori** (`cmpItem(item, el) > 0`) rispetto all'elemento `el` passato come parametro.\n   - **Vincoli importanti**:\n     - Utilizzare esclusivamente le operazioni di base dell'ADT Stack (`push`, `pop`, `top`, `isEmptyStack`).\n     - **Non restituire un nuovo stack**: la modifica deve avvenire direttamente sullo stack `s` passato per parametro.\n2. `void stampa(Stack s, Item el)`:\n   - Visualizza l'elemento parametro, lo stack originale e lo stack invertito nel formato esatto:\n     ```text\n     Elemento parametro: <el>\n     Stack originale: <elementi da cima a fondo>\n     Stack invertito: <elementi da cima a fondo>\n     ```\n\n#### Test da implementare nel `main()`:\n1. Parametro: `\"ciao\"`, Stack: vuoto.\n2. Parametro: `\"ciao\"`, Stack: `\"ciao\"`.\n3. Parametro: `\"ciao\"`, Stack (ordine di inserimento): `\"ciao\"`, `\"bella\"`, `\"gente\"`, `\"come\"`, `\"va\"`.\n4. Parametro: `\"dado\"`, Stack (ordine di inserimento): `\"ciao\"`, `\"bella\"`, `\"gente\"`, `\"come\"`, `\"va\"`.\n\n> **Nota Esame:** All'esame pratico di PSD sarà richiesto anche di scrivere/completare il file `makefile` per compilare il progetto multi-file (`gcc -c ...` e link finale).",
+    "tag": [
+      "pile",
+      "adt",
+      "inversione",
+      "psd"
+    ],
+    "activeFile": "main.c",
+    "files": [
+      {
+        "name": "main.c",
+        "readOnly": false,
+        "content": "#include <stdio.h>\n#include <stdlib.h>\n#include \"item.h\"\n#include \"stack.h\"\n\n// I. Inverte lo stack lasciando solo gli elementi > el\nvoid inverti(Stack s, Item el) {\n    // TODO: Scrivi qui il tuo codice\n}\n\n// II. Stampa elemento parametro, stack originale e stack invertito\nvoid stampa(Stack s, Item el) {\n    // TODO: Scrivi qui il tuo codice\n}\n\nint main() {\n    // TODO: Istanzia gli stack di test richiesti nella traccia e chiama stampa()\n    \n    return 0;\n}\n"
+      },
+      {
+        "name": "stack.h",
+        "readOnly": true,
+        "content": "#include \"item.h\"\r\n\r\ntypedef struct stack *Stack;\r\n\r\nStack newStack(); \r\nint isEmptyStack(Stack); \r\nint push(Stack, Item);\r\nint pop(Stack);\r\nItem top(Stack);\r\nvoid printStack(Stack);\r\n"
+      },
+      {
+        "name": "stack.c",
+        "readOnly": true,
+        "content": "#include <stdio.h>\r\n#include <stdlib.h>\r\n#include \"stack.h\"\r\n#define MAXSTACK 50\r\n\r\nstruct stack {\r\n\tItem elements[MAXSTACK];\r\n\tint top;\r\n};\r\n\r\nStack newStack(){\r\n\tStack s = malloc(sizeof(struct stack));\r\n\ts->top = 0;\r\n\treturn s;\r\n}\r\n\r\nint isEmptyStack(Stack s){\r\n\treturn (s->top==0);\r\n} \r\n\r\nint push(Stack s, Item item){\r\n\tif (s->top>=MAXSTACK)\r\n\t\treturn 0;\r\n\ts->elements[s->top]=item;\r\n\ts->top++;\r\n\treturn 1;\r\n}\r\n\r\nint pop(Stack s){\r\n\tif(isEmptyStack(s))\r\n\t\treturn 0;\r\n\ts->top--;\r\n\treturn 1;\r\n}\r\n\r\nItem top(Stack s){\r\n\tif(isEmptyStack(s))\r\n\t\treturn NULL;\r\n\treturn s->elements[s->top-1];\r\n}\r\n\r\nvoid printStack(Stack s){\r\n\tint i;\r\n\tfor(i=s->top-1; i>=0; i--){\r\n\t\toutputItem(s->elements[i]);\r\n\t}\r\n}"
+      },
+      {
+        "name": "item.h",
+        "readOnly": true,
+        "content": "#ifndef ITEM_H\n#define ITEM_H\n\ntypedef void *Item;\n\nItem inputItem();\nvoid outputItem(Item item);\nint cmpItem(Item item1, Item item2);\nItem cloneItem(Item item);\n\n#endif\n"
+      },
+      {
+        "name": "item-string.c",
+        "readOnly": true,
+        "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include \"item.h\"\n\n#define MAXSTRING 100\n\nItem inputItem() {\n    char *p = malloc(sizeof(char) * MAXSTRING);\n    if (scanf(\"%s\", p) != 1) return NULL;\n    return p;\n}\n\nvoid outputItem(Item item) {\n    if (item == NULL) return;\n    char *p = (char *)item;\n    printf(\"%s \", p);\n}\n\nint cmpItem(Item item1, Item item2) {\n    char *p1 = (char *)item1;\n    char *p2 = (char *)item2;\n    return strcmp(p1, p2);\n}\n\nItem cloneItem(Item item) {\n    if (item == NULL) return NULL;\n    char *val = (char *)item;\n    char *p = malloc(strlen(val) + 1);\n    strcpy(p, val);\n    return p;\n}\n"
+      }
+    ],
+    "test_cases": [
+      {
+        "stdin": "",
+        "expected": "Elemento parametro: ciao \nStack originale: \nStack invertito: \n\nElemento parametro: ciao \nStack originale: ciao \nStack invertito: \n\nElemento parametro: ciao \nStack originale: va come gente bella ciao \nStack invertito: gente come va \n\nElemento parametro: dado \nStack originale: va come gente bella ciao \nStack invertito: gente va \n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### ADT Queue: Inversione Ricorsiva e Filtraggio Elementi Minori\n\nAll'interno del file `main.c`, implementare la procedura **ricorsiva** di inversione, la procedura di stampa e il `main` di test:\n\n```c\nvoid inverti(Queue q, Item i);\nvoid stampa(Queue q, Item i);\n```\n\n#### Specifiche delle Funzioni:\n1. `void inverti(Queue q, Item i)`:\n   - Inverte il contenuto di una coda `q` lasciando solo gli elementi **strettamente inferiori** (`cmpItem(item, i) < 0`) rispetto all'elemento `i` fornito come parametro.\n   - **Vincoli importanti**:\n     - La procedura deve essere **rigorosamente ricorsiva**.\n     - Utilizzare esclusivamente gli operatori di base della coda (`enqueue`, `dequeue`, `isEmptyQueue`).\n     - **NON utilizzare alcuna struttura dati ausiliaria** (vettori, liste o stack): l'inversione deve sfruttare unicamente il call stack ricorsivo.\n2. `void stampa(Queue q, Item i)`:\n   - Visualizza l'output nel formato esatto:\n     ```text\n     Elemento parametro: <el>\n     Queue originale: <elementi>\n     Queue invertito: <elementi>\n     ```\n\n#### Test da implementare nel `main()`:\n1. Coda vuota, parametro: `\"ciao\"`.\n2. Coda contenente `\"ciao\"`, parametro: `\"ciao\"`.\n3. Coda (ordine di inserimento): `\"ciao\"`, `\"bella\"`, `\"gente\"`, `\"come\"`, `\"va\"`, parametro: `\"ciao\"`.\n4. Coda (ordine di inserimento): `\"ciao\"`, `\"bella\"`, `\"gente\"`, `\"come\"`, `\"va\"`, parametro: `\"dado\"`.\n\n> **Nota Esame:** All'esame pratico di PSD sarà richiesto anche di scrivere/completare il file `makefile` per compilare il progetto multi-file (`gcc -c ...` e link finale).",
+    "tag": [
+      "code",
+      "ricorsione",
+      "adt",
+      "inversione",
+      "psd"
+    ],
+    "activeFile": "main.c",
+    "files": [
+      {
+        "name": "main.c",
+        "readOnly": false,
+        "content": "#include <stdio.h>\n#include <stdlib.h>\n#include \"item.h\"\n#include \"queue.h\"\n\n// I. Procedura RICORSIVA che inverte la coda lasciando solo gli elementi < i (senza strutture ausiliarie)\nvoid inverti(Queue q, Item i) {\n    // TODO: Scrivi qui il tuo codice ricorsivo\n}\n\n// II. Stampa elemento parametro, coda originale e coda invertita\nvoid stampa(Queue q, Item i) {\n    // TODO: Scrivi qui il tuo codice\n}\n\nint main() {\n    // TODO: Istanzia le code di test richieste nella traccia e chiama stampa()\n    \n    return 0;\n}\n"
+      },
+      {
+        "name": "queue.h",
+        "readOnly": true,
+        "content": "#include \"item.h\"\r\n\r\ntypedef struct queue *Queue;\r\n\r\nQueue newQueue();\r\nint isEmptyQueue(Queue);\r\nint enqueue(Queue, Item);\r\nItem dequeue(Queue);\r\nvoid printQueue(Queue);\r\n"
+      },
+      {
+        "name": "queue.c",
+        "readOnly": true,
+        "content": "#include <stdio.h>\r\n#include <stdlib.h>\r\n#include \"queue.h\"\r\n\r\n#define MAX_QUEUE 6\r\n\r\nstruct queue {\r\n\tint head;\r\n\tint tail;\r\n\tItem elements[MAX_QUEUE];\r\n};\r\n\r\nQueue newQueue(){\r\n\tQueue q = malloc(sizeof(struct queue));\r\n\tq->head = 0;\r\n\tq->tail = 0;\r\n\treturn q;\r\n}\r\n\r\nint isEmptyQueue(Queue q){\r\n\treturn (q->head == q->tail);\r\n}\r\n\r\nint enqueue(Queue q, Item item){\r\n\tif((q->tail+1)%MAX_QUEUE == q->head)\r\n\t\treturn 0;\r\n\r\n\tq->elements[q->tail] = item;\r\n\tq->tail = (q->tail + 1)%MAX_QUEUE;\r\n\treturn 1;\r\n}\r\n\r\nItem dequeue(Queue q){\r\n\tif (isEmptyQueue(q))\r\n\t\treturn NULL;\r\n\r\n\tItem temp;\r\n\ttemp = q->elements[q->head];\r\n\tq->head = (q->head +1)%MAX_QUEUE;\r\n\r\n\treturn temp;\r\n}\r\nvoid printQueue(Queue q){\r\n\tint i;\r\n\tfor (i = q->head; i != q->tail; i = (i+1)%MAX_QUEUE) {\r\n\t\toutputItem(q->elements[i]);\r\n\t}\r\n}\r\n"
+      },
+      {
+        "name": "item.h",
+        "readOnly": true,
+        "content": "#ifndef ITEM_H\n#define ITEM_H\n\ntypedef void *Item;\n\nItem inputItem();\nvoid outputItem(Item item);\nint cmpItem(Item item1, Item item2);\nItem cloneItem(Item item);\n\n#endif\n"
+      },
+      {
+        "name": "item-string.c",
+        "readOnly": true,
+        "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include \"item.h\"\n\n#define MAXSTRING 100\n\nItem inputItem() {\n    char *p = malloc(sizeof(char) * MAXSTRING);\n    if (scanf(\"%s\", p) != 1) return NULL;\n    return p;\n}\n\nvoid outputItem(Item item) {\n    if (item == NULL) return;\n    char *p = (char *)item;\n    printf(\"%s \", p);\n}\n\nint cmpItem(Item item1, Item item2) {\n    char *p1 = (char *)item1;\n    char *p2 = (char *)item2;\n    return strcmp(p1, p2);\n}\n\nItem cloneItem(Item item) {\n    if (item == NULL) return NULL;\n    char *val = (char *)item;\n    char *p = malloc(strlen(val) + 1);\n    strcpy(p, val);\n    return p;\n}\n"
+      }
+    ],
+    "test_cases": [
+      {
+        "stdin": "",
+        "expected": "Elemento parametro: ciao \nQueue originale: \nQueue invertito: \n\nElemento parametro: ciao \nQueue originale: ciao \nQueue invertito: \n\nElemento parametro: ciao \nQueue originale: ciao bella gente come va \nQueue invertito: bella \n\nElemento parametro: dado \nQueue originale: ciao bella gente come va \nQueue invertito: come bella ciao \n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### ADT BTree: Somma Nodi per Livello & Altezza Albero (sumByLevel)\n\nAll'interno del file `main.c`, implementare per l'**ADT BTree** contenente interi le funzioni richieste, la procedura di stampa e il `main` di test:\n\n```c\nint height(BTree b);\nint* sumByLevel(BTree b);\nvoid printHeightAndSumByLevel(BTree b);\n```\n\n#### Specifiche delle Funzioni:\n1. `int height(BTree b)`:\n   - Calcola l'altezza dell'albero binario (un albero vuoto o con la sola radice ha altezza 0).\n2. `int* sumByLevel(BTree b)`:\n   - Restituisce un array dinamico di dimensione `height(b) + 1` contenente, per ogni livello $k$ ($0 \\le k \\le \\text{height}(b)$), la **somma dei valori dei nodi** appartenenti a quel livello.\n   - Se l'albero è vuoto, restituisce un array di un solo elemento pari a `0`.\n3. `void printHeightAndSumByLevel(BTree b)`:\n   - Stampa altezza e somma per livelli nel formato esatto:\n     ```text\n     Albero:\n     <eventuale rappresentazione>\n     Altezza albero: <h>\n     Somma nodi per ogni livello: <somma_0> <somma_1> ...\n     ```\n\n#### Test da implementare nel `main()`:\n1. Un albero vuoto.\n2. Un albero consistente della sola radice contenente il valore intero `2`.\n3. Un albero istanziato come segue:\n   ```text\n         7\n        / \\\n       3   9\n      / \\\n     1   5\n   ```\n\n> **Nota Esame:** All'esame pratico di PSD sarà richiesto anche di scrivere/completare il file `makefile` per compilare il progetto multi-file (`gcc -c ...` e link finale).",
+    "tag": [
+      "alberi",
+      "ricorsione",
+      "adt",
+      "somma-livelli",
+      "psd"
+    ],
+    "activeFile": "main.c",
+    "files": [
+      {
+        "name": "main.c",
+        "readOnly": false,
+        "content": "#include <stdio.h>\n#include <stdlib.h>\n#include \"item.h\"\n#include \"btree.h\"\n\n// I. Calcola l'altezza dell'albero\nint height(BTree b) {\n    // TODO: Scrivi qui il tuo codice\n}\n\n// II. Restituisce array con la somma dei nodi per ciascun livello da 0 ad height(b)\nint* sumByLevel(BTree b) {\n    // TODO: Scrivi qui il tuo codice\n}\n\n// III. Stampa altezza e somma per livelli dell'albero\nvoid printHeightAndSumByLevel(BTree b) {\n    // TODO: Scrivi qui il tuo codice\n}\n\nint main() {\n    // TODO: Istanzia gli alberi di test richiesti nella traccia e chiama printHeightAndSumByLevel\n    \n    return 0;\n}\n"
+      },
+      {
+        "name": "btree.h",
+        "readOnly": true,
+        "content": "#include \"item.h\"\r\n\r\ntypedef struct node *BTree;\r\n\r\nBTree newTree();\r\nint isEmptyTree(BTree);\r\nBTree buildTree(BTree, BTree, Item);\r\nItem getBTreeRoot(BTree);\r\nBTree getLeft(BTree);\r\nBTree getRight(BTree);\r\nvoid preOrder(BTree);\r\nvoid postOrder(BTree);\r\nvoid inOrder(BTree);"
+      },
+      {
+        "name": "btree.c",
+        "readOnly": true,
+        "content": "#include <stdio.h>\r\n#include <stdlib.h>\r\n#include \"btree.h\"\r\n#include \"item.h\"\r\n\r\nstruct node{\r\n\tItem value;\r\n\tstruct node *left;\r\n\tstruct node *right;\r\n};\r\n\r\nBTree newTree(){\r\n\r\n\treturn NULL;\r\n}\r\n\r\nint isEmptyTree(BTree t){\r\n\tif(t==NULL)\r\n\t\treturn 1;\r\n\treturn 0;\r\n}\r\n\r\nBTree buildTree(BTree l, BTree r, Item value){\r\n\tBTree t=malloc(sizeof(struct node));\r\n\tt->left=l;\r\n\tt->right=r;\r\n\tt->value=value;\r\n\treturn t;\r\n\r\n}\r\n\r\nItem getBTreeRoot(BTree t){\r\n\tif(!isEmptyTree(t))\r\n\t\treturn t->value;\r\n\treturn NULL;\r\n}\r\n\r\nBTree getLeft(BTree t){\r\n\tif(!isEmptyTree(t))\r\n\t\treturn t->left;\r\n\treturn NULL;\r\n}\r\n\r\nBTree getRight(BTree t){\r\n\tif(!isEmptyTree(t))\r\n\t\treturn t->right;\r\n\treturn NULL;\r\n\r\n}\r\n\r\nvoid preOrder(BTree t){\r\n\tif(!isEmptyTree(t)){\r\n\t\toutputItem(t->value);\r\n\t\tpreOrder(t->left);\r\n\t\tpreOrder(t->right);\r\n\t}\r\n\r\n}\r\nvoid postOrder(BTree t){\r\n\tif(!isEmptyTree(t)){\r\n\t\tpostOrder(t->left);\r\n\t\tpostOrder(t->right);\r\n\t\toutputItem(t->value);\r\n\t}\r\n}\r\n\r\nvoid inOrder(BTree t){\r\n\tif(!isEmptyTree(t)){\r\n\t\t\r\n\t\tinOrder(t->left);\r\n\t\toutputItem(t->value);\r\n\t\tinOrder(t->right);\r\n\t}\r\n\r\n}"
+      },
+      {
+        "name": "item.h",
+        "readOnly": true,
+        "content": "#ifndef ITEM_H\n#define ITEM_H\n\ntypedef void *Item;\n\nItem inputItem();\nvoid outputItem(Item item);\nint cmpItem(Item item1, Item item2);\nItem cloneItem(Item item);\n\n#endif\n"
+      },
+      {
+        "name": "item-int.c",
+        "readOnly": true,
+        "content": "#include <stdio.h>\n#include <stdlib.h>\n#include \"item.h\"\n\nItem inputItem() {\n    int *pt = malloc(sizeof(int));\n    if (scanf(\"%d\", pt) != 1) return NULL;\n    return pt;\n}\n\nvoid outputItem(Item it) {\n    if (it == NULL) return;\n    int *pt = (int *)it;\n    printf(\"%d \", *pt);\n}\n\nint cmpItem(Item it1, Item it2) {\n    int *pt1 = (int *)it1;\n    int *pt2 = (int *)it2;\n    if (*pt1 < *pt2) return -1;\n    if (*pt1 == *pt2) return 0;\n    return 1;\n}\n\nItem cloneItem(Item it) {\n    if (it == NULL) return NULL;\n    int *val = (int *)it;\n    int *p = malloc(sizeof(int));\n    *p = *val;\n    return p;\n}\n"
+      }
+    ],
+    "test_cases": [
+      {
+        "stdin": "",
+        "expected": "Albero:\nAltezza albero: 0\nSomma nodi per ogni livello: 0\n\nAlbero:\n2\nAltezza albero: 0\nSomma nodi per ogni livello: 2 \n\nAlbero:\n    7\n   / \\\n  3   9\n / \\\n1   5\nAltezza albero: 2\nSomma nodi per ogni livello: 7 12 6 \n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### ADT Stack: Inversione Ricorsiva (reverseRecursiveStack)\n\nSi implementi all'interno del file `main.c` la funzione dell'**ADT Stack**:\n\n```c\nvoid reverseRecursiveStack(Stack s);\n```\n\n#### Specifiche:\n1. La funzione deve modificare il contenuto dello stack `s` **invertendo l'ordine dei suoi elementi mediante la ricorsione**.\n2. **Vincoli importanti**:\n   - La procedura deve essere **rigorosamente ricorsiva**.\n   - **NON è consentito modificare la struttura interna dell'ADT o utilizzare strutture dati ausiliarie** (vettori, array, liste, code o altri stack). L'algoritmo deve fare affidamento esclusivamente sulle operazioni dell'interfaccia pubblica dell'ADT Stack (`push`, `pop`, `top`, `isEmptyStack`) e sullo stack di esecuzione delle chiamate ricorsive.\n3. Nel `main()`, verificare il corretto funzionamento della funzione su diverse istanze di stack stampando lo stato prima e dopo l'inversione con `printStack` nel seguente formato:\n   ```text\n   Stack prima: <elementi da cima a fondo>\n   Stack dopo: <elementi da cima a fondo>\n   ```\n\n#### Casi di test da verificare nel `main()`:\n1. Uno stack vuoto.\n2. Uno stack contenente il solo elemento `\"ciao\"`.\n3. Uno stack contenente gli elementi inseriti nell'ordine: `\"ciao\"`, `\"bella\"`, `\"gente\"`, `\"come\"`, `\"va\"` (dunque con `\"va\"` in cima).\n\n> **Nota Esame:** All'esame pratico di PSD sarà richiesto anche di scrivere/completare il file `makefile` per compilare il progetto multi-file (`gcc -c ...` e link finale). I moduli dell'ADT nelle altre tab sono in sola lettura e non modificabili.",
+    "tag": [
+      "pile",
+      "ricorsione",
+      "adt",
+      "inversione",
+      "psd"
+    ],
+    "activeFile": "main.c",
+    "files": [
+      {
+        "name": "main.c",
+        "readOnly": false,
+        "content": "#include <stdio.h>\n#include <stdlib.h>\n#include \"item.h\"\n#include \"stack.h\"\n\n// Funzione ricorsiva che inverte lo stack (senza strutture dati ausiliarie)\nvoid reverseRecursiveStack(Stack s) {\n    // TODO: Scrivi qui il tuo codice ricorsivo\n}\n\nint main() {\n    // TODO: Istanzia gli stack di test richiesti nella traccia e stampa i risultati prima e dopo l'inversione\n    \n    return 0;\n}\n"
+      },
+      {
+        "name": "stack.h",
+        "readOnly": true,
+        "content": "#include \"item.h\"\r\n\r\ntypedef struct stack *Stack;\r\n\r\nStack newStack(); \r\nint isEmptyStack(Stack); \r\nint push(Stack, Item);\r\nint pop(Stack);\r\nItem top(Stack);\r\nvoid printStack(Stack);\r\n"
+      },
+      {
+        "name": "stack.c",
+        "readOnly": true,
+        "content": "#include <stdio.h>\r\n#include <stdlib.h>\r\n#include \"stack.h\"\r\n#define MAXSTACK 50\r\n\r\nstruct stack {\r\n\tItem elements[MAXSTACK];\r\n\tint top;\r\n};\r\n\r\nStack newStack(){\r\n\tStack s = malloc(sizeof(struct stack));\r\n\ts->top = 0;\r\n\treturn s;\r\n}\r\n\r\nint isEmptyStack(Stack s){\r\n\treturn (s->top==0);\r\n} \r\n\r\nint push(Stack s, Item item){\r\n\tif (s->top>=MAXSTACK)\r\n\t\treturn 0;\r\n\ts->elements[s->top]=item;\r\n\ts->top++;\r\n\treturn 1;\r\n}\r\n\r\nint pop(Stack s){\r\n\tif(isEmptyStack(s))\r\n\t\treturn 0;\r\n\ts->top--;\r\n\treturn 1;\r\n}\r\n\r\nItem top(Stack s){\r\n\tif(isEmptyStack(s))\r\n\t\treturn NULL;\r\n\treturn s->elements[s->top-1];\r\n}\r\n\r\nvoid printStack(Stack s){\r\n\tint i;\r\n\tfor(i=s->top-1; i>=0; i--){\r\n\t\toutputItem(s->elements[i]);\r\n\t}\r\n}"
+      },
+      {
+        "name": "item.h",
+        "readOnly": true,
+        "content": "#ifndef ITEM_H\n#define ITEM_H\n\ntypedef void *Item;\n\nItem inputItem();\nvoid outputItem(Item item);\nint cmpItem(Item item1, Item item2);\nItem cloneItem(Item item);\n\n#endif\n"
+      },
+      {
+        "name": "item-string.c",
+        "readOnly": true,
+        "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include \"item.h\"\n\n#define MAXSTRING 100\n\nItem inputItem() {\n    char *p = malloc(sizeof(char) * MAXSTRING);\n    if (scanf(\"%s\", p) != 1) return NULL;\n    return p;\n}\n\nvoid outputItem(Item item) {\n    if (item == NULL) return;\n    char *p = (char *)item;\n    printf(\"%s \", p);\n}\n\nint cmpItem(Item item1, Item item2) {\n    char *p1 = (char *)item1;\n    char *p2 = (char *)item2;\n    return strcmp(p1, p2);\n}\n\nItem cloneItem(Item item) {\n    if (item == NULL) return NULL;\n    char *val = (char *)item;\n    char *p = malloc(strlen(val) + 1);\n    strcpy(p, val);\n    return p;\n}\n"
+      }
+    ],
+    "test_cases": [
+      {
+        "stdin": "",
+        "expected": "Stack prima: \nStack dopo: \n\nStack prima: ciao \nStack dopo: ciao \n\nStack prima: va come gente bella ciao \nStack dopo: ciao bella gente come va \n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### ADT BTree: Creazione dell'Albero Speculare (mirrorTree)\n\nSi implementi all'interno del file `main.c` la funzione dell'**ADT BTree**:\n\n```c\nBTree mirrorTree(BTree b);\n```\n\n#### Specifiche:\n1. La funzione riceve in input un albero binario `b` e deve **creare e restituire un nuovo albero binario speculare** rispetto a quello originale (ovvero in cui, per ogni nodo, il sottoalbero sinistro diventa il sottoalbero destro specchiato e viceversa).\n2. **Vincoli importanti**:\n   - L'algoritmo deve essere implementato mediante tecnica **ricorsiva**.\n   - L'albero originale `b` passato in input **non deve essere alterato**.\n   - Utilizzare esclusivamente le funzioni dell'interfaccia pubblica dell'ADT BTree (`btree.h`), consultabili nella relativa scheda in sola lettura.\n3. Nel `main()`, verificare il corretto funzionamento della funzione stampando la visita anticipata (`preOrder`) dell'albero originale e dell'albero specchio nel seguente formato:\n   ```text\n   Albero originale: <visita preorder>\n   Albero specchio: <visita preorder>\n   ```\n\n#### Casi di test da verificare nel `main()`:\n1. Un albero vuoto.\n2. Un albero consistente della sola radice contenente `\"2\"`.\n3. Un albero istanziato con la seguente struttura:\n   ```text\n         7\n        / \\\n       3   9\n      / \\\n     1   5\n   ```\n\n> **Nota Esame:** All'esame pratico di PSD sarà richiesto anche di scrivere/completare il file `makefile` per compilare il progetto multi-file (`gcc -c ...` e link finale). I moduli dell'ADT nelle altre tab sono in sola lettura e non modificabili.",
+    "tag": [
+      "alberi",
+      "ricorsione",
+      "adt",
+      "albero-specchio",
+      "psd"
+    ],
+    "activeFile": "main.c",
+    "files": [
+      {
+        "name": "main.c",
+        "readOnly": false,
+        "content": "#include <stdio.h>\n#include <stdlib.h>\n#include \"item.h\"\n#include \"btree.h\"\n\n// Funzione ricorsiva che crea e restituisce l'albero binario specchio di b\nBTree mirrorTree(BTree b) {\n    // TODO: Scrivi qui il tuo codice ricorsivo\n}\n\nint main() {\n    // TODO: Istanzia gli alberi di test richiesti nella traccia e stampa i risultati prima e dopo mirrorTree\n    \n    return 0;\n}\n"
+      },
+      {
+        "name": "btree.h",
+        "readOnly": true,
+        "content": "#include \"item.h\"\r\n\r\ntypedef struct node *BTree;\r\n\r\nBTree newTree();\r\nint isEmptyTree(BTree);\r\nBTree buildTree(BTree, BTree, Item);\r\nItem getBTreeRoot(BTree);\r\nBTree getLeft(BTree);\r\nBTree getRight(BTree);\r\nvoid preOrder(BTree);\r\nvoid postOrder(BTree);\r\nvoid inOrder(BTree);"
+      },
+      {
+        "name": "btree.c",
+        "readOnly": true,
+        "content": "#include <stdio.h>\r\n#include <stdlib.h>\r\n#include \"btree.h\"\r\n#include \"item.h\"\r\n\r\nstruct node{\r\n\tItem value;\r\n\tstruct node *left;\r\n\tstruct node *right;\r\n};\r\n\r\nBTree newTree(){\r\n\r\n\treturn NULL;\r\n}\r\n\r\nint isEmptyTree(BTree t){\r\n\tif(t==NULL)\r\n\t\treturn 1;\r\n\treturn 0;\r\n}\r\n\r\nBTree buildTree(BTree l, BTree r, Item value){\r\n\tBTree t=malloc(sizeof(struct node));\r\n\tt->left=l;\r\n\tt->right=r;\r\n\tt->value=value;\r\n\treturn t;\r\n\r\n}\r\n\r\nItem getBTreeRoot(BTree t){\r\n\tif(!isEmptyTree(t))\r\n\t\treturn t->value;\r\n\treturn NULL;\r\n}\r\n\r\nBTree getLeft(BTree t){\r\n\tif(!isEmptyTree(t))\r\n\t\treturn t->left;\r\n\treturn NULL;\r\n}\r\n\r\nBTree getRight(BTree t){\r\n\tif(!isEmptyTree(t))\r\n\t\treturn t->right;\r\n\treturn NULL;\r\n\r\n}\r\n\r\nvoid preOrder(BTree t){\r\n\tif(!isEmptyTree(t)){\r\n\t\toutputItem(t->value);\r\n\t\tpreOrder(t->left);\r\n\t\tpreOrder(t->right);\r\n\t}\r\n\r\n}\r\nvoid postOrder(BTree t){\r\n\tif(!isEmptyTree(t)){\r\n\t\tpostOrder(t->left);\r\n\t\tpostOrder(t->right);\r\n\t\toutputItem(t->value);\r\n\t}\r\n}\r\n\r\nvoid inOrder(BTree t){\r\n\tif(!isEmptyTree(t)){\r\n\t\t\r\n\t\tinOrder(t->left);\r\n\t\toutputItem(t->value);\r\n\t\tinOrder(t->right);\r\n\t}\r\n\r\n}"
+      },
+      {
+        "name": "item.h",
+        "readOnly": true,
+        "content": "#ifndef ITEM_H\n#define ITEM_H\n\ntypedef void *Item;\n\nItem inputItem();\nvoid outputItem(Item item);\nint cmpItem(Item item1, Item item2);\nItem cloneItem(Item item);\n\n#endif\n"
+      },
+      {
+        "name": "item-string.c",
+        "readOnly": true,
+        "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include \"item.h\"\n\n#define MAXSTRING 100\n\nItem inputItem() {\n    char *p = malloc(sizeof(char) * MAXSTRING);\n    if (scanf(\"%s\", p) != 1) return NULL;\n    return p;\n}\n\nvoid outputItem(Item item) {\n    if (item == NULL) return;\n    char *p = (char *)item;\n    printf(\"%s \", p);\n}\n\nint cmpItem(Item item1, Item item2) {\n    char *p1 = (char *)item1;\n    char *p2 = (char *)item2;\n    return strcmp(p1, p2);\n}\n\nItem cloneItem(Item item) {\n    if (item == NULL) return NULL;\n    char *val = (char *)item;\n    char *p = malloc(strlen(val) + 1);\n    strcpy(p, val);\n    return p;\n}\n"
+      }
+    ],
+    "test_cases": [
+      {
+        "stdin": "",
+        "expected": "Albero originale: \nAlbero specchio: \n\nAlbero originale: 2 \nAlbero specchio: 2 \n\nAlbero originale: 7 3 1 5 9 \nAlbero specchio: 7 9 3 5 1 \n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### ADT Stack: Rimozione di un Elemento Specificato (rimuoviElemento)\n\nSi implementi all'interno del file `main.c` la funzione per l'**ADT Stack**:\n\n```c\nint rimuoviElemento(Stack s, Item el);\n```\n\n#### Specifiche:\n1. La funzione cerca ed elimina l'elemento `el` dallo stack `s`:\n   - Nel caso in cui l'elemento sia presente più volte nello stack, individua ed **elimina soltanto la prima occorrenza** (quella più vicina alla cima dello stack).\n   - Se l'elemento è presente e viene rimosso, la funzione restituisce `1`.\n   - Se l'elemento specificato non è presente nello stack, restituisce `0`.\n2. **Vincoli importanti**:\n   - Modificare direttamente lo stack `s` preservando l'ordine relativo di tutti gli altri elementi rimasti.\n   - **NON restituire un nuovo stack**.\n   - Utilizzare esclusivamente le operazioni di base dell'ADT Stack (`push`, `pop`, `top`, `isEmptyStack`). I file di implementazione dell'ADT sono in sola lettura nelle schede adiacenti.\n3. Nel `main()`, testare la procedura stampando: lo stack originale, l'elemento da rimuovere, l'esito (`\"Elemento rimosso\"` se presente o `\"Elemento non presente\"` se assente) e lo stack dopo la rimozione, secondo il formato esatto:\n   ```text\n   Stack originale: <elementi da cima a fondo>\n   Elemento da rimuovere: <el>\n   <Elemento rimosso | Elemento non presente>\n   Stack dopo rim.: <elementi da cima a fondo>\n   ```\n\n#### Casi di test da verificare nel `main()`:\n1. Elemento da rimuovere: `\"ciao\"`; Stack: vuoto.\n2. Elemento da rimuovere: `\"ciao\"`; Stack contenente il solo elemento: `\"ciao\"`.\n3. Elemento da rimuovere: `\"ciao\"`; Stack contenente gli elementi inseriti nell'ordine: `\"ciao\"`, `\"bella\"`, `\"gente\"`, `\"bella\"`, `\"va\"` (dunque con `\"va\"` in cima).\n4. Elemento da rimuovere: `\"bella\"`; Stack contenente gli elementi inseriti nell'ordine: `\"bella\"`, `\"gente\"`, `\"bella\"`, `\"va\"` (dunque con `\"va\"` in cima).\n\n> **Nota Esame:** All'esame pratico di PSD sarà richiesto anche di scrivere/completare il file `makefile` per compilare il progetto multi-file (`gcc -c ...` e link finale).",
+    "tag": [
+      "pile",
+      "adt",
+      "rimozione",
+      "psd"
+    ],
+    "activeFile": "main.c",
+    "files": [
+      {
+        "name": "main.c",
+        "readOnly": false,
+        "content": "#include <stdio.h>\n#include <stdlib.h>\n#include \"item.h\"\n#include \"stack.h\"\n\n// Rimuove la prima occorrenza di el dallo stack s.\n// Restituisce 1 se l'elemento e' stato trovato e rimosso, 0 altrimenti.\nint rimuoviElemento(Stack s, Item el) {\n    // TODO: Scrivi qui il tuo codice\n}\n\nint main() {\n    // TODO: Istanzia gli stack di test richiesti nella traccia e testa la rimozione\n    \n    return 0;\n}\n"
+      },
+      {
+        "name": "stack.h",
+        "readOnly": true,
+        "content": "#include \"item.h\"\r\n\r\ntypedef struct stack *Stack;\r\n\r\nStack newStack(); \r\nint isEmptyStack(Stack); \r\nint push(Stack, Item);\r\nint pop(Stack);\r\nItem top(Stack);\r\nvoid printStack(Stack);\r\n"
+      },
+      {
+        "name": "stack.c",
+        "readOnly": true,
+        "content": "#include <stdio.h>\r\n#include <stdlib.h>\r\n#include \"stack.h\"\r\n#define MAXSTACK 50\r\n\r\nstruct stack {\r\n\tItem elements[MAXSTACK];\r\n\tint top;\r\n};\r\n\r\nStack newStack(){\r\n\tStack s = malloc(sizeof(struct stack));\r\n\ts->top = 0;\r\n\treturn s;\r\n}\r\n\r\nint isEmptyStack(Stack s){\r\n\treturn (s->top==0);\r\n} \r\n\r\nint push(Stack s, Item item){\r\n\tif (s->top>=MAXSTACK)\r\n\t\treturn 0;\r\n\ts->elements[s->top]=item;\r\n\ts->top++;\r\n\treturn 1;\r\n}\r\n\r\nint pop(Stack s){\r\n\tif(isEmptyStack(s))\r\n\t\treturn 0;\r\n\ts->top--;\r\n\treturn 1;\r\n}\r\n\r\nItem top(Stack s){\r\n\tif(isEmptyStack(s))\r\n\t\treturn NULL;\r\n\treturn s->elements[s->top-1];\r\n}\r\n\r\nvoid printStack(Stack s){\r\n\tint i;\r\n\tfor(i=s->top-1; i>=0; i--){\r\n\t\toutputItem(s->elements[i]);\r\n\t}\r\n}"
+      },
+      {
+        "name": "item.h",
+        "readOnly": true,
+        "content": "#ifndef ITEM_H\n#define ITEM_H\n\ntypedef void *Item;\n\nItem inputItem();\nvoid outputItem(Item item);\nint cmpItem(Item item1, Item item2);\nItem cloneItem(Item item);\n\n#endif\n"
+      },
+      {
+        "name": "item-string.c",
+        "readOnly": true,
+        "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include \"item.h\"\n\n#define MAXSTRING 100\n\nItem inputItem() {\n    char *p = malloc(sizeof(char) * MAXSTRING);\n    if (scanf(\"%s\", p) != 1) return NULL;\n    return p;\n}\n\nvoid outputItem(Item item) {\n    if (item == NULL) return;\n    char *p = (char *)item;\n    printf(\"%s \", p);\n}\n\nint cmpItem(Item item1, Item item2) {\n    char *p1 = (char *)item1;\n    char *p2 = (char *)item2;\n    return strcmp(p1, p2);\n}\n\nItem cloneItem(Item item) {\n    if (item == NULL) return NULL;\n    char *val = (char *)item;\n    char *p = malloc(strlen(val) + 1);\n    strcpy(p, val);\n    return p;\n}\n"
+      }
+    ],
+    "test_cases": [
+      {
+        "stdin": "",
+        "expected": "Stack originale: \nElemento da rimuovere: ciao \nElemento non presente\nStack dopo rim.: \n\nStack originale: ciao \nElemento da rimuovere: ciao \nElemento rimosso\nStack dopo rim.: \n\nStack originale: va bella gente bella ciao \nElemento da rimuovere: ciao \nElemento rimosso\nStack dopo rim.: va bella gente bella \n\nStack originale: va bella gente bella \nElemento da rimuovere: bella \nElemento rimosso\nStack dopo rim.: va gente bella \n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### ADT Queue: Spostamento dell'Elemento Minimo in Testa (spostaMinimo)\n\nSi implementi all'interno del file `main.c` la procedura per l'**ADT Queue**:\n\n```c\nvoid spostaMinimo(Queue q);\n```\n\n#### Specifiche:\n1. La procedura cerca l'**elemento di valore minimo** nella coda `q` e lo **sposta alla testa** (fronte) della coda:\n   - Nel caso in cui siano presenti più elementi minimi uguali, individua e sposta **soltanto il primo**.\n   - Tutti gli altri elementi devono conservare il loro ordine relativo originale.\n2. **Vincoli importanti**:\n   - Modificare direttamente la coda `q` passata come parametro (**NON restituire una nuova coda**).\n   - **NON utilizzare algoritmi di ordinamento** (come MergeSort o QuickSort).\n   - Utilizzare esclusivamente gli operatori di base dell'ADT Queue (`enqueue`, `dequeue`, `isEmptyQueue`). Le definizioni dei moduli dell'ADT sono consultabili nelle schede in sola lettura.\n3. Nel `main()`, verificare il comportamento della procedura stampando la coda prima e dopo la modifica nel seguente formato esatto:\n   ```text\n   Coda originale : <elementi>\n   Coda modificata: <elementi>\n   ```\n\n#### Casi di test da verificare nel `main()`:\n1. Una coda vuota.\n2. Una coda contenente il solo elemento `\"ciao\"`.\n3. Una coda contenente gli elementi inseriti nell'ordine: `\"ciao\"`, `\"bella\"`, `\"casa\"`.\n4. Una coda contenente gli elementi inseriti nell'ordine: `\"ciao\"`, `\"bella\"`, `\"gente\"`, `\"bella\"`, `\"va\"`.\n\n> **Nota Esame:** All'esame pratico di PSD sarà richiesto anche di scrivere/completare il file `makefile` per compilare il progetto multi-file (`gcc -c ...` e link finale).",
+    "tag": [
+      "code",
+      "adt",
+      "minimo",
+      "spostamento",
+      "psd"
+    ],
+    "activeFile": "main.c",
+    "files": [
+      {
+        "name": "main.c",
+        "readOnly": false,
+        "content": "#include <stdio.h>\n#include <stdlib.h>\n#include \"item.h\"\n#include \"queue.h\"\n\n// Cerca l'elemento minimo e lo sposta alla testa della coda\nvoid spostaMinimo(Queue q) {\n    // TODO: Scrivi qui il tuo codice\n}\n\nint main() {\n    // TODO: Istanzia le code di test richieste nella traccia e stampa i risultati prima e dopo spostaMinimo\n    \n    return 0;\n}\n"
+      },
+      {
+        "name": "queue.h",
+        "readOnly": true,
+        "content": "#include \"item.h\"\r\n\r\ntypedef struct queue *Queue;\r\n\r\nQueue newQueue();\r\nint isEmptyQueue(Queue);\r\nint enqueue(Queue, Item);\r\nItem dequeue(Queue);\r\nvoid printQueue(Queue);\r\n"
+      },
+      {
+        "name": "queue.c",
+        "readOnly": true,
+        "content": "#include <stdio.h>\r\n#include <stdlib.h>\r\n#include \"queue.h\"\r\n\r\n#define MAX_QUEUE 6\r\n\r\nstruct queue {\r\n\tint head;\r\n\tint tail;\r\n\tItem elements[MAX_QUEUE];\r\n};\r\n\r\nQueue newQueue(){\r\n\tQueue q = malloc(sizeof(struct queue));\r\n\tq->head = 0;\r\n\tq->tail = 0;\r\n\treturn q;\r\n}\r\n\r\nint isEmptyQueue(Queue q){\r\n\treturn (q->head == q->tail);\r\n}\r\n\r\nint enqueue(Queue q, Item item){\r\n\tif((q->tail+1)%MAX_QUEUE == q->head)\r\n\t\treturn 0;\r\n\r\n\tq->elements[q->tail] = item;\r\n\tq->tail = (q->tail + 1)%MAX_QUEUE;\r\n\treturn 1;\r\n}\r\n\r\nItem dequeue(Queue q){\r\n\tif (isEmptyQueue(q))\r\n\t\treturn NULL;\r\n\r\n\tItem temp;\r\n\ttemp = q->elements[q->head];\r\n\tq->head = (q->head +1)%MAX_QUEUE;\r\n\r\n\treturn temp;\r\n}\r\nvoid printQueue(Queue q){\r\n\tint i;\r\n\tfor (i = q->head; i != q->tail; i = (i+1)%MAX_QUEUE) {\r\n\t\toutputItem(q->elements[i]);\r\n\t}\r\n}\r\n"
+      },
+      {
+        "name": "item.h",
+        "readOnly": true,
+        "content": "#ifndef ITEM_H\n#define ITEM_H\n\ntypedef void *Item;\n\nItem inputItem();\nvoid outputItem(Item item);\nint cmpItem(Item item1, Item item2);\nItem cloneItem(Item item);\n\n#endif\n"
+      },
+      {
+        "name": "item-string.c",
+        "readOnly": true,
+        "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include \"item.h\"\n\n#define MAXSTRING 100\n\nItem inputItem() {\n    char *p = malloc(sizeof(char) * MAXSTRING);\n    if (scanf(\"%s\", p) != 1) return NULL;\n    return p;\n}\n\nvoid outputItem(Item item) {\n    if (item == NULL) return;\n    char *p = (char *)item;\n    printf(\"%s \", p);\n}\n\nint cmpItem(Item item1, Item item2) {\n    char *p1 = (char *)item1;\n    char *p2 = (char *)item2;\n    return strcmp(p1, p2);\n}\n\nItem cloneItem(Item item) {\n    if (item == NULL) return NULL;\n    char *val = (char *)item;\n    char *p = malloc(strlen(val) + 1);\n    strcpy(p, val);\n    return p;\n}\n"
+      }
+    ],
+    "test_cases": [
+      {
+        "stdin": "",
+        "expected": "Coda originale : \nCoda modificata: \n\nCoda originale : ciao \nCoda modificata: ciao \n\nCoda originale : ciao bella casa \nCoda modificata: bella ciao casa \n\nCoda originale : ciao bella gente bella va \nCoda modificata: bella ciao gente bella va \n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### ADT BTree: Verifica Ordinamento Padre-Figli (checkTree)\n\nSi implementi all'interno del file `main.c` la funzione ricorsiva per l'**ADT BTree**:\n\n```c\nint checkTree(BTree b);\n```\n\n#### Specifiche:\n1. La funzione riceve in input un albero binario `b` e restituisce `1` (`true`) se, per **ogni nodo dell'albero**, sono verificate le seguenti condizioni:\n   - il figlio sinistro ha un valore **minore o uguale** a quello del padre (oppure è assente);\n   - il figlio destro ha un valore **maggiore o uguale** a quello del padre (oppure è assente);\n   Altrimenti restituisce `0` (`false`).\n2. **Vincoli importanti**:\n   - L'algoritmo deve essere implementato mediante tecnica **ricorsiva**.\n   - Utilizzare esclusivamente le operazioni dell'interfaccia pubblica dell'ADT BTree (`btree.h`).\n3. Nel `main()`, verificare il corretto funzionamento della funzione stampando per ciascun albero di test l'eventuale struttura dell'albero e l'esito del controllo nel formato esatto:\n   ```text\n   Albero:\n   <eventuale rappresentazione>\n   checkTree: <true | false>\n   ```\n\n#### Casi di test da verificare nel `main()`:\n1. Un albero vuoto.\n2. Un albero consistente della sola radice contenente il valore `\"2\"`.\n3. Un albero istanziato con la seguente struttura:\n   ```text\n         7\n        / \\\n       3   9\n      / \\\n     1   5\n   ```\n\n> **Nota Esame:** All'esame pratico di PSD sarà richiesto anche di scrivere/completare il file `makefile` per compilare il progetto multi-file (`gcc -c ...` e link finale).",
+    "tag": [
+      "alberi",
+      "ricorsione",
+      "adt",
+      "ordinamento",
+      "psd"
+    ],
+    "activeFile": "main.c",
+    "files": [
+      {
+        "name": "main.c",
+        "readOnly": false,
+        "content": "#include <stdio.h>\n#include <stdlib.h>\n#include \"item.h\"\n#include \"btree.h\"\n\n// Restituisce 1 (true) se per ogni nodo:\n// - il figlio sinistro e' <= padre (o assente)\n// - il figlio destro e' >= padre (o assente)\n// Restituisce 0 (false) altrimenti.\nint checkTree(BTree b) {\n    // TODO: Scrivi qui il tuo codice ricorsivo\n}\n\nint main() {\n    // TODO: Istanzia gli alberi di test richiesti nella traccia e stampa i risultati di checkTree\n    \n    return 0;\n}\n"
+      },
+      {
+        "name": "btree.h",
+        "readOnly": true,
+        "content": "#include \"item.h\"\r\n\r\ntypedef struct node *BTree;\r\n\r\nBTree newTree();\r\nint isEmptyTree(BTree);\r\nBTree buildTree(BTree, BTree, Item);\r\nItem getBTreeRoot(BTree);\r\nBTree getLeft(BTree);\r\nBTree getRight(BTree);\r\nvoid preOrder(BTree);\r\nvoid postOrder(BTree);\r\nvoid inOrder(BTree);"
+      },
+      {
+        "name": "btree.c",
+        "readOnly": true,
+        "content": "#include <stdio.h>\r\n#include <stdlib.h>\r\n#include \"btree.h\"\r\n#include \"item.h\"\r\n\r\nstruct node{\r\n\tItem value;\r\n\tstruct node *left;\r\n\tstruct node *right;\r\n};\r\n\r\nBTree newTree(){\r\n\r\n\treturn NULL;\r\n}\r\n\r\nint isEmptyTree(BTree t){\r\n\tif(t==NULL)\r\n\t\treturn 1;\r\n\treturn 0;\r\n}\r\n\r\nBTree buildTree(BTree l, BTree r, Item value){\r\n\tBTree t=malloc(sizeof(struct node));\r\n\tt->left=l;\r\n\tt->right=r;\r\n\tt->value=value;\r\n\treturn t;\r\n\r\n}\r\n\r\nItem getBTreeRoot(BTree t){\r\n\tif(!isEmptyTree(t))\r\n\t\treturn t->value;\r\n\treturn NULL;\r\n}\r\n\r\nBTree getLeft(BTree t){\r\n\tif(!isEmptyTree(t))\r\n\t\treturn t->left;\r\n\treturn NULL;\r\n}\r\n\r\nBTree getRight(BTree t){\r\n\tif(!isEmptyTree(t))\r\n\t\treturn t->right;\r\n\treturn NULL;\r\n\r\n}\r\n\r\nvoid preOrder(BTree t){\r\n\tif(!isEmptyTree(t)){\r\n\t\toutputItem(t->value);\r\n\t\tpreOrder(t->left);\r\n\t\tpreOrder(t->right);\r\n\t}\r\n\r\n}\r\nvoid postOrder(BTree t){\r\n\tif(!isEmptyTree(t)){\r\n\t\tpostOrder(t->left);\r\n\t\tpostOrder(t->right);\r\n\t\toutputItem(t->value);\r\n\t}\r\n}\r\n\r\nvoid inOrder(BTree t){\r\n\tif(!isEmptyTree(t)){\r\n\t\t\r\n\t\tinOrder(t->left);\r\n\t\toutputItem(t->value);\r\n\t\tinOrder(t->right);\r\n\t}\r\n\r\n}"
+      },
+      {
+        "name": "item.h",
+        "readOnly": true,
+        "content": "#ifndef ITEM_H\n#define ITEM_H\n\ntypedef void *Item;\n\nItem inputItem();\nvoid outputItem(Item item);\nint cmpItem(Item item1, Item item2);\nItem cloneItem(Item item);\n\n#endif\n"
+      },
+      {
+        "name": "item-string.c",
+        "readOnly": true,
+        "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include \"item.h\"\n\n#define MAXSTRING 100\n\nItem inputItem() {\n    char *p = malloc(sizeof(char) * MAXSTRING);\n    if (scanf(\"%s\", p) != 1) return NULL;\n    return p;\n}\n\nvoid outputItem(Item item) {\n    if (item == NULL) return;\n    char *p = (char *)item;\n    printf(\"%s \", p);\n}\n\nint cmpItem(Item item1, Item item2) {\n    char *p1 = (char *)item1;\n    char *p2 = (char *)item2;\n    return strcmp(p1, p2);\n}\n\nItem cloneItem(Item item) {\n    if (item == NULL) return NULL;\n    char *val = (char *)item;\n    char *p = malloc(strlen(val) + 1);\n    strcpy(p, val);\n    return p;\n}\n"
+      }
+    ],
+    "test_cases": [
+      {
+        "stdin": "",
+        "expected": "Albero:\ncheckTree: true\n\nAlbero:\n2\ncheckTree: true\n\nAlbero:\n    7\n   / \\\n  3   9\n / \\\n1   5\ncheckTree: true\n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### ADT Queue: Confronto di Uguaglianza con Array (queueArrayEquals)\n\nAll'interno del file `main.c`, implementare le funzioni per l'**ADT Queue** e il `main` di test:\n\n```c\nint queueArrayEquals(Queue q, Item arr[], int n);\nvoid queueArrayEqualsPrint(Queue q, Item arr[], int n);\n```\n\n#### Specifiche delle Funzioni:\n1. `int queueArrayEquals(Queue q, Item arr[], int n)`:\n   - Prende in input una coda `q`, un array `arr` di `Item` e il numero di elementi `n` dell'array.\n   - Restituisce `1` (`vero`) se coda ed array contengono esattamente gli stessi elementi nello stesso ordine, `0` (`falso`) altrimenti.\n   - **Vincolo fondamentale**: al termine dell'esecuzione della funzione, la **coda originale deve risultare ancora composta dagli stessi elementi e nello stesso ordine originale**.\n2. `void queueArrayEqualsPrint(Queue q, Item arr[], int n)`:\n   - Stampa la coda originale, l'array originale, l'esito del confronto (`\"uguali\"` o `\"diversi\"`), e stampa nuovamente coda ed array per verifica nel seguente formato esatto:\n     ```text\n     Coda (prima): <elementi>\n     Array (prima): <elementi>\n     Confronto coda e array: <uguali | diversi>\n     Coda (dopo): <elementi>\n     Array (dopo): <elementi>\n     ```\n\n#### Casi di test da verificare nel `main()`:\n1. Coda vuota; Array vuoto (`n = 0`).\n2. Coda: `\"ciao\"`; Array: `\"ciao\"`.\n3. Coda: `\"ciao\"`; Array: `\"ciao\"`, `\"bella\"`.\n4. Coda: `\"ciao\"`, `\"bella\"`; Array: `\"ciao\"`, `\"bella\"`.\n5. Coda: `\"ciao\"`, `\"bella\"`, `\"gente\"`; Array: `\"ciao\"`, `\"brutta\"`, `\"gente\"`.\n\n> **Nota Esame:** All'esame pratico di PSD sarà richiesto anche di scrivere/completare il file `makefile` per compilare il progetto multi-file (`gcc -c ...` e link finale).",
+    "tag": [
+      "code",
+      "vettori",
+      "adt",
+      "confronto",
+      "psd"
+    ],
+    "activeFile": "main.c",
+    "files": [
+      {
+        "name": "main.c",
+        "readOnly": false,
+        "content": "#include <stdio.h>\n#include <stdlib.h>\n#include \"item.h\"\n#include \"queue.h\"\n\n// Restituisce 1 se coda ed array contengono gli stessi elementi nello stesso ordine, 0 altrimenti.\n// La coda originale deve essere preservata al termine dell'esecuzione.\nint queueArrayEquals(Queue q, Item arr[], int n) {\n    // TODO: Scrivi qui il tuo codice\n}\n\n// Stampa coda prima, array prima, esito del confronto, coda dopo e array dopo\nvoid queueArrayEqualsPrint(Queue q, Item arr[], int n) {\n    // TODO: Scrivi qui il tuo codice\n}\n\nint main() {\n    // TODO: Istanzia le coppie coda-array richieste nella traccia e chiama queueArrayEqualsPrint\n    \n    return 0;\n}\n"
+      },
+      {
+        "name": "queue.h",
+        "readOnly": true,
+        "content": "#include \"item.h\"\r\n\r\ntypedef struct queue *Queue;\r\n\r\nQueue newQueue();\r\nint isEmptyQueue(Queue);\r\nint enqueue(Queue, Item);\r\nItem dequeue(Queue);\r\nvoid printQueue(Queue);\r\n"
+      },
+      {
+        "name": "queue.c",
+        "readOnly": true,
+        "content": "#include <stdio.h>\r\n#include <stdlib.h>\r\n#include \"queue.h\"\r\n\r\n#define MAX_QUEUE 6\r\n\r\nstruct queue {\r\n\tint head;\r\n\tint tail;\r\n\tItem elements[MAX_QUEUE];\r\n};\r\n\r\nQueue newQueue(){\r\n\tQueue q = malloc(sizeof(struct queue));\r\n\tq->head = 0;\r\n\tq->tail = 0;\r\n\treturn q;\r\n}\r\n\r\nint isEmptyQueue(Queue q){\r\n\treturn (q->head == q->tail);\r\n}\r\n\r\nint enqueue(Queue q, Item item){\r\n\tif((q->tail+1)%MAX_QUEUE == q->head)\r\n\t\treturn 0;\r\n\r\n\tq->elements[q->tail] = item;\r\n\tq->tail = (q->tail + 1)%MAX_QUEUE;\r\n\treturn 1;\r\n}\r\n\r\nItem dequeue(Queue q){\r\n\tif (isEmptyQueue(q))\r\n\t\treturn NULL;\r\n\r\n\tItem temp;\r\n\ttemp = q->elements[q->head];\r\n\tq->head = (q->head +1)%MAX_QUEUE;\r\n\r\n\treturn temp;\r\n}\r\nvoid printQueue(Queue q){\r\n\tint i;\r\n\tfor (i = q->head; i != q->tail; i = (i+1)%MAX_QUEUE) {\r\n\t\toutputItem(q->elements[i]);\r\n\t}\r\n}\r\n"
+      },
+      {
+        "name": "item.h",
+        "readOnly": true,
+        "content": "#ifndef ITEM_H\n#define ITEM_H\n\ntypedef void *Item;\n\nItem inputItem();\nvoid outputItem(Item item);\nint cmpItem(Item item1, Item item2);\nItem cloneItem(Item item);\n\n#endif\n"
+      },
+      {
+        "name": "item-string.c",
+        "readOnly": true,
+        "content": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include \"item.h\"\n\n#define MAXSTRING 100\n\nItem inputItem() {\n    char *p = malloc(sizeof(char) * MAXSTRING);\n    if (scanf(\"%s\", p) != 1) return NULL;\n    return p;\n}\n\nvoid outputItem(Item item) {\n    if (item == NULL) return;\n    char *p = (char *)item;\n    printf(\"%s \", p);\n}\n\nint cmpItem(Item item1, Item item2) {\n    char *p1 = (char *)item1;\n    char *p2 = (char *)item2;\n    return strcmp(p1, p2);\n}\n\nItem cloneItem(Item item) {\n    if (item == NULL) return NULL;\n    char *val = (char *)item;\n    char *p = malloc(strlen(val) + 1);\n    strcpy(p, val);\n    return p;\n}\n"
+      }
+    ],
+    "test_cases": [
+      {
+        "stdin": "",
+        "expected": "Coda (prima): \nArray (prima): \nConfronto coda e array: uguali\nCoda (dopo): \nArray (dopo): \n\nCoda (prima): ciao \nArray (prima): ciao \nConfronto coda e array: uguali\nCoda (dopo): ciao \nArray (dopo): ciao \n\nCoda (prima): ciao \nArray (prima): ciao bella \nConfronto coda e array: diversi\nCoda (dopo): ciao \nArray (dopo): ciao bella \n\nCoda (prima): ciao bella \nArray (prima): ciao bella \nConfronto coda e array: uguali\nCoda (dopo): ciao bella \nArray (dopo): ciao bella \n\nCoda (prima): ciao bella gente \nArray (prima): ciao brutta gente \nConfronto coda e array: diversi\nCoda (dopo): ciao bella gente \nArray (dopo): ciao brutta gente \n"
+      }
+    ]
+  }
+]

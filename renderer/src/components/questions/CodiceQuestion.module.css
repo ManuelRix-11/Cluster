@@ -10,6 +10,48 @@
   overflow: hidden;
   border: 1px solid var(--border);
   background: #1e1e1e; /* VSCode dark */
+  display: flex;
+  flex-direction: column;
+}
+
+.tabBar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 8px 0 8px;
+  background: #14141d;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  overflow-x: auto;
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-family: 'Fira Code', 'Cascadia Code', monospace;
+  font-size: 0.8rem;
+  color: var(--muted);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.tabActive {
+  color: #fff;
+  background: #1e1e1e;
+  border-bottom-color: var(--primary);
+  font-weight: 600;
 }
 
 .runBtn {

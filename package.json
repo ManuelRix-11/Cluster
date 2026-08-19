@@ -1,6 +1,6 @@
 {
   "name": "Cluster",
-  "version": "0.8.5",
+  "version": "0.9.0",
   "description": "Hub di studio e simulatore d'esami per Informatica Unisa",
   "author": "Emanuele Ragozzini",
   "license": "PolyForm-Strict-1.0.0",
@@ -8,7 +8,8 @@
   "type": "module",
   "scripts": {
     "start": "electron .",
-    "dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron .\"",
+    "dev": "concurrently \"vite --force\" \"wait-on http://localhost:5173 && electron .\"",
+    "dev:clean": "node -e \"fs.rmSync('node_modules/.vite', { recursive: true, force: true })\" && concurrently \"vite --force\" \"wait-on http://localhost:5173 && electron .\"",
     "build": "vite build && electron-builder --win --x64",
     "build:linux": "vite build && electron-builder --linux",
     "release": "vite build && electron-builder --win --x64 --publish always"
@@ -16,6 +17,7 @@
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",
     "electron-updater": "^6.8.9",
+    "highlight.js": "^11.12.0",
     "katex": "^0.16.11",
     "marked": "^18.0.9",
     "mermaid": "^11.4.1",
