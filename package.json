@@ -38,7 +38,7 @@
   },
   "build": {
     "appId": "com.cluster.desktop",
-    "productName": "Cluster — Informatica UNISA",
+    "productName": "Cluster",
     "icon": "assets/logoIUE.png",
     "publish": [
       {
@@ -58,7 +58,8 @@
       "Materiale_Esercizi/**"
     ],
     "win": {
-      "target": "nsis"
+      "target": "nsis",
+      "artifactName": "${productName}-Setup-${version}.${ext}"
     },
     "nsis": {
       "oneClick": false,
@@ -72,6 +73,7 @@
         "deb",
         "tar.gz"
       ],
+      "artifactName": "${productName}-${version}-${arch}.${ext}",
       "category": "Education"
     },
     "mac": {
@@ -79,6 +81,7 @@
         "dmg",
         "zip"
       ],
+      "artifactName": "${productName}-${version}-${arch}.${ext}",
       "category": "public.app-category.education"
     }
   },
