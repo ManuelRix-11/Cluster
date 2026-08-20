@@ -1,0 +1,648 @@
+[
+  {
+    "tipo": "multipla",
+    "domanda": "### Equivalenza Logica: Semplificazione di Implicazione Composta\n\nSi consideri la proposizione composta:\n$$[\\neg q \\land (p \\lor q)] \\to (s \\lor \\neg p)$$\n\nUtilizzando le equivalenze logiche fondamentali (eliminazione dell'implicazione, leggi di De Morgan, distributività, negazione e identità), a quale delle seguenti forme semplificate risulta logicamente equivalente?",
+    "risposta1": "$(p \\to q) \\lor s$",
+    "risposta2": "$(q \\to p) \\land s$",
+    "risposta3": "$\\neg p \\land (q \\lor s)$",
+    "risposta4": "$(p \\land \\neg q) \\to \\neg s$",
+    "corretta": "$(p \\to q) \\lor s$",
+    "spiegazione": "Svolgiamo la semplificazione passo dopo passo:\n1. **Eliminazione implicazione**: $[\\neg q \\land (p \\lor q)] \\to (s \\lor \\neg p) \\equiv \\neg [\\neg q \\land (p \\lor q)] \\lor (s \\lor \\neg p)$\n2. **De Morgan**: $\\equiv [\\neg\\neg q \\lor \\neg(p \\lor q)] \\lor (s \\lor \\neg p) \\equiv [q \\lor (\\neg p \\land \\neg q)] \\lor (s \\lor \\neg p)$\n3. **Distributività**: $q \\lor (\\neg p \\land \\neg q) \\equiv (q \\lor \\neg p) \\land (q \\lor \\neg q) \\equiv (q \\lor \\neg p) \\land \\mathbf{T} \\equiv q \\lor \\neg p$\n4. **Unione con il secondo disgiunto**: $(q \\lor \\neg p) \\lor (s \\lor \\neg p) \\equiv \\neg p \\lor q \\lor s$\n5. **Riformulazione come implicazione**: $(\\neg p \\lor q) \\lor s \\equiv (p \\to q) \\lor s$.\n\nLa proposizione è quindi equivalente a $(p \\to q) \\lor s$.",
+    "tag": [
+      "metodi matematici",
+      "equivalenze_logiche"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Studio di Tautologie: Disgiunzione di Implicazioni\n\nSi consideri la proposizione formale:\n$$\\Phi = ((p \\to r) \\land (q \\to r)) \\lor (p \\lor q)$$\n\nQuale delle seguenti argomentazioni dimostra rigorosamente che $\\Phi$ è una **tautologia**?",
+    "risposta1": "Se $(p \\lor q)$ è falso, allora $p \\equiv \\mathbf{F}$ e $q \\equiv \\mathbf{F}$; in tal caso $(p \\to r)$ e $(q \\to r)$ sono entrambe vere (implicazioni con premessa falsa), rendendo vera la loro congiunzione $((p \\to r) \\land (q \\to r))$. Dunque in ogni caso almeno un disgiunto è vero.",
+    "risposta2": "La proposizione è vera solo quando $r \\equiv \\mathbf{T}$, perché l'implicazione è falsa quando il conseguente è falso.",
+    "risposta3": "Applicando De Morgan si ottiene $\\neg p \\land \\neg q \\land \\neg r$, che non è mai soddisfacibile, quindi la formula non è una tautologia.",
+    "risposta4": "La formula assume valore falso nella riga in cui $p \\equiv \\mathbf{T}, q \\equiv \\mathbf{T}, r \\equiv \\mathbf{F}$.",
+    "corretta": "Se $(p \\lor q)$ è falso, allora $p \\equiv \\mathbf{F}$ e $q \\equiv \\mathbf{F}$; in tal caso $(p \\to r)$ e $(q \\to r)$ sono entrambe vere (implicazioni con premessa falsa), rendendo vera la loro congiunzione $((p \\to r) \\land (q \\to r))$. Dunque in ogni caso almeno un disgiunto è vero.",
+    "spiegazione": "Dimostrazione rigorosa:\n- $\\Phi$ è della forma $A \\lor B$, dove $A = ((p \\to r) \\land (q \\to r))$ e $B = (p \\lor q)$.\n- Se $B \\equiv \\mathbf{T}$, allora l'intera disgiunzione è banalmente vera ($\\mathbf{T}$).\n- Se $B \\equiv \\mathbf{F}$, allora $p \\lor q \\equiv \\mathbf{F} \\iff p \\equiv \\mathbf{F}$ e $q \\equiv \\mathbf{F}$.\n- Sostituendo in $A$: $(p \\to r) \\equiv (\\mathbf{F} \\to r) \\equiv \\mathbf{T}$ e $(q \\to r) \\equiv (\\mathbf{F} \\to r) \\equiv \\mathbf{T}$.\n- Di conseguenza, $A \\equiv \\mathbf{T} \\land \\mathbf{T} \\equiv \\mathbf{T}$.\n- Poiché per ogni assegnamento di verità almeno uno tra $A$ e $B$ è vero, $\\Phi \\equiv \\mathbf{T}$ è una **tautologia**.",
+    "tag": [
+      "metodi matematici",
+      "equivalenze_logiche"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Tautologie e Implicazioni Annidate\n\nSi dimostri mediante le regole del calcolo proposizionale se la seguente formula è una tautologia:\n$$(\\neg p) \\to ((p \\lor q) \\to q)$$\n\nQuale sequenza di equivalenze logiche stabilisce la correttezza dell'asserto?",
+    "risposta1": "$(\\neg p) \\to ((p \\lor q) \\to q) \\equiv \\neg(\\neg p) \\lor (\\neg(p \\lor q) \\lor q) \\equiv p \\lor ((\\neg p \\land \\neg q) \\lor q) \\equiv p \\lor ((\\neg p \\lor q) \\land (\\neg q \\lor q)) \\equiv p \\lor \\neg p \\lor q \\equiv \\mathbf{T} \\lor q \\equiv \\mathbf{T}$",
+    "risposta2": "$(\\neg p) \\to ((p \\lor q) \\to q) \\equiv p \\land (p \\lor q) \\land \\neg q \\equiv p \\land \\neg q \\equiv \\mathbf{F}$",
+    "risposta3": "$(\\neg p) \\to ((p \\lor q) \\to q) \\equiv \\neg p \\lor p \\lor q \\to q \\equiv q \\to q \\equiv p$",
+    "risposta4": "$(\\neg p) \\to ((p \\lor q) \\to q) \\equiv \\neg p \\land \\neg q \\to p \\equiv \\mathbf{F}$",
+    "corretta": "$(\\neg p) \\to ((p \\lor q) \\to q) \\equiv \\neg(\\neg p) \\lor (\\neg(p \\lor q) \\lor q) \\equiv p \\lor ((\\neg p \\land \\neg q) \\lor q) \\equiv p \\lor ((\\neg p \\lor q) \\land (\\neg q \\lor q)) \\equiv p \\lor \\neg p \\lor q \\equiv \\mathbf{T} \\lor q \\equiv \\mathbf{T}$",
+    "spiegazione": "Svolgimento formale:\n$$\\begin{aligned}\n(\\neg p) \\to ((p \\lor q) \\to q) &\\equiv \\neg(\\neg p) \\lor (\\neg(p \\lor q) \\lor q) && \\text{(Eliminazione implicazione)} \\\\\n&\\equiv p \\lor ((\\neg p \\land \\neg q) \\lor q) && \\text{(Doppia negazione e De Morgan)} \\\\\n&\\equiv p \\lor ((\\neg p \\lor q) \\land (\\neg q \\lor q)) && \\text{(Distributività di } \\lor \\text{ su } \\land) \\\\\n&\\equiv p \\lor ((\\neg p \\lor q) \\land \\mathbf{T}) && \\text{(Terzo escluso: } \\neg q \\lor q \\equiv \\mathbf{T}) \\\\\n&\\equiv p \\lor (\\neg p \\lor q) && \\text{(Identità)} \\\\\n&\\equiv (p \\lor \\neg p) \\lor q && \\text{(Associatività)} \\\\\n&\\equiv \\mathbf{T} \\lor q \\equiv \\mathbf{T} && \\text{(Dominazione)}\n\\end{aligned}$$\nLa proposizione è una tautologia.",
+    "tag": [
+      "metodi matematici",
+      "equivalenze_logiche"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Confronto di Formule: Distributività dell'Implicazione su Disgiunzione\n\nSi considerino le due proposizioni:\n$$\\Phi_1: (p \\lor q) \\to r, \\qquad \\Phi_2: (p \\to r) \\lor (q \\to r)$$\n\nQuale affermazione è **corretta** riguardo alla loro relazione logica?",
+    "risposta1": "$\\Phi_1$ e $\\Phi_2$ **NON sono equivalenti**: infatti $(p \\lor q) \\to r \\equiv (p \\to r) \\land (q \\to r)$. Il controesempio $p \\equiv \\mathbf{T}, q \\equiv \\mathbf{F}, r \\equiv \\mathbf{F}$ rende $\\Phi_1 \\equiv \\mathbf{F}$ ma $\\Phi_2 \\equiv \\mathbf{T}$.",
+    "risposta2": "$\\Phi_1$ e $\\Phi_2$ sono logicamente equivalenti per la legge di distributività di $\\to$ rispetto a $\\lor$.",
+    "risposta3": "$\\Phi_1$ è una tautologia mentre $\\Phi_2$ è una contraddizione.",
+    "risposta4": "$\\Phi_1 \\equiv \\Phi_2$ solo se $r \\equiv \\mathbf{F}$.",
+    "corretta": "$\\Phi_1$ e $\\Phi_2$ **NON sono equivalenti**: infatti $(p \\lor q) \\to r \\equiv (p \\to r) \\land (q \\to r)$. Il controesempio $p \\equiv \\mathbf{T}, q \\equiv \\mathbf{F}, r \\equiv \\mathbf{F}$ rende $\\Phi_1 \\equiv \\mathbf{F}$ ma $\\Phi_2 \\equiv \\mathbf{T}$.",
+    "spiegazione": "Dimostrazione formale:\n$$(p \\lor q) \\to r \\equiv \\neg(p \\lor q) \\lor r \\equiv (\\neg p \\land \\neg q) \\lor r \\equiv (\\neg p \\lor r) \\land (\\neg q \\lor r) \\equiv (p \\to r) \\land (q \\to r)$$\nNotiamo la presenza del connettivo $\\land$ (congiunzione), mentre $\\Phi_2$ presenta una disgiunzione $\\lor$.\n\nVerifica del controesempio con $p = \\mathbf{T}, q = \\mathbf{F}, r = \\mathbf{F}$:\n- $\\Phi_1: (\\mathbf{T} \\lor \\mathbf{F}) \\to \\mathbf{F} \\equiv \\mathbf{T} \\to \\mathbf{F} \\equiv \\mathbf{F}$.\n- $\\Phi_2: (\\mathbf{T} \\to \\mathbf{F}) \\lor (\\mathbf{F} \\to \\mathbf{F}) \\equiv \\mathbf{F} \\lor \\mathbf{T} \\equiv \\mathbf{T}$.\nPoiché i valori di verità differiscono, le due formule non sono logicamente equivalenti.",
+    "tag": [
+      "metodi matematici",
+      "equivalenze_logiche"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Variazioni dell'Implicazione: Inverso, Opposto e Contronominale\n\nSia data l'implicazione condizionale $p \\to q$ espressa dall'enunciato:\n*«Se $n > 5$ ed $n$ è dispari, allora $n$ è potenza di 3 o potenza di 5»*.\n\nIndicate con:\n- $p$: $(n > 5 \\land n \\text{ dispari})$\n- $q$: $(n \\text{ è potenza di 3} \\lor n \\text{ è potenza di 5})$\n\nQual è la corretta formulazione del **contronominale** (o contrapposto) $\\neg q \\to \\neg p$ in linguaggio naturale?",
+    "risposta1": "«Se $n$ non è potenza di 3 e non è potenza di 5, allora $n \\le 5$ oppure $n$ è pari».",
+    "risposta2": "«Se $n$ è potenza di 3 o potenza di 5, allora $n > 5$ ed $n$ è dispari».",
+    "risposta3": "«Se $n \\le 5$ ed $n$ è pari, allora $n$ non è potenza di 3 né di 5».",
+    "risposta4": "«Se $n$ non è potenza di 3 oppure non è potenza di 5, allora $n \\le 5$ ed $n$ è pari».",
+    "corretta": "«Se $n$ non è potenza di 3 e non è potenza di 5, allora $n \\le 5$ oppure $n$ è pari».",
+    "spiegazione": "Analisi logica dei termini:\n- Premessa $p: (n > 5) \\land (n \\text{ dispari})$.\n  La sua negazione $\\neg p$, per la legge di De Morgan, è: $\\neg(n > 5) \\lor \\neg(n \\text{ dispari}) \\equiv (n \\le 5) \\lor (n \\text{ pari})$.\n- Conseguente $q: (n \\text{ potenza di 3}) \\lor (n \\text{ potenza di 5})$.\n  La sua negazione $\\neg q$, per la legge di De Morgan, è: $\\neg(n \\text{ potenza di 3}) \\land \\neg(n \\text{ potenza di 5})$ («$n$ non è potenza di 3 **e** non è potenza di 5»).\n\nIl contronominale $\\neg q \\to \\neg p$ è dunque:\n«Se $n$ non è potenza di 3 e non è potenza di 5, allora $n \\le 5$ oppure $n$ è pari».",
+    "tag": [
+      "metodi matematici",
+      "equivalenze_logiche"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Tautologia: Implicazione tra Congiunzione e Implicazione\n\nSi consideri la proposizione:\n$$(p \\land q) \\to (p \\to q)$$\n\nDimostrare mediante le regole di equivalenza logica che si tratta di una **tautologia**.",
+    "risposta1": "$$(p \\land q) \\to (p \\to q) \\equiv \\neg(p \\land q) \\lor (\\neg p \\lor q) \\equiv (\\neg p \\lor \\neg q) \\lor \\neg p \\lor q \\equiv \\neg p \\lor (\\neg q \\lor q) \\equiv \\neg p \\lor \\mathbf{T} \\equiv \\mathbf{T}$$",
+    "risposta2": "$$(p \\land q) \\to (p \\to q) \\equiv (p \\land q) \\land (p \\land \\neg q) \\equiv \\mathbf{F}$$",
+    "risposta3": "$$(p \\land q) \\to (p \\to q) \\equiv p \\to (q \\land p) \\equiv q$$",
+    "risposta4": "$$(p \\land q) \\to (p \\to q) \\equiv \\neg p \\land \\neg q \\lor p \\equiv \\mathbf{T}$$ solo per $p \\equiv \\mathbf{T}$",
+    "corretta": "$$(p \\land q) \\to (p \\to q) \\equiv \\neg(p \\land q) \\lor (\\neg p \\lor q) \\equiv (\\neg p \\lor \\neg q) \\lor \\neg p \\lor q \\equiv \\neg p \\lor (\\neg q \\lor q) \\equiv \\neg p \\lor \\mathbf{T} \\equiv \\mathbf{T}$$",
+    "spiegazione": "Passaggi algebrici formali:\n1. Eliminazione delle implicazioni:\n   $$(p \\land q) \\to (p \\to q) \\equiv \\neg(p \\land q) \\lor (\\neg p \\lor q)$$\n2. Applicazione della legge di De Morgan al primo termine:\n   $$\\equiv (\\neg p \\lor \\neg q) \\lor (\\neg p \\lor q)$$\n3. Applicando associatività, commutatività e idempotenza per $\\lor$:\n   $$\\equiv (\\neg p \\lor \\neg p) \\lor (\\neg q \\lor q) \\equiv \\neg p \\lor \\mathbf{T} \\equiv \\mathbf{T}$$\nLa formula è identicamente vera (tautologia).",
+    "tag": [
+      "metodi matematici",
+      "equivalenze_logiche"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Legge di Esportazione e Implicazioni Multiple\n\nSi considerino le due proposizioni composte:\n$$\\Psi_1: (p \\land q) \\to r, \\qquad \\Psi_2: p \\to (q \\to r)$$\n\nQuale tra le seguenti affermazioni descrive correttamente la loro relazione logica?",
+    "risposta1": "$\\Psi_1$ e $\\Psi_2$ sono logicamente equivalenti ($\\Psi_1 \\equiv \\Psi_2$), entrambe equivalenti alla forma a disgiunzione $\\neg p \\lor \\neg q \\lor r$ (**Legge di Esportazione/Importazione**).",
+    "risposta2": "$\\Psi_1 \\implies \\Psi_2$, ma non vale il viceversa.",
+    "risposta3": "$\\Psi_1$ è una contraddizione se $r \\equiv \\mathbf{F}$, mentre $\\Psi_2$ è sempre una tautologia.",
+    "risposta4": "Le formule differiscono quando $p \\equiv \\mathbf{F}$ e $q \\equiv \\mathbf{T}$.",
+    "corretta": "$\\Psi_1$ e $\\Psi_2$ sono logicamente equivalenti ($\\Psi_1 \\equiv \\Psi_2$), entrambe equivalenti alla forma a disgiunzione $\\neg p \\lor \\neg q \\lor r$ (**Legge di Esportazione/Importazione**).",
+    "spiegazione": "Dimostrazione formale:\n- $\\Psi_1: (p \\land q) \\to r \\equiv \\neg(p \\land q) \\lor r \\equiv (\\neg p \\lor \\neg q) \\lor r \\equiv \\neg p \\lor \\neg q \\lor r$.\n- $\\Psi_2: p \\to (q \\to r) \\equiv \\neg p \\lor (q \\to r) \\equiv \\neg p \\lor (\\neg q \\lor r) \\equiv \\neg p \\lor \\neg q \\lor r$.\nPoiché entrambe si riducono alla medesima clausola disgiuntiva $\\neg p \\lor \\neg q \\lor r$, vale l'equivalenza logica $\\Psi_1 \\equiv \\Psi_2$ (nota come legge di esportazione).",
+    "tag": [
+      "metodi matematici",
+      "equivalenze_logiche"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Inferenza Logica con Quantificatori: Validità Deduttiva\n\nSiano $P(x)$ e $Q(x)$ predicati definiti su un dominio $D$, e sia $a \\in D$ un elemento fissato. Si considerino le due premesse:\n1. $\\exists x (Q(x) \\to P(x))$\n2. $Q(a)$\n\nÈ possibile concludere con certezza logica che $P(a)$ è vero? Qual è la motivazione rigorosa?",
+    "risposta1": "**No**, perché l'ipotesi $\\exists x(Q(x) \\to P(x))$ garantisce solo l'esistenza di *almeno un* elemento $x_0 \\in D$ che rende vera l'implicazione, ma tale $x_0$ non coincide necessariamente con la costante $a$. Di conseguenza $Q(a) \\to P(a)$ potrebbe essere falsa se $P(a) \\equiv \\mathbf{F}$.",
+    "risposta2": "**Sì**, per l'applicazione della regola di Modus Ponens su $\\exists x$.",
+    "risposta3": "**Sì**, perché $Q(a) \\equiv \\mathbf{T}$ implica che per tutti gli $x$ vale $P(x)$.",
+    "risposta4": "**No**, perché $Q(a)$ rende falsa l'intera congiunzione.",
+    "corretta": "**No**, perché l'ipotesi $\\exists x(Q(x) \\to P(x))$ garantisce solo l'esistenza di *almeno un* elemento $x_0 \\in D$ che rende vera l'implicazione, ma tale $x_0$ non coincide necessariamente con la costante $a$. Di conseguenza $Q(a) \\to P(a)$ potrebbe essere falsa se $P(a) \\equiv \\mathbf{F}$.",
+    "spiegazione": "Analisi formale:\n- La premessa $[\\exists x(Q(x) \\to P(x))] \\equiv \\mathbf{T}$ afferma che esiste $x_0 \\in D$ tale che $Q(x_0) \\to P(x_0) \\equiv \\mathbf{T}$.\n- La premessa $Q(a) \\equiv \\mathbf{T}$ specifica il valore di verità di $Q$ su una costante $a$.\n- Se $a \\neq x_0$, non abbiamo alcuna informazione sul valore di verità di $P(a)$. Se poniamo $P(a) \\equiv \\mathbf{F}$, l'implicazione $Q(a) \\to P(a)$ diventa $\\mathbf{T} \\to \\mathbf{F} \\equiv \\mathbf{F}$, il che non contraddice l'esistenza di un altro elemento $x_0$ (es. con $Q(x_0) \\equiv \\mathbf{F}$) che soddisfa $\\exists x(Q(x) \\to P(x))$.\n- Pertanto, **non** possiamo dedurre che $P(a)$ sia vero.",
+    "tag": [
+      "metodi matematici",
+      "predicati_quantificatori"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Inferenza Logica con Quantificatore Universale e Modus Tollens\n\nSiano $P(x)$ e $Q(x)$ predicati su un dominio $D$ e sia $a \\in D$. Si assuma che sia vera la proposizione:\n$$[\\forall x (Q(x) \\to P(x))] \\land \\neg P(a)$$\n\nQuale deduzione formale è corretta riguardo al valore di verità di $Q(a)$?",
+    "risposta1": "$Q(a)$ è **certamente falso** ($\\mathbf{F}$): per istanziazione universale su $a$, vale $Q(a) \\to P(a) \\equiv \\mathbf{T}$; poiché $\\neg P(a) \\equiv \\mathbf{T} \\implies P(a) \\equiv \\mathbf{F}$, per Modus Tollens deve risultare $Q(a) \\equiv \\mathbf{F}$.",
+    "risposta2": "$Q(a)$ è vero ($\\mathbf{T}$) per generalizzazione universale.",
+    "risposta3": "Non è possibile determinare il valore di verità di $Q(a)$ perché l'ipotesi riguarda $\\forall x$ e non specificamente $a$.",
+    "risposta4": "$Q(a)$ è falso solo se il dominio $D$ è finito.",
+    "corretta": "$Q(a)$ è **certamente falso** ($\\mathbf{F}$): per istanziazione universale su $a$, vale $Q(a) \\to P(a) \\equiv \\mathbf{T}$; poiché $\\neg P(a) \\equiv \\mathbf{T} \\implies P(a) \\equiv \\mathbf{F}$, per Modus Tollens deve risultare $Q(a) \\equiv \\mathbf{F}$.",
+    "spiegazione": "Dimostrazione formale:\n1. Dalla verità della congiunzione segue che $\\forall x (Q(x) \\to P(x)) \\equiv \\mathbf{T}$ e $\\neg P(a) \\equiv \\mathbf{T}$.\n2. Da $\\neg P(a) \\equiv \\mathbf{T}$ si ricava $P(a) \\equiv \\mathbf{F}$.\n3. Per la regola di istanziazione universale, da $\\forall x(Q(x) \\to P(x))$ segue l'istanza per $x = a$: $Q(a) \\to P(a) \\equiv \\mathbf{T}$.\n4. Sostituendo $P(a) \\equiv \\mathbf{F}$, otteniamo $Q(a) \\to \\mathbf{F} \\equiv \\mathbf{T}$, la cui tavola di verità impone necessariamente $Q(a) \\equiv \\mathbf{F}$.",
+    "tag": [
+      "metodi matematici",
+      "predicati_quantificatori"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Deduzione Predicativa con Esistenziale e Universale\n\nSiano $P(x), Q(x), R(x)$ predicati definiti su un medesimo dominio non vuoto $D$. Si assuma che siano **VERE** le seguenti premesse:\n1. $\\exists x [P(x) \\land Q(x)]$\n2. $\\forall x [Q(x) \\to R(x)]$\n\nPossiamo concludere formalmente che è **VERA** la proposizione $\\exists x [P(x) \\land R(x)]$?",
+    "risposta1": "**Sì**: dalla premessa (1) esiste un elemento $c \\in D$ tale che $P(c) \\land Q(c) \\equiv \\mathbf{T}$, quindi $P(c) \\equiv \\mathbf{T}$ e $Q(c) \\equiv \\mathbf{T}$. Dalla premessa (2), istanziando su $c$, si ha $Q(c) \\to R(c) \\equiv \\mathbf{T}$, da cui per Modus Ponens $R(c) \\equiv \\mathbf{T}$. Ne segue $P(c) \\land R(c) \\equiv \\mathbf{T}$, che dimostra $\\exists x [P(x) \\land R(x)]$.",
+    "risposta2": "**No**: perché l'elemento $x$ che rende vero $P(x) \\land Q(x)$ non può essere usato nell'implicazione universale.",
+    "risposta3": "**No**: l'inferenza è valida solo se $P(x)$ e $R(x)$ sono mutualmente esclusivi.",
+    "risposta4": "**Sì**, ma solo se il predicato $Q(x)$ è identicamente vero per tutti gli elementi del dominio.",
+    "corretta": "**Sì**: dalla premessa (1) esiste un elemento $c \\in D$ tale che $P(c) \\land Q(c) \\equiv \\mathbf{T}$, quindi $P(c) \\equiv \\mathbf{T}$ e $Q(c) \\equiv \\mathbf{T}$. Dalla premessa (2), istanziando su $c$, si ha $Q(c) \\to R(c) \\equiv \\mathbf{T}$, da cui per Modus Ponens $R(c) \\equiv \\mathbf{T}$. Ne segue $P(c) \\land R(c) \\equiv \\mathbf{T}$, che dimostra $\\exists x [P(x) \\land R(x)]$.",
+    "spiegazione": "Passaggi formali di deduzione naturale:\n1. $\\exists x [P(x) \\land Q(x)]$ (Premessa 1)\n2. Sia $c$ un elemento generico ottenuto per Istanziazione Esistenziale (con $c \\in D$):\n   $$P(c) \\land Q(c)$$\n3. Per semplificazione: $P(c) \\equiv \\mathbf{T}$ e $Q(c) \\equiv \\mathbf{T}$.\n4. $\\forall x [Q(x) \\to R(x)]$ (Premessa 2)\n5. Per Istanziazione Universale su $c$: $Q(c) \\to R(c)$.\n6. Applicando Modus Ponens con $Q(c)$ vero: $R(c) \\equiv \\mathbf{T}$.\n7. Per congiunzione di $P(c)$ e $R(c)$: $P(c) \\land R(c) \\equiv \\mathbf{T}$.\n8. Per Generalizzazione Esistenziale: $\\exists x [P(x) \\land R(x)]$.\nLa deduzione è logicamente valida.",
+    "tag": [
+      "metodi matematici",
+      "predicati_quantificatori"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Traduzione di Asserzioni Quantificate e Variazione del Dominio\n\nSi consideri l'asserzione in linguaggio naturale: *«Ogni italiano sogna di essere ricco»*.\nSiano definiti i predicati:\n- $I(x)$: «$x$ è un italiano»\n- $S(x)$: «$x$ sogna di essere ricco»\n\nCome si formalizza correttamente l'asserzione nei due distinti casi in cui il dominio del discorso $D$ sia rispettivamente: (1) l'insieme di tutti gli italiani; (2) l'insieme di tutte le persone del mondo?",
+    "risposta1": "(1) $\\forall x S(x)$; \\quad (2) $\\forall x (I(x) \\to S(x))$",
+    "risposta2": "(1) $\\forall x (I(x) \\land S(x))$; \\quad (2) $\\forall x (I(x) \\to S(x))$",
+    "risposta3": "(1) $\\forall x S(x)$; \\quad (2) $\\forall x (I(x) \\land S(x))$",
+    "risposta4": "(1) $\\exists x S(x)$; \\quad (2) $\\exists x (I(x) \\to S(x))$",
+    "corretta": "(1) $\\forall x S(x)$; \\quad (2) $\\forall x (I(x) \\to S(x))$",
+    "spiegazione": "Regola fondamentale di quantificazione e restrizione del dominio:\n1. Se il dominio è già ristretto a $D = \\text{Italiani}$, ogni elemento $x \\in D$ è un italiano per definizione. Quindi la proprietà «sogna di essere ricco» si applica a tutti gli elementi tramite: $\\forall x S(x)$.\n2. Se il dominio è esteso a $D = \\text{Persone}$, non tutte le persone sono italiane. L'affermazione richiede che la proprietà $S(x)$ valga a condizione che la persona sia italiana. La corretta formalizzazione usa l'**implicazione condizionale**: $\\forall x (I(x) \\to S(x))$.\n(Nota: usare la congiunzione $\\forall x(I(x) \\land S(x))$ significherebbe erroneamente affermare che tutte le persone al mondo sono italiane e sognano di essere ricche).",
+    "tag": [
+      "metodi matematici",
+      "predicati_quantificatori"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Negazione di Formule con Quantificatori Annidati\n\nSi consideri la formula del primo ordine:\n$$\\neg [\\exists x \\forall y (\\neg P(x,y) \\to Q(x,y))]$$\n\nApplicando le regole di De Morgan per i quantificatori e l'equivalenza dell'implicazione, quale delle seguenti espressioni presenta la negazione applicata **esclusivamente ai predicati atomici**?",
+    "risposta1": "$\\forall x \\exists y (\\neg P(x,y) \\land \\neg Q(x,y))$",
+    "risposta2": "$\\forall x \\forall y (P(x,y) \\lor Q(x,y))$",
+    "risposta3": "$\\exists x \\exists y (P(x,y) \\land \\neg Q(x,y))$",
+    "risposta4": "$\\forall x \\exists y (P(x,y) \\to \\neg Q(x,y))$",
+    "corretta": "$\\forall x \\exists y (\\neg P(x,y) \\land \\neg Q(x,y))$",
+    "spiegazione": "Svolgimento passo dopo passo:\n1. Portiamo la negazione oltre i quantificatori scambiando $\\exists$ con $\\forall$ e $\\forall$ con $\\exists$:\n   $$\\neg [\\exists x \\forall y (\\dots)] \\equiv \\forall x \\exists y \\neg [\\neg P(x,y) \\to Q(x,y)]$$\n2. Ricordiamo che la negazione dell'implicazione $\\neg(A \\to B)$ è equivalente a $A \\land \\neg B$:\n   $$\\neg [\\neg P(x,y) \\to Q(x,y)] \\equiv \\neg P(x,y) \\land \\neg Q(x,y)$$\n3. Otteniamo quindi:\n   $$\\forall x \\exists y (\\neg P(x,y) \\land \\neg Q(x,y))$$",
+    "tag": [
+      "metodi matematici",
+      "predicati_quantificatori"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Espansione di Quantificatori su Domini Finiti\n\nSi consideri la funzione proposizionale $P(x,y,z)$ avente dominio:\n$$D = \\{1, 3\\} \\times \\{1, 4\\} \\times \\{5, 6, 7\\}$$\n\nCome si riscrive formalmente la proposizione $\\forall x \\forall y \\exists z P(x,y,z)$ utilizzando **esclusivamente** congiunzioni ($\\land$) e disgiunzioni ($\\lor$)?",
+    "risposta1": "$[P(1,1,5) \\lor P(1,1,6) \\lor P(1,1,7)] \\land [P(1,4,5) \\lor P(1,4,6) \\lor P(1,4,7)] \\land [P(3,1,5) \\lor P(3,1,6) \\lor P(3,1,7)] \\land [P(3,4,5) \\lor P(3,4,6) \\lor P(3,4,7)]$",
+    "risposta2": "$[P(1,1,5) \\land P(1,1,6) \\land P(1,1,7)] \\lor [P(1,4,5) \\land P(1,4,6) \\land P(1,4,7)] \\lor [P(3,1,5) \\land P(3,1,6) \\land P(3,1,7)] \\lor [P(3,4,5) \\land P(3,4,6) \\land P(3,4,7)]$",
+    "risposta3": "$P(1,1,5) \\lor P(3,4,7)$",
+    "risposta4": "$[P(1,1,5) \\land P(3,1,5)] \\lor [P(1,4,6) \\land P(3,4,6)] \\lor [P(1,4,7) \\land P(3,4,7)]$",
+    "corretta": "$[P(1,1,5) \\lor P(1,1,6) \\lor P(1,1,7)] \\land [P(1,4,5) \\lor P(1,4,6) \\lor P(1,4,7)] \\land [P(3,1,5) \\lor P(3,1,6) \\lor P(3,1,7)] \\land [P(3,4,5) \\lor P(3,4,6) \\lor P(3,4,7)]$",
+    "spiegazione": "Regola di espansione:\n- Il quantificatore universale $\\forall$ su un dominio finito corrisponde alla congiunzione $\\land$.\n- Il quantificatore esistenziale $\\exists$ su un dominio finito corrisponde alla disgiunzione $\\lor$.\n\nSvolgiamo dall'esterno verso l'interno:\n1. $\\forall x \\in \\{1, 3\\} \\implies [\\forall y \\exists z P(1, y, z)] \\land [\\forall y \\exists z P(3, y, z)]$\n2. Per ciascun $x$, espandiamo $\\forall y \\in \\{1, 4\\}$:\n   $$[\\exists z P(1,1,z) \\land \\exists z P(1,4,z)] \\land [\\exists z P(3,1,z) \\land \\exists z P(3,4,z)]$$\n3. Per ciascuna coppia $(x, y)$, espandiamo $\\exists z \\in \\{5, 6, 7\\}$ come disgiunzione:\n   $$\\exists z P(x, y, z) = P(x, y, 5) \\lor P(x, y, 6) \\lor P(x, y, 7)$$\n\nUnendo le espressioni otteniamo esattamente la congiunzione dei 4 blocchi disgiuntivi.",
+    "tag": [
+      "metodi matematici",
+      "predicati_quantificatori"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Quantificazione su Dominio Vuoto (Verità Vacua)\n\nSia $\\mathbb{N} = \\{0, 1, 2, \\dots\\}$ l'insieme degli interi non negativi. Si consideri l'asserzione:\n$$\\forall x \\in \\{y \\in \\mathbb{N} \\mid y^2 < 0\\}, \\; \\exists z \\in \\mathbb{N} \\; (x + z = 0)$$\n\nQual è il valore di verità di tale asserzione e qual è la giustificazione teorica corretta?",
+    "risposta1": "L'asserzione è **VERA** (vacuamente vera): l'insieme $D = \\{y \\in \\mathbb{N} \\mid y^2 < 0\\}$ è l'insieme vuoto $\\emptyset$. La quantificazione universale su un insieme vuoto $\\forall x \\in \\emptyset, P(x)$ equivale all'implicazione $(x \\in \\emptyset \\to P(x))$, la cui premessa è sempre falsa ($\\mathbf{F} \\to \\dots \\equiv \\mathbf{T}$).",
+    "risposta2": "L'asserzione è **FALSA** perché nessun numero naturale elevato al quadrato è minore di 0.",
+    "risposta3": "L'asserzione è **INDETERMINATA** perché non è possibile trovare il valore di $z$.",
+    "risposta4": "L'asserzione è **FALSA** perché $x + z = 0$ ammette soluzione in $\\mathbb{N}$ solo per $x=0, z=0$, ma $0^2 < 0$ è falso.",
+    "corretta": "L'asserzione è **VERA** (vacuamente vera): l'insieme $D = \\{y \\in \\mathbb{N} \\mid y^2 < 0\\}$ è l'insieme vuoto $\\emptyset$. La quantificazione universale su un insieme vuoto $\\forall x \\in \\emptyset, P(x)$ equivale all'implicazione $(x \\in \\emptyset \\to P(x))$, la cui premessa è sempre falsa ($\\mathbf{F} \\to \\dots \\equiv \\mathbf{T}$).",
+    "spiegazione": "Dimostrazione formale:\n- Il dominio della quantificazione è l'insieme $S = \\{y \\in \\mathbb{N} \\mid y^2 < 0\\}$. Poiché per ogni $y \\in \\mathbb{N}$ vale $y^2 \\ge 0$, l'insieme $S$ non contiene alcun elemento, ovvero $S = \\emptyset$.\n- La proposizione $\\forall x \\in S, P(x)$ per definizione logica equivale a $\\forall x (x \\in S \\to P(x))$.\n- Poiché la proposizione $(x \\in \\emptyset)$ è identicamente FALSA per ogni $x$, l'implicazione $\\mathbf{F} \\to P(x)$ ha premessa falsa ed è pertanto identicamente VERA ($\\mathbf{T}$) per qualsiasi predicato $P(x)$.\n- L'asserzione è quindi **vacuamente vera**.",
+    "tag": [
+      "metodi matematici",
+      "predicati_quantificatori"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Insieme di Verità di un Predicato Condizionale\n\nFissato il dominio $\\mathbb{Z}^+ = \\{1, 2, 3, \\dots\\}$ dei numeri interi positivi, sia dato il predicato:\n$$P(x): x > 3 \\to x^2 < 16$$\n\nSi determini l'insieme di verità $A = \\{x \\in \\mathbb{Z}^+ \\mid P(x)\\}$ e il suo complemento $\\overline{A} = \\mathbb{Z}^+ \\setminus A$.",
+    "risposta1": "$A = \\{1, 2, 3\\}$ e $\\overline{A} = \\{x \\in \\mathbb{Z}^+ \\mid x \\ge 4\\} = \\{4, 5, 6, \\dots\\}$",
+    "risposta2": "$A = \\{1, 2, 3, 4\\}$ e $\\overline{A} = \\{5, 6, 7, \\dots\\}$",
+    "risposta3": "$A = \\emptyset$ e $\\overline{A} = \\mathbb{Z}^+$",
+    "risposta4": "$A = \\{4, 5, 6, \\dots\\}$ e $\\overline{A} = \\{1, 2, 3\\}$",
+    "corretta": "$A = \\{1, 2, 3\\}$ e $\\overline{A} = \\{x \\in \\mathbb{Z}^+ \\mid x \\ge 4\\} = \\{4, 5, 6, \\dots\\}$",
+    "spiegazione": "Ricordiamo la tavola di verità dell'implicazione $A(x) \\to B(x)$:\n- Essa è **FALSA** se e solo se la premessa è vera e la conclusione è falsa ($A(x) \\equiv \\mathbf{T} \\land B(x) \\equiv \\mathbf{F}$).\n- Premessa: $x > 3$.\n- Conclusione: $x^2 < 16 \\iff x < 4$ (essendo $x \\in \\mathbb{Z}^+$).\n\nValutiamo i casi per $x \\in \\mathbb{Z}^+$:\n1. Se $x \\in \\{1, 2, 3\\}$: la premessa $x > 3$ è FALSA, quindi l'implicazione è **VERA** ($\\mathbf{F} \\to \\dots \\equiv \\mathbf{T}$). Dunque $\\{1, 2, 3\\} \\subseteq A$.\n2. Se $x \\ge 4$: la premessa $x > 3$ è VERA, ma la conclusione $x^2 < 16$ è FALSA (poiché $4^2 = 16 \\not< 16$, $5^2 = 25 \\not< 16$, ecc.). Dunque per $x \\ge 4$ l'implicazione è $\\mathbf{T} \\to \\mathbf{F} \\equiv \\mathbf{F}$, quindi $x \\notin A$.\n\nPertanto:\n$$A = \\{1, 2, 3\\}, \\qquad \\overline{A} = \\{4, 5, 6, \\dots\\}$$",
+    "tag": [
+      "metodi matematici",
+      "insiemi_predicati"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Insieme di Verità con Predicato Auto-Contraddittorio\n\nSia $P(x)$ il predicato condizionale definito sul dominio $\\mathbb{N} = \\{0, 1, 2, \\dots\\}$ da:\n$$P(x): x > 7 \\to x < 7$$\n\nQual è l'insieme di verità $A = \\{x \\in \\mathbb{N} \\mid P(x)\\}$?",
+    "risposta1": "$A = \\{0, 1, 2, 3, 4, 5, 6, 7\\}$",
+    "risposta2": "$A = \\emptyset$",
+    "risposta3": "$A = \\{8, 9, 10, \\dots\\}$",
+    "risposta4": "$A = \\{7\\}$",
+    "corretta": "$A = \\{0, 1, 2, 3, 4, 5, 6, 7\\}$",
+    "spiegazione": "L'implicazione $x > 7 \\to x < 7$ è falsa solo quando la premessa è vera ($x > 7$) e la conseguenza è falsa ($x \\ge 7$), ossia quando $x \\ge 8$.\nQuando $x \\le 7$, la premessa $x > 7$ è falsa, rendendo l'implicazione $\\mathbf{F} \\to \\dots \\equiv \\mathbf{T}$ vera.\nDunque gli interi naturali che soddisfano $P(x)$ sono esattamente $A = \\{0, 1, 2, 3, 4, 5, 6, 7\\}$.",
+    "tag": [
+      "metodi matematici",
+      "insiemi_predicati"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Operazioni su Insiemi di Verità Multipli\n\nSi considerino sul dominio $\\mathbb{N} = \\{0, 1, 2, \\dots\\}$ i predicati:\n- $P(x): x \\le 9 \\to x \\text{ è potenza di 5}$\n- $Q(x): x \\ge 15 \\to x \\text{ è potenza di 3}$\n\nSiano $A = \\{x \\in \\mathbb{N} \\mid P(x)\\}$ e $B = \\{x \\in \\mathbb{N} \\mid Q(x)\\}$ i rispettivi insiemi di verità. Qual è l'insieme $\\overline{A} \\cup \\overline{B}$ (ovvero gli elementi che rendono falsa almeno una delle due implicazioni)?",
+    "risposta1": "$\\overline{A} \\cup \\overline{B} = (\\{0, 2, 3, 4, 6, 7, 8, 9\\}) \\cup (\\{x \\in \\mathbb{N} \\mid x \\ge 15 \\land x \\neq 3^k\\})$",
+    "risposta2": "$\\overline{A} \\cup \\overline{B} = \\{1, 5, 25\\} \\cap \\{3, 9, 27\\} = \\emptyset$",
+    "risposta3": "$\\overline{A} \\cup \\overline{B} = \\{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 15, 16, 17\\}$",
+    "risposta4": "$\\overline{A} \\cup \\overline{B} = \\mathbb{N}$",
+    "corretta": "$\\overline{A} \\cup \\overline{B} = (\\{0, 2, 3, 4, 6, 7, 8, 9\\}) \\cup (\\{x \\in \\mathbb{N} \\mid x \\ge 15 \\land x \\neq 3^k\\})$",
+    "spiegazione": "Determiniamo i complementi $\\overline{A}$ e $\\overline{B}$:\n1. $\\overline{A} = \\{x \\in \\mathbb{N} \\mid \\neg P(x)\\}$.\n   $\\neg(x \\le 9 \\to x \\text{ potenza di 5}) \\equiv (x \\le 9) \\land (x \\text{ NON è potenza di 5})$.\n   Le potenze di 5 in $\\{0, 1, \\dots, 9\\}$ sono $5^0 = 1$ e $5^1 = 5$.\n   Quindi gli elementi di $\\overline{A}$ sono gli interi in $\\{0, \\dots, 9\\}$ diversi da 1 e 5:\n   $$\\overline{A} = \\{0, 2, 3, 4, 6, 7, 8, 9\\}$$\n2. $\\overline{B} = \\{x \\in \\mathbb{N} \\mid \\neg Q(x)\\}$.\n   $\\neg(x \\ge 15 \\to x \\text{ potenza di 3}) \\equiv (x \\ge 15) \\land (x \\text{ NON è potenza di 3})$.\n   Quindi $\\overline{B} = \\{x \\in \\mathbb{N} \\mid x \\ge 15 \\land x \\notin \\{27, 81, 243, \\dots\\}\\}$.\n\nL'unione $\\overline{A} \\cup \\overline{B}$ è dunque l'insieme formato da $\\{0, 2, 3, 4, 6, 7, 8, 9\\}$ unito a tutti gli interi $\\ge 15$ che non sono potenze di 3.",
+    "tag": [
+      "metodi matematici",
+      "insiemi_predicati"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Dimostrazione Insiemistica: Assorbimento ed Equivalenza\n\nSi vuole dimostrare formalmente con il principio di estensionalità e le definizioni di appartenenza (senza diagrammi di Venn) l'identità:\n$$A \\cap (A \\cup B) = A \\cup (A \\cap B)$$\n\nQuale catena di uguaglianze insiemistiche giustifica rigorosamente il risultato?",
+    "risposta1": "$$A \\cap (A \\cup B) = \\{x \\mid x \\in A \\land (x \\in A \\lor x \\in B)\\} = \\{x \\mid (x \\in A \\land x \\in A) \\lor (x \\in A \\land x \\in B)\\} = \\{x \\mid x \\in A \\lor (x \\in A \\land x \\in B)\\} = A \\cup (A \\cap B)$$",
+    "risposta2": "$$A \\cap (A \\cup B) = (A \\cap A) \\cup B = A \\cup B = A \\cup (A \\cap B)$$",
+    "risposta3": "$$A \\cap (A \\cup B) = \\{x \\mid x \\in A \\lor x \\in B\\} = A \\cup (A \\cap B)$$",
+    "risposta4": "$$A \\cap (A \\cup B) = \\emptyset \\cup A = A \\cup (A \\cap B)$$",
+    "corretta": "$$A \\cap (A \\cup B) = \\{x \\mid x \\in A \\land (x \\in A \\lor x \\in B)\\} = \\{x \\mid (x \\in A \\land x \\in A) \\lor (x \\in A \\land x \\in B)\\} = \\{x \\mid x \\in A \\lor (x \\in A \\land x \\in B)\\} = A \\cup (A \\cap B)$$",
+    "spiegazione": "Dimostrazione formale passo dopo passo:\n1. Definizione di intersezione e unione:\n   $$A \\cap (A \\cup B) = \\{x \\mid x \\in A \\land x \\in (A \\cup B)\\} = \\{x \\mid x \\in A \\land (x \\in A \\lor x \\in B)\\}$$\n2. Distributività di $\\land$ su $\\lor$ nel calcolo dei predicati:\n   $$x \\in A \\land (x \\in A \\lor x \\in B) \\iff (x \\in A \\land x \\in A) \\lor (x \\in A \\land x \\in B)$$\n3. Idempotenza della congiunzione ($x \\in A \\land x \\in A \\iff x \\in A$):\n   $$\\iff x \\in A \\lor (x \\in A \\land x \\in B)$$\n4. Riconoscimento della definizione di unione insiemistica:\n   $$\\{x \\mid x \\in A \\lor (x \\in A \\land x \\in B)\\} = A \\cup (A \\cap B)$$\nEntrambi i membri sono inoltre uguali ad $A$ per la legge di assorbimento.",
+    "tag": [
+      "metodi matematici",
+      "dimostrazioni_insiemi"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Dimostrazione Insiemistica: Differenza di Insiemi e Legge di De Morgan\n\nSi dimostri per via algebrico-insiemistica formale l'identità:\n$$(A \\setminus B) \\setminus C = A \\setminus (B \\cup C)$$\n\nQuale passaggio algebrico stabilisce l'uguaglianza tra le condizioni di appartenenza?",
+    "risposta1": "$x \\in (A \\setminus B) \\setminus C \\iff (x \\in A \\land x \\notin B) \\land x \\notin C \\iff x \\in A \\land (\\neg(x \\in B) \\land \\neg(x \\in C)) \\iff x \\in A \\land \\neg(x \\in B \\lor x \\in C) \\iff x \\in A \\setminus (B \\cup C)$",
+    "risposta2": "$x \\in (A \\setminus B) \\setminus C \\iff x \\in A \\setminus (B \\setminus C) = A \\setminus (B \\cup C)$",
+    "risposta3": "$x \\in (A \\setminus B) \\setminus C \\iff x \\in A \\cap (B \\cup C) = A \\setminus (B \\cup C)$",
+    "risposta4": "$x \\in (A \\setminus B) \\setminus C \\iff (x \\in A \\lor x \\notin B) \\land x \\in C$",
+    "corretta": "$x \\in (A \\setminus B) \\setminus C \\iff (x \\in A \\land x \\notin B) \\land x \\notin C \\iff x \\in A \\land (\\neg(x \\in B) \\land \\neg(x \\in C)) \\iff x \\in A \\land \\neg(x \\in B \\lor x \\in C) \\iff x \\in A \\setminus (B \\cup C)$",
+    "spiegazione": "Dimostrazione formale tramite logica proposizionale:\n$$\\begin{aligned}\nx \\in (A \\setminus B) \\setminus C &\\iff (x \\in A \\setminus B) \\land x \\notin C \\\\\n&\\iff (x \\in A \\land x \\notin B) \\land x \\notin C \\\\\n&\\iff x \\in A \\land (\\neg(x \\in B) \\land \\neg(x \\in C)) && \\text{(Associatività di } \\land) \\\\\n&\\iff x \\in A \\land \\neg(x \\in B \\lor x \\in C) && \\text{(Legge di De Morgan)} \\\\\n&\\iff x \\in A \\land x \\notin (B \\cup C) \\\\\n&\\iff x \\in A \\setminus (B \\cup C)\n\\end{aligned}$$\nPoiché l'equivalenza vale per ogni $x$, l'identità $(A \\setminus B) \\setminus C = A \\setminus (B \\cup C)$ è provata.",
+    "tag": [
+      "metodi matematici",
+      "dimostrazioni_insiemi"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Dimostrazione Insiemistica: Distributività della Differenza su Intersezione\n\nSi consideri l'identità insiemistica:\n$$A \\setminus (B \\cap C) = (A \\setminus B) \\cup (A \\setminus C)$$\n\nQuale delle seguenti giustificazioni logiche dimostra formalmente l'asserto per ogni $x$?",
+    "risposta1": "$x \\in A \\setminus (B \\cap C) \\iff x \\in A \\land \\neg(x \\in B \\land x \\in C) \\iff x \\in A \\land (x \\notin B \\lor x \\notin C) \\iff (x \\in A \\land x \\notin B) \\lor (x \\in A \\land x \\notin C) \\iff x \\in (A \\setminus B) \\cup (A \\setminus C)$",
+    "risposta2": "$x \\in A \\setminus (B \\cap C) \\iff x \\in (A \\setminus B) \\cap (A \\setminus C)$ per distributività diretta.",
+    "risposta3": "$x \\in A \\setminus (B \\cap C) \\iff x \\in A \\cap \\overline{B} \\cap \\overline{C}$",
+    "risposta4": "$x \\in A \\setminus (B \\cap C) \\iff x \\in A \\cup B \\cup C$",
+    "corretta": "$x \\in A \\setminus (B \\cap C) \\iff x \\in A \\land \\neg(x \\in B \\land x \\in C) \\iff x \\in A \\land (x \\notin B \\lor x \\notin C) \\iff (x \\in A \\land x \\notin B) \\lor (x \\in A \\land x \\notin C) \\iff x \\in (A \\setminus B) \\cup (A \\setminus C)$",
+    "spiegazione": "Dimostrazione rigorosa:\n1. $x \\in A \\setminus (B \\cap C) \\iff x \\in A \\land x \\notin (B \\cap C)$.\n2. Per De Morgan: $x \\notin (B \\cap C) \\iff \\neg(x \\in B \\land x \\in C) \\iff x \\notin B \\lor x \\notin C$.\n3. Sostituendo: $x \\in A \\land (x \\notin B \\lor x \\notin C)$.\n4. Distribuendo la congiunzione $\\land$ sulla disgiunzione $\\lor$:\n   $$(x \\in A \\land x \\notin B) \\lor (x \\in A \\land x \\notin C)$$\n5. Riconoscendo le definizioni di differenza e unione:\n   $$x \\in (A \\setminus B) \\lor x \\in (A \\setminus C) \\iff x \\in (A \\setminus B) \\cup (A \\setminus C)$$\nL'uguaglianza è provata.",
+    "tag": [
+      "metodi matematici",
+      "dimostrazioni_insiemi"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Dimostrazione per Contrapposizione: Parità di Espressione Lineare Intera\n\nSia $n \\in \\mathbb{Z}$. Si vuole dimostrare per **contrapposizione** il teorema:\n*«Se $7n - 5$ è dispari, allora $n$ è pari»*.\n\nQual è lo svolgimento rigoroso della dimostrazione?",
+    "risposta1": "Si assume che $n$ sia dispari (negazione della tesi), quindi $n = 2k + 1$ per qualche $k \\in \\mathbb{Z}$. Sostituendo: $7n - 5 = 7(2k + 1) - 5 = 14k + 7 - 5 = 14k + 2 = 2(7k + 1)$. Poiché $7k + 1 \\in \\mathbb{Z}$, $7n - 5$ è pari (negazione dell'ipotesi). Per contrapposizione, l'asserto iniziale è vero.",
+    "risposta2": "Si assume che $7n - 5$ sia pari e si calcola $n = \\frac{2k+5}{7}$, che non è sempre intero.",
+    "risposta3": "Si assume che $n$ sia pari ($n = 2k$), quindi $7(2k) - 5 = 14k - 5 = 2(7k - 3) + 1$, che è dispari (dimostrazione diretta).",
+    "risposta4": "Si dimostra per induzione su $k \\ge 0$.",
+    "corretta": "Si assume che $n$ sia dispari (negazione della tesi), quindi $n = 2k + 1$ per qualche $k \\in \\mathbb{Z}$. Sostituendo: $7n - 5 = 7(2k + 1) - 5 = 14k + 7 - 5 = 14k + 2 = 2(7k + 1)$. Poiché $7k + 1 \\in \\mathbb{Z}$, $7n - 5$ è pari (negazione dell'ipotesi). Per contrapposizione, l'asserto iniziale è vero.",
+    "spiegazione": "Struttura della dimostrazione per contrapposizione ($\\neg q \\to \\neg p$):\n- Enunciato: $p \\to q$, dove $p: (7n-5 \\text{ dispari})$ e $q: (n \\text{ pari})$.\n- Assumiamo $\\neg q$: $n$ è dispari $\\implies \\exists k \\in \\mathbb{Z}$ tale che $n = 2k + 1$.\n- Calcoliamo l'espressione $7n - 5$ sotto tale ipotesi:\n  $$7n - 5 = 7(2k + 1) - 5 = 14k + 7 - 5 = 14k + 2 = 2(7k + 1)$$\n- Ponendo $m = 7k + 1 \\in \\mathbb{Z}$, abbiamo $7n - 5 = 2m$, che è per definizione un numero pari ($\\neg p$).\n- Avendo dimostrato che $\\neg q \\implies \\neg p$, per equivalenza logica abbiamo provato che $p \\implies q$. CVD.",
+    "tag": [
+      "metodi matematici",
+      "dimostrazioni_classiche"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Dimostrazione per Induzione Matematica: Serie Telescopica di Frazioni\n\nSi consideri l'identità da dimostrare per induzione per ogni $n \\ge 1$:\n$$\\sum_{k=1}^n \\frac{1}{k(k+1)} = \\frac{1}{1\\cdot 2} + \\frac{1}{2\\cdot 3} + \\dots + \\frac{1}{n(n+1)} = \\frac{n}{n+1}$$\n\nNel passo induttivo, assumendo vera l'ipotesi per $n$, quale passaggio algebrico dimostra la formula per $n+1$?",
+    "risposta1": "$$\\frac{n}{n+1} + \\frac{1}{(n+1)(n+2)} = \\frac{n(n+2) + 1}{(n+1)(n+2)} = \\frac{n^2 + 2n + 1}{(n+1)(n+2)} = \\frac{(n+1)^2}{(n+1)(n+2)} = \\frac{n+1}{n+2}$$",
+    "risposta2": "$$\\frac{n}{n+1} + \\frac{1}{(n+1)(n+2)} = \\frac{n+1}{(n+1)(n+2)} = \\frac{1}{n+2}$$",
+    "risposta3": "$$\\frac{n}{n+1} \\cdot \\frac{1}{(n+1)(n+2)} = \\frac{n}{(n+1)^2(n+2)}$$",
+    "risposta4": "$$\\frac{n}{n+1} + (n+1) = \\frac{n + (n+1)^2}{n+1}$$",
+    "corretta": "$$\\frac{n}{n+1} + \\frac{1}{(n+1)(n+2)} = \\frac{n(n+2) + 1}{(n+1)(n+2)} = \\frac{n^2 + 2n + 1}{(n+1)(n+2)} = \\frac{(n+1)^2}{(n+1)(n+2)} = \\frac{n+1}{n+2}$$",
+    "spiegazione": "Svolgimento del passo induttivo:\n1. **Base ($n=1$)**: $\\frac{1}{1(2)} = \\frac{1}{2}$ e $\\frac{1}{1+1} = \\frac{1}{2}$. Uguaglianza verificata.\n2. **Ipotesi Induttiva**: $\\sum_{k=1}^n \\frac{1}{k(k+1)} = \\frac{n}{n+1}$.\n3. **Passo Induttivo ($n+1$)**:\n   $$\\sum_{k=1}^{n+1} \\frac{1}{k(k+1)} = \\left( \\sum_{k=1}^n \\frac{1}{k(k+1)} \\right) + \\frac{1}{(n+1)(n+2)} = \\frac{n}{n+1} + \\frac{1}{(n+1)(n+2)}$$\n4. Riduzione a denominatore comune $(n+1)(n+2)$:\n   $$= \\frac{n(n+2) + 1}{(n+1)(n+2)} = \\frac{n^2 + 2n + 1}{(n+1)(n+2)} = \\frac{(n+1)^2}{(n+1)(n+2)}$$\n5. Semplificando il fattore $(n+1)$ al numeratore e denominatore:\n   $$= \\frac{n+1}{n+2} = \\frac{(n+1)}{(n+1) + 1}$$\nLa tesi è verificata per $n+1$.",
+    "tag": [
+      "metodi matematici",
+      "dimostrazioni_classiche"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Dimostrazione per Induzione: Divisibilità per 6\n\nSi consideri la proprietà di divisibilità per ogni intero $n \\ge 1$:\n$$P(n): n^3 + 5n \\text{ è divisibile per } 6$$\n\nNel passo induttivo, sviluppando $(n+1)^3 + 5(n+1)$, come si completa rigorosamente la dimostrazione sfruttando l'ipotesi induttiva?",
+    "risposta1": "$$(n+1)^3 + 5(n+1) = (n^3 + 3n^2 + 3n + 1) + (5n + 5) = (n^3 + 5n) + 3n(n+1) + 6$$\nPoiché $(n^3+5n) = 6k$ per ipotesi induttiva e il prodotto di due interi consecutivi $n(n+1)$ è sempre pari ($n(n+1) = 2m$), il termine $3n(n+1) = 3(2m) = 6m$ è multiplo di 6. Dunque la somma $6k + 6m + 6 = 6(k+m+1)$ è divisibile per 6.",
+    "risposta2": "$$(n+1)^3 + 5(n+1) = n^3 + 5n + 6$$, quindi è divisibile per 6.",
+    "risposta3": "$$(n+1)^3 + 5(n+1) = 6n^3 + 5n$$, che è sempre multiplo di 6.",
+    "risposta4": "La proprietà vale solo per gli $n$ pari.",
+    "corretta": "$$(n+1)^3 + 5(n+1) = (n^3 + 3n^2 + 3n + 1) + (5n + 5) = (n^3 + 5n) + 3n(n+1) + 6$$\nPoiché $(n^3+5n) = 6k$ per ipotesi induttiva e il prodotto di due interi consecutivi $n(n+1)$ è sempre pari ($n(n+1) = 2m$), il termine $3n(n+1) = 3(2m) = 6m$ è multiplo di 6. Dunque la somma $6k + 6m + 6 = 6(k+m+1)$ è divisibile per 6.",
+    "spiegazione": "Dimostrazione dettagliata:\n1. **Base ($n=1$)**: $1^3 + 5(1) = 6$, che è divisibile per 6 ($6 = 6 \\cdot 1$).\n2. **Ipotesi Induttiva**: $n^3 + 5n = 6k$ per qualche $k \\in \\mathbb{N}$.\n3. **Passo Induttivo ($n+1$)**:\n   $$\\begin{aligned}\n   (n+1)^3 + 5(n+1) &= (n^3 + 3n^2 + 3n + 1) + (5n + 5) \\\\\n   &= (n^3 + 5n) + 3n^2 + 3n + 6 \\\\\n   &= (n^3 + 5n) + 3n(n+1) + 6\n   \\end{aligned}$$\n4. Analisi dei singoli termini:\n   - $(n^3 + 5n) = 6k$ per ipotesi induttiva.\n   - Tra due interi consecutivi $n$ ed $n+1$, uno dei due è necessariamente pari, quindi $n(n+1)$ è divisibile per 2 ($n(n+1) = 2m$). Pertanto $3n(n+1) = 3(2m) = 6m$.\n   - Il termine $6$ è ovviamente multiplo di 6.\n5. Sommando: $6k + 6m + 6 = 6(k + m + 1)$, che è un multiplo di 6. CVD.",
+    "tag": [
+      "metodi matematici",
+      "dimostrazioni_classiche"
+    ]
+  },
+  {
+    "tipo": "induzione_strutturale",
+    "domanda": "### Induzione Strutturale: Invariante di Parità su Triple Ricorsive\n\nSi consideri il sottoinsieme $S \\subset \\mathbb{Z}^3$ definito induttivamente come segue:\n- **Caso Base**: $(1, 2, 3) \\in S$\n- **Passo Ricorsivo**: se $(a, b, c) \\in S$, allora $(a+b, \\; b+c, \\; c+a) \\in S$\n\nSi vuole dimostrare per **induzione strutturale** che per ogni terna $(a, b, c) \\in S$, la somma delle sue componenti $a + b + c$ è un numero intero **pari**.",
+    "istruzioni": "Seleziona le risposte corrette per ciascun checkpoint per verificare la corretta impostazione della dimostrazione per induzione strutturale.",
+    "checkpoints": [
+      {
+        "titolo": "Passo 1: Caso Base",
+        "domanda": "Qual è la verifica corretta della proprietà $P(a,b,c)$ per l'elemento base $(1,2,3) \\in S$?",
+        "opzioni": [
+          "Per $(1,2,3)$, la somma è $1 + 2 + 3 = 6 = 2 \\cdot 3$, che è un intero pari. Dunque $P(1,2,3)$ è vera.",
+          "Per $(1,2,3)$, la somma è $1 \\cdot 2 \\cdot 3 = 6$, quindi la base è verificata moltiplicando le componenti.",
+          "Il caso base è $(0,0,0)$ e $0$ è pari.",
+          "Non occorre verificare il caso base perché la ricorsione genera sempre numeri maggiori di 0."
+        ],
+        "corretta": "Per $(1,2,3)$, la somma è $1 + 2 + 3 = 6 = 2 \\cdot 3$, che è un intero pari. Dunque $P(1,2,3)$ è vera.",
+        "spiegazione": "L'elemento atomico iniziale della definizione ricorsiva è $(1,2,3)$. La somma $1+2+3=6$ è divisibile per 2 ($6 = 2k$ con $k=3$), verificando la base."
+      },
+      {
+        "titolo": "Passo 2: Ipotesi Induttiva",
+        "domanda": "Qual è la formulazione rigorosa dell'ipotesi induttiva?",
+        "opzioni": [
+          "Si assume che per un generico $(a, b, c) \\in S$, valga $P(a,b,c)$, ovvero esiste $k \\in \\mathbb{Z}$ tale che $a + b + c = 2k$.",
+          "Si assume che $(a+b, b+c, c+a) = (1, 2, 3)$.",
+          "Si assume che $a, b, c$ siano tutti e tre numeri pari singolarmente.",
+          "Si assume che $a+b+c = 2k+1$ per assurdo."
+        ],
+        "corretta": "Si assume che per un generico $(a, b, c) \\in S$, valga $P(a,b,c)$, ovvero esiste $k \\in \\mathbb{Z}$ tale che $a + b + c = 2k$.",
+        "spiegazione": "L'ipotesi induttiva assume che un elemento arbitrario $(a,b,c) \\in S$ generato dalla grammatica soddisfi la proprietà $P(a,b,c): a+b+c=2k$."
+      },
+      {
+        "titolo": "Passo 3: Passo Induttivo",
+        "domanda": "Come si dimostra che la nuova terna $(a+b, \\; b+c, \\; c+a)$ generata dal passo ricorsivo soddisfa la proprietà?",
+        "opzioni": [
+          "Calcolando la somma $(a+b) + (b+c) + (c+a) = 2a + 2b + 2c = 2(a+b+c)$. Poiché $a+b+c = 2k$ per ipotesi induttiva, la somma è $2(2k) = 4k = 2(2k)$, che è pari (ed è pari anche semplicemente per la presenza del fattore 2 moltiplicativo).",
+          "Calcolando $(a+b)(b+c)(c+a) = 2k$.",
+          "Sostituendo $a=1, b=2, c=3$ nel passo ricorsivo.",
+          "Sommando le differenze $(a+b) - (b+c) - (c+a) = 0$."
+        ],
+        "corretta": "Calcolando la somma $(a+b) + (b+c) + (c+a) = 2a + 2b + 2c = 2(a+b+c)$. Poiché $a+b+c = 2k$ per ipotesi induttiva, la somma è $2(2k) = 4k = 2(2k)$, che è pari (ed è pari anche semplicemente per la presenza del fattore 2 moltiplicativo).",
+        "spiegazione": "La somma dei tre nuovi termini è $(a+b)+(b+c)+(c+a) = 2(a+b+c)$. Indipendentemente o tramite l'ipotesi induttiva $a+b+c=2k$, la nuova somma $2(2k) = 2(2k)$ è multipla di 2, dunque pari."
+      }
+    ],
+    "svolgimento_completo": "### Dimostrazione Formale per Induzione Strutturale\n\nSia $S \\subset \\mathbb{Z}^3$ l'insieme definito ricorsivamente:\n1. **Base**: $(1, 2, 3) \\in S$.\n2. **Passo ricorsivo**: se $(a, b, c) \\in S$, allora $(a+b, b+c, c+a) \\in S$.\n\nVogliamo provare il predicato:\n$$P(a, b, c): \\exists k \\in \\mathbb{Z} \\text{ tale che } a + b + c = 2k$$\n\n#### 1. Caso Base\nConsideriamo la terna iniziale $(1, 2, 3) \\in S$:\n$$1 + 2 + 3 = 6 = 2 \\cdot 3$$\nPoiché $3 \\in \\mathbb{Z}$, la somma è pari, dunque $P(1, 2, 3)$ è **VERA**.\n\n#### 2. Ipotesi Induttiva\nSia $(a, b, c) \\in S$ una terna generata dalla definizione ricorsiva, e assumiamo per ipotesi induttiva che $P(a, b, c)$ sia vera:\n$$a + b + c = 2k, \\quad k \\in \\mathbb{Z}$$\n\n#### 3. Passo Induttivo\nDobbiamo mostrare che la nuova terna generata dalla regola ricorsiva, $(a', b', c') = (a+b, b+c, c+a)$, soddisfa $P(a', b', c')$.\nCalcoliamo la somma delle sue componenti:\n$$\\begin{aligned}\na' + b' + c' &= (a + b) + (b + c) + (c + a) \\\\\n&= 2a + 2b + 2c \\\\\n&= 2(a + b + c)\n\\end{aligned}$$\nApplicando l'ipotesi induttiva $a + b + c = 2k$:\n$$a' + b' + c' = 2(2k) = 2(2k) = 2k' \\quad \\text{con } k' = 2k \\in \\mathbb{Z}$$\nQuindi $a' + b' + c'$ è divisibile per 2 ed è pari, il che prova che $P(a+b, b+c, c+a)$ è **VERA**.\n\n#### Conclusione\nPer il principio di induzione strutturale, per ogni $(a, b, c) \\in S$ la somma $a + b + c$ è un intero pari. $\\blacksquare$",
+    "tag": [
+      "metodi matematici",
+      "induzione_stringhe"
+    ]
+  },
+  {
+    "tipo": "induzione_strutturale",
+    "domanda": "### Induzione Strutturale: Bilanciamento Simboli in Stringhe Binarie\n\nSi consideri l'insieme $A \\subseteq \\{0, 1\\}^*$ definito ricorsivamente come segue:\n- **Caso Base**: $\\lambda \\in A$ (dove $\\lambda$ è la stringa vuota)\n- **Passo Ricorsivo**: se $x \\in A$, allora $0x1 \\in A$\n\nSi denotino con $n_0(w)$ ed $n_1(w)$ rispettivamente il numero di occorrenze del simbolo $0$ e del simbolo $1$ nella stringa $w$.\nDimostrare per **induzione strutturale** che per ogni stringa $w \\in A$ vale:\n$$n_0(w) = n_1(w)$$",
+    "istruzioni": "Completa i checkpoint selezionando per ciascuna fase della prova la formalizzazione corretta.",
+    "checkpoints": [
+      {
+        "titolo": "Passo 1: Caso Base",
+        "domanda": "Come si verifica la proprietà $P(w): n_0(w) = n_1(w)$ per la stringa vuota $\\lambda$?",
+        "opzioni": [
+          "Nella stringa vuota $\\lambda$ non compaiono simboli, quindi $n_0(\\lambda) = 0$ e $n_1(\\lambda) = 0$. L'uguaglianza $0 = 0$ è verificata, quindi $P(\\lambda)$ è vera.",
+          "$n_0(\\lambda) = 1$ e $n_1(\\lambda) = 1$, quindi $1 = 1$.",
+          "La stringa vuota non ha lunghezza definita, quindi si salta la base.",
+          "$n_0(\\lambda) = n_1(\\lambda) = \\infty$."
+        ],
+        "corretta": "Nella stringa vuota $\\lambda$ non compaiono simboli, quindi $n_0(\\lambda) = 0$ e $n_1(\\lambda) = 0$. L'uguaglianza $0 = 0$ è verificata, quindi $P(\\lambda)$ è vera.",
+        "spiegazione": "Per definizione di lunghezza e conteggio simboli su stringhe, $n_0(\\lambda) = 0$ e $n_1(\\lambda) = 0$, dunque $n_0(\\lambda) = n_1(\\lambda)$ è verificata."
+      },
+      {
+        "titolo": "Passo 2: Ipotesi Induttiva",
+        "domanda": "Qual è la corretta formulazione dell'ipotesi induttiva su una stringa $x \\in A$?",
+        "opzioni": [
+          "Si suppone che per un'arbitraria stringa $x \\in A$ valga $n_0(x) = n_1(x)$.",
+          "Si suppone che $x$ sia formata solo da zeri.",
+          "Si suppone che $0x1 = \\lambda$.",
+          "Si suppone che la lunghezza $|x|$ sia dispari."
+        ],
+        "corretta": "Si suppone che per un'arbitraria stringa $x \\in A$ valga $n_0(x) = n_1(x)$.",
+        "spiegazione": "L'ipotesi induttiva assume che per una stringa $x$ già costruita secondo le regole di $A$ valga l'invariante $n_0(x) = n_1(x)$."
+      },
+      {
+        "titolo": "Passo 3: Passo Induttivo",
+        "domanda": "Come si dimostra l'uguaglianza per la stringa generata $w' = 0x1$?",
+        "opzioni": [
+          "Per definizione ricorsiva di conteggio: $n_0(0x1) = n_0(x) + 1$ e $n_1(0x1) = n_1(x) + 1$. Poiché per ipotesi induttiva $n_0(x) = n_1(x)$, aggiungendo $1$ ad entrambi i membri si ottiene $n_0(x) + 1 = n_1(x) + 1 \\implies n_0(0x1) = n_1(0x1)$.",
+          "Sostituendo $x = 0$ e $1$ in $0x1$.",
+          "$n_0(0x1) = 2 \\cdot n_0(x)$ e $n_1(0x1) = 2 \\cdot n_1(x)$.",
+          "Cancellando lo zero iniziale e l'uno finale per ottenere $\\lambda$."
+        ],
+        "corretta": "Per definizione ricorsiva di conteggio: $n_0(0x1) = n_0(x) + 1$ e $n_1(0x1) = n_1(x) + 1$. Poiché per ipotesi induttiva $n_0(x) = n_1(x)$, aggiungendo $1$ ad entrambi i membri si ottiene $n_0(x) + 1 = n_1(x) + 1 \\implies n_0(0x1) = n_1(0x1)$.",
+        "spiegazione": "La concatenazione di un singolo $0$ all'inizio e di un singolo $1$ alla fine incrementa di esattamente 1 sia il numero di zeri che il numero di uni, preservando l'uguaglianza."
+      }
+    ],
+    "svolgimento_completo": "### Dimostrazione per Induzione Strutturale\n\nSia $A$ il linguaggio definito su $\\Sigma = \\{0, 1\\}$ da:\n- **Base**: $\\lambda \\in A$\n- **Passo Ricorsivo**: se $x \\in A \\implies 0x1 \\in A$\n\nVogliamo provare che per ogni $w \\in A$, $P(w): n_0(w) = n_1(w)$ è vera.\n\n#### Caso Base\nPer $w = \\lambda$, la stringa vuota non contiene occorrenze di alcun simbolo:\n$$n_0(\\lambda) = 0, \\quad n_1(\\lambda) = 0 \\implies n_0(\\lambda) = n_1(\\lambda) = 0$$\nIl caso base $P(\\lambda)$ è **VERIFICATO**.\n\n#### Ipotesi Induttiva\nSia $x \\in A$ una stringa arbitraria. Assumiamo vera l'ipotesi induttiva:\n$$n_0(x) = n_1(x)$$\n\n#### Passo Induttivo\nDobbiamo mostrare che per la stringa $w' = 0x1$ prodotta dalla regola ricorsiva vale $P(0x1)$, cioè:\n$$n_0(0x1) = n_1(0x1)$$\n\nPer le proprietà del conteggio dei simboli su stringhe concatenate:\n- $n_0(0x1) = n_0(0) + n_0(x) + n_0(1) = 1 + n_0(x) + 0 = n_0(x) + 1$\n- $n_1(0x1) = n_1(0) + n_1(x) + n_1(1) = 0 + n_1(x) + 1 = n_1(x) + 1$\n\nSostituendo l'ipotesi induttiva $n_0(x) = n_1(x)$:\n$$n_0(0x1) = n_0(x) + 1 = n_1(x) + 1 = n_1(0x1)$$\nQuindi $n_0(0x1) = n_1(0x1)$ è **VERA**.\n\n#### Conclusione\nPer il principio di induzione strutturale, ogni stringa $w \\in A$ ha un numero di zeri pari al numero di uni ($A = \\{0^n 1^n \\mid n \\ge 0\\}$). $\\blacksquare$",
+    "tag": [
+      "metodi matematici",
+      "induzione_stringhe"
+    ]
+  },
+  {
+    "tipo": "induzione_strutturale",
+    "domanda": "### Induzione Strutturale: Lunghezza Multipla di 3\n\nSi consideri il linguaggio $A \\subseteq \\{a, b\\}^*$ definito ricorsivamente da:\n- **Caso Base**: $\\lambda \\in A$\n- **Passo Ricorsivo**: se $x \\in A$, allora $xabb \\in A$\n\nSi dimostri per induzione strutturale che per ogni stringa $w \\in A$, la lunghezza $|w|$ è un **multiplo di 3** (cioè $\\exists k \\in \\mathbb{N}$ tale che $|w| = 3k$).",
+    "istruzioni": "Rispondi ai checkpoint per convalidare i passaggi della prova formale.",
+    "checkpoints": [
+      {
+        "titolo": "Passo 1: Caso Base",
+        "domanda": "Qual è la verifica formale per la stringa vuota $\\lambda$?",
+        "opzioni": [
+          "$|\\lambda| = 0 = 3 \\cdot 0$, e poiché $0 \\in \\mathbb{N}$, la lunghezza della stringa vuota è un multiplo di 3. La base è verificata.",
+          "$|\\lambda| = 3$, quindi è multiplo di 3.",
+          "$|\\lambda| = 1$, non è multiplo di 3 quindi la base fallisce.",
+          "Non si può calcolare la lunghezza di $\\lambda$."
+        ],
+        "corretta": "$|\\lambda| = 0 = 3 \\cdot 0$, e poiché $0 \\in \\mathbb{N}$, la lunghezza della stringa vuota è un multiplo di 3. La base è verificata.",
+        "spiegazione": "La definizione ricorsiva della funzione lunghezza pone $|\\lambda| = 0$. Poiché $0 = 3 \\cdot 0$, 0 è multiplo di 3 con $k=0$."
+      },
+      {
+        "titolo": "Passo 2: Ipotesi Induttiva",
+        "domanda": "Come si formula l'ipotesi induttiva su una stringa $x \\in A$?",
+        "opzioni": [
+          "Si assume che per $x \\in A$ esista $k \\in \\mathbb{N}$ tale che $|x| = 3k$.",
+          "Si assume che $x = abb$.",
+          "Si assume che $|xabb| = 3k$.",
+          "Si assume che $x$ contenga solo la lettera $a$."
+        ],
+        "corretta": "Si assume che per $x \\in A$ esista $k \\in \\mathbb{N}$ tale che $|x| = 3k$.",
+        "spiegazione": "L'ipotesi induttiva afferma che l'elemento di partenza $x$ possiede la proprietà descritta dal predicato induttivo, cioè la sua lunghezza è $3k$."
+      },
+      {
+        "titolo": "Passo 3: Passo Induttivo",
+        "domanda": "Come si dimostra la tesi per la stringa $w = xabb$?",
+        "opzioni": [
+          "Usando la definizione ricorsiva di lunghezza: $|xabb| = |xab| + 1 = |xa| + 2 = |x| + 3$. Per ipotesi induttiva $|x| = 3k$, quindi $|xabb| = 3k + 3 = 3(k + 1)$, che è un multiplo di 3.",
+          "Moltiplicando la lunghezza $|x|$ per 3: $|xabb| = 3|x| = 9k$.",
+          "Contando il numero di lettere $b$: ci sono 2 lettere $b$, quindi $3k+2$.",
+          "Sostituendo $k=1$ otteniamo $6$, che è multiplo di 3."
+        ],
+        "corretta": "Usando la definizione ricorsiva di lunghezza: $|xabb| = |xab| + 1 = |xa| + 2 = |x| + 3$. Per ipotesi induttiva $|x| = 3k$, quindi $|xabb| = 3k + 3 = 3(k + 1)$, che è un multiplo di 3.",
+        "spiegazione": "La lunghezza di $xabb$ è $|x| + |abb| = |x| + 3$. Sostituendo $|x| = 3k$ si ottiene $3k+3 = 3(k+1)$, che dimostra che la nuova stringa ha lunghezza multipla di 3."
+      }
+    ],
+    "svolgimento_completo": "### Dimostrazione per Induzione Strutturale\n\nDefinizione ricorsiva del linguaggio $A$ su $\\Sigma = \\{a, b\\}$:\n1. $\\lambda \\in A$\n2. Se $x \\in A \\implies xabb \\in A$\n\nVogliamo provare il predicato:\n$$P(w): \\exists k \\in \\mathbb{N} \\text{ tale che } |w| = 3k$$\n\n#### Caso Base\nPer $w = \\lambda$, per definizione di lunghezza $|\\lambda| = 0$.\nPoiché $0 = 3 \\cdot 0$, con $k = 0 \\in \\mathbb{N}$, $P(\\lambda)$ è **VERA**.\n\n#### Ipotesi Induttiva\nSia $x \\in A$. Assumiamo che esista $k \\in \\mathbb{N}$ tale che:\n$$|x| = 3k$$\n\n#### Passo Induttivo\nConsideriamo la stringa $w' = xabb$ ottenuta applicando la regola ricorsiva a $x$.\nApplicando la definizione ricorsiva della lunghezza $|u \\cdot v| = |u| + |v|$:\n$$|w'| = |xabb| = |x| + |abb| = |x| + 3$$\n\nSostituendo l'ipotesi induttiva $|x| = 3k$:\n$$|w'| = 3k + 3 = 3(k + 1)$$\nPonendo $k' = k + 1 \\in \\mathbb{N}$, abbiamo $|w'| = 3k'$, che è un multiplo di 3. Dunque $P(xabb)$ è **VERA**.\n\n#### Conclusione\nPer il principio di induzione strutturale, la lunghezza di ogni stringa in $A$ è un multiplo di 3. $\\blacksquare$",
+    "tag": [
+      "metodi matematici",
+      "induzione_stringhe"
+    ]
+  },
+  {
+    "tipo": "induzione_strutturale",
+    "domanda": "### Induzione Strutturale su Grafi: Relazione Vertici-Archi nei Grafi Linea\n\nSi consideri l'insieme $\\mathcal{L}$ dei **grafi linea** definiti ricorsivamente come segue:\n- **Caso Base**: Un singolo vertice $L_0 = (\\{v_0\\}, \\emptyset) \\in \\mathcal{L}$.\n- **Passo Ricorsivo**: Se $L = (V, E) \\in \\mathcal{L}$ è un grafo linea con $V = \\{v_0, \\dots, v_n\\}$ ed $E = \\{(v_0, v_1), \\dots, (v_{n-1}, v_n)\\}$, e $u$ è un nuovo vertice ($u \\notin V$), allora il grafo:\n  $$L' = (V \\cup \\{u\\}, \\; E \\cup \\{(v_n, u)\\}) \\in \\mathcal{L}$$\n\nSiano $n(L) = |V|$ il numero di vertici ed $e(L) = |E|$ il numero di archi di $L$.\nDimostrare per **induzione strutturale** che per ogni grafo linea $L \\in \\mathcal{L}$ vale:\n$$n(L) = e(L) + 1$$",
+    "istruzioni": "Completa ciascun checkpoint per verificare la validità della dimostrazione.",
+    "checkpoints": [
+      {
+        "titolo": "Passo 1: Caso Base",
+        "domanda": "Come si verifica la proprietà $P(L_0): n(L_0) = e(L_0) + 1$ per il grafo base $L_0 = (\\{v_0\\}, \\emptyset)$?",
+        "opzioni": [
+          "Per $L_0$, $V = \\{v_0\\} \\implies n(L_0) = 1$ ed $E = \\emptyset \\implies e(L_0) = 0$. Si ha $n(L_0) = 1 = 0 + 1 = e(L_0) + 1$. L'uguaglianza è verificata.",
+          "Per $L_0$, $n(L_0) = 0$ ed $e(L_0) = 0$, quindi $0 = 0+1$ non è verificata.",
+          "$n(L_0) = 2$ ed $e(L_0) = 1$.",
+          "Un grafo con 0 archi non appartiene all'insieme $\\mathcal{L}$."
+        ],
+        "corretta": "Per $L_0$, $V = \\{v_0\\} \\implies n(L_0) = 1$ ed $E = \\emptyset \\implies e(L_0) = 0$. Si ha $n(L_0) = 1 = 0 + 1 = e(L_0) + 1$. L'uguaglianza è verificata.",
+        "spiegazione": "Il grafo banale con 1 vertice e 0 archi ha $n=1$ ed $e=0$, soddisfacendo $1 = 0 + 1$."
+      },
+      {
+        "titolo": "Passo 2: Ipotesi Induttiva",
+        "domanda": "Qual è la corretta formulazione dell'ipotesi induttiva su un grafo linea $L \\in \\mathcal{L}$?",
+        "opzioni": [
+          "Si assume che per un arbitrario grafo linea $L \\in \\mathcal{L}$ valga $n(L) = e(L) + 1$.",
+          "Si assume che il grafo contenga cicli.",
+          "Si assume che $n(L) = e(L)$.",
+          "Si assume che $e(L) = n(L) + 1$."
+        ],
+        "corretta": "Si assume che per un arbitrario grafo linea $L \\in \\mathcal{L}$ valga $n(L) = e(L) + 1$.",
+        "spiegazione": "L'ipotesi induttiva assume che la relazione valga per un grafo linea $L$ generato fino a un determinato stadio ricorsivo."
+      },
+      {
+        "titolo": "Passo 3: Passo Induttivo",
+        "domanda": "Come si conclude la dimostrazione per il grafo esteso $L' = (V \\cup \\{u\\}, E \\cup \\{(v_n, u)\\})$?",
+        "opzioni": [
+          "Dalla definizione: $n(L') = n(L) + 1$ ed $e(L') = e(L) + 1$. Sostituendo l'ipotesi induttiva $n(L) = e(L) + 1$, otteniamo $n(L') = (e(L) + 1) + 1 = (e(L) + 1) + 1 = e(L') + 1$.",
+          "Sottraendo il vertice $u$ si ottiene un grafo con un ciclo.",
+          "Moltiplicando $n(L') \\cdot e(L') = e(L) + 1$.",
+          "$n(L') = n(L) + 2$ ed $e(L') = e(L) + 1$."
+        ],
+        "corretta": "Dalla definizione: $n(L') = n(L) + 1$ ed $e(L') = e(L) + 1$. Sostituendo l'ipotesi induttiva $n(L) = e(L) + 1$, otteniamo $n(L') = (e(L) + 1) + 1 = (e(L) + 1) + 1 = e(L') + 1$.",
+        "spiegazione": "L'aggiunta di 1 nuovo vertice e 1 nuovo arco incrementa entrambi i membri di 1, preservando l'uguaglianza $n(L') = e(L') + 1$."
+      }
+    ],
+    "svolgimento_completo": "### Dimostrazione per Induzione Strutturale\n\nSia $\\mathcal{L}$ l'insieme dei grafi linea definiti ricorsivamente:\n1. **Base**: $L_0 = (\\{v_0\\}, \\emptyset) \\in \\mathcal{L}$.\n2. **Passo ricorsivo**: se $L = (V, E) \\in \\mathcal{L}$ con $V = \\{v_0, \\dots, v_n\\}$ ed $E = \\{(v_0, v_1), \\dots, (v_{n-1}, v_n)\\}$, allora per ogni $u \\notin V$, $L' = (V \\cup \\{u\\}, E \\cup \\{(v_n, u)\\}) \\in \\mathcal{L}$.\n\nVogliamo provare che per ogni $L \\in \\mathcal{L}$ vale:\n$$P(L): n(L) = e(L) + 1$$\n\n#### 1. Caso Base\nPer $L_0 = (\\{v_0\\}, \\emptyset)$:\n- $n(L_0) = |\\{v_0\\}| = 1$\n- $e(L_0) = |\\emptyset| = 0$\nVerifichiamo:\n$$n(L_0) = 1 = 0 + 1 = e(L_0) + 1$$\nIl predicato $P(L_0)$ è **VERO**.\n\n#### 2. Ipotesi Induttiva\nSia $L = (V, E) \\in \\mathcal{L}$. Assumiamo vera l'ipotesi induttiva:\n$$n(L) = e(L) + 1$$\n\n#### 3. Passo Induttivo\nConsideriamo il grafo $L' = (V', E')$ ottenuto da $L$ aggiungendo il vertice $u$ e l'arco $(v_n, u)$.\nPer definizione di $V'$ ed $E'$:\n- $n(L') = |V \\cup \\{u\\}| = |V| + 1 = n(L) + 1$\n- $e(L') = |E \\cup \\{(v_n, u)\\}| = |E| + 1 = e(L) + 1$\n\nSostituendo l'ipotesi induttiva $n(L) = e(L) + 1$ nell'espressione per $n(L')$:\n$$n(L') = n(L) + 1 = (e(L) + 1) + 1 = (e(L) + 1) + 1 = e(L') + 1$$\nQuindi $P(L')$ è **VERA**.\n\n#### Conclusione\nPer il principio di induzione strutturale, per ogni grafo linea $L \\in \\mathcal{L}$ il numero di vertici supera di 1 il numero di archi ($n(L) = e(L) + 1$). $\\blacksquare$",
+    "tag": [
+      "metodi matematici",
+      "induzione_alberi_grafi"
+    ]
+  },
+  {
+    "tipo": "induzione_strutturale",
+    "domanda": "### Induzione Strutturale su Alberi: Relazione tra Nodi Totali e Foglie in Alberi Binari Pieni\n\nSi consideri l'insieme $\\mathcal{T}$ degli **alberi binari pieni** (full binary trees), definito induttivamente come segue:\n- **Caso Base**: Un singolo vertice $r$ è un albero binario pieno $T_0 \\in \\mathcal{T}$.\n- **Passo Ricorsivo**: Se $T_1, T_2 \\in \\mathcal{T}$ sono alberi binari pieni con radici $r_1, r_2$, allora l'albero $T = r \\circ (T_1, T_2)$ formato da una nuova radice $r$ collegata mediante due archi a $r_1$ e $r_2$ appartiene a $\\mathcal{T}$.\n\nSiano $n(T)$ il numero totale di nodi e $f(T)$ il numero di foglie di $T$.\nDimostrare per **induzione strutturale** che per ogni albero binario pieno $T \\in \\mathcal{T}$ vale:\n$$n(T) = 2f(T) - 1$$",
+    "istruzioni": "Seleziona le opzioni corrette per convalidare tutti i passaggi della dimostrazione.",
+    "checkpoints": [
+      {
+        "titolo": "Passo 1: Caso Base",
+        "domanda": "Come si verifica la proprietà per l'albero base costituito da un singolo nodo $T_0 = (\\{r\\}, \\emptyset)$?",
+        "opzioni": [
+          "Un singolo nodo è l'unica foglia dell'albero, quindi $f(T_0) = 1$ e $n(T_0) = 1$. Calcoliamo $2f(T_0) - 1 = 2(1) - 1 = 1 = n(T_0)$. L'uguaglianza $1 = 1$ è verificata.",
+          "$n(T_0) = 1$ ma $f(T_0) = 0$, quindi $2(0)-1 = -1 \\neq 1$.",
+          "$n(T_0) = 0$ ed $f(T_0) = 1$.",
+          "La base richiede un albero con almeno 3 nodi."
+        ],
+        "corretta": "Un singolo nodo è l'unica foglia dell'albero, quindi $f(T_0) = 1$ e $n(T_0) = 1$. Calcoliamo $2f(T_0) - 1 = 2(1) - 1 = 1 = n(T_0)$. L'uguaglianza $1 = 1$ è verificata.",
+        "spiegazione": "Per un albero con un solo nodo (la radice), la radice è anche una foglia: $n=1, f=1 \\implies 2(1)-1=1=n$."
+      },
+      {
+        "titolo": "Passo 2: Ipotesi Induttiva",
+        "domanda": "Qual è l'ipotesi induttiva corretta per i sottoalberi $T_1$ e $T_2$?",
+        "opzioni": [
+          "Si assume che la proprietà valga per entrambi i sottoalberi disgiunti $T_1, T_2 \\in \\mathcal{T}$, cioè $n(T_1) = 2f(T_1) - 1$ e $n(T_2) = 2f(T_2) - 1$.",
+          "Si assume che $T_1$ e $T_2$ abbiano lo stesso numero di nodi $n(T_1) = n(T_2)$.",
+          "Si assume che $f(T_1) + f(T_2) = 1$.",
+          "Si assume che $n(T) = n(T_1) + n(T_2)$ senza considerare la radice."
+        ],
+        "corretta": "Si assume che la proprietà valga per entrambi i sottoalberi disgiunti $T_1, T_2 \\in \\mathcal{T}$, cioè $n(T_1) = 2f(T_1) - 1$ e $n(T_2) = 2f(T_2) - 1$.",
+        "spiegazione": "Nell'induzione strutturale su strutture ramificate a due rami, l'ipotesi induttiva viene assunta su ciascuno dei due sottoalberi costituenti $T_1$ e $T_2$."
+      },
+      {
+        "titolo": "Passo 3: Passo Induttivo",
+        "domanda": "Come si completa la dimostrazione per l'albero composto $T = r \\circ (T_1, T_2)$?",
+        "opzioni": [
+          "I nodi totali sono $n(T) = 1 + n(T_1) + n(T_2)$ e le foglie sono $f(T) = f(T_1) + f(T_2)$. Sostituendo le ipotesi induttive: $n(T) = 1 + (2f(T_1) - 1) + (2f(T_2) - 1) = 2(f(T_1) + f(T_2)) - 1 = 2f(T) - 1$.",
+          "I nodi totali sono $n(T) = n(T_1) \\cdot n(T_2)$ e le foglie sono $f(T) = 2f(T_1)$.",
+          "Poiché la radice diventa una foglia, $f(T) = f(T_1) + f(T_2) + 1$.",
+          "$n(T) = 2n(T_1) - 1$."
+        ],
+        "corretta": "I nodi totali sono $n(T) = 1 + n(T_1) + n(T_2)$ e le foglie sono $f(T) = f(T_1) + f(T_2)$. Sostituendo le ipotesi induttive: $n(T) = 1 + (2f(T_1) - 1) + (2f(T_2) - 1) = 2(f(T_1) + f(T_2)) - 1 = 2f(T) - 1$.",
+        "spiegazione": "La nuova radice aggiunge 1 nodo totale ma non è una foglia (avendo 2 figli). Dunque $n(T) = 1 + n(T_1) + n(T_2)$ e $f(T) = f(T_1) + f(T_2)$. L'algebra conferma esattamente $n(T) = 2f(T) - 1$."
+      }
+    ],
+    "svolgimento_completo": "### Dimostrazione per Induzione Strutturale\n\nSia $\\mathcal{T}$ l'insieme degli alberi binari pieni definito ricorsivamente:\n1. **Base**: Un singolo vertice $r$ è un albero binario pieno in $\\mathcal{T}$.\n2. **Passo ricorsivo**: Se $T_1, T_2 \\in \\mathcal{T}$, allora $T = r \\circ (T_1, T_2) \\in \\mathcal{T}$.\n\nVogliamo provare che per ogni $T \\in \\mathcal{T}$ vale:\n$$P(T): n(T) = 2f(T) - 1$$\n\n#### 1. Caso Base\nSia $T_0 = (\\{r\\}, \\emptyset)$ l'albero composto da un unico nodo.\n- $n(T_0) = 1$ (la radice $r$)\n- $f(T_0) = 1$ (la radice non ha figli, quindi è una foglia)\nVerifichiamo:\n$$2f(T_0) - 1 = 2(1) - 1 = 2 - 1 = 1 = n(T_0)$$\nQuindi $P(T_0)$ è **VERA**.\n\n#### 2. Ipotesi Induttiva\nSiano $T_1, T_2 \\in \\mathcal{T}$. Assumiamo per ipotesi induttiva che $P(T_1)$ e $P(T_2)$ siano vere:\n$$n(T_1) = 2f(T_1) - 1, \\qquad n(T_2) = 2f(T_2) - 1$$\n\n#### 3. Passo Induttivo\nConsideriamo l'albero $T = r \\circ (T_1, T_2)$.\n- Il numero totale di nodi di $T$ è dato dalla radice $r$ più i nodi dei due sottoalberi:\n  $$n(T) = 1 + n(T_1) + n(T_2)$$\n- Poiché la radice $r$ ha grado 2 (ha 2 figli $r_1, r_2$), essa non è una foglia. Le foglie di $T$ sono esattamente l'unione disgiunta delle foglie di $T_1$ e di $T_2$:\n  $$f(T) = f(T_1) + f(T_2)$$\n\nSostituendo le ipotesi induttive per $n(T_1)$ e $n(T_2)$ nell'equazione di $n(T)$:\n$$\\begin{aligned}\nn(T) &= 1 + [2f(T_1) - 1] + [2f(T_2) - 1] \\\\\n&= 1 + 2f(T_1) + 2f(T_2) - 2 \\\\\n&= 2(f(T_1) + f(T_2)) - 1 \\\\\n&= 2f(T) - 1\n\\end{aligned}$$\nQuesto dimostra che $P(T)$ è **VERA**.\n\n#### Conclusione\nPer il principio di induzione strutturale, per ogni albero binario pieno $T \\in \\mathcal{T}$ vale $n(T) = 2f(T) - 1$. $\\blacksquare$",
+    "tag": [
+      "metodi matematici",
+      "induzione_alberi_grafi"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Metodo di Sostituzione per Relazioni di Ricorrenza\n\nSi consideri la relazione di ricorrenza lineare con termine non omogeneo:\n$$\\begin{cases} T(0) = 2 \\\\ T(n) = 3T(n-1) - 1, & \\forall n \\ge 1 \\ end{cases}$$\n\nUtilizzando il **metodo di sostituzione** (induzione matematica), per quali valori della costante reale $c$ è possibile dimostrare che:\n$$T(n) \\le c \\cdot 3^n, \\quad \\forall n \\ge 0$$\n?",
+    "risposta1": "$c \\ge 2$",
+    "risposta2": "$c \\ge 3$",
+    "risposta3": "$c \\le 1$",
+    "risposta4": "$0 < c < 1$",
+    "corretta": "$c \\ge 2$",
+    "spiegazione": "Dimostrazione rigorosa con il metodo di sostituzione (induzione su $n$):\n\n1. **Passo Base ($n = 0$)**:\n   Dobbiamo verificare per quali $c$ vale $T(0) \\le c \\cdot 3^0$.\n   $$T(0) = 2 \\le c \\cdot 1 \\iff c \\ge 2$$\n   Otteniamo la limitazione fondamentale: $c \\ge 2$.\n\n2. **Ipotesi Induttiva**:\n   Assumiamo che $T(k) \\le c \\cdot 3^k$ per ogni $k < n$, in particolare per $k = n-1$:\n   $$T(n-1) \\le c \\cdot 3^{n-1}$$\n\n3. **Passo Induttivo**:\n   Valutiamo $T(n)$ utilizzando la ricorrenza e l'ipotesi induttiva:\n   $$T(n) = 3T(n-1) - 1 \\le 3(c \\cdot 3^{n-1}) - 1 = c \\cdot 3^n - 1$$\n   Poiché per ogni $n \\ge 1$ vale $c \\cdot 3^n - 1 \\le c \\cdot 3^n$, la disuguaglianza $T(n) \\le c \\cdot 3^n$ è soddisfatta per qualsiasi $c$ che rispetti la base.\n\nConcludiamo che la proprietà vale per ogni $c \\ge 2$.",
+    "tag": [
+      "metodi matematici",
+      "ricorrenze"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Risoluzione di Ricorrenze per Iterazione (Srotolamento)\n\nSi consideri la relazione di ricorrenza con termine additivo non costante:\n$$\\begin{cases} T(0) = 1 \\\\ T(n) = T(n-1) + n, & \\forall n \\ge 1 \\end{cases}$$\n\nApplicando il **metodo di iterazione** (unfolding) e la formula per la somma dei primi $n$ interi positivi, qual è la forma chiusa esatta di $T(n)$?",
+    "risposta1": "$T(n) = 1 + \\frac{n(n+1)}{2} = \\frac{n^2 + n + 2}{2}$",
+    "risposta2": "$T(n) = 2^n - 1$",
+    "risposta3": "$T(n) = n^2 + 1$",
+    "risposta4": "$T(n) = \\frac{n(n-1)}{2}$",
+    "corretta": "$T(n) = 1 + \\frac{n(n+1)}{2} = \\frac{n^2 + n + 2}{2}$",
+    "spiegazione": "Srotolamento (metodo di iterazione) passo dopo passo:\n$$\\begin{aligned}\nT(n) &= T(n-1) + n \\\\\n&= [T(n-2) + (n-1)] + n \\\\\n&= [T(n-3) + (n-2)] + (n-1) + n \\\\\n&= \\dots \\\\\n&= T(n-k) + \\sum_{j=0}^{k-1} (n - j)\n\\end{aligned}$$\nPonendo $k = n$ per raggiungere il caso base $T(0)$:\n$$T(n) = T(0) + \\sum_{j=0}^{n-1} (n - j) = T(0) + \\sum_{i=1}^n i$$\nPoiché $T(0) = 1$ e $\\sum_{i=1}^n i = \\frac{n(n+1)}{2}$:\n$$T(n) = 1 + \\frac{n(n+1)}{2} = \\frac{2 + n^2 + n}{2} = \\frac{n^2 + n + 2}{2}$$",
+    "tag": [
+      "metodi matematici",
+      "ricorrenze"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Ricorrenze Lineari: Risoluzione con Serie Geometrica\n\nSi consideri la relazione di ricorrenza:\n$$\\begin{cases} T(0) = 1 \\\\ T(n) = 3T(n-1) + 1, & \\forall n \\ge 1 \\end{cases}$$\n\nQual è l'espressione analitica esatta in forma chiusa per $T(n)$ ottenuta tramite srotolamento iterativo?",
+    "risposta1": "$T(n) = \\frac{3^{n+1} - 1}{2}$",
+    "risposta2": "$T(n) = 3^n + n$",
+    "risposta3": "$T(n) = 3^{n+1} - 2$",
+    "risposta4": "$T(n) = \\frac{3^n - 1}{2}$",
+    "corretta": "$T(n) = \\frac{3^{n+1} - 1}{2}$",
+    "spiegazione": "Svolgimento per iterazione:\n$$\\begin{aligned}\nT(n) &= 3 T(n-1) + 1 \\\\\n&= 3(3 T(n-2) + 1) + 1 = 3^2 T(n-2) + 3 + 1 \\\\\n&= 3^2(3 T(n-3) + 1) + 3 + 1 = 3^3 T(n-3) + 3^2 + 3 + 1 \\\\\n&= \\dots \\\\\n&= 3^k T(n-k) + \\sum_{i=0}^{k-1} 3^i\n\\end{aligned}$$\nPonendo $k = n$:\n$$T(n) = 3^n T(0) + \\sum_{i=0}^{n-1} 3^i$$\nPoiché $T(0) = 1$, il primo termine è $3^n \\cdot 1 = 3^n$.\nLa somma geometrica finita è:\n$$\\sum_{i=0}^n 3^i = 3^n + \\sum_{i=0}^{n-1} 3^i = \\frac{3^{n+1} - 1}{3 - 1} = \\frac{3^{n+1} - 1}{2}$$\nVerifica per $n=0$: $T(0) = \\frac{3^1 - 1}{2} = 1$.\nVerifica per $n=1$: $T(1) = \\frac{3^2 - 1}{2} = 4 = 3(1)+1$. Corretto!",
+    "tag": [
+      "metodi matematici",
+      "ricorrenze"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Risoluzione di Ricorrenze Lineari Non Omogenee: $T(n) = 2T(n-1) + 1$\n\nSi consideri la relazione di ricorrenza:\n$$\\begin{cases} T(0) = 1 \\\\ T(n) = 2T(n-1) + 1, & \\forall n \\ge 1 \\end{cases}$$\n\nQual è la soluzione esatta in forma chiusa per $T(n)$ ottenuta tramite srotolamento iterativo?",
+    "risposta1": "$T(n) = 2^{n+1} - 1$",
+    "risposta2": "$T(n) = 2^n + 1$",
+    "risposta3": "$T(n) = 2^n - 1$",
+    "risposta4": "$T(n) = 2^{n+1} + n$",
+    "corretta": "$T(n) = 2^{n+1} - 1$",
+    "spiegazione": "Svolgimento per iterazione:\n$$\\begin{aligned}\nT(n) &= 2 T(n-1) + 1 \\\\\n&= 2(2 T(n-2) + 1) + 1 = 2^2 T(n-2) + 2 + 1 \\\\\n&= 2^2(2 T(n-3) + 1) + 2 + 1 = 2^3 T(n-3) + 2^2 + 2 + 1 \\\\\n&= \\dots \\\\\n&= 2^k T(n-k) + \\sum_{i=0}^{k-1} 2^i\n\\end{aligned}$$\nPonendo $k = n$ per raggiungere $T(0)$:\n$$T(n) = 2^n T(0) + \\sum_{i=0}^{n-1} 2^i = 2^n \\cdot 1 + (2^n - 1) = 2 \\cdot 2^n - 1 = 2^{n+1} - 1$$\nVerifica per $n=0$: $T(0) = 2^1 - 1 = 1$.\nVerifica per $n=1$: $T(1) = 2^2 - 1 = 3 = 2(1) + 1$. Corretto!",
+    "tag": [
+      "metodi matematici",
+      "ricorrenze"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Risoluzione per Iterazione: Ricorrenza con Termine Esponenziale $T(n) = T(n-1) + 2^n$\n\nSi consideri la relazione di ricorrenza:\n$$\\begin{cases} T(0) = 1 \\\\ T(n) = T(n-1) + 2^n, & \\forall n \\ge 1 \\end{cases}$$\n\nQual è la formula chiusa di $T(n)$?",
+    "risposta1": "$T(n) = 2^{n+1} - 1$",
+    "risposta2": "$T(n) = 2^n + n$",
+    "risposta3": "$T(n) = 2^{n+1} + 1$",
+    "risposta4": "$T(n) = n 2^n$",
+    "corretta": "$T(n) = 2^{n+1} - 1$",
+    "spiegazione": "Srotolamento iterativo:\n$$\\begin{aligned}\nT(n) &= T(n-1) + 2^n \\\\\n&= [T(n-2) + 2^{n-1}] + 2^n \\\\\n&= T(n-3) + 2^{n-2} + 2^{n-1} + 2^n \\\\\n&= \\dots \\\\\n&= T(0) + \\sum_{i=1}^n 2^i\n\\end{aligned}$$\nPoiché $T(0) = 1 = 2^0$:\n$$T(n) = 2^0 + \\sum_{i=1}^n 2^i = \\sum_{i=0}^n 2^i = \\frac{2^{n+1} - 1}{2 - 1} = 2^{n+1} - 1$$",
+    "tag": [
+      "metodi matematici",
+      "ricorrenze"
+    ]
+  },
+  {
+    "tipo": "multipla",
+    "domanda": "### Metodo di Sostituzione: Ricorrenza Divide et Impera $T(n) = 2T(n/2) + n$\n\nSi consideri la ricorrenza tipica del Merge Sort per $n$ potenze di 2:\n$$\\begin{cases} T(1) = 1 \\\\ T(n) = 2T(n/2) + n, & \\text{per } n = 2^k, k \\ge 1 \\end{cases}$$\n\nApplicando il metodo di sostituzione per dimostrare l'ipotesi induttiva $T(n) = n \\log_2 n + n$, quale passaggio prova il passo induttivo?",
+    "risposta1": "$$T(n) = 2T(n/2) + n = 2\\left( \\frac{n}{2} \\log_2\\left(\\frac{n}{2}\\right) + \\frac{n}{2} \\right) + n = n(\\log_2 n - \\log_2 2 + 1) + n = n(\\log_2 n - 1 + 1) + n = n \\log_2 n + n$$",
+    "risposta2": "$$T(n) = 2\\left( \\frac{n}{2} \\log_2 n \\right) + n = n \\log_2 n + n$$ senza modificare l'argomento del logaritmo.",
+    "risposta3": "$$T(n) = 2(n \\log_2 n) + n = 2n \\log_2 n + n$$",
+    "risposta4": "$$T(n) = n^2 + n$$",
+    "corretta": "$$T(n) = 2T(n/2) + n = 2\\left( \\frac{n}{2} \\log_2\\left(\\frac{n}{2}\\right) + \\frac{n}{2} \\right) + n = n(\\log_2 n - \\log_2 2 + 1) + n = n(\\log_2 n - 1 + 1) + n = n \\log_2 n + n$$",
+    "spiegazione": "Dimostrazione rigorosa per induzione:\n1. **Base ($n=1$)**: $T(1) = 1 \\log_2(1) + 1 = 0 + 1 = 1$. Verificato.\n2. **Ipotesi Induttiva**: Assumiamo $T(n/2) = \\frac{n}{2} \\log_2(n/2) + \\frac{n}{2}$.\n3. **Passo Induttivo**:\n   $$\\begin{aligned}\n   T(n) &= 2 T(n/2) + n \\\\\n   &= 2 \\left[ \\frac{n}{2} \\log_2\\left(\\frac{n}{2}\\right) + \\frac{n}{2} \\right] + n \\\\\n   &= n \\log_2\\left(\\frac{n}{2}\\right) + n + n \\\\\n   &= n (\\log_2 n - 1) + 2n \\\\\n   &= n \\log_2 n - n + 2n \\\\\n   &= n \\log_2 n + n\n   \\end{aligned}$$\nL'ipotesi induttiva è verificata esattamente.",
+    "tag": [
+      "metodi matematici",
+      "ricorrenze"
+    ]
+  }
+]

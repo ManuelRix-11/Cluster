@@ -5,12 +5,16 @@ import styles from './Multipla.module.css';
 export function Multipla({ question, savedAnswer, onAnswer }) {
   const labels = ['A', 'B', 'C', 'D', 'E', 'F'];
   
-  // Extract risposte
-  const options = [];
-  for (let i = 1; i <= 6; i++) {
-    const val = question[`risposta${i}`];
-    if (val !== undefined) {
-      options.push(val);
+  // Extract risposte (supports both array 'opzioni' and 'risposta1..N' keys)
+  const options = Array.isArray(question.opzioni) && question.opzioni.length > 0
+    ? question.opzioni
+    : [];
+  if (options.length === 0) {
+    for (let i = 1; i <= 6; i++) {
+      const val = question[`risposta${i}`];
+      if (val !== undefined) {
+        options.push(val);
+      }
     }
   }
 

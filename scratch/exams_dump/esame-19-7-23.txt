@@ -1,0 +1,138 @@
+=== PAGE 1 ===
+Metodi Matematici per l’Informatica - resto 2
+Prof.ssa A. Rescigno
+Esame 19 luglio 2023
+Anno Acc. 2022-2023
+Universit`a di Salerno
+1. Codice comportamentale.
+Durante questo esame si deve lavorare da soli.
+Non si pu´o
+consultare materiale di nessun tipo. Non si pu´o chiedere o dare aiuto ad altri studenti.
+2. Istruzioni. Rispondere alle domande. Per la brutta usare i fogli posti alla ﬁne del plico (NON
+si possono usare fogli aggiuntivi); le risposte verranno corrette solo se inserite nello spazio ad
+esse riservate oppure viene indicata con chiarezza la posizione alternativa.
+Per essere accettata per la correzione la risposta deve essere ordinata e di facile lettura.
+TUTTE le risposte vanno GIUSTIFICATE. Ciascuna risposta non giustiﬁcata vale ZERO.
+Nome e Cognome:
+(in stampatello)
+Firma
+Spazio riservato alla correzione: non scrivere in questa tabella.
+1
+2
+3
+4
+5
+6
+Tot
+/35
+/10
+/15
+/15
+/15
+/10
+/100
+
+
+=== PAGE 2 ===
+ESERCIZIO 1 (35 punti)
+(a)
+Utilizzando le equivalenze logiche, veriﬁcare che le seguenti proposizioni sono equivalenti
+• ¬(p ∨(¬p ∧q))
+• ¬p ∧¬q
+(b)
+Siano P(x) e Q(x) predicati e sia a un elemento del dominio della variabile x.
+Si assuma che sia VERA la seguente proposizione:
+[∀x(Q(x) →P(x))] ∧¬P(a)
+Giustiﬁcando le risposte, determinare il valore di verit´a delle seguenti proposizioni.
+(1) Q(a)
+(2) ∀xQ(x)
+(3) ∃xQ(x)
+
+
+=== PAGE 3 ===
+(c)
+Si supponga che le seguenti proposizioni siano VERE:
+1) p →(r ∨s)
+2) ¬(t →r)
+3) ¬t ∨p
+Determinare il valore di verit`a di s.
+(d) Data la segunte proposizione
+¬[∀x∃y (P(x) →(x > y))]
+scriverne una equivalente in cui la negazione compaia eventualmente solo su P(x).
+
+
+=== PAGE 4 ===
+(e)
+Mostrare che per due qualunque insieme A e B, sottoinsiemi dell’insieme universale U
+(non possono essere usati i diagrammi di Venn),
+A ⊆B
+´e equivalente a
+B ⊆A
+
+
+=== PAGE 5 ===
+ESERCIZIO 2 (10 punti)
+Siano x e y numeri interi positivi. Provare la seguente asserzione:
+Se 5xy ´e dispari, allora x e y sono dispari.
+
+
+=== PAGE 6 ===
+ESERCIZIO 3 (15 punti)
+Sia Σ = {0, 1} e sia w ∈Σ∗.
+La stringa binaria w ´e detta dispari se ´e dispari il numero di 1 presenti in w.
+a) Deﬁnire ricorsivamente l’insieme D delle stringhe binarie dispari, cio´e l’insieme
+D = {w | w ´e una stringa binaria dispari}
+b)
+Utilizzando la deﬁnizione data al punto a), provare attraverso il principio di induzione
+strutturale che ´e vera la seguente asserzione:
+Ogni w ∈D, w ha un numero dispari di 1.
+
+
+=== PAGE 7 ===
+ESERCIZIO 4 (15 punti)
+Sia S delle coppie (a, b) di numeri interi pari non negativi.
+Ad esempio (2, 4) ∈S, (10, 0) ∈S, (0, 7)̸ ∈S.
+a) Fornire una deﬁnizione ricorsiva dell’insieme S.
+b)
+Utilizzando la deﬁnizione data al punto a), provare attraverso il principio di induzione
+strutturale che ´e vera la seguente asserzione:
+Per ogni (a, b) ∈S, a · b ´e pari.
+
+
+=== PAGE 8 ===
+ESERCIZIO 5 (15 punti)
+Un albero unario ´e un albero radicato in cui ciascun nodo ha zero o un ﬁglo.
+a) Dare la deﬁnizione ricorsiva di albero unario.
+b) Siano n(T) ed h(T), rispettivamente, il numero di nodi e l’altezza di un albero unario T.
+Usare il principio di induzione strutturale per provare che
+Per ogni albero unario T = (V, E) si ha n(T) = h(T) + 1.
+
+
+=== PAGE 9 ===
+ESERCIZIO 6 (10 punti)
+Si consideri la seguente relazione di ricorrenza:
+T(0) = 2
+T(n) = 2 T(n −1)
+a)
+Determinare con il metodo di sostituzione per quali valori della costante c vale che
+T(n) ≤c2n.
+b)
+Usare il metodo di iterazione per trovare la soluzione alla relazione di ricorrenza.
+
+
+=== PAGE 10 ===
+FOGLIO DA UTILIZZARE PER LA BRUTTA
+
+
+=== PAGE 11 ===
+FOGLIO DA UTILIZZARE PER LA BRUTTA
+
+
+=== PAGE 12 ===
+FOGLIO DA UTILIZZARE PER LA BRUTTA
+
+
+=== PAGE 13 ===
+FOGLIO DA UTILIZZARE PER LA BRUTTA
+
+

@@ -1,0 +1,47 @@
+=== PAGE 1 ===
+Indirizzo email a cui spedire la soluzione: Mmatematici07@gmail.com
+ESERCIZIO 1 (13 punti)
+(a) Utilizzare le equivalenze logiche per provare che
+p →(q →r)
+´e equivalente a
+(p ∧q) →r
+(b) Si assuma che
+(b1) (p ∧q) →r ≡F
+(b2) (s →r) ∨(q →r) ≡T
+Determinare il valore di verit´a di s.
+ESERCIZIO 2 (12 punti)
+Siano P(x), Q(x) ed R(x) predicati sullo stesso dominio D. Assumendo che siano VERE le
+seguenti proposizioni:
+(a) ∃x[P(x) ∧Q(x)]
+(b) ∀x[Q(x) →R(x)]
+possiamo concludere che ´e VERA ∀xR(x)? Giustiﬁcare la risposta.
+ESERCIZIO 3 (10 punti)
+Per ciascuna delle seguenti asserzioni, determinarne una equivalente in modo che non compaia
+la negazione
+(a) ¬[∀x∃y ∀z (x ≤y ≤z)]
+(b) ¬[∃x ∃y (x →y)]
+ESERCIZIO 4 (10 punti)
+Mostrare che per due qualunque insieme A e B, sottoinsiemi dell’insieme universale U,
+A ⊆B
+´e equivalente a
+B ⊆A
+ESERCIZIO 5 (17 punti)
+Si consideri l’insieme
+S = {(1, 2, 3), (2, 4, 6), (3, 6, 9), · · · · · ·}
+a) Dare una deﬁnizione ricorsiva dell’insieme S.
+b) Usare il principio di induzione strutturale per provare che
+Per ogni (x, y, z) ∈S si ha x + y + z ´e un multiplo di 6.
+ESERCIZIO 6 (28 punti)
+Un albero ternario pieno ´e un albero radicato in cui ciascun nodo ha zero o tre ﬁgli.
+a) Dare la deﬁnizione ricorsiva di albero ternario pieno.
+b)
+Siano i(T) ed f(T), rispettivamente, il numero di nodi interni e di foglie di un albero
+ternario pieno T. Dare una deﬁnizione ricorsiva di i(T) ed f(T).
+c) Usare il principio di induzione strutturale per provare che
+Per ogni albero ternario pieno T = (V, E) si ha f(T) = 2 · i(T) + 1.
+ESERCIZIO 7 (10 punti)
+Usare la seguente relazione di ricorrenza usando il metodo di iterazione
+T(n) = 2T(n −1) −1
+T(0) = 2
+
+

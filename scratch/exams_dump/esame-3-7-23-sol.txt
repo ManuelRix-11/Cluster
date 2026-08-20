@@ -1,0 +1,134 @@
+=== PAGE 1 ===
+Metodi Matematici per l’Informatica - resto 2
+Prof.ssa A. Rescigno
+Esame 3 luglio 2023
+Anno Acc. 2022-2023
+Universit`a di Salerno
+1. Codice comportamentale.
+Durante questo esame si deve lavorare da soli.
+Non si pu´o
+consultare materiale di nessun tipo. Non si pu´o chiedere o dare aiuto ad altri studenti.
+2. Istruzioni. Rispondere alle domande. Per la brutta usare i fogli posti alla ﬁne del plico (NON
+si possono usare fogli aggiuntivi); le risposte verranno corrette solo se inserite nello spazio ad
+esse riservate oppure viene indicata con chiarezza la posizione alternativa.
+Per essere accettata per la correzione la risposta deve essere ordinata e di facile lettura.
+TUTTE le risposte vanno GIUSTIFICATE. Ciascuna risposta non giustiﬁcata vale ZERO.
+Nome e Cognome:
+(in stampatello)
+Firma
+Spazio riservato alla correzione: non scrivere in questa tabella.
+1
+2
+3
+4
+5
+Tot
+/35
+/10
+/15
+/30
+/10
+/100
+
+
+=== PAGE 2 ===
+ESERCIZIO 1 (35 punti)
+(a)
+Utilizzando le equivalenze logiche, provare che la seguente proposizione ´e una tautologia
+[¬q ∧(p ∨q)] →p
+(b)
+Siano P(x), Q(x), R(x) predicati su un dominio ﬁssato.
+Assumendo siano VERE le seguenti proposizioni:
+(1)
+∀x[R(x) →(P(x) ∨Q(x))]
+(2)
+∃x[R(x) ∧¬P(x)]
+Possiamo concludere che ´e VERA ∃xQ(x)? Giustiﬁcare la risposta.
+
+
+=== PAGE 3 ===
+(c)
+Si supponga che il dominio del predicato Q(x, y) sia l’insieme {1, 2} × {1, 2}. Scrivere la
+proposizione seguente usando solo disgiunzioni e congiunzioni.
+∃x∀yQ(x, y)
+(d)
+Si consideri il seguente predicato:
+P(x) : x ≤10 →x ´e dispari
+Sia A l’insieme deﬁnito come
+A = {x ∈Z+ | ¬P(x)}
+Giustiﬁcando la risposta, elencare gli interi appartenenti ad A.
+
+
+=== PAGE 4 ===
+(e)
+Dati due insiemi A, B, dimostrare formalmente (non ´e possibile usare i diagrammi di
+Venn) che:
+(A ∩B) ∪B = A ∪B.
+
+
+=== PAGE 5 ===
+ESERCIZIO 2 (10 punti)
+Dimostrare per contraddizione che
+Se 5n + 1 oggetti vengono distribuiti in n scatole allora qualche scatola contiene almeno 6 oggetti.
+
+
+=== PAGE 6 ===
+ESERCIZIO 3 (15 punti)
+(a) Sia A l’insieme delle stringhe sull’alfabeto {a, b, c} della forma anc bn, per n intero e n ≥0.
+Si noti che an ´e la stringa che si ottiene concatenando per n volte il carattere a; cio´e, a5 = aaaaa,
+a0 = λ.
+Dare la deﬁnizione ricorsiva delle stringhe di A (n non deve comparire nella formulazione
+delle stringhe di A).
+(b) Usando la deﬁnizione ricorsiva di A data in (a), usare il principio di induzione strutturale
+per provare che
+Per ogni w ∈A si ha ℓ(w) ´e dispari.
+
+
+=== PAGE 7 ===
+ESERCIZIO 4 (30 punti)
+Un albero binario ´e un albero radicato in cui ciascun nodo ha zero o uno o due ﬁgli.
+Mentre, un albero binario pieno ´e un albero radicato in cui ciascun nodo ha zero o due ﬁgli.
+a) Dare la deﬁnizione ricorsiva di albero binario.
+b) Dare la deﬁnizione ricorsiva di albero binario pieno.
+
+
+=== PAGE 8 ===
+c) Un nodo interno di un albero ´e un vertice con almeno un ﬁglio.
+Sia T albero binario pieno .
+Dare la deﬁnizione ricorsiva di:
+– e(T) il numero di archi di un albero binario pieno T;
+– i(T) il numero di nodi interni di un albero binario pieno T.
+d) Usare il principio di induzione strutturale per provare che
+Per ogni albero binario pieno T = (V, E) si ha e(T) = 2 · i(T).
+
+
+=== PAGE 9 ===
+ESERCIZIO 5 (10 punti)
+Data la seguente relazione di ricorrenza:
+T(0)
+=
+0
+T(n)
+=
+T(n −2) + 5, con n pari e n > 0
+a) Usare il metodo di sostituzione per provare che T(n) ≤c n
+2
+b) Usare il metodo di iterazione per risolverla.
+
+
+=== PAGE 10 ===
+FOGLIO DA UTILIZZARE PER LA BRUTTA
+
+
+=== PAGE 11 ===
+FOGLIO DA UTILIZZARE PER LA BRUTTA
+
+
+=== PAGE 12 ===
+FOGLIO DA UTILIZZARE PER LA BRUTTA
+
+
+=== PAGE 13 ===
+FOGLIO DA UTILIZZARE PER LA BRUTTA
+
+

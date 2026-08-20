@@ -1,0 +1,121 @@
+=== PAGE 1 ===
+Esame MMI (resto 2 - prof.ssa Rescigno)
+16 Giugno 2022
+1. Codice comportamentale.
+Durante questo esame si deve lavorare da soli.
+Non si pu´o
+consultare materiale di nessun tipo. Non si pu´o chiedere o dare aiuto ad altri studenti.
+2. Istruzioni. Rispondere alle domande. Per la brutta usare i fogli posti alla ﬁne del plico (NON
+si possono usare fogli aggiuntivi); le risposte verranno corrette solo se inserite nello spazio ad
+esse riservate oppure viene indicata con chiarezza la posizione alternativa.
+Per essere accettata per la correzione la risposta deve essere ordinata e di facile lettura.
+TUTTE le risposte vanno GIUSTIFICATE. Ciascuna risposta non giustiﬁcata vale ZERO.
+Nome e Cognome:
+(in stampatello)
+Firma
+Spazio riservato alla correzione: non scrivere in questa tabella.
+1
+2
+3
+4
+5
+6
+7
+Tot
+/7
+/10
+/10
+/10
+/33
+/20
+/10
+/100
+
+
+=== PAGE 2 ===
+ESERCIZIO 1 (7 punti)
+Utilizzare le equivalenze logiche per provare che la seguente equivalenza
+¬p →(q →p) ≡q →p
+2
+
+
+=== PAGE 3 ===
+ESERCIZIO 2 (10 punti)
+Si suppongano VERE le seguenti proposizioni:
+1) ∀x (A(x) →B(x))
+2) ∃x A(x)
+La verit´a di quali delle seguenti proposizioni ´e possibile dedurre? Giustiﬁcare le risposte
+a) ∀x(¬B(x))
+b) B(a)
+c) ∃xB(x)
+3
+
+
+=== PAGE 4 ===
+ESERCIZIO 3 (10 punti)
+Dati gli insiemi A, B, C, provare che
+(A −C) ∩(C −B) = ∅
+ESERCIZIO 4 (10 punti)
+Provare che:
+Per ogni interi n ed m,
+se m · n · (n −1) ´e dispari allora m ´e dispari.
+4
+
+
+=== PAGE 5 ===
+ESERCIZIO 3 (33 punti)
+Sia A l’insieme delle stringhe palindrome di lunghezza dispari sull’alfabeto {0, 1, 2}.
+a)
+Dare la deﬁnizione ricorsiva delle stringhe di A.
+b)
+Sia ℓ(w) la lunghezza della stringa w ∈A. Usare il principio di induzione strutturale
+per provare che:
+Per ogni w ∈A si ha ℓ(w) ´e un numero dispari.
+5
+
+
+=== PAGE 6 ===
+c) Per w ∈A, sia s(w) la stringa che si ottiene da w sostituendo ogni occorrenza del carattere
+2 con λ (dove λ ´e la stringa vuota). Dare una deﬁnizione ricorsiva di s(w).
+d)
+Usare il principio di induzione strutturale per provare che:
+Per ogni w ∈A si ha ℓ(s(w)) ≤ℓ(w).
+6
+
+
+=== PAGE 7 ===
+ESERCIZIO 6 (20 punti)
+Un ciclo Cn = (Vn, En), per n ≥3, ´e deﬁnito come segue:
+Vn = {v1, v2, · · · , vn},
+En = { (v1, v2), (v2, v3), · · · , (vn−1, vn), (vn, v1)}.
+i) Si deﬁnisca ricorsivamente Cn.
+ii) Si usi l’induzione strutturale per provare che:
+Per ogni ciclo Cn si ha che |En| = |Vn|.
+7
+
+
+=== PAGE 8 ===
+ESERCIZIO 7 (10 punti)
+Si consideri la seguente relazione di ricorrenza
+T(1) = 1
+T(n) = 4T(n/2)
+per n = 2h ed h ≥2.
+Usare il metodo di iterazione per determinare il valore di T(n)
+8
+
+
+=== PAGE 9 ===
+FOGLIO DA UTILIZZARE PER LA BRUTTA
+9
+
+
+=== PAGE 10 ===
+FOGLIO DA UTILIZZARE PER LA BRUTTA
+10
+
+
+=== PAGE 11 ===
+FOGLIO DA UTILIZZARE PER LA BRUTTA
+11
+
+

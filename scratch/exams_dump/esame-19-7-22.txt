@@ -1,0 +1,126 @@
+=== PAGE 1 ===
+Esame MMI (resto 2 - prof.ssa Rescigno)
+19 Luglio 2022
+1. Codice comportamentale.
+Durante questo esame si deve lavorare da soli.
+Non si pu´o
+consultare materiale di nessun tipo. Non si pu´o chiedere o dare aiuto ad altri studenti.
+2. Istruzioni. Rispondere alle domande. Per la brutta usare i fogli posti alla ﬁne del plico (NON
+si possono usare fogli aggiuntivi); le risposte verranno corrette solo se inserite nello spazio ad
+esse riservate oppure viene indicata con chiarezza la posizione alternativa.
+Per essere accettata per la correzione la risposta deve essere ordinata e di facile lettura.
+TUTTE le risposte vanno GIUSTIFICATE. Ciascuna risposta non giustiﬁcata vale ZERO.
+Nome e Cognome:
+(in stampatello)
+Firma
+Spazio riservato alla correzione: non scrivere in questa tabella.
+1
+2
+3
+4
+5
+6
+7
+8
+Tot
+/10
+/10
+/10
+/10
+/15
+/15
+/22
+/8
+/100
+
+
+=== PAGE 2 ===
+ESERCIZIO 1 (10 punti)
+a) Provare che la seguente proposizione ´e una tautologia
+[p ∧(p →q)] →q
+b) Provare che la seguente proposizione NON ´e una tautologia
+[¬p ∧(p →q)] →¬q
+2
+
+
+=== PAGE 3 ===
+ESERCIZIO 2 (10 punti)
+Si supponga sia VERA le seguente proposizione sul dominio D:
+[∃x (A(x) →B(x))] ∧[∀A(x)]
+Giustiﬁcando le risposte dire se ciascuna delle seguenti proposizioni ´e VERA, FALSA, o
+non si pu´o dedurre.
+a) ∃x (¬B(x) →¬A(x))
+b) ∀x B(x)
+3
+
+
+=== PAGE 4 ===
+ESERCIZIO 3 (10 punti)
+Dati due insiemi A, B, dimostare formalmente che:
+B −(A ∩B) = B −A
+ESERCIZIO 4 (10 punti)
+Provare per contraddizione che:
+Per tutti i numeri reali non negativi a, b, c,
+se a2 + b2 = c2 allora a + b ≥c.
+4
+
+
+=== PAGE 5 ===
+ESERCIZIO 5 (15 punti)
+Sia A l’insieme delle stringhe sull’alfabeto {a, b, c} in cui
+il carattere c compare solo in due occorrenze consecutive.
+Per esempio, aaccb ∈A, b ∈A, ccabaccabbb ∈A ma acaccb̸ ∈A, bbcac̸ ∈A.
+a)
+Dare la deﬁnizione ricorsiva delle stringhe di A.
+b)
+Per ogni w ∈A, sia nc(w) il numero di volte in cui il carattere c compare in w. Usare il
+principio di induzione strutturale per provare che:
+Per ogni w ∈A si ha nc(w) ´e un numero pari.
+5
+
+
+=== PAGE 6 ===
+ESERCIZIO 6 (15 punti)
+a) Dare una deﬁnizione ricorsiva dell’insieme B dei numeri interi non negativi che siano dispari
+e multipli di 3.
+b) Usare il principio di induzione strutturale per provare che
+Per ogni x ∈B, x ´e dispari.
+6
+
+
+=== PAGE 7 ===
+ESERCIZIO 7 (22 punti)
+Un albero binario ´e un albero radicato in cui ciascun nodo ha zero o uno o due ﬁgli.
+a) Dare la deﬁnizione ricorsiva di albero binario.
+c)
+Sia e(T) ed i(T), rispettivamente, il numero di archi ed il numero di nodi interni di un
+albero binario T. Usare il principio di induzione strutturale per provare che
+Per ogni albero binario T = (V, E) si ha e(T) ≤2 · i(T).
+7
+
+
+=== PAGE 8 ===
+ESERCIZIO 8 (8 punti)
+Si consideri la seguente relazione di ricorrenza
+T(1) = 1
+T(n) = 3T(⌊n/3⌋)
+per n = 3k ed n ≥3.
+Usare il metodo di iterazione per determinare il valore di T(n).
+8
+
+
+=== PAGE 9 ===
+FOGLIO DA UTILIZZARE PER LA BRUTTA
+9
+
+
+=== PAGE 10 ===
+FOGLIO DA UTILIZZARE PER LA BRUTTA
+10
+
+
+=== PAGE 11 ===
+FOGLIO DA UTILIZZARE PER LA BRUTTA
+11
+
+

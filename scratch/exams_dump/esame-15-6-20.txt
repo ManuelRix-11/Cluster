@@ -1,0 +1,52 @@
+=== PAGE 1 ===
+Indirizzo email a cui spedire la soluzione: Mmatematici07@gmail.com
+ESERCIZIO 1 (10 punti)
+Si supponga che le seguenti proposizioni siano FALSE:
+a) (q ∨s) →p
+b) q ∧r ∧t
+c) ¬r ∨s
+Determinare il valore di verit´a di t. Giustiﬁcare la risposta.
+ESERCIZIO 2 (15 punti)
+Siano P and Q predicati su un dominio U. Supponedo che la proposizione
+∃x(Q(x) ∧P(x))
+sia VERA. Giustiﬁcando la risposta, dire se ´e possibile concludere che ´e VERA la proposizione
+(∀xQ(x)) →(∃xP(x))
+ESERCIZIO 3 (10 punti)
+Si supponga che il dominio del predicato P(x) sia l’insieme {−2, −1, 0}. Scrivere ciascuna delle
+seguenti proposizioni usando solo disgiunzioni, congiunzioni e negazioni.
+(a) ¬∃xP(x))
+(b) ∀x((x ≥0) →P(x))
+ESERCIZIO 4 (10 punti)
+Provare la seguente asserzione
+Per due qualunque numeri reali a e b, se a+b
+2
+< b allora a < b.
+ESERCIZIO 5 (23 punti)
+Sia A l’insieme costituito dalle stringhe sull’alfabeto {0, 1, 2} che sono diverse dalla stringa
+vuota.
+a)
+Dare la deﬁnizione ricorsiva delle stringhe di A.
+b)
+Data una stringa w ∈A, la stringa s(w) che si ottiene cambiando in w ogni occorrenza
+del carattere 0 con il carattere a, ogni occorrenza del carattere 1 con il carattere b ed ogni
+occorrenza del carattere 2 con il carattere c ´e deﬁnita ricorsivamente come segue
+P.B. : s(0) = a,
+s(1) = b,
+s(2) = c
+P.R. : data w ∈A, si ha s(w0) = s(w)a, s(w1) = s(w)b e s(w2) = s(w)c.
+Usare il principio di induzione strutturale per provare che:
+Per ogni w ∈A si ha che
+(numero di 0 presenti in w) = (numero di a presenti in s(w))
+ESERCIZIO 6 (22 punti)
+Un albero ternario pieno ´e un albero radicato in cui ciascun nodo ha zero o tre ﬁgli.
+a) Dare la deﬁnizione ricorsiva di albero ternario pieno.
+b) Usare il principio di induzione strutturale per provare che
+Per ogni albero ternario pieno T = (V, E) si ha |E| ´e un multiplo di 3.
+ESERCIZIO 7 (10 punti)
+Si consideri la seguente relazione di ricorrenza:
+T(1) = 1
+T(n) = 2T(n/2) + 1
+per n = 2h ed h ≥1.
+Usare il metodo di iterazione per trovare la soluzione alla relazione di ricorrenza.
+
+

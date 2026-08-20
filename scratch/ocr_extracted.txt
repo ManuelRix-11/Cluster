@@ -1,0 +1,177 @@
+====================================
+FILE: esercitazione-(predicati).pdf
+====================================
+--- PAGE 1 ---
+Problema 9, sezione 1.4: Sia - P (x): parla russo Q(a:) conosce il linguaggio C Sia il dominio, 'insieme di tutti gli studenti di Informatica. sprimere le seguenti asserzioni in termini di a: a: , quan ca orl e connettivi logici. 1. C'é uno studente di Informatica che parla russo e conosce il C. 2. C'é uno studente di Informatica che parla russo, ma non conosce il C. 3. Ogni studente di Informatica o parla russo o conosce il C. 4. Nessuno studente di Informatica parla russo o conosce il C. PCzòNQ(k) VA(k)) IVI x D 19
+
+--- PAGE 2 ---
+Problema 12, sezione 1.4: Sia - Q(x): > 1.2 Sia il dominio, l'insieme di tutti gli interi. Quale é il valore di verit{ delle seguenti proposizioni? Q(—l)% F 2. Q(l) 3. 4. -2xQ(x) O VxQ(x) 5. 6. 3x-C2(x) Va: —nQ(a:) 7. 20 aco)z
+
+--- PAGE 3 ---
+Problema 41, parte a) sezione 1.4: Esprimere la seguente asserzione usando predi- cati, quantificatori e connettivi logici: Almeno un messaggio email, tra i messaggi non vuoti, pub essere salvato se c'é un disco con pini di IO kilobit di spazio libero. 21
+
+--- PAGE 4 ---
+Problema 45, sezione 1.4: Mostrare che V Q(x)) axP(x) V axQ(T) _ZAA_A ) — -b v/ 06<1) ù ) E (RE) v Qst)) l/ 77a)) 22
+
+--- PAGE 5 ---
+Problema 59, sezione 1.4: Sia - P (x): é un professore Q(x): a: é ignorante - R(x): é vanitoso Sia il dominio, l'insieme di tutte le persone. Esprimere le seguenti asserzioni in termini di P (a: x), quanti ca ori e connettivi logici. 1. 2. 3. 4. 2 3 Nessun professore é ignorante Tutte le persone ignoranti sono vanitose Nessun professore é vanitoso Si pub dire che 3. segue da 1. e da 2. ? Q(xl 5 70>0 c/ v VIQ6) do fon.A1 —p V eco - so S—e.A 23
+
+--- PAGE 6 ---
+Problema 31, parte d) sezione 1.5: Scrivere la negazione della seguente asserzione in modo tale che la negazione preceda un predicato. y) —+ Q(x, y)) 24
+
+--- PAGE 7 ---
+• Supponiamo che P (x, y) sia un predicato dove l'universo del discorso per a: e y sia Supponiamo anche che il predicato sia vero nei seguenti casi. P(l, 2), P(2, 1), P(2, 2), P(2, 3), P(3, 1), P(3, 2) e falso altrimenti. Determinare quale delle seguenti asserzioni é falsa. 1 -6 ) /k(-3 -Pét q)) A 28
+
+--- PAGE 8 ---
+Determinare quale é la negazione di 29
+
+--- PAGE 9 ---
+Determinare quale é la negazione di Qualcuno non and6 al supermercato 30
+
+--- PAGE 10 ---
+Determinare quale é la negazione di I. —l(VxayVz Q(x, y, z)) 31
+
+--- PAGE 11 ---
+Determinare se gli argomenti seguenti sono corretti o meno, spiegando il perché. I. Chiunque sia stato iscritto in una universitâ americana ha vissuto in un dor- mitorio. John non ha mai vissuto in un dormitorio. Perciò, John non é mai stato iscritto ad una universitâ americana. DCA ho vissu Lo ) V x U (x ò —ODcx) 32 a.zC-0(.L-t-A
+
+--- PAGE 12 ---
+Determinare se gli argomenti seguenti sono corretti o meno, spiegando il perché. 1. Qualunque macchina decappottabile é divertente da guidare. La macchina di Luca non é decappottabile. Perci6 la macchina di Luca non é divertente da guidare. c) D(LuO n Q (Laco) D(Luu) —P (-A(LÜQ)) - 33
+
+--- PAGE 13 ---
+SE la seguente proposizione é una tautologia. ( (pvq) (9 -se)) ("37—013, -l ( (pvq) A ( P _ p.ë) l/ & 34
+
+--- PAGE 14 ---
+4 Si considerino i seguenti predicati: Leone (x): x é un leone Gazzella(x): x é una gazzella — x cattura y Agile(x): x é agile Si traducano I i asserzioni in espressioni logiche, considerando come do- rnini l'insieme di tutti li animali: 1. Ogni leone cattura una gazzella 2. Qualche leone cattura tutte le gazzelle 3. C'é qualche gazzella che non é catturata da alcun leone 4. Ogni gazzella non agil é catturata da qualche leone. LG) -P -lg 667) a A LG) 35
+
+--- PAGE 15 ---
+Si supponga che il dominio del predicato P (x) sia ? 3 Scrivere le seguenti proposizioni usando solo disgiunzioni, congiunzioni e negazioni. 1. 36
+
+====================================
+FILE: esercitazione-(proposizioni).pdf
+====================================
+--- PAGE 1 ---
+Esercitazione Logica March 1, 2023 Per gli esercizi presi dal libro di Rosen viene indicato il numero e la sezione cui si riferiscono (useremo 0 per False e 1 per Problema 15, sezione 1.1. 1. Consideriamo le proposizioni: - p : Gli orsi grizzly sono stati visti in zona. q : Carnrmnare lungo il tragitto é sicuro. T : Le more sono mature lungo il tragitto. 2. Convertire le frasi seguenti usando le proposizioni precedente ed i connettivi logici: 'li orsi sono - a : "Le more sono mature lungo li tra2itto visti in zona." )G16ungo il tragitto, cam- b : Gli orsi grizzly non sono stati visti in zon minare é sicuro e le more sono mature." S le more sono mature lungo il tragitto allor amminare lungo il c tragitto é sicuro e e solo s gli orsi grizzly non sono stati visti in zona." ) d : "Non è sicuro camminare lungo il tragitto, ma gli orsi grizzly non sono stati visti in zona e le more lungo il tragitto sono mature." e : "Per camminare in maniera sicura lungo il tragitto, é necessario ma non sufficiente che le more non siano mature lungo il tragitto e che gli orsi grizzly non siano stati visti in zona." f : "Non è sicuro camminare sul cammino ogniqualvolta gli orsi grizzly sono stati visti in zona e le more sono mature lungo il tragitto." 1
+
+--- PAGE 2 ---
+Problema 18 (c), sezione 1.1. Determinare se la seguente asserzione condizionale é vera o falsa. "S 1 + 1 2 allora i cani possono volar ( ?oss-onooou
+
+--- PAGE 3 ---
+Problema 27 (b), sezione 1.1. Consideriamo la seguente asserzione: "Io vengo a lezione ogniqualvolta c'é un test." Notate che l'asserzione precedente pub essere riformulata nel modo seguente: c'é un test allora io vengo a lezione." - Quale é l'asserzione opposta? Quale é l'asserzione inversa? - Quale é l'asserzione contronominale? - Confrontiamo le tabelle di verit{. 3 "Se
+
+--- PAGE 4 ---
+Problem 35, c) sezione 1.1. Construiamo la tabella di veriti della proposizione seguente (p —+ q) V ( —p —+ q) 4
+
+--- PAGE 5 ---
+Problema 39, sezione 1.1. Costruiamo la tabella di verit{ per (p q) ++ (r ++ s) Di quante righe é costituita la tabella? 5
+
+--- PAGE 6 ---
+Problema 40, sezione 1.1. Spiegare, senza usare la tavola di verit{, perché la seguente proposizione é vera quando p, q, r hanno lo stesso valore di veritâ. 6
+
+--- PAGE 7 ---
+Si supponga che la proposizione sia falsa. Trovare i valori di p, s, q, r. q Z¯V/F GAS)
+
+--- PAGE 8 ---
+Sia n un numero naturale, cioé n C N — {1 2, 3, 4, . Data le seguente asserzione: Se n 5 allora n é dispari. a) Formalizzare l'asserzione data utilizzando i connettivi logici. b) Elencare i numeri naturali che rendono VERA l'asserzione data. 3 3
+
+--- PAGE 9 ---
+Si consideri la seguente asserzione: Sono ammes e al concorso le persone che sono laureate anno figli. e hanno meno di 30 anni a) Formalizzare l'asserzione precedente utilizzando i connettivi ogici. b) Assumendo che partecipano al concorso: Aldo non é laureato, ha 26 anni ed un figlio. Paolo é laureato, ha 40 anni e due figli. Vincenzo é laureato, ha 32 anni e non ha figli. Chi pub partecipare al concorso? PA,o c.GÈ.o 9
+
+--- PAGE 10 ---
+Usando un ragionamento logico, provare che a) e SONO logicamente equivalenti. b) SONO logicamente equivalenti. 10
+
+--- PAGE 11 ---
+Problema 35, sezione 1.2. Un detective ha interrogato quattro sospettati di un crimine. Da ci6 che i sospet- tati hanno raccontato, il detective ha concluso che se il maggiordomo sta dicendo la veritâ. allora anche il cuoco sta dicendo la veritâ; il cuoco ed il&iardiniere non possono entrambi aver detto la veritâ; il giardiniere ed il tuttofare non sono en- trambi bugiardi; se il tuttofare sta dicendo la veritâ allora il cuoco sta mentendo. Può il detective determinare se ciascuno dei quattro sospettati sta dicendo la verit{, o meno? f\né)-- c.RQ ë$l/é CO 11
+
+--- PAGE 12 ---
+Problema 31, sezione 1.3. Mostriamo che (p —+ q) r non é logicamente equivalente a p —+ (q —+ r). 12
+
+--- PAGE 13 ---
+Problema 27, sezione 1.3: Mostrare che p 4-+ q — I/ 7 q) (-77 q V/ -Ì p) — (p 1/79) A (q l/„p) (f v p) (npuq) _ q —pp)n (7—5?) 13
+
+--- PAGE 14 ---
+• Dire SE la seguente proposizione é una tautologia 67) u 3 14
+
+--- PAGE 15 ---
+Provare che 15
+
+--- PAGE 16 ---
+Date le proposizioni A, B, C, si considerino le seguenti espressioni I) "Una ed una sola tra A, B, C é vera ' 2) "Piü di una A, B, C é vera Utilizzando i connettivi A, V e scrivere le corrispondenti proposizioni logiche. 16
+
+--- PAGE 17 ---
+• Quale é la negazione di "a: é dispari e g é pari",? e y sono dispari 1. 2. a: e y sono pari 3. é dispari o y é pari 4. a: é pari o y é dispari 17
+
+--- PAGE 18 ---
+Se x, y, z sono numeri reali, quale é la negazione di '"T < y < z? 1. 2. 3. ) eq)A (q ce)) R)DP e 18
+
+--- PAGE 19 ---
+SE la seguente proposizione é una tautologia. ( (pvq) (9 -se)) ("37—013, -l ( (pvq) A ( P _ p.ë) l/ & 34
+
+--- PAGE 20 ---
+Altri esercizi - a casa • Quali delle seguenti asserzioni sono proposizioni? a) Non attraversare. b) Che ora é? c) L'intero a: é un multiplo di 7. d) O l'intero é un multiplo di 7, o non lo é. e) La luna é fatta di formaggio. — 100. • Quale delle seguenti asserzioni é la negazione di "Giorgio e Michele sono assenti oggi 1. Giorgio o Michele é presente oggi 2. Giorgio e Michele sono presenti oggi 3. O Giorgio é assente e Michele é presente, o Giorgio é presente e Michele é assente oggi 4. Né Giorgio né Michele sono assenti oggi 37
+
+--- PAGE 21 ---
+• Quale delle seguenti asserzioni é la negazione di "Guarderô la TV o legger6 un libro, ma non entrambi". 1. Guarderô la TV e legger6 un libro 2. Non guarderô la TV né leggero un libro 3. O guarder6 la TV e legger6 un libro, o non far6 niente • Quale é la negazione di "x é dispari e y é pari"? a: e y sono dispari 1. 2. e y sono pari a: é dispari o y é pari 3. 4. a: é pari o y é dispari Se x, y, z sono numeri reali, quale é la negazione di I. 2. 3. 38
+
+--- PAGE 22 ---
+• • Supponiamo che m "tu sei membro di una squadra" t "tu fai lezione di pomeriggio'. Esprimere in italiano la seguente proposizione composta: m —+ -nt sei membro di una squadra solo se fai lezione di pomeriggio 1. 2. Tu sei membro di una squadra solo se non fai lezione di pomeriggio 3. Se non fai lezione di pomeriggio allora sei membro di una squadra 4. Se fai lezione di pomeriggio allora sei membro di una squadra Supponiamo che j "hai ottenuto il lavoro" p "sai come organizzarti". Esprimere in simboli la seguente proposizione composta: ciente per ottenere un lavoro é sapersi organizzare". 2. 3. 4. "Una condizione suffi- • Quale delle seguenti implicazioni é logicamente equivalente a -nr —+ s ? 1. 3. L'implicazione q -np é vera per tutti i possibili assegnamenti di verit{. di p e q ad eccezione di quale degli assegnamenti sottostanti? I. p vera, q falsa 2. p vera, q vera 3. p falsa, q falsa 4. p falsa, q falsa 39
+
+--- PAGE 23 ---
+• Quale delle seguenti proposizioni é corretta? 1. L'inversa dell'implicazione p —Y q é logicamente equivalente a p —+ q 2. L'opposta dell'implicazione p q é logicamente equivalente all'inversa di 3. La contronominale dell'implicazione p —Y q é logicamente equivalente all'inversa di p —+ q 4. L'opposta dell'implicazione p —+ q é logicamente equivalente alla contronomi- nale di p _+ q 40
+
+====================================
+FILE: esercizi-insiemi.pdf
+====================================
+--- PAGE 1 ---
+(Richiamo) Insiemi: operazioni ed identità
+
+--- PAGE 2 ---
+Nota: Se bisogna provare che dati due insiemi Ae B risulta Si può procedere in vario modo: 1. 2. 3. Si può far vedere che la proprietà che caratterizza gli elementi di A è equivalente alla proprietà che caratterizza gli elementi di B (come abbiamo fatto negli esercizi precedenti) Si può provare che Si può procedere provando che: A g B eB g A • Infatti, provare cheA B significa provare che e provare cheB A significa provare che
+
+--- PAGE 3 ---
+Siano A, B insiemi. (1) Definire formalmente gli insiemi AU B e An B. (2) Definire formalmente il prodotto cartesiano A >< B. (3) Quale è la differenza tra (s, p, q) ed {s, p, q}?
+
+--- PAGE 4 ---
+Trovare due insieme A, B tali che A e B e A g B.
+
+--- PAGE 5 ---
+Supporre che A, B, C siano insiemi tali che A g B e B g C. Provare che A g C. 92
+
+--- PAGE 6 ---
+Siano A, B due insiemi che hanno lo stesso insieme potenza. Possiamo dedurre che
+
+--- PAGE 7 ---
+Dimostrare che per due qualsiasi insiemi A, B, sottoinsiemi dell'insieme universale U, risulta (ADB v (QeA V(kŒA A kc- B) (7 ke(l V ( yéA V6xe(B l/ F
+
+--- PAGE 8 ---
+Provare che: se S C T allora CS (11 a(kŒs)
+
+--- PAGE 9 ---
+Mostrare che se A, B sono insiemi, allora A - (A -B) = AnB
+
+--- PAGE 10 ---
+Siano A, B, C tre insiemi. Dimostrare o confutare le seguenti affermazioni. Giustificare la risposta. Risposte non motivate non saranno valutate. (1) se AUC (2) se Anc Pro C BUC allora A BnCeA-C B. B- C allora A B.
+
+--- PAGE 11 ---
+Siano A, B, C tre insiemi. Dimostrare o confutare le seguenti affermazioni. Giustificare la risposta. Risposte non motivate non saranno valutate. (1) se AUC=BUC allora A = B. (2) se allora A = B. (z) (A n C BOC k") éc e (ke6 Y e BA (kce U/k4C2)
+
+--- PAGE 12 ---
+Provare che: Per tutti gli insiemi S e T é vero che (S — T) n (T — S) = O ) A (kŒT
+
+--- PAGE 13 ---
+Dati gli insiemi A, B, si ha B - (A n B) 8 (AIO eB A B huave A ) V (z é a A 7
+
+--- PAGE 14 ---
+Siano A, B, C sottoinsiemi dell'insieme universale U. Dimostrare che risulta x-éBò V —t --7 (k-eB -k&C
+
+--- PAGE 15 ---
+Siano A, B due insiemi. Dimostrare, formalmente e con precisione, la seguente affermazione A Cl B A B C A
+
+--- PAGE 16 ---
+Siano A, B sottoinsiemi dell'insieme universale U. Dimostrare che ——9,4/7) s .n risulta
+
+--- PAGE 17 ---
+Siano Se T due insiemi tali che ISI = ne ITI Quale è la più piccola cardinalità di S U T ?
+
+--- PAGE 18 ---
+Siano A, B, C insiemi, sottoinsiemi dell'insieme universale U. Dimostrare la seguente affermazione Se A g B, allora (An C) g (B n C).
+

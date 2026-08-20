@@ -12,6 +12,7 @@
     "dev:clean": "node -e \"fs.rmSync('node_modules/.vite', { recursive: true, force: true })\" && concurrently \"vite --force\" \"wait-on http://localhost:5173 && electron .\"",
     "build": "vite build && electron-builder --win --x64",
     "build:linux": "vite build && electron-builder --linux",
+    "build:mac": "vite build && electron-builder --mac",
     "release": "vite build && electron-builder --win --x64 --publish always"
   },
   "dependencies": {
@@ -67,9 +68,18 @@
     },
     "linux": {
       "target": [
+        "AppImage",
+        "deb",
         "tar.gz"
       ],
       "category": "Education"
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.education"
     }
   },
   "allowScripts": {
