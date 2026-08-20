@@ -70,7 +70,6 @@
     "linux": {
       "target": [
         "AppImage",
-        "deb",
         "tar.gz"
       ],
       "artifactName": "${productName}-${version}-${arch}.${ext}",
