@@ -54,8 +54,7 @@
       "Quizzes/**",
       "images/**",
       "assets/**",
-      "Notes/**",
-      "Materiale_Esercizi/**"
+      "Notes/**"
     ],
     "win": {
       "target": "nsis",

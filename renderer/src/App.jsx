@@ -52,7 +52,7 @@ export default function App() {
       </div>
 
       {screen !== 'home' && (
-        <AppHeader 
+        <AppHeader
           breadcrumbs={breadcrumbs}
           current={currentLabel}
           onHome={goHome}
@@ -61,7 +61,7 @@ export default function App() {
 
       <main className={screen === 'study' ? 'study-main-wrap' : 'screen-body'}>
         {screen === 'home' && (
-          <Home 
+          <Home
             onNavigate={(dest) => {
               if (dest === 'study') {
                 setScreen('study');
@@ -75,51 +75,51 @@ export default function App() {
           />
         )}
         {screen === 'esami' && (
-          <Esami 
-            onYearSelect={(y) => { 
-              setNav({ ...nav, year: y, mode: 'esami' }); 
-              setScreen('quiz-list'); 
-            }} 
-            onStats={() => setScreen('stats')} 
+          <Esami
+            onYearSelect={(y) => {
+              setNav({ ...nav, year: y, mode: 'esami' });
+              setScreen('quiz-list');
+            }}
+            onStats={() => setScreen('stats')}
           />
         )}
         {screen === 'quiz-list' && (
-          <QuizList 
-            year={nav.year} 
-            onStartQuiz={(data, name) => { 
-              setNav({ ...nav, quiz: { nome: name, data } }); 
-              setScreen('quiz'); 
-            }} 
-            onStats={() => setScreen('stats')} 
+          <QuizList
+            year={nav.year}
+            onStartQuiz={(data, name) => {
+              setNav({ ...nav, quiz: { nome: name, data } });
+              setScreen('quiz');
+            }}
+            onStats={() => setScreen('stats')}
           />
         )}
         {screen === 'study' && <Study />}
         {screen === 'stats' && <Stats onNavigate={setScreen} />}
         {screen === 'quiz' && (
-          <Quiz 
-            quizData={nav.quiz?.data || []} 
-            quizName={nav.quiz?.nome || ''} 
+          <Quiz
+            quizData={nav.quiz?.data || []}
+            quizName={nav.quiz?.nome || ''}
             onFinish={(questions, answers, name) => {
               setNav({ ...nav, result: { questions, answers, name } });
               setScreen('result');
-            }} 
+            }}
           />
         )}
         {screen === 'result' && (
-          <Result 
-            questions={nav.result?.questions || []} 
-            answers={nav.result?.answers || []} 
-            quizName={nav.result?.name || ''} 
-            onHome={goHome} 
+          <Result
+            questions={nav.result?.questions || []}
+            answers={nav.result?.answers || []}
+            quizName={nav.result?.name || ''}
+            onHome={goHome}
           />
         )}
       </main>
-      
+
       {screen !== 'study' && screen !== 'quiz' && (
         <footer className="app-footer">
           <div className="footer-brand">
-            <a 
-              href="https://emanuele-ragozzini.netlify.app/" 
+            <a
+              href="https://emanuele-ragozzini.netlify.app/"
               onClick={(e) => {
                 if (window.electronAPI) {
                   e.preventDefault();
@@ -132,12 +132,12 @@ export default function App() {
               ER<span className="dot">.</span>
             </a>
             <span className="collab-x" aria-hidden="true">✕</span>
-            
+
             <div className="footer-collab-wrap">
-              <img 
-                src={lmLogo} 
-                alt="Libera Mente" 
-                className="footer-collab-logo" 
+              <img
+                src={lmLogo}
+                alt="Libera Mente"
+                className="footer-collab-logo"
               />
               <div className="footer-collab-preview" role="tooltip">
                 <img src={lmLogoFull} alt="Logo Libera Mente" className="footer-collab-preview-img" />
@@ -148,10 +148,10 @@ export default function App() {
             <span className="collab-x" aria-hidden="true">✕</span>
 
             <div className="footer-collab-wrap">
-              <img 
-                src={assLogo} 
-                alt="A.S.S. 1972" 
-                className="footer-collab-logo footer-collab-logo-round" 
+              <img
+                src={assLogo}
+                alt="A.S.S. 1972"
+                className="footer-collab-logo footer-collab-logo-round"
               />
               <div className="footer-collab-preview" role="tooltip">
                 <img src={assLogo} alt="Logo A.S.S. 1972" className="footer-collab-preview-img footer-collab-preview-img-round" />
@@ -162,7 +162,7 @@ export default function App() {
           <div className="footer-copy">Fatto con ❤️ e caffè &middot; &copy; 2026 Emanuele Ragozzini &middot; Tutti i diritti riservati.</div>
         </footer>
       )}
-      
+
       <ElectronHUD showDragStrip={screen === 'home'} />
       <UpdateNotification />
     </>

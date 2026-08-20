@@ -164,7 +164,7 @@ export function Study() {
   const [findQuery, setFindQuery] = useState('');
   const [matchesCount, setMatchesCount] = useState(0);
   const [activeMatchIndex, setActiveMatchIndex] = useState(0);
-  
+
   // PDF export state
   const [exportingPath, setExportingPath] = useState(null);
   const [exportedSuccessPath, setExportedSuccessPath] = useState(null);
@@ -390,9 +390,9 @@ export function Study() {
   const renderTree = (nodes, depth = 0) => {
     return nodes.map(node => {
       if (node.type === 'section') {
-        const hasVisibleChildren = search ? 
+        const hasVisibleChildren = search ?
           JSON.stringify(node.children).toLowerCase().includes(search) : true;
-        
+
         if (!hasVisibleChildren) return null;
 
         const sectionNotesCount = countNotes(node.children || []);
@@ -467,17 +467,17 @@ export function Study() {
           </div>
           <div className={styles.searchBox}>
             <span className={styles.searchIcon} aria-hidden="true">🔍</span>
-            <input 
+            <input
               ref={sidebarSearchInputRef}
-              type="text" 
-              placeholder="Cerca negli appunti... (Ctrl+F)" 
+              type="text"
+              placeholder="Cerca negli appunti... (Ctrl+F)"
               value={search}
               onChange={e => setSearch(e.target.value.toLowerCase())}
               className={styles.search}
             />
             {search && (
-              <button 
-                type="button" 
+              <button
+                type="button"
                 onClick={() => setSearch('')}
                 className={styles.clearSearchBtn}
                 title="Cancella ricerca"
@@ -499,7 +499,7 @@ export function Study() {
           )}
         </div>
       </aside>
-      
+
       <div className={styles.viewerWrapper}>
         {activeNote && (
           <div className={styles.viewerTopBar}>
@@ -610,9 +610,9 @@ export function Study() {
               <p className={styles.loadingSubtitle}>{activeNoteName || 'Elaborazione formule e diagrammi'}</p>
             </div>
           ) : (
-            <article 
+            <article
               ref={articleRef}
-              className={`markdown-body ${styles.article}`} 
+              className={`markdown-body ${styles.article}`}
               onClick={handleArticleClick}
             />
           )}
