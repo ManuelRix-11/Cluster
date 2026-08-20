@@ -1,0 +1,3309 @@
+[
+    {
+        "domanda": "Si assuma che le variabili i e k corrispondano ai registri $s0 e $s1. Qual è l'istruzione C corrispondente al seguente codice assembler MIPS?",
+        "risposta1": "bel: bne $s0, $s1, Exit",
+        "risposta2": "di $s0, $s0, 1",
+        "risposta3": "label",
+        "risposta4": "it: …",
+        "corretta": "bel: bne $s0, $s1, Exit",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Qual è la codifica in binario dell'istruzione sw $s1,12($s2) sapendo che il codice operativo di sw è 43₁₀ e che ai registri $s0 – $s7 corrispondono i numeri 16 – 23?",
+        "risposta1": "00000001100100101000100000101011",
+        "risposta2": "10101110010100010000000000001100",
+        "risposta3": "10101110001100100000000000001100",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "10101110010100010000000000001100",
+        "tag": [
+            "mips",
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "In un flip-flop D se Clock=1 ed D=0",
+        "risposta1": "Lo stato Q sarà uguale allo stato precedente",
+        "risposta2": "Lo stato Q sarà 0",
+        "risposta3": "Lo stato Q sarà 1",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "Lo stato Q sarà uguale allo stato precedente",
+        "tag": [
+            "reti logiche"
+        ]
+    },
+    {
+        "domanda": "Il banco di registri (register file) è formato da:",
+        "risposta1": "32 registri ognuno contenente un dato a 32 bit",
+        "risposta2": "2³² registri ognuno contenente un dato a 8 bit",
+        "risposta3": "32 registri ognuno contenente un dato a 8 bit",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "32 registri ognuno contenente un dato a 8 bit",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Nell'implementazione del processore studiata, il segnale di controllo MemToReg permette di:",
+        "risposta1": "Scegliere il dato da scrivere nel banco dei registri fra il dato letto dalla memoria e l'uscita della ALU",
+        "risposta2": "Scegliere il registro di scrittura",
+        "risposta3": "Abilita la scrittura nella memoria dati",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "Abilita la scrittura nella memoria dati",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Nello schema di implementazione studiata per il processore MIPS, le seguenti istruzioni utilizzano il modulo di estensione del segno:",
+        "risposta1": "add e lw",
+        "risposta2": "add e sw",
+        "risposta3": "sw e beq",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "Nessuna delle precedenti",
+        "tag": [
+            "mips",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "L'Unità di controllo della ALU riceve in ingresso:",
+        "risposta1": "I 6 bit più significativi dell'istruzione e il segnale di controllo ALUOp a 1 bit",
+        "risposta2": "I 6 bit meno significativi dell'istruzione e il segnale di controllo ALUOp a 1 bit",
+        "risposta3": "I 6 bit meno significativi dell'istruzione e il segnale di controllo ALUOp a 2 bit",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "I 6 bit più significativi dell'istruzione e il segnale di controllo ALUOp a 1 bit",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Qual è il tempo di esecuzione di un processore che esegue 400 istruzioni con frequenza di clock 4 GHz e CPI=1,6?",
+        "risposta1": "10³ sec",
+        "risposta2": "1,6 × 10² sec",
+        "risposta3": "1,6 × 10⁻⁷ sec",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "10³ sec",
+        "tag": [
+            "prestazioni"
+        ]
+    },
+    {
+        "domanda": "In assembler MIPS la chiamata alla procedura proc è realizzata:",
+        "risposta1": "Tramite l'istruzione j proc e inserendo jr $ra dopo l'ultima istruzione della procedura",
+        "risposta2": "Tramite l'istruzione j proc e inserendo jal $ra dopo l'ultima istruzione della procedura",
+        "risposta3": "Tramite l'istruzione jal proc e inserendo jr $ra dopo l'ultima istruzione della procedura",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Tramite l'istruzione j proc e inserendo jr $ra dopo l'ultima istruzione della procedura",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "In un flip-flop D se Clock=0 ed D=1",
+        "risposta1": "Lo stato Q sarà uguale allo stato precedente",
+        "risposta2": "Lo stato Q sarà 0",
+        "risposta3": "Lo stato Q sarà 1",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "Nessuna delle risposte precedenti.",
+        "tag": [
+            "reti logiche"
+        ]
+    },
+    {
+        "domanda": "L'implementazione delle due porte di lettura nel banco di registri avviene tramite:",
+        "risposta1": "Un decoder 5-a-32",
+        "risposta2": "Un multiplexer 32-a-1",
+        "risposta3": "Due multiplexer 32-a-1",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Un multiplexer 32-a-1",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Nella codifica binaria di un'istruzione beq, nel formato a 32 bit, gli indirizzi dei registri, di cui bisogna confrontare il contenuto, vengono ottenuti dai seguenti campi:",
+        "risposta1": "[25-21] e [20-16]",
+        "risposta2": "[25-21] e [15-11]",
+        "risposta3": "[25-21], [20-16] e [15-11]",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "[25-21], [20-16] e [15-11]",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Perché per passare alla prossima istruzione, il valore di PC è incrementato di 4?",
+        "risposta1": "Perché le 3 istruzioni seguenti sono ininfluenti",
+        "risposta2": "Perché un'istruzione occupa 4 locazioni di memoria",
+        "risposta3": "Perché sono necessari 4 cicli di clock",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "Nessuna delle precedenti",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Nella esecuzione di una istruzione sw il segnale di controllo RegWrite:",
+        "risposta1": "è 1 e permette la scrittura nel register file",
+        "risposta2": "è 1 e permette la scrittura nella memoria dati",
+        "risposta3": "è 0 ed evita la scrittura nella memoria dati",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "è 1 e permette la scrittura nel register file",
+        "tag": [
+            "mips",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Nello schema di implementazione studiata per il processore MIPS, il dato da scrivere nel banco dei registri viene scelto fra:",
+        "risposta1": "Il dato letto dalla memoria dati e l'uscita della ALU.",
+        "risposta2": "Il secondo dato letto dal banco dei registri e l'uscita della ALU",
+        "risposta3": "Il secondo dato letto dal banco dei registri e l'estensione del segno dei 16 bit meno significativi dell'istruzione",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "Il dato letto dalla memoria dati e l'uscita della ALU.",
+        "tag": [
+            "mips",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Quale, fra le seguenti, è una corretta istruzione di load word in assembler MIPS?",
+        "risposta1": "lw $t0,$s1,$s2",
+        "risposta2": "lw $t0,$s1(12)",
+        "risposta3": "lw $t0,12",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "lw $t0,$s1,$s2",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Si assuma che le variabili i e k corrispondano ai registri $s0 e $s1. Qual è l'istruzione C corrispondente al seguente codice assembler MIPS?",
+        "risposta1": "bel: bne $s0, $s1, Exit",
+        "risposta2": "l $s0, $s0,1",
+        "risposta3": "Label",
+        "risposta4": "it: …",
+        "corretta": "l $s0, $s0,1",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Qual è il tempo di esecuzione di un processore che esegue 200 istruzioni con frequenza di clock 5 GHz e CPI=1,25?",
+        "risposta1": "8 × 10² sec",
+        "risposta2": "500 sec",
+        "risposta3": "5 × 10⁻⁷ sec",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "500 sec",
+        "tag": [
+            "prestazioni"
+        ]
+    },
+    {
+        "domanda": "Nell'istruzione sw rt,offset(rs)",
+        "risposta1": "rt ed rs sono entrambi registri di lettura",
+        "risposta2": "rt ed rs sono entrambi registri di scrittura",
+        "risposta3": "rt è un registro di scrittura, mentre rs è un registro di lettura",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "rt ed rs sono entrambi registri di lettura",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "In un flip-flop D se Clock=1 ed D=1",
+        "risposta1": "Lo stato Q sarà uguale allo stato precedente",
+        "risposta2": "Lo stato Q sarà 1",
+        "risposta3": "Lo stato Q sarà 0",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "Nessuna delle risposte precedenti.",
+        "tag": [
+            "reti logiche"
+        ]
+    },
+    {
+        "domanda": "Un banco di registri (register file) ha come uscite:",
+        "risposta1": "Il dato letto e il dato scritto (entrambi a 32 bit)",
+        "risposta2": "I due dati letti (entrambi a 32 bit)",
+        "risposta3": "Il dato letto (32 bit) e un segnale di controllo a 1 bit",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Il dato letto e il dato scritto (entrambi a 32 bit)",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Nello schema di implementazione studiata per il processore MIPS, il primo dato in ingresso alla ALU:",
+        "risposta1": "viene scelto fra il secondo dato letto dal banco dei registri e l'estensione del segno dei 16 bit più significativi dell'istruzione",
+        "risposta2": "viene scelto fra il secondo dato letto dal banco dei registri e l'estensione del segno dei 16 bit meno significativi dell'istruzione",
+        "risposta3": "È sempre il primo dato letto dal banco dei registri",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "viene scelto fra il secondo dato letto dal banco dei registri e l'estensione del segno dei 16 bit meno significativi dell'istruzione",
+        "tag": [
+            "mips",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Per eseguire add e lw il segnale di controllo RegWrite deve essere posto, rispettivamente, a:",
+        "risposta1": "1 e 0",
+        "risposta2": "0 e 1",
+        "risposta3": "0 e 0",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "1 e 0",
+        "tag": [
+            "mips",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Nello schema di implementazione studiato per il processore MIPS, il multiplexer posto all'ingresso della ALU permette di scegliere fra:",
+        "risposta1": "Il secondo dato scritto nel banco dei registri e l'estensione del segno dei 16 bit più significativi dell'istruzione",
+        "risposta2": "Il secondo dato letto dal banco dei registri e l'estensione del segno dei 16 bit meno significativi dell'istruzione",
+        "risposta3": "Il dato letto dalla memoria dati e l'uscita della ALU.",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "Il secondo dato scritto nel banco dei registri e l'estensione del segno dei 16 bit più significativi dell'istruzione",
+        "tag": [
+            "mips",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Si consideri l'esecuzione dell'istruzione sw $1,152($2) nel processore a singolo ciclo studiato. Le uscite del modulo di estensione del segno e dell'unità di shift a sinistra di 2 sono rispettivamente:",
+        "risposta1": "0000000010011000  e  0000001001100000",
+        "risposta2": "00000000000000000000000010011000  e  00000000000000000000001001100000",
+        "risposta3": "00000000000000000000000000000010  e  00000000000000000000000000001000",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "Nessuna delle precedenti",
+        "tag": [
+            "mips",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Quali istruzioni fra quelle studiate nell'implementazione del processore, necessitano del modulo di shift a sinistra?",
+        "risposta1": "Formato R, beq, j",
+        "risposta2": "Formato R, lw, sw",
+        "risposta3": "beq, j",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "Formato R, beq, j",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Nella esecuzione della istruzione and $1,$2,$3 il segnale di controllo MemWrite:",
+        "risposta1": "è 1 e permette la scrittura nel register file",
+        "risposta2": "è 1 e permette la scrittura nella memoria dati",
+        "risposta3": "è 0 ed impedisce la scrittura nella memoria dati",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "è 1 e permette la scrittura nella memoria dati",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Si consideri l'esecuzione dell'istruzione 00000000001000010000100000100000 nel processore a singolo ciclo studiato. I bit in ingresso all'Unità di controllo della ALU sono:",
+        "risposta1": "10 e 100000",
+        "risposta2": "10 e 000000",
+        "risposta3": "000000",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "10 e 100000",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Una criticità (hazard) sui dati si ha quando:",
+        "risposta1": "Due istruzioni distinte necessitano della ALU nello stesso ciclo di clock",
+        "risposta2": "Una istruzione tenta di utilizzare un dato non ancora disponibile",
+        "risposta3": "Una istruzione tenta di scrivere due diversi valori in uno stesso registro",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Due istruzioni distinte necessitano della ALU nello stesso ciclo di clock",
+        "tag": [
+            "pipeline",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Si consideri l'implementazione studiata del processore con pipeline. Cosa fa l'istruzione sw $s1,12($s2) nello stadio MEM?",
+        "risposta1": "Esegue la somma del contenuto del registro $s2 con 12",
+        "risposta2": "Preleva il dato dall'indirizzo $s2+12 della memoria dati",
+        "risposta3": "Scrive nel registro $s1 il dato prelevato dalla memoria",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Preleva il dato dall'indirizzo $s2+12 della memoria dati",
+        "tag": [
+            "pipeline",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Si supponga che i vari stadi della pipeline (come studiata) abbiano le latenze (ritardi) riportate in tabella. Quanto dura un ciclo di clock nel processore con pipeline e senza pipeline, rispettivamente?",
+        "risposta1": "=250ps, ID=350ps, EX=150ps, MEM=300ps, WB=200ps",
+        "risposta2": "350 ps e 1250 ps",
+        "risposta3": "1750 ps e 1250 ps",
+        "risposta4": "1250 ps in entrambi i casi",
+        "corretta": "=250ps, ID=350ps, EX=150ps, MEM=300ps, WB=200ps",
+        "tag": [
+            "pipeline"
+        ]
+    },
+    {
+        "domanda": "Qual è il tempo di esecuzione di un processore che esegue 100 istruzioni con frequenza di clock 5 GHz e CPI=2,5?",
+        "risposta1": "8 × 10² sec.",
+        "risposta2": "50 sec",
+        "risposta3": "0,5 × 10⁻⁷ sec",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "50 sec",
+        "tag": [
+            "prestazioni"
+        ]
+    },
+    {
+        "domanda": "Qual è l'effetto dell'istruzione: jal indirizzo?",
+        "risposta1": "Saltare in maniera incondizionata all'istruzione all'indirizzo indirizzo",
+        "risposta2": "Saltare all'istruzione all'indirizzo indirizzo e porre nel registro $ra il valore del PC",
+        "risposta3": "Porre nel registro $ra il valore del PC e saltare all'istruzione all'indirizzo indirizzo",
+        "risposta4": "Nessuno dei precedenti",
+        "corretta": "Saltare in maniera incondizionata all'istruzione all'indirizzo indirizzo",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Supponendo che il contenuto del registro $s0 sia inizialmente 2, e il contenuto del registro $s1 sia inizialmente 4, quali saranno i contenuti di $s0 e di $s1, rispettivamente, quando verrà raggiunta l'istruzione di etichetta Exit?",
+        "risposta1": "op: beq $s0, $s1, Exit",
+        "risposta2": "di $s0, $s0, 1",
+        "risposta3": "Loop",
+        "risposta4": "it: …",
+        "corretta": "op: beq $s0, $s1, Exit",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Il formato dell'istruzione ori",
+        "risposta1": "È il formato R ed i 32 bit sono suddivisi in: 6 bit (codice operativo), 5 bit (1° registro sorgente), 5 bit (2° registro sorgente), 5 bit (registro destinazione), 5 bit (shamt), 6 bit (funzione)",
+        "risposta2": "È il formato I ed i 32 bit sono suddivisi in: 6 bit (codice operativo), 5 bit (1° registro sorgente), 5 bit (2° registro sorgente), 16 bit (costante / indirizzo)",
+        "risposta3": "È il formato J ed i 32 bit sono suddivisi in: 6 bit (codice operativo), 5 bit (1° registro sorgente), 5 bit (2° registro sorgente), 16 bit (costante / indirizzo)",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Nessuna delle risposte precedenti",
+        "tag": [
+            "architettura",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "In un flip-flop R-S se R=1 ed S=0",
+        "risposta1": "Lo stato Q sarà uguale allo stato precedente",
+        "risposta2": "Lo stato Q sarà 0",
+        "risposta3": "Lo stato Q sarà 1",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "Lo stato Q sarà 0",
+        "tag": [
+            "reti logiche"
+        ]
+    },
+    {
+        "domanda": "Un flip-flop master-slave (come studiato):",
+        "risposta1": "E' abilitato durante la fase positiva del clock",
+        "risposta2": "E' abilitato solo sul fronte in salita del clock",
+        "risposta3": "E' abilitato solo sul fronte in discesa del clock",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "E' abilitato solo sul fronte in discesa del clock",
+        "tag": [
+            "reti logiche"
+        ]
+    },
+    {
+        "domanda": "Un banco di registri (register file) ha come output:",
+        "risposta1": "Il dato letto e il dato scritto (entrambi a 32 bit)",
+        "risposta2": "Il dato letto (32 bit) e un segnale di controllo a 1 bit",
+        "risposta3": "I due dati letti (entrambi a 32 bit)",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "Il dato letto e il dato scritto (entrambi a 32 bit)",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "L'implementazione della porta di scrittura nel banco di registri avviene tramite:",
+        "risposta1": "Un decoder 5-a-32",
+        "risposta2": "Un multiplexer 32-a-1",
+        "risposta3": "Due multiplexer 32-a-1",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Un decoder 5-a-32",
+        "tag": [
+            "reti logiche",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Nello schema di implementazione studiato per il processore MIPS, il multiplexer posto all'uscita della memoria dati permette di scegliere fra:",
+        "risposta1": "Il dato scritto nel banco dei registri e l'estensione del segno dei 16 bit meno significativi dell'istruzione",
+        "risposta2": "Il secondo dato letto dal banco dei registri e l'estensione del segno dei 16 bit più significativi dell'istruzione",
+        "risposta3": "Il dato letto dalla memoria dati e l'uscita della ALU.",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "Il dato scritto nel banco dei registri e l'estensione del segno dei 16 bit meno significativi dell'istruzione",
+        "tag": [
+            "mips",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Quali bit dell'istruzione vanno in input al modulo di estensione del segno nell'unità di elaborazione studiata?",
+        "risposta1": "15-0",
+        "risposta2": "16-0",
+        "risposta3": "31-27",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "15-0",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Nella esecuzione della istruzione sw $s1,24($s2) il segnale di controllo MemWrite:",
+        "risposta1": "è 1 e permette la scrittura nel register file",
+        "risposta2": "è 1 e permette la scrittura nella memoria dati",
+        "risposta3": "è 0 ed impedisce la scrittura nella memoria dati",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "è 1 e permette la scrittura nel register file",
+        "tag": [
+            "mips",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Si consideri l'esecuzione dell'istruzione 00000000001000010000100000100000 nel processore a singolo ciclo studiato. I bit in ingresso all'Unità di controllo della ALU sono:",
+        "risposta1": "10 e 00000",
+        "risposta2": "10 e 100000",
+        "risposta3": "000000",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "10 e 00000",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Si consideri l'implementazione studiata del processore con pipeline. Cosa fa l'istruzione lw $s1,24($s2) nello stadio MEM?",
+        "risposta1": "Esegue la somma del contenuto del registro $s2 con 24",
+        "risposta2": "Scrive in memoria il dato prelevato dal registro $s1",
+        "risposta3": "Scrive nel registro $s1 il dato prelevato dalla memoria",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Esegue la somma del contenuto del registro $s2 con 24",
+        "tag": [
+            "pipeline",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Si supponga che i vari stadi della pipeline (come studiata) abbiano le latenze (ritardi) riportate in tabella. Quanto dura un ciclo di clock nel processore con pipeline e senza pipeline, rispettivamente?",
+        "risposta1": "=150ps, ID=150ps, EX=350ps, MEM=300ps, WB=100ps",
+        "risposta2": "350 ps e 1050 ps",
+        "risposta3": "1750 ps e 1050 ps",
+        "risposta4": "1050 ps in entrambi i casi",
+        "corretta": "=150ps, ID=150ps, EX=350ps, MEM=300ps, WB=100ps",
+        "tag": [
+            "pipeline"
+        ]
+    },
+    {
+        "domanda": "La nop è un'istruzione che:",
+        "risposta1": "Annulla gli effetti dell'ultima operazione eseguita",
+        "risposta2": "E' un'operazione che non produce alcun effetto sui dati",
+        "risposta3": "Esegue l'operazione di NOP logico fra due variabili",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "Annulla gli effetti dell'ultima operazione eseguita",
+        "tag": [
+            "pipeline"
+        ]
+    },
+    {
+        "domanda": "Dai 32 bit dell'istruzione prelevata dalla memoria, viene inviato al modulo di estensione del segno il seguente campo:",
+        "risposta1": "[20-16]",
+        "risposta2": "[16-0]",
+        "risposta3": "[15-0]",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "[20-16]",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Nello schema di implementazione studiata per il processore MIPS, il multiplexer posto all'uscita della memoria dati permette di scegliere fra:",
+        "risposta1": "Il secondo dato letto dal banco dei registri e l'estensione del segno dei 16 bit meno significativi dell'istruzione",
+        "risposta2": "Il secondo dato scritto nel banco dei registri e l'estensione del segno dei 16 bit più significativi dell'istruzione",
+        "risposta3": "Il dato letto dalla memoria dati e l'uscita della ALU.",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Il secondo dato letto dal banco dei registri e l'estensione del segno dei 16 bit meno significativi dell'istruzione",
+        "tag": [
+            "mips",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "La Unità di Controllo dell'ALU riceve in ingresso:",
+        "risposta1": "I segnali AluOp1, AluOp0",
+        "risposta2": "I 6 bit più significativi dell'Istruzione",
+        "risposta3": "Entrambe le risposte precedenti",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "I segnali AluOp1, AluOp0",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Si consideri l'implementazione del processore con pipeline studiata. Cosa fa l'istruzione sw $s1,12($s2) nello stadio WB (Write Back)?",
+        "risposta1": "Esegue la somma del contenuto del registro $s2 con 12",
+        "risposta2": "Scrive il dato prelevato dal registro $1 nella memoria dati",
+        "risposta3": "Scrive il dato prelevato nel registro $s1",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Esegue la somma del contenuto del registro $s2 con 12",
+        "tag": [
+            "pipeline",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Il pipelining:",
+        "risposta1": "Riduce il tempo per eseguire una singola istruzione",
+        "risposta2": "Riduce il throughput",
+        "risposta3": "Aumenta il numero di istruzioni eseguibili nell'unità di tempo",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Riduce il tempo per eseguire una singola istruzione",
+        "tag": [
+            "architettura",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Nella seguente sequenza di istruzioni per una pipeline a 5 stadi come studiata:",
+        "risposta1": "b $t0,$t1,$t2",
+        "risposta2": "d $s1,$t0,$s2",
+        "risposta3": "Non vi sono hazard",
+        "risposta4": "Vi è un hazard sui dati che può essere risolto con la propagazione",
+        "corretta": "b $t0,$t1,$t2",
+        "tag": [
+            "pipeline"
+        ]
+    },
+    {
+        "domanda": "Si consideri una memoria cache con 16 blocchi ognuno di 1 parola e una memoria principale dove ogni indirizzo a 32 bit indirizza 1 parola. Se nella linea 0110 della cache V=1, e TAG=0…0100, allora il dato memorizzato in quella linea è il dato che in memoria principale si trova all'indirizzo:",
+        "risposta1": "01100…0100",
+        "risposta2": "0…01000110",
+        "risposta3": "Non si può dire",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "01100…0100",
+        "tag": [
+            "cache"
+        ]
+    },
+    {
+        "domanda": "In una memoria cache a mappatura diretta se il campo indice dell'indirizzo ha 6 bit allora:",
+        "risposta1": "Ogni blocco della memoria cache è di 6 bit",
+        "risposta2": "Ogni blocco della memoria cache contiene 6 parole",
+        "risposta3": "La memoria cache ha 2⁶ blocchi",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Ogni blocco della memoria cache è di 6 bit",
+        "tag": [
+            "cache"
+        ]
+    },
+    {
+        "domanda": "Sia N un intero rappresentato in binario da b5b4b3b2b1b0 e D=2⁴. Il quoziente e il resto della divisione di N per D, in binario, sono rispettivamente",
+        "risposta1": "b5b4  e  b3b2b1b0",
+        "risposta2": "b5b4b3  e  b2b1b0",
+        "risposta3": "b5b4b3b2  e  b1b0",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "b5b4  e  b3b2b1b0",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "La scrittura nel banco di registri (register file) avviene tramite",
+        "risposta1": "un multiplexer che ha il numero del registro come segnale di controllo",
+        "risposta2": "un decoder che ha in input il dato da scrivere",
+        "risposta3": "un decoder che ha in input il numero del registro",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "un multiplexer che ha il numero del registro come segnale di controllo",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Nel processore a singolo ciclo studiato, l'unità di controllo e il banco dei registri sono rispettivamente:",
+        "risposta1": "un circuito combinatorio e un circuito sequenziale",
+        "risposta2": "un circuito sequenziale e un circuito combinatorio",
+        "risposta3": "entrambi circuiti combinatori",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "un circuito combinatorio e un circuito sequenziale",
+        "tag": [
+            "reti logiche",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Durante l'esecuzione di una istruzione sw nel processore a singolo ciclo studiato, l'uscita della ALU fornisce",
+        "risposta1": "il dato da scrivere nel banco dei registri",
+        "risposta2": "il dato da scrivere nella memoria dati",
+        "risposta3": "il nuovo valore del PC",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "il dato da scrivere nel banco dei registri",
+        "tag": [
+            "mips",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Nello schema di implementazione studiata per il processore MIPS con pipeline, in quale fase opera l'Unità di Controllo principale?",
+        "risposta1": "IF",
+        "risposta2": "ID",
+        "risposta3": "EX",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "IF",
+        "tag": [
+            "pipeline",
+            "mips",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Il tempo di esecuzione di una singola istruzione nel processore con pipeline (come studiato) rispetto al processore a singolo ciclo senza pipeline (come studiato):",
+        "risposta1": "È sicuramente inferiore",
+        "risposta2": "È uguale",
+        "risposta3": "Può essere anche superiore",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "È sicuramente inferiore",
+        "tag": [
+            "pipeline",
+            "prestazioni"
+        ]
+    },
+    {
+        "domanda": "Si consideri una cache a mappatura diretta con 2ⁿ blocchi ognuno dei quali contiene 2ᵐ parole. In un indirizzo a 32 bit, da quanti bit sarà costituito il campo tag?",
+        "risposta1": "32−(n−m)",
+        "risposta2": "32−(n+m)",
+        "risposta3": "32−(n+m+2)",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "32−(n−m)",
+        "tag": [
+            "cache"
+        ]
+    },
+    {
+        "domanda": "Sia N un intero rappresentato in binario da b5b4b3b2b1b0 e D=2⁴. Il valore N modulo D in binario è dato da",
+        "risposta1": "b3b2b1b0",
+        "risposta2": "b2b1b0",
+        "risposta3": "b5b4b3b2",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "b3b2b1b0",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "Nella valutazione delle prestazioni di un processore (multiciclo), per CPI si intende",
+        "risposta1": "Il Program Counter dell'Istruzione",
+        "risposta2": "Il numero medio di Istruzioni Per Ciclo di clock",
+        "risposta3": "Il numero medio di Cicli di clock Per Istruzione",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "Il Program Counter dell'Istruzione",
+        "tag": [
+            "prestazioni"
+        ]
+    },
+    {
+        "domanda": "Qual è il tempo di esecuzione di un processore che esegue 100 istruzioni con frequenza di clock 3 GHz e CPI=1,5?",
+        "risposta1": "0,5 × 10⁻⁷ sec.",
+        "risposta2": "0,5 × 10² sec",
+        "risposta3": "2 × 10² sec",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "0,5 × 10⁻⁷ sec.",
+        "tag": [
+            "prestazioni"
+        ]
+    },
+    {
+        "domanda": "Nello schema di implementazione studiata per il processore MIPS con pipeline, in quale fase opera il modulo di estensione del segno?",
+        "risposta1": "IF",
+        "risposta2": "ID",
+        "risposta3": "EX",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "IF",
+        "tag": [
+            "pipeline",
+            "mips",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "In una memoria cache a mappatura diretta si ha una hit (successo), in seguito alla richiesta di un indirizzo, se:",
+        "risposta1": "L'indirizzo era stato già richiesto in precedenza (dall'accensione della macchina)",
+        "risposta2": "Nella linea indicata dal campo indice dell'indirizzo, il bit di validità è posto a 1 oppure il campo tag è uguale al campo tag dell'indirizzo",
+        "risposta3": "Nella linea indicata dal campo indice dell'indirizzo, il bit di validità è posto a 1 e il campo tag è diverso dal campo tag dell'indirizzo",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "L'indirizzo era stato già richiesto in precedenza (dall'accensione della macchina)",
+        "tag": [
+            "cache"
+        ]
+    },
+    {
+        "domanda": "In una memoria cache a mappatura diretta se il campo indice dell'indirizzo ha 6 bit allora:",
+        "risposta1": "Ogni blocco della memoria cache è di 6 bit",
+        "risposta2": "Ogni blocco della memoria cache contiene 6 parole",
+        "risposta3": "La memoria della cache ha 2⁶ blocchi",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Ogni blocco della memoria cache è di 6 bit",
+        "tag": [
+            "cache"
+        ]
+    },
+    {
+        "domanda": "Si consideri una memoria cache con 16 blocchi ognuno di 1 parola e una memoria principale dove ogni indirizzo a 32 bit indirizza 1 parola. Se nella linea 0110 della cache V=1, e TAG=0…0100, allora il dato memorizzato in quella linea è il dato che in memoria principale si trova all'indirizzo:",
+        "risposta1": "01100…0100",
+        "risposta2": "0…01000110",
+        "risposta3": "Non si può dire",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "01100…0100",
+        "tag": [
+            "cache"
+        ]
+    },
+    {
+        "domanda": "Supponendo che il contenuto del registro $t0 sia inizialmente b31 b30 …b2 b1 b0, quale sarà il contenuto del registro $t1 dopo l'esecuzione delle seguenti istruzioni?",
+        "risposta1": "l $t0,$t0,24",
+        "risposta2": "i $t1,$t0,FFFFFFF0",
+        "risposta3": "la stringa 00…00 b27 b26 b25 b24",
+        "risposta4": "la stringa 11…11 b27 b26 b25 b24",
+        "corretta": "l $t0,$t0,24",
+        "tag": [
+            "architettura",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Si supponga di avere tre processori P1, P2 e P3 che eseguono le stesse istruzioni con frequenza di clock e CPI riportati nella seguente tabella.",
+        "risposta1": ": 2,5 GHz, CPI=2 | P2: 2 GHz, CPI=2,5 | P3: 1,5 GHz, CPI=3",
+        "risposta2": "ale processore ha le prestazioni peggiori?",
+        "risposta3": "P1",
+        "risposta4": "P3",
+        "corretta": ": 2,5 GHz, CPI=2 | P2: 2 GHz, CPI=2,5 | P3: 1,5 GHz, CPI=3",
+        "tag": [
+            "prestazioni"
+        ]
+    },
+    {
+        "domanda": "Si consideri un flip-flop SR con clock. Se al flip-flop vengono dati in input prima S=1 R=0 (clock=1) e poi S=0 R=1 (clock=1), lo stato assunto dal flip-flop dopo il secondo input sarà:",
+        "risposta1": "0",
+        "risposta2": "1",
+        "risposta3": "Dipende dallo stato iniziale del flip-flop",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "0",
+        "tag": [
+            "reti logiche"
+        ]
+    },
+    {
+        "domanda": "Si consideri un circuito decodificatore (decoder) con 2 input. Il numero di porte AND necessarie è:",
+        "risposta1": "4.",
+        "risposta2": "2.",
+        "risposta3": "3.",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "4.",
+        "tag": [
+            "reti logiche"
+        ]
+    },
+    {
+        "domanda": "La lettura in un register file avviene tramite",
+        "risposta1": "Un decoder 5-32",
+        "risposta2": "Due multiplexer 16-1",
+        "risposta3": "Due multiplexer 32-1",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "Un decoder 5-32",
+        "tag": [
+            "reti logiche",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "La Unità di Controllo dell'ALU richiede:",
+        "risposta1": "I segnali AluOp1, AluOp0",
+        "risposta2": "I 6 bit più significativi dell'istruzione",
+        "risposta3": "Entrambe le precedenti.",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "I segnali AluOp1, AluOp0",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Nella esecuzione della istruzione add $1,$2,$3 il segnale di controllo RegWrite:",
+        "risposta1": "è 1 ed è utile nella fase di scrittura nel register file",
+        "risposta2": "è 1 ed è utile nella fase di scrittura nella memoria dati",
+        "risposta3": "è 0 ed evita la scrittura nella memoria dati",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "è 1 ed è utile nella fase di scrittura nel register file",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Quali componenti del processore sono necessarie per effettuare un'istruzione di or?",
+        "risposta1": "ALU, Registri",
+        "risposta2": "PC, Addizionatore, Memoria Istruzioni, Memoria Dati, ALU, Registri",
+        "risposta3": "PC, Addizionatore, Memoria Istruzioni, ALU, Registri",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "ALU, Registri",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Nella rappresentazione in base 2, qual è il numero rappresentato in esadecimale da (CAC10)esa?",
+        "risposta1": "11001010110010",
+        "risposta2": "11001010110000010000",
+        "risposta3": "10011001101100010000",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "11001010110010",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "La rappresentazione del numero decimale (−72)₁₀ in complemento a due su 8 bit è:",
+        "risposta1": "11001000",
+        "risposta2": "10111000",
+        "risposta3": "10110111",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "11001000",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "Quanti bit sono necessari per indicare 64 elementi distinti?",
+        "risposta1": "7",
+        "risposta2": "6",
+        "risposta3": "5",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "7",
+        "tag": [
+            "architettura",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Nel formato in virgola mobile a precisione singola la rappresentazione del numero binario +11,0110 è:",
+        "risposta1": "01000000010110000000000000000000",
+        "risposta2": "11000000010010000000000000000000",
+        "risposta3": "10000000100110000000100000000000",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "01000000010110000000000000000000",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "L'espressione (xy + z)̄ è equivalente a:",
+        "risposta1": "(x̄ + ȳ) z̄",
+        "risposta2": "(x̄ + ȳ) z",
+        "risposta3": "x̄ ȳ z̄",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "(x̄ + ȳ) z̄",
+        "tag": [
+            "architettura",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Si consideri un decoder 2 a 4 con ingressi x e y, e uscite f0, f1, f2 e f3. Le espressioni canoniche SOP per le uscite f0, f1, f2 e f3 sono rispettivamente:",
+        "risposta1": "x̄ȳ, x̄y, xȳ, xy",
+        "risposta2": "xy, x̄y, xȳ, x̄ȳ",
+        "risposta3": "xy + x̄y + xȳ + x̄ȳ",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "x̄ȳ, x̄y, xȳ, xy",
+        "tag": [
+            "reti logiche"
+        ]
+    },
+    {
+        "domanda": "Un Multiplexer 4:1",
+        "risposta1": "Ha 4 uscite, di cui una sola uscita uguale al valore in ingresso",
+        "risposta2": "Fornisce in uscita uno dei 4 ingressi, selezionato secondo il valore dei 2 segnali di controllo",
+        "risposta3": "Fornisce in uscita l'intero rappresentato in binario dai 4 bit in ingresso",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "Ha 4 uscite, di cui una sola uscita uguale al valore in ingresso",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Con riferimento alla ALU (finale) studiata, se AInvert è posto a 0, BNegate è posto a 1 e Operation è 10, quale operazione verrà eseguita?",
+        "risposta1": "AND",
+        "risposta2": "Sottrazione",
+        "risposta3": "OR",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "AND",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Il valore Less nella ALU studiata:",
+        "risposta1": "Serve per effettuare il confronto < fra i valori in ingresso ed è posto a 0 per tutte le ALUi tranne che per ALU31 che lo riceve da ALU0",
+        "risposta2": "Serve per verificare l'uguaglianza fra i valori in ingresso ed è posto a 1 per tutte le ALUi tranne ALU31 che lo riceve da ALU0",
+        "risposta3": "Serve per verificare il confronto < fra i valori in ingresso ed è posto a 0 per tutte le ALUi tranne che per ALU0 che lo riceve da ALU31",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Serve per effettuare il confronto < fra i valori in ingresso ed è posto a 0 per tutte le ALUi tranne che per ALU31 che lo riceve da ALU0",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Supponendo che il contenuto del registro $t0 sia 1024 e quello del registro $s0 sia 2000, l'effetto dell'istruzione sw $t0,12($s0) è di:",
+        "risposta1": "Caricare 1024 nella locazione di memoria il cui indirizzo è 2012",
+        "risposta2": "Caricare 2012 nella locazione di memoria il cui indirizzo è 1024",
+        "risposta3": "Caricare nel registro $t0 il contenuto della locazione di memoria il cui indirizzo è 2012",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Caricare 1024 nella locazione di memoria il cui indirizzo è 2012",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Qual è la codifica in binario dell'istruzione add $s0,$s1,$s2 sapendo che il codice funct dell'addizione è 32₁₀ e che ai registri $s0–$s7 corrispondono i numeri 16–23?",
+        "risposta1": "00000010001100101000000000100000",
+        "risposta2": "00000010000100011001000000100000",
+        "risposta3": "10000010001100101000000000000000",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "00000010001100101000000000100000",
+        "tag": [
+            "mips",
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "Quale sarà il contenuto del registro $s0, dopo l'esecuzione della seguente istruzione assembler MIPS: xor $s0, $s1, $s2 — supponendo che il contenuto dei registri $s0, $s1, $s2 (in esadecimale) sia rispettivamente: 11111111, F0F0F0F0, BBBBBBBB?",
+        "risposta1": "FBFBFBFB",
+        "risposta2": "02020202",
+        "risposta3": "2B2B2B2B",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "FBFBFBFB",
+        "tag": [
+            "reti logiche",
+            "mips",
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "Qual è la rappresentazione esadecimale dell'intero decimale 103?",
+        "risposta1": "7A",
+        "risposta2": "67",
+        "risposta3": "A3",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "7A",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "L'intervallo di rappresentabilità degli interi rappresentati in complemento a due su 32 bit è:",
+        "risposta1": "[−2³², 2³² − 1]",
+        "risposta2": "[−2³¹, 2³¹ − 1]",
+        "risposta3": "[−2³¹ + 1, 2³¹ − 1]",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "[−2³², 2³² − 1]",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "Nella rappresentazione in complemento a due l'opposto del numero 10110100 è:",
+        "risposta1": "01001011",
+        "risposta2": "01100101",
+        "risposta3": "01001100",
+        "risposta4": "Nessuno dei precedenti",
+        "corretta": "01001011",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "Nel formato in virgola mobile a precisione singola la rappresentazione del numero binario +10,0110 è:",
+        "risposta1": "01000000000110000000000000000000",
+        "risposta2": "11000000001101100000000000000000",
+        "risposta3": "00000000100110000000000000000000",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "01000000000110000000000000000000",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "La tavola di verità di f(x,y) = (x̄ + y) x è: [tavola con opzioni A, B, C riportate come tabelle nei file — il testo grezzo non contiene valori leggibili in modo pulito per questa domanda]",
+        "risposta1": "[tavola A]",
+        "risposta2": "[tavola B]",
+        "risposta3": "[tavola C]",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "[tavola A]",
+        "tag": [
+            "architettura",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "L'espressione canonica SOP per la funzione f(x3, x2, x1) = x3x2 + x2x1 + x3x1 è:",
+        "risposta1": "È già in forma canonica SOP",
+        "risposta2": "x3x2x1 + x3x2x̄1 + x3x̄2x1",
+        "risposta3": "x3x2x̄1 + x3x̄2x1",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "È già in forma canonica SOP",
+        "tag": [
+            "architettura",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "La funzione f(x,y,z,t) in uscita alla rete combinatoria è equivalente a:",
+        "risposta1": "(x̄ ȳ)(z̄ t̄)",
+        "risposta2": "(x̄ + ȳ)(z̄ t̄)",
+        "risposta3": "(x + y)(z + t)",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "(x̄ ȳ)(z̄ t̄)",
+        "tag": [
+            "architettura",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Lo schema rappresenta:",
+        "risposta1": "Un decoder",
+        "risposta2": "Un demultiplexer",
+        "risposta3": "Un Array Logico Programmabile (PLA)",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Un decoder",
+        "tag": [
+            "reti logiche"
+        ]
+    },
+    {
+        "domanda": "Un decoder 3 a 8 è composto da:",
+        "risposta1": "3 porte NOT ed 8 porte AND",
+        "risposta2": "3 porte NOT ed 8 porte OR",
+        "risposta3": "8 porte AND (soltanto)",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "3 porte NOT ed 8 porte AND",
+        "tag": [
+            "reti logiche"
+        ]
+    },
+    {
+        "domanda": "L'Unità Logico Aritmetica finale come studiata necessita di:",
+        "risposta1": "3 segnali di controllo: AInvert (1 bit), BInvert (1 bit), Operation (1 bit)",
+        "risposta2": "4 segnali di controllo: AInvert (1 bit), BInvert (1 bit), Operation (2 bit)",
+        "risposta3": "4 segnali di controllo: ANegate (1 bit), BNegate (1 bit), Operation (2 bit)",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "3 segnali di controllo: AInvert (1 bit), BInvert (1 bit), Operation (1 bit)",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "I formati delle istruzioni beq e addi:",
+        "risposta1": "sono uguali e sono suddivisi in: 6 bit (codice operativo), 5 bit (1° registro sorgente), 5 bit (2° registro sorgente), 16 bit (costante / indirizzo)",
+        "risposta2": "sono uguali e sono suddivisi in: 6 bit (codice operativo), 5 bit (1° registro sorgente), 5 bit (2° registro sorgente), 5 bit (registro destinazione), 5 bit (shamt), 5 bit (funzione)",
+        "risposta3": "sono diversi",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "sono uguali e sono suddivisi in: 6 bit (codice operativo), 5 bit (1° registro sorgente), 5 bit (2° registro sorgente), 16 bit (costante / indirizzo)",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Si supponga che il contenuto iniziale dei registri $s0, $s1 sia rispettivamente 10 e 20. Quale sarà il contenuto di $s0 dopo l'esecuzione della seguente istruzione: sll $s0, $s1, 2?",
+        "risposta1": "80",
+        "risposta2": "40",
+        "risposta3": "10",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "80",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Se un numero k è rappresentato in binario da b3b2b1b0 allora il numero 2k + 1 è rappresentato in binario da:",
+        "risposta1": "b3b2b1b00",
+        "risposta2": "b3b2b1b01",
+        "risposta3": "b3b2b1b001",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "b3b2b1b00",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "La rappresentazione del numero decimale (−60)₁₀ in complemento a due su 8 bit è:",
+        "risposta1": "11000100",
+        "risposta2": "10111100",
+        "risposta3": "10111011",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "11000100",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "La tavola di verità di f(x,y) = (x + y)(1 + xy)(ȳ + x̄) è: [opzioni come tavole — non estraibili in forma pura dal testo grezzo]",
+        "risposta1": "[tavola A]",
+        "risposta2": "[tavola B]",
+        "risposta3": "[tavola C]",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "[tavola A]",
+        "tag": [
+            "architettura",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "L'espressione b̄ā + b̄ è equivalente a:",
+        "risposta1": "a + b̄",
+        "risposta2": "ā",
+        "risposta3": "āb̄ + b̄",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "a + b̄",
+        "tag": [
+            "architettura",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Qual è il numero N rappresentato in virgola mobile (nello standard studiato) dalla stringa binaria di 32 bit la cui rappresentazione esadecimale è 8A000000?",
+        "risposta1": "N = 1,0 × 2¹⁴⁷",
+        "risposta2": "N = 1,0 × 2²⁰",
+        "risposta3": "N = 1,0 × 2¹⁰⁷",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "N = 1,0 × 2¹⁴⁷",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "Si consideri un decoder 3 a 8 con uscite f0, f1, f2, …, f7. Se gli ingressi sono 0, 1, 0 allora i valori delle uscite saranno rispettivamente:",
+        "risposta1": "0, 1, 0, 0, 0, 0, 0, 0",
+        "risposta2": "1, 0, 1, 0, 0, 0, 0, 0",
+        "risposta3": "0, 0, 0, 0, 0, 0, 1, 0",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "0, 1, 0, 0, 0, 0, 0, 0",
+        "tag": [
+            "reti logiche"
+        ]
+    },
+    {
+        "domanda": "La funzione in uscita ad un multiplexer 2:1 con ingressi X e Y e segnale di controllo S, e 0 in corrispondenza di X è:",
+        "risposta1": "X̄S + X̄Y",
+        "risposta2": "X̄Y + X̄Ȳ",
+        "risposta3": "XS̄ + X̄S",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "X̄S + X̄Y",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Un PLA con 3 input e 4 output è composto da:",
+        "risposta1": "8 porte OR ed 4 porte AND",
+        "risposta2": "al massimo 4 porte OR e 8 porte AND",
+        "risposta3": "8 porte AND (soltanto)",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "8 porte OR ed 4 porte AND",
+        "tag": [
+            "architettura",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "L'uscita Zero della ALU è l'uscita:",
+        "risposta1": "di una porta NOR a 32 ingressi",
+        "risposta2": "di una porta NAND a 32 ingressi",
+        "risposta3": "del circuito di overflow",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "di una porta NOR a 32 ingressi",
+        "tag": [
+            "reti logiche",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Supponendo che il contenuto del registro $t0 sia 286 e quello del registro $s0 sia 1600, l'effetto dell'istruzione sw $t0,24($s0) è di:",
+        "risposta1": "Caricare 1600 nella locazione di memoria il cui indirizzo è 310",
+        "risposta2": "Caricare 286 nella locazione di memoria il cui indirizzo è 1624",
+        "risposta3": "Caricare nel registro $t0 il contenuto della locazione di memoria il cui indirizzo è 1624",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Caricare 1600 nella locazione di memoria il cui indirizzo è 310",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Qual è la codifica in binario dell'istruzione and $s0,$s1,$s2 sapendo che il codice operativo e il codice funct dell'and sono rispettivamente 0ₑₛₐ e 24ₑₛₐ e che ai registri $s0–$s7 corrispondono i numeri 16–23?",
+        "risposta1": "00000010001100101000000000100000",
+        "risposta2": "00000010001100101000000000100100",
+        "risposta3": "00000010000100011001000000100100",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "00000010001100101000000000100000",
+        "tag": [
+            "mips",
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "Quale sarà il contenuto del registro $s0 dopo l'esecuzione della seguente istruzione assembler MIPS: slt $s0, $s1, $s2 — supponendo che il contenuto dei registri $s0, $s1, $s2 (in esadecimale) sia rispettivamente: 00000000, BBBBBBBB, 0F0F0F0F?",
+        "risposta1": "BFBFBFBF",
+        "risposta2": "00000000",
+        "risposta3": "00000001",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "BFBFBFBF",
+        "tag": [
+            "mips",
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "Qual è la rappresentazione esadecimale dell'intero decimale 163?",
+        "risposta1": "7A",
+        "risposta2": "67",
+        "risposta3": "A3",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "7A",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "L'intervallo di rappresentabilità degli interi rappresentati in complemento a due su 32 bit è:",
+        "risposta1": "[2³², 2³² − 1]",
+        "risposta2": "[−2³¹, 2³¹ − 1]",
+        "risposta3": "[−2³¹ + 1, 2³¹]",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "[2³², 2³² − 1]",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "Qual è il numero decimale N rappresentato in binario da (010,1100)₂?",
+        "risposta1": "N = 2,75",
+        "risposta2": "N = 4,5",
+        "risposta3": "N = 2,12",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "N = 2,75",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "Nel formato in virgola mobile a precisione singola la rappresentazione del numero binario +11,0110 è:",
+        "risposta1": "01000000010110000000000000000000",
+        "risposta2": "11000000110110000000000000000000",
+        "risposta3": "10000000100110000000100000000000",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "01000000010110000000000000000000",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "L'espressione canonica SOP per la funzione f(x3, x2, x1) = x3x2 + x2x1 è:",
+        "risposta1": "È già in forma canonica SOP",
+        "risposta2": "x3x2x1 + x3x2x̄1 + x3x̄2x1",
+        "risposta3": "x3x2x̄1 + x3x̄2x1",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "È già in forma canonica SOP",
+        "tag": [
+            "architettura",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Il circuito rappresenta l'implementazione di:",
+        "risposta1": "Un addizionatore a 1 bit",
+        "risposta2": "Un multiplexer 2 a 1",
+        "risposta3": "Un decoder 3 a 1",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Un addizionatore a 1 bit",
+        "tag": [
+            "reti logiche"
+        ]
+    },
+    {
+        "domanda": "L'espressione corrispondente ai cubi nella figura è:",
+        "risposta1": "x̄2x1 + x3x̄2x1 + x4x3x̄2",
+        "risposta2": "x̄2x1 + x3x̄2 + x4x3x̄2x1",
+        "risposta3": "x4x3 + x3x2x̄1 + x4x3x̄2x1",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "x̄2x1 + x3x̄2x1 + x4x3x̄2",
+        "tag": [
+            "architettura",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Un Multiplexer 8 a 1 ha:",
+        "risposta1": "4 input, 1 output e 1 segnale di controllo",
+        "risposta2": "8 input, 1 output e 2 segnali di controllo",
+        "risposta3": "4 input, 1 output, 2 segnali di controllo",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "4 input, 1 output e 1 segnale di controllo",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "L'Unità Logico Aritmetica finale come studiata necessita di:",
+        "risposta1": "3 segnali di controllo: AInvert (1 bit), BInvert (1 bit), Operation (1 bit)",
+        "risposta2": "4 segnali di controllo: AInvert (1 bit), BInvert (1 bit), Operation (2 bit)",
+        "risposta3": "5 segnali di controllo: AInvert (1 bit), BNegate (1 bit), CarryIn (1 bit), Operation (2 bit)",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "3 segnali di controllo: AInvert (1 bit), BInvert (1 bit), Operation (1 bit)",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "I formati delle istruzioni add e or:",
+        "risposta1": "sono uguali e sono suddivisi in: 6 bit (codice operativo), 5 bit (1° registro sorgente), 5 bit (2° registro sorgente), 16 bit (costante / indirizzo)",
+        "risposta2": "sono uguali e sono suddivisi in: 6 bit (codice operativo), 5 bit (1° registro sorgente), 5 bit (2° registro sorgente), 5 bit (registro destinazione), 5 bit (shamt), 5 bit (funzione)",
+        "risposta3": "sono diversi",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "sono uguali e sono suddivisi in: 6 bit (codice operativo), 5 bit (1° registro sorgente), 5 bit (2° registro sorgente), 16 bit (costante / indirizzo)",
+        "tag": [
+            "architettura",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Si supponga che il contenuto iniziale dei registri $s0, $s1 sia rispettivamente 1 e 20. Quale sarà il contenuto di $s0 dopo l'esecuzione della seguente sequenza? — slt $t0,$s0,$s1 / bne $t0,$s1,label / add $s0,$s0,$s1 / label: sll $s0,$s0,1",
+        "risposta1": "2",
+        "risposta2": "21",
+        "risposta3": "42",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "2",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Nella rappresentazione in base 2, qual è il numero rappresentato in esadecimale da (C1A0)esa?",
+        "risposta1": "1100110100",
+        "risposta2": "1100000110100000",
+        "risposta3": "1010000111000000",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "1100110100",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "Nella rappresentazione in complemento a due su 8 bit il minimo e il massimo intero rappresentabili sono rispettivamente:",
+        "risposta1": "00000000 e 11111111",
+        "risposta2": "11111111 e 01111111",
+        "risposta3": "10000000 e 01111111",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "00000000 e 11111111",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "Nella rappresentazione in complemento a due, se N è rappresentato da 0010100, il suo opposto è:",
+        "risposta1": "1010100",
+        "risposta2": "1101100",
+        "risposta3": "1101011",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "1010100",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "Se x2x1 + x3x2 è un'espressione per la funzione f(x3,x2,x1), un'espressione POS per f̄, la negazione di f, è:",
+        "risposta1": "x3x2x1 + x3x2x̄1 + x3x̄2x1",
+        "risposta2": "(x̄2 + x̄1)(x̄3 + x̄2)",
+        "risposta3": "(x2 + x1)(x3 + x2)",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "x3x2x1 + x3x2x̄1 + x3x̄2x1",
+        "tag": [
+            "architettura",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Un decoder 3 a 8 ha:",
+        "risposta1": "3 ingressi, 8 uscite e 2 segnali di controllo",
+        "risposta2": "3 ingressi ed 8 uscite",
+        "risposta3": "8 ingressi e 3 uscite",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "3 ingressi, 8 uscite e 2 segnali di controllo",
+        "tag": [
+            "reti logiche"
+        ]
+    },
+    {
+        "domanda": "La funzione calcolata da un Multiplexer 2:1 a 1 bit, con 0 in corrispondenza del valore di ingresso A e 1 in corrispondenza del valore di ingresso B, e segnale di controllo S è:",
+        "risposta1": "A S̄ + B S",
+        "risposta2": "A S + B S̄",
+        "risposta3": "Ā S + B S̄",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "A S̄ + B S",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Quanti bit ha il segnale di controllo di un Multiplexer 2:1 a 32 bit?",
+        "risposta1": "1",
+        "risposta2": "5",
+        "risposta3": "32",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "1",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Supponendo che il contenuto del registro $t0 sia 1024 e quello del registro $s0 sia 2000, l'effetto dell'istruzione lw $t0,12($s0) è di:",
+        "risposta1": "Caricare 1024 nella locazione di memoria il cui indirizzo è 2012",
+        "risposta2": "Caricare 2012 nella locazione di memoria il cui indirizzo è 1024",
+        "risposta3": "Caricare nel registro $t0 il contenuto della locazione di memoria il cui indirizzo è 2012",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Caricare 1024 nella locazione di memoria il cui indirizzo è 2012",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Qual è la codifica in binario dell'istruzione add $s0,$s1,$s2 sapendo che il codice funct dell'addizione è 32 e che ai registri $s0–$s7 corrispondono i numeri 16–23?",
+        "risposta1": "00000010001100101000000000100000",
+        "risposta2": "00000010000100011001000000100000",
+        "risposta3": "10000010001100101000000000000000",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "00000010001100101000000000100000",
+        "tag": [
+            "mips",
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "Si assuma che le variabili i e k corrispondano ai registri $s0 e $s1. Qual è l'istruzione C corrispondente al seguente codice assembler MIPS? — bne $s0, $s1, Exit / addi $s0, $s0, 1 / Exit: …",
+        "risposta1": "while(i==k) i=i+1;",
+        "risposta2": "if(i==k) i=i+1;",
+        "risposta3": "for(i=1; i<k; i++) i=k;",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "while(i==k) i=i+1;",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Nel processore studiato, la ALU e il banco dei registri sono rispettivamente:",
+        "risposta1": "Un circuito combinatorio e un circuito sequenziale",
+        "risposta2": "Un circuito sequenziale e un circuito combinatorio",
+        "risposta3": "Due circuiti combinatori",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Un circuito combinatorio e un circuito sequenziale",
+        "tag": [
+            "reti logiche",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Nel banco dei registri (register file) come studiato vi sono:",
+        "risposta1": "2 porte di lettura e ognuno dei 2 valori in entrata diventa il segnale di controllo di un multiplexer 32 a 1",
+        "risposta2": "2 porte di lettura e ognuno dei 2 valori in entrata va in ingresso a un decoder 5 a 32",
+        "risposta3": "1 porta di lettura il cui valore in entrata va in ingresso a un decoder 5 a 32",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "2 porte di lettura e ognuno dei 2 valori in entrata diventa il segnale di controllo di un multiplexer 32 a 1",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Perché nel processore studiato per passare alla prossima istruzione, il valore di PC è incrementato di 4?",
+        "risposta1": "Perché le 3 istruzioni seguenti sono ininfluenti",
+        "risposta2": "Perché un'istruzione occupa 4 locazioni di memoria",
+        "risposta3": "Perché sono necessari 4 cicli di clock",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Perché le 3 istruzioni seguenti sono ininfluenti",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Nel processore a singolo ciclo (come studiato) il segnale di controllo PCSrc è 1 se:",
+        "risposta1": "è in esecuzione un'istruzione beq",
+        "risposta2": "Branch = 1 e l'uscita Zero della ALU è 1",
+        "risposta3": "Branch = 1 e l'uscita Zero della ALU è 0",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "è in esecuzione un'istruzione beq",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Durante l'esecuzione di una istruzione lw nel processore a singolo ciclo studiato, l'uscita della ALU fornisce:",
+        "risposta1": "il dato da scrivere nel banco dei registri",
+        "risposta2": "il dato da scrivere nella memoria dati",
+        "risposta3": "il nuovo valore del PC",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "il dato da scrivere nel banco dei registri",
+        "tag": [
+            "mips",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Si consideri l'implementazione studiata del processore con pipeline. Nella fase WB (Write Back), il numero del registro di scrittura per una istruzione add viene letto:",
+        "risposta1": "Dal campo [15-11] dell'istruzione",
+        "risposta2": "Dal registro MEM/WB",
+        "risposta3": "Dall'uscita della ALU",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Dal campo [15-11] dell'istruzione",
+        "tag": [
+            "pipeline"
+        ]
+    },
+    {
+        "domanda": "È vero che in una memoria cache a mappatura diretta ogni dato contenuto nella memoria cache è contenuto anche nel livello di memoria sottostante?",
+        "risposta1": "Dipende dagli accessi alla memoria finora effettuati",
+        "risposta2": "No",
+        "risposta3": "Sì",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Dipende dagli accessi alla memoria finora effettuati",
+        "tag": [
+            "cache"
+        ]
+    },
+    {
+        "domanda": "Si consideri una memoria cache con 16 blocchi ognuno di 1 parola e una memoria principale dove anche ogni indirizzo a 32 bit indirizza 1 parola. Si supponga che dall'accensione vengano richiesti gli indirizzi 0, 32, 8. Se, dopo tali richieste, venisse richiesto nuovamente il dato di indirizzo 0, allora:",
+        "risposta1": "Ci sarebbe un successo (hit) perché tale dato era già stato precedentemente caricato nella memoria cache",
+        "risposta2": "Ci sarebbe un successo (hit) perché il Tag dell'indirizzo è uguale al Tag della linea",
+        "risposta3": "Ci sarebbe un fallimento (miss) perché la linea 0 è stata sovrascritta col dato di indirizzo 8",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Ci sarebbe un successo (hit) perché tale dato era già stato precedentemente caricato nella memoria cache",
+        "tag": [
+            "cache"
+        ]
+    },
+    {
+        "domanda": "Si assuma che le variabili i e k corrispondano ai registri $s0 e $s1. Qual è l'istruzione C corrispondente al seguente codice assembler MIPS? — Label: bne $s0, $s1, Exit / addi $s0, $s0, 1 / j Label / Exit: …",
+        "risposta1": "while(i!=k) i=i+1;",
+        "risposta2": "if(i==k) i=i+1;",
+        "risposta3": "for(i=1; i<k; i++) i=j;",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "while(i!=k) i=i+1;",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Supponendo che il contenuto del registro $s0 sia inizialmente 2, e il contenuto del registro $s1 sia inizialmente 6, quali saranno i contenuti di $s0 e di $s1, rispettivamente, quando verrà eseguita l'istruzione di etichetta Exit? — Loop: beq $s0, $s1, Exit / addi $s0, $s0, 1 / j Loop / Exit: …",
+        "risposta1": "2 e 6",
+        "risposta2": "6 e 2",
+        "risposta3": "2 e 2",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "2 e 6",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Qual è l'effetto dell'istruzione: jal indirizzo?",
+        "risposta1": "Saltare in maniera incondizionata all'istruzione all'indirizzo indicato da indirizzo",
+        "risposta2": "Saltare all'istruzione all'indirizzo indicato e porre nel registro $ra il valore del PC",
+        "risposta3": "Porre nel registro $ra il valore del PC e saltare all'istruzione all'indirizzo indicato",
+        "risposta4": "Nessuno dei precedenti",
+        "corretta": "Saltare in maniera incondizionata all'istruzione all'indirizzo indicato da indirizzo",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Qual è il tempo di esecuzione di un processore che esegue 100 istruzioni con frequenza di clock 2,5 GHz e CPI = 1,25?",
+        "risposta1": "0,5 × 10⁻⁷ sec.",
+        "risposta2": "50 sec",
+        "risposta3": "10⁻⁶ sec",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "0,5 × 10⁻⁷ sec.",
+        "tag": [
+            "prestazioni"
+        ]
+    },
+    {
+        "domanda": "Si consideri l'esecuzione dell'istruzione 00000000001000010000100000100000 nel processore a singolo ciclo studiato. I valori in ingresso all'Unità di controllo della ALU sono:",
+        "risposta1": "10 e 000000",
+        "risposta2": "10 e 100000",
+        "risposta3": "000000",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "10 e 000000",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Una criticità (hazard) sui dati si ha quando:",
+        "risposta1": "Due istruzioni distinte necessitano della ALU nello stesso ciclo di clock",
+        "risposta2": "Una istruzione tenta di scrivere due diversi valori in uno stesso registro",
+        "risposta3": "Una istruzione tenta di utilizzare un dato non ancora disponibile",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Due istruzioni distinte necessitano della ALU nello stesso ciclo di clock",
+        "tag": [
+            "pipeline",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Si consideri l'implementazione studiata del processore con pipeline. Cosa fa l'istruzione sw $s1,24($s2) nello stadio ID?",
+        "risposta1": "Esegue la somma del contenuto del registro $s2 con 24.",
+        "risposta2": "Preleva l'istruzione dalla memoria istruzioni.",
+        "risposta3": "Scrive nel registro $s1 il dato prelevato dalla memoria",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Esegue la somma del contenuto del registro $s2 con 24.",
+        "tag": [
+            "pipeline",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Si supponga che i vari stadi della pipeline abbiano le latenze: IF=150ps, ID=250ps, EX=400ps, MEM=200ps, WB=200ps. Quanto dura un ciclo di clock nel processore con pipeline e senza pipeline, rispettivamente?",
+        "risposta1": "150 ps e 1200 ps",
+        "risposta2": "2000 ps e 1200 ps",
+        "risposta3": "1200 ps in entrambi i casi",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "150 ps e 1200 ps",
+        "tag": [
+            "pipeline"
+        ]
+    },
+    {
+        "domanda": "In una memoria cache a mappatura diretta se il campo offset dell'istruzione è formato dai bit [3-0] allora:",
+        "risposta1": "Ogni blocco della memoria cache contiene 3 parole",
+        "risposta2": "Ogni blocco della memoria cache contiene 2⁴ parole",
+        "risposta3": "Ogni blocco della memoria cache contiene 2⁴ byte",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Ogni blocco della memoria cache contiene 3 parole",
+        "tag": [
+            "cache"
+        ]
+    },
+    {
+        "domanda": "In una memoria cache a mappatura diretta se il campo indice dell'istruzione ha 10 bit allora:",
+        "risposta1": "Ogni blocco della memoria cache è di 2¹⁰ byte",
+        "risposta2": "Ogni blocco della memoria cache contiene 10 parole",
+        "risposta3": "La memoria della cache ha 10 blocchi",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Ogni blocco della memoria cache è di 2¹⁰ byte",
+        "tag": [
+            "cache"
+        ]
+    },
+    {
+        "domanda": "Si consideri una memoria cache con 256 blocchi ognuno di 2 parole. Un'istruzione a 32 bit verrà suddivisa nei campi tag, indice, offset che avranno un numero di bit rispettivamente di:",
+        "risposta1": "20, 8, 4",
+        "risposta2": "16, 8, 8",
+        "risposta3": "20, 9, 3",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "20, 8, 4",
+        "tag": [
+            "cache"
+        ]
+    },
+    {
+        "domanda": "La dimensione di una memoria cache con 1024 blocchi ognuno di 2 parole è:",
+        "risposta1": "8 KB",
+        "risposta2": "4 KB",
+        "risposta3": "2 KB",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "8 KB",
+        "tag": [
+            "cache"
+        ]
+    },
+    {
+        "domanda": "Si assuma che le variabili i e k corrispondano ai registri $s0 e $s1. Qual è l'istruzione C corrispondente al seguente codice assembler MIPS? — Label: beq $s0, $s1, Exit / addi $s0, $s0, 1 / j Label / Exit: …",
+        "risposta1": "while(i!=k) i=i+1;",
+        "risposta2": "if(i==k) i=i+1;",
+        "risposta3": "if(i!=k) i=i+1;",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "while(i!=k) i=i+1;",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Nello schema di implementazione studiata per il processore MIPS, il multiplexer posto all'uscita della memoria dati permette di scegliere fra:",
+        "risposta1": "Il secondo dato scritto nel banco dei registri e l'estensione del segno dei 16 bit più significativi dell'istruzione",
+        "risposta2": "Il secondo dato letto dal banco dei registri e l'estensione del segno dei 16 bit meno significativi dell'istruzione",
+        "risposta3": "Il dato letto dalla memoria dati e l'uscita della ALU",
+        "risposta4": "Nessuna delle precedenti.",
+        "corretta": "Il secondo dato scritto nel banco dei registri e l'estensione del segno dei 16 bit più significativi dell'istruzione",
+        "tag": [
+            "mips",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "L'effetto dell'istruzione jr $ra è di:",
+        "risposta1": "Porre nel PC il contenuto del registro $ra",
+        "risposta2": "Porre nel registro $ra il valore del PC",
+        "risposta3": "Shiftare a destra il contenuto del registro $ra",
+        "risposta4": "Nessuno dei precedenti",
+        "corretta": "Porre nel PC il contenuto del registro $ra",
+        "tag": [
+            "mips",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Nella esecuzione di una istruzione lw il segnale di controllo MemWrite:",
+        "risposta1": "è 1 e permette la scrittura nel banco dei registri",
+        "risposta2": "è 1 e permette la scrittura nella memoria dati",
+        "risposta3": "è 0 ed evita la scrittura nella memoria dati",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "è 1 e permette la scrittura nel banco dei registri",
+        "tag": [
+            "mips",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Si consideri l'esecuzione dell'istruzione 10101100001000010000100000100000 nel processore a singolo ciclo studiato. I valori in ingresso all'Unità di controllo principale sono:",
+        "risposta1": "10 e 101011",
+        "risposta2": "10 e 100000",
+        "risposta3": "100000",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "10 e 101011",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Si consideri l'implementazione studiata del processore con pipeline. Cosa fa l'istruzione sw $s1,24($s2) nello stadio MEM?",
+        "risposta1": "Esegue la somma del contenuto del registro $s2 con 24",
+        "risposta2": "Preleva l'istruzione dalla memoria istruzioni",
+        "risposta3": "Scrive in memoria il dato prelevato dal registro $s1",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Esegue la somma del contenuto del registro $s2 con 24",
+        "tag": [
+            "pipeline",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Nella sequenza di istruzioni: add $s0,$s1,$s1 / sub $t0,$s0,$s1:",
+        "risposta1": "Non vi sono criticità sui dati",
+        "risposta2": "Vi è una criticità sui dati che può essere risolta propagando l'uscita della memoria della prima istruzione all'ingresso della ALU della seconda istruzione",
+        "risposta3": "Vi è una criticità sui dati che può essere risolta propagando l'uscita della ALU della prima istruzione all'ingresso della ALU della seconda istruzione",
+        "risposta4": "Vi è una criticità sui dati che non può essere risolta con la propagazione",
+        "corretta": "Non vi sono criticità sui dati",
+        "tag": [
+            "architettura",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Una (memoria) cache a mappatura diretta è:",
+        "risposta1": "Una cache in cui ad ogni locazione della memoria principale corrisponde una ed una sola locazione di memoria cache",
+        "risposta2": "Una cache in cui ad ogni locazione di memoria della cache corrisponde una ed una sola locazione memoria principale",
+        "risposta3": "Una cache in cui ad ogni locazione della memoria principale corrisponde una ed una sola locazione di memoria cache e viceversa",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Una cache in cui ad ogni locazione della memoria principale corrisponde una ed una sola locazione di memoria cache",
+        "tag": [
+            "cache"
+        ]
+    },
+    {
+        "domanda": "Si assuma che le variabili i e k corrispondano ai registri $s0 e $s1. Qual è l'istruzione C corrispondente al seguente codice assembler MIPS? — Label: bne $s0, $s1, Exit / sll $s0, $s0, 1 / j Label / Exit: …",
+        "risposta1": "while(i==k) i=i*2;",
+        "risposta2": "if(i==k) i=i*2;",
+        "risposta3": "while(i!=k) i=i*2;",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "while(i==k) i=i*2;",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Qual è l'effetto dell'istruzione: jal label?",
+        "risposta1": "Saltare in maniera incondizionata all'istruzione all'indirizzo indicato da label",
+        "risposta2": "Saltare all'istruzione all'indirizzo indicato da label e porre nel registro $ra il valore del PC (già aumentato di 4)",
+        "risposta3": "Porre nel registro $ra il valore del PC (già aumentato di 4) e saltare all'istruzione all'indirizzo indicato da label",
+        "risposta4": "Nessuno dei precedenti",
+        "corretta": "Saltare in maniera incondizionata all'istruzione all'indirizzo indicato da label",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "In un flip-flop D se Clock = 1 ed D = 0:",
+        "risposta1": "Lo stato Q sarà uguale allo stato precedente",
+        "risposta2": "Lo stato Q sarà 0",
+        "risposta3": "Lo stato Q sarà 1",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "Lo stato Q sarà uguale allo stato precedente",
+        "tag": [
+            "reti logiche"
+        ]
+    },
+    {
+        "domanda": "Il banco di registri (register file) come studiato è formato da:",
+        "risposta1": "32 registri ognuno contenente un dato a 32 bit",
+        "risposta2": "2³² registri ognuno contenente un dato a 8 bit",
+        "risposta3": "32 registri ognuno contenente un dato a 8 bit",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "32 registri ognuno contenente un dato a 32 bit",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Si supponga che un processore P1 con frequenza di clock 2,5 GHz esegua un programma in 20 secondi e un processore P2 con frequenza di clock 3 GHz esegua lo stesso programma in 15 secondi. Il numero di cicli di clock compiuti da P1 e da P2, rispettivamente, è:",
+        "risposta1": "50 × 10⁹ e 45 × 10⁹",
+        "risposta2": "50 e 45",
+        "risposta3": "8 e 0,2",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "50 × 10⁹ e 45 × 10⁹",
+        "tag": [
+            "prestazioni"
+        ]
+    },
+    {
+        "domanda": "L'Unità di controllo principale del processore a singolo ciclo studiato è:",
+        "risposta1": "Un circuito combinatorio che riceve in ingresso il codice operativo (op) dell'istruzione da eseguire",
+        "risposta2": "Un circuito sequenziale che riceve in ingresso il codice operativo (op) dell'istruzione da eseguire",
+        "risposta3": "Un circuito combinatorio che riceve in ingresso il codice funzionalità (funct) dell'istruzione da eseguire",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Un circuito combinatorio che riceve in ingresso il codice operativo (op) dell'istruzione da eseguire",
+        "tag": [
+            "reti logiche",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Si consideri l'implementazione studiata del processore con pipeline. Cosa fa l'istruzione sw $s1,24($s2) nello stadio MEM?",
+        "risposta1": "Esegue la somma del contenuto del registro $s2 con 24",
+        "risposta2": "Scrive nel registro $s1 il dato prelevato dalla memoria",
+        "risposta3": "Preleva l'istruzione dalla memoria istruzioni.",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Esegue la somma del contenuto del registro $s2 con 24",
+        "tag": [
+            "pipeline",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "In una gerarchia delle memorie troveremo più vicina al processore:",
+        "risposta1": "Una memoria più veloce e di maggiore capacità",
+        "risposta2": "Una memoria più veloce e di minore capacità",
+        "risposta3": "Una memoria di minor costo",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Una memoria più veloce e di maggiore capacità",
+        "tag": [
+            "architettura",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Un flip-flop master-slave (come studiato):",
+        "risposta1": "È abilitato durante la fase positiva del clock",
+        "risposta2": "È abilitato solo sul fronte in discesa del clock",
+        "risposta3": "È abilitato solo sul fronte in salita del clock",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "È abilitato durante la fase positiva del clock",
+        "tag": [
+            "reti logiche"
+        ]
+    },
+    {
+        "domanda": "La lettura di un registro nel banco dei registri (register file) avviene tramite:",
+        "risposta1": "un multiplexer che ha il numero del registro come segnale di controllo",
+        "risposta2": "un decoder che ha in input il dato da scrivere",
+        "risposta3": "un decoder che ha in input il numero del registro",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "un multiplexer che ha il numero del registro come segnale di controllo",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Se CPI = 2,25 in quanti cicli di clock il processore esegue 1000 istruzioni?",
+        "risposta1": "2250",
+        "risposta2": "2,25 × 10⁻⁶",
+        "risposta3": "Dipende dalla frequenza",
+        "risposta4": "Nessuno dei precedenti",
+        "corretta": "2250",
+        "tag": [
+            "prestazioni"
+        ]
+    },
+    {
+        "domanda": "Nel processore a singolo ciclo (come studiato) il segnale di controllo MemRead:",
+        "risposta1": "è 1 per tutte le istruzioni e permette la lettura dalla memoria istruzioni",
+        "risposta2": "è 1 per l'istruzione sw e permette la lettura dalla memoria dati",
+        "risposta3": "non esiste",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "è 1 per tutte le istruzioni e permette la lettura dalla memoria istruzioni",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "La pipeline migliora:",
+        "risposta1": "Il numero di istruzioni che vengono eseguite in un determinato tempo (soltanto)",
+        "risposta2": "Il tempo di esecuzione di una singola istruzione (soltanto)",
+        "risposta3": "Entrambi i valori ai punti A e B",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Il numero di istruzioni che vengono eseguite in un determinato tempo (soltanto)",
+        "tag": [
+            "pipeline"
+        ]
+    },
+    {
+        "domanda": "Si consideri l'implementazione studiata del processore con pipeline. Nella fase WB (Write Back), il numero del registro di scrittura viene letto:",
+        "risposta1": "Dal campo [15-11] dell'istruzione",
+        "risposta2": "Dal registro MEM/WB",
+        "risposta3": "Dall'uscita della ALU",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Dal campo [15-11] dell'istruzione",
+        "tag": [
+            "pipeline"
+        ]
+    },
+    {
+        "domanda": "In una RAM (Random Access Memory) l'accesso ad ogni locazione avviene in un tempo:",
+        "risposta1": "Costante per ogni locazione",
+        "risposta2": "In un tempo proporzionale alla distanza",
+        "risposta3": "In un tempo proporzionale all'indirizzo",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Costante per ogni locazione",
+        "tag": [
+            "cache"
+        ]
+    },
+    {
+        "domanda": "La dimensione di una memoria cache con 2ⁿ blocchi ognuno dei quali contiene 2ᵐ parole è:",
+        "risposta1": "2ᵐ × 2ⁿ",
+        "risposta2": "2^(m+n+2)",
+        "risposta3": "2ᵐ × (2ⁿ + 1)",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "2ᵐ × 2ⁿ",
+        "tag": [
+            "cache"
+        ]
+    },
+    {
+        "domanda": "Si assuma che le variabili i e k corrispondano ai registri $s0 e $s1. Qual è l'istruzione C corrispondente al seguente codice assembler MIPS?",
+        "risposta1": "bel: bne $s0, $s1, Exit",
+        "risposta2": "di $s0, $s0, 1",
+        "risposta3": "label",
+        "risposta4": "it: è?",
+        "corretta": "bel: bne $s0, $s1, Exit",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Qual è la codifica in binario dell'istruzione sw $s1,12($s2) sapendo che il codice operativo di sw è 43èèè e che ai registri $s0 è? $s7 corrispondono i numeri 16 è? 23?",
+        "risposta1": "00000001100100101000100000101011",
+        "risposta2": "10101110010100010000000000001100",
+        "risposta3": "10101110001100100000000000001100",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "00000001100100101000100000101011",
+        "tag": [
+            "mips",
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "Il banco di registri (register file) è formato da:",
+        "risposta1": "32 registri ognuno contenente un dato a 32 bit",
+        "risposta2": "2èè registri ognuno contenente un dato a 8 bit",
+        "risposta3": "32 registri ognuno contenente un dato a 8 bit",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "32 registri ognuno contenente un dato a 32 bit",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "L'Unitè di controllo della ALU riceve in ingresso:",
+        "risposta1": "I 6 bit piè significativi dell'istruzione e il segnale di controllo ALUOp a 1 bit",
+        "risposta2": "I 6 bit meno significativi dell'istruzione e il segnale di controllo ALUOp a 1 bit",
+        "risposta3": "I 6 bit meno significativi dell'istruzione e il segnale di controllo ALUOp a 2 bit",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "I 6 bit piè significativi dell'istruzione e il segnale di controllo ALUOp a 1 bit",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Si assuma che le variabili i e k corrispondano ai registri $s0 e $s1. Qual è l'istruzione C corrispondente al seguente codice assembler MIPS?",
+        "risposta1": "bel: bne $s0, $s1, Exit",
+        "risposta2": "l $s0, $s0,1",
+        "risposta3": "Label",
+        "risposta4": "it: è?",
+        "corretta": "bel: bne $s0, $s1, Exit",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Qual è il tempo di esecuzione di un processore che esegue 200 istruzioni con frequenza di clock 5 GHz e CPI=1,25?",
+        "risposta1": "8 è 10è sec",
+        "risposta2": "500 sec",
+        "risposta3": "5 è 10èèè sec",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "8 è 10è sec",
+        "tag": [
+            "prestazioni"
+        ]
+    },
+    {
+        "domanda": "Si consideri l'esecuzione dell'istruzione sw $1,152($2) nel processore a singolo ciclo studiato. Le uscite del modulo di estensione del segno e dell'unitè di shift a sinistra di 2 sono rispettivamente:",
+        "risposta1": "0000000010011000  e  0000001001100000",
+        "risposta2": "00000000000000000000000010011000  e  00000000000000000000001001100000",
+        "risposta3": "00000000000000000000000000000010  e  00000000000000000000000000001000",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "0000000010011000  e  0000001001100000",
+        "tag": [
+            "mips",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Si consideri l'esecuzione dell'istruzione 00000000001000010000100000100000 nel processore a singolo ciclo studiato. I bit in ingresso all'Unitè di controllo della ALU sono:",
+        "risposta1": "10 e 100000",
+        "risposta2": "10 e 000000",
+        "risposta3": "000000",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "10 e 100000",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Si supponga che i vari stadi della pipeline (come studiata) abbiano le latenze (ritardi) riportate in tabella. Quanto dura un ciclo di clock nel processore con pipeline e senza pipeline, rispettivamente?",
+        "risposta1": "=250ps, ID=350ps, EX=150ps, MEM=300ps, WB=200ps",
+        "risposta2": "350 ps e 1250 ps",
+        "risposta3": "1750 ps e 1250 ps",
+        "risposta4": "1250 ps in entrambi i casi",
+        "corretta": "=250ps, ID=350ps, EX=150ps, MEM=300ps, WB=200ps",
+        "tag": [
+            "pipeline"
+        ]
+    },
+    {
+        "domanda": "Qual è il tempo di esecuzione di un processore che esegue 100 istruzioni con frequenza di clock 5 GHz e CPI=2,5?",
+        "risposta1": "8 è 10è sec.",
+        "risposta2": "50 sec",
+        "risposta3": "0,5 è 10èèè sec",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "8 è 10è sec.",
+        "tag": [
+            "prestazioni"
+        ]
+    },
+    {
+        "domanda": "Nello schema di implementazione studiata per il processore MIPS, il multiplexer posto all'uscita della memoria dati permette di scegliere fra:",
+        "risposta1": "Il secondo dato letto dal banco dei registri e l'estensione del segno dei 16 bit meno significativi dell'istruzione",
+        "risposta2": "Il secondo dato scritto nel banco dei registri e l'estensione del segno dei 16 bit piè significativi dell'istruzione",
+        "risposta3": "Il dato letto dalla memoria dati e l'uscita della ALU.",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Il secondo dato letto dal banco dei registri e l'estensione del segno dei 16 bit meno significativi dell'istruzione",
+        "tag": [
+            "mips",
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "La Unitè di Controllo dell'ALU riceve in ingresso:",
+        "risposta1": "I segnali AluOp1, AluOp0",
+        "risposta2": "I 6 bit piè significativi dell'Istruzione",
+        "risposta3": "Entrambe le risposte precedenti",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "I segnali AluOp1, AluOp0",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Si consideri una memoria cache con 16 blocchi ognuno di 1 parola e una memoria principale dove ogni indirizzo a 32 bit indirizza 1 parola. Se nella linea 0110 della cache V=1, e TAG=0è?è0100, allora il dato memorizzato in quella linea è il dato che in memoria principale si trova all'indirizzo:",
+        "risposta1": "01100è?è0100",
+        "risposta2": "0è?è01000110",
+        "risposta3": "Non si puè dire",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "01100è?è0100",
+        "tag": [
+            "cache"
+        ]
+    },
+    {
+        "domanda": "Sia N un intero rappresentato in binario da b5b4b3b2b1b0 e D=2è?è. Il quoziente e il resto della divisione di N per D, in binario, sono rispettivamente",
+        "risposta1": "b5b4  e  b3b2b1b0",
+        "risposta2": "b5b4b3  e  b2b1b0",
+        "risposta3": "b5b4b3b2  e  b1b0",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "b5b4  e  b3b2b1b0",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "Nel processore a singolo ciclo studiato, l'unitè di controllo e il banco dei registri sono rispettivamente:",
+        "risposta1": "un circuito combinatorio e un circuito sequenziale",
+        "risposta2": "un circuito sequenziale e un circuito combinatorio",
+        "risposta3": "entrambi circuiti combinatori",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "un circuito combinatorio e un circuito sequenziale",
+        "tag": [
+            "reti logiche"
+        ]
+    },
+    {
+        "domanda": "Nello schema di implementazione studiata per il processore MIPS con pipeline, in quale fase opera l'Unitè di Controllo principale?",
+        "risposta1": "IF",
+        "risposta2": "ID",
+        "risposta3": "EX",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "IF",
+        "tag": [
+            "pipeline",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Si consideri una cache a mappatura diretta con 2è?è blocchi ognuno dei quali contiene 2è? parole. In un indirizzo a 32 bit, da quanti bit sarè costituito il campo tag?",
+        "risposta1": "32è^'(nè^'m)",
+        "risposta2": "32è^'(n+m)",
+        "risposta3": "32è^'(n+m+2)",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "32è^'(nè^'m)",
+        "tag": [
+            "cache"
+        ]
+    },
+    {
+        "domanda": "Sia N un intero rappresentato in binario da b5b4b3b2b1b0 e D=2è?è. Il valore N modulo D in binario è dato da",
+        "risposta1": "b3b2b1b0",
+        "risposta2": "b2b1b0",
+        "risposta3": "b5b4b3b2",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "b3b2b1b0",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "Qual è il tempo di esecuzione di un processore che esegue 100 istruzioni con frequenza di clock 3 GHz e CPI=1,5?",
+        "risposta1": "0,5 è- 10è?è?è sec.",
+        "risposta2": "0,5 è- 10è sec",
+        "risposta3": "2 è- 10è sec",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "0,5 è- 10è?è?è sec.",
+        "tag": [
+            "prestazioni"
+        ]
+    },
+    {
+        "domanda": "Si consideri una memoria cache con 16 blocchi ognuno di 1 parola e una memoria principale dove ogni indirizzo a 32 bit indirizza 1 parola. Se nella linea 0110 della cache V=1, e TAG=0è?è0100, allora il dato memorizzato in quella linea è il dato che in memoria principale si trova all'indirizzo:",
+        "risposta1": "01100è?è0100",
+        "risposta2": "0è?è01000110",
+        "risposta3": "Non si puè dire",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "01100è?è0100",
+        "tag": [
+            "cache"
+        ]
+    },
+    {
+        "domanda": "Supponendo che il contenuto del registro $t0 sia inizialmente b31 b30 è?èb2 b1 b0, quale sarè il contenuto del registro $t1 dopo l'esecuzione delle seguenti istruzioni?",
+        "risposta1": "l $t0,$t0,24",
+        "risposta2": "i $t1,$t0,FFFFFFF0",
+        "risposta3": "la stringa 00è?è00 b27 b26 b25 b24",
+        "risposta4": "la stringa 11è?è11 b27 b26 b25 b24",
+        "corretta": "l $t0,$t0,24",
+        "tag": [
+            "architettura",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Si consideri un flip-flop SR con clock. Se al flip-flop vengono dati in input prima S=1 R=0 (clock=1) e poi S=0 R=1 (clock=1), lo stato assunto dal flip-flop dopo il secondo input sarè:",
+        "risposta1": "0",
+        "risposta2": "1",
+        "risposta3": "Dipende dallo stato iniziale del flip-flop",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "0",
+        "tag": [
+            "reti logiche"
+        ]
+    },
+    {
+        "domanda": "Si consideri un circuito decodificatore (decoder) con 2 input. Il numero di porte AND necessarie è:",
+        "risposta1": "4.",
+        "risposta2": "2.",
+        "risposta3": "3.",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "4.",
+        "tag": [
+            "reti logiche"
+        ]
+    },
+    {
+        "domanda": "La Unitè di Controllo dell'ALU richiede:",
+        "risposta1": "I segnali AluOp1, AluOp0",
+        "risposta2": "I 6 bit piè significativi dell'istruzione",
+        "risposta3": "Entrambe le precedenti.",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "I segnali AluOp1, AluOp0",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Nella esecuzione della istruzione add $1,$2,$3 il segnale di controllo RegWrite:",
+        "risposta1": "è 1 ed è utile nella fase di scrittura nel register file",
+        "risposta2": "è 1 ed è utile nella fase di scrittura nella memoria dati",
+        "risposta3": "è 0 ed evita la scrittura nella memoria dati",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "è 1 ed è utile nella fase di scrittura nel register file",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Nella rappresentazione in base 2, qual è il numero rappresentato in esadecimale da (CAC10)esa?",
+        "risposta1": "11001010110010",
+        "risposta2": "11001010110000010000",
+        "risposta3": "10011001101100010000",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "11001010110010",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "La rappresentazione del numero decimale (è^'72)è'?è'? in complemento a due su 8 bit è:",
+        "risposta1": "11001000",
+        "risposta2": "10111000",
+        "risposta3": "10110111",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "11001000",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "Nel formato in virgola mobile a precisione singola la rappresentazione del numero binario +11,0110 è:",
+        "risposta1": "01000000010110000000000000000000",
+        "risposta2": "11000000010010000000000000000000",
+        "risposta3": "10000000100110000000100000000000",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "01000000010110000000000000000000",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "L'espressione (xy + z)è\" è equivalente a:",
+        "risposta1": "(xè\" + è) zè\"",
+        "risposta2": "(xè\" + è) z",
+        "risposta3": "xè\" è zè\"",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "(xè\" + è) zè\"",
+        "tag": [
+            "architettura",
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Con riferimento alla ALU (finale) studiata, se AInvert è posto a 0, BNegate è posto a 1 e Operation è 10, quale operazione verrè eseguita?",
+        "risposta1": "AND",
+        "risposta2": "Sottrazione",
+        "risposta3": "OR",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "AND",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Il valore Less nella ALU studiata:",
+        "risposta1": "Serve per effettuare il confronto < fra i valori in ingresso ed è posto a 0 per tutte le ALUi tranne che per ALU31 che lo riceve da ALU0",
+        "risposta2": "Serve per verificare l'uguaglianza fra i valori in ingresso ed è posto a 1 per tutte le ALUi tranne ALU31 che lo riceve da ALU0",
+        "risposta3": "Serve per verificare il confronto < fra i valori in ingresso ed è posto a 0 per tutte le ALUi tranne che per ALU0 che lo riceve da ALU31",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Serve per effettuare il confronto < fra i valori in ingresso ed è posto a 0 per tutte le ALUi tranne che per ALU31 che lo riceve da ALU0",
+        "tag": [
+            "datapath"
+        ]
+    },
+    {
+        "domanda": "Supponendo che il contenuto del registro $t0 sia 1024 e quello del registro $s0 sia 2000, l'effetto dell'istruzione sw $t0,12($s0) è di:",
+        "risposta1": "Caricare 1024 nella locazione di memoria il cui indirizzo è 2012",
+        "risposta2": "Caricare 2012 nella locazione di memoria il cui indirizzo è 1024",
+        "risposta3": "Caricare nel registro $t0 il contenuto della locazione di memoria il cui indirizzo è 2012",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "Caricare 1024 nella locazione di memoria il cui indirizzo è 2012",
+        "tag": [
+            "mips"
+        ]
+    },
+    {
+        "domanda": "Qual è la codifica in binario dell'istruzione add $s0,$s1,$s2 sapendo che il codice funct dell'addizione è 32è'?è'? e che ai registri $s0è?\"$s7 corrispondono i numeri 16è?\"23?",
+        "risposta1": "00000010001100101000000000100000",
+        "risposta2": "00000010000100011001000000100000",
+        "risposta3": "10000010001100101000000000000000",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "00000010001100101000000000100000",
+        "tag": [
+            "mips",
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "Quale sarè il contenuto del registro $s0, dopo l'esecuzione della seguente istruzione assembler MIPS: xor $s0, $s1, $s2 è?\" supponendo che il contenuto dei registri $s0, $s1, $s2 (in esadecimale) sia rispettivamente: 11111111, F0F0F0F0, BBBBBBBB?",
+        "risposta1": "FBFBFBFB",
+        "risposta2": "02020202",
+        "risposta3": "2B2B2B2B",
+        "risposta4": "Nessuna delle risposte precedenti",
+        "corretta": "FBFBFBFB",
+        "tag": [
+            "reti logiche",
+            "mips",
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "Qual è la rappresentazione esadecimale dell'intero decimale 103?",
+        "risposta1": "7A",
+        "risposta2": "67",
+        "risposta3": "A3",
+        "risposta4": "Nessuna delle risposte precedenti.",
+        "corretta": "7A",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "Nella rappresentazione in complemento a due l'opposto del numero 10110100 è:",
+        "risposta1": "01001011",
+        "risposta2": "01100101",
+        "risposta3": "01001100",
+        "risposta4": "Nessuno dei precedenti",
+        "corretta": "01001011",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "domanda": "Nel formato in virgola mobile a precisione singola la rappresentazione del numero binario +10,0110 è:",
+        "risposta1": "01000000000110000000000000000000",
+        "risposta2": "11000000001101100000000000000000",
+        "risposta3": "00000000100110000000000000000000",
+        "risposta4": "Nessuna delle precedenti",
+        "corretta": "01000000000110000000000000000000",
+        "tag": [
+            "rappresentazione dati"
+        ]
+    },
+    {
+        "tipo": "canvas",
+        "domanda": "Esercizio Datapath MIPS — Istruzione di tipo R (add $rd, $rs, $rt)\n\nCollega i componenti del datapath MIPS a singolo ciclo necessari a eseguire un'istruzione di tipo R. I segnali di controllo (RegWrite=1, AluSrc=0, RegDst=1, MemToReg=0) sono già impostati. Non è necessario inserire l'unità di controllo.\n\nLa freccia del filo segue il verso del dato. Trascina i blocchi per riposizionarli.",
+        "viewBox": [
+            1020,
+            560
+        ],
+        "componenti": [
+            {
+                "id": "PC",
+                "label": "PC",
+                "x": 20,
+                "y": 230,
+                "w": 70,
+                "h": 65,
+                "ports": {
+                    "in": [
+                        "next_pc"
+                    ],
+                    "out": [
+                        "addr"
+                    ]
+                }
+            },
+            {
+                "id": "ADD_PC4",
+                "label": "Adder\nPC+4",
+                "x": 20,
+                "y": 95,
+                "w": 90,
+                "h": 55,
+                "ports": {
+                    "in": [
+                        "pc_in",
+                        "const4"
+                    ],
+                    "out": [
+                        "pc4"
+                    ]
+                }
+            },
+            {
+                "id": "IMEM",
+                "label": "Instruction\nMemory",
+                "x": 155,
+                "y": 195,
+                "w": 150,
+                "h": 95,
+                "ports": {
+                    "in": [
+                        "addr"
+                    ],
+                    "out": [
+                        "instr"
+                    ]
+                }
+            },
+            {
+                "id": "RF",
+                "label": "Register\nFile",
+                "x": 370,
+                "y": 150,
+                "w": 165,
+                "h": 155,
+                "ports": {
+                    "in": [
+                        "rs",
+                        "rt",
+                        "rd",
+                        "write_data"
+                    ],
+                    "out": [
+                        "data1",
+                        "data2"
+                    ]
+                }
+            },
+            {
+                "id": "MUX_ALUSRC",
+                "label": "Mux\nAluSrc",
+                "x": 592,
+                "y": 195,
+                "w": 85,
+                "h": 110,
+                "ports": {
+                    "in": [
+                        "regdata",
+                        "imm"
+                    ],
+                    "out": [
+                        "alu_b"
+                    ]
+                }
+            },
+            {
+                "id": "ALU",
+                "label": "ALU",
+                "x": 715,
+                "y": 168,
+                "w": 115,
+                "h": 120,
+                "ports": {
+                    "in": [
+                        "a",
+                        "b"
+                    ],
+                    "out": [
+                        "result",
+                        "zero"
+                    ]
+                }
+            },
+            {
+                "id": "MUX_WB",
+                "label": "Mux\nWB",
+                "x": 890,
+                "y": 195,
+                "w": 85,
+                "h": 110,
+                "ports": {
+                    "in": [
+                        "alu_res",
+                        "mem_res"
+                    ],
+                    "out": [
+                        "wb_out"
+                    ]
+                }
+            }
+        ],
+        "connessioni_iniziali": [],
+        "connessioni_corrette": [
+            {
+                "from": "PC.addr",
+                "to": "ADD_PC4.pc_in"
+            },
+            {
+                "from": "ADD_PC4.pc4",
+                "to": "PC.next_pc"
+            },
+            {
+                "from": "PC.addr",
+                "to": "IMEM.addr"
+            },
+            {
+                "from": "IMEM.instr",
+                "to": "RF.rs"
+            },
+            {
+                "from": "IMEM.instr",
+                "to": "RF.rt"
+            },
+            {
+                "from": "IMEM.instr",
+                "to": "RF.rd"
+            },
+            {
+                "from": "RF.data1",
+                "to": "ALU.a"
+            },
+            {
+                "from": "RF.data2",
+                "to": "MUX_ALUSRC.regdata"
+            },
+            {
+                "from": "MUX_ALUSRC.alu_b",
+                "to": "ALU.b"
+            },
+            {
+                "from": "ALU.result",
+                "to": "MUX_WB.alu_res"
+            },
+            {
+                "from": "MUX_WB.wb_out",
+                "to": "RF.write_data"
+            }
+        ],
+        "suggerimento": "Per le istruzioni R-type: il dato scritto nel Register File proviene dall'ALU (MUX WB seleziona alu_res). L'ALU riceve entrambi gli operandi dal Register File (MUX AluSrc seleziona regdata). Il campo rd dell'istruzione [15:11] indica il registro di destinazione.",
+        "tag": [
+            "canvas",
+            "datapath",
+            "mips"
+        ]
+    },
+    {
+        "tipo": "canvas",
+        "domanda": "Esercizio Datapath MIPS — Istruzione lw $rt, offset($rs)\n\nCollega i componenti del datapath per eseguire l'istruzione lw (load word). Alcune connessioni sono già fornite come aiuto (tratteggiate). Le connessioni mancanti coinvolgono Sign Extend, Data Memory e il percorso di write-back.\n\nAttenzione: i componenti superflui collegati comportano una detrazione di punteggio.",
+        "viewBox": [
+            1020,
+            580
+        ],
+        "componenti": [
+            {
+                "id": "PC",
+                "label": "PC",
+                "x": 20,
+                "y": 250,
+                "w": 70,
+                "h": 65,
+                "ports": {
+                    "in": [
+                        "next_pc"
+                    ],
+                    "out": [
+                        "addr"
+                    ]
+                }
+            },
+            {
+                "id": "ADD_PC4",
+                "label": "Adder\nPC+4",
+                "x": 20,
+                "y": 100,
+                "w": 90,
+                "h": 55,
+                "ports": {
+                    "in": [
+                        "pc_in"
+                    ],
+                    "out": [
+                        "pc4"
+                    ]
+                }
+            },
+            {
+                "id": "IMEM",
+                "label": "Instruction\nMemory",
+                "x": 155,
+                "y": 215,
+                "w": 150,
+                "h": 95,
+                "ports": {
+                    "in": [
+                        "addr"
+                    ],
+                    "out": [
+                        "instr"
+                    ]
+                }
+            },
+            {
+                "id": "RF",
+                "label": "Register\nFile",
+                "x": 365,
+                "y": 160,
+                "w": 165,
+                "h": 160,
+                "ports": {
+                    "in": [
+                        "rs",
+                        "rt",
+                        "write_data"
+                    ],
+                    "out": [
+                        "data1",
+                        "data2"
+                    ]
+                }
+            },
+            {
+                "id": "SEXT",
+                "label": "Sign\nExtend",
+                "x": 365,
+                "y": 365,
+                "w": 125,
+                "h": 60,
+                "ports": {
+                    "in": [
+                        "imm16"
+                    ],
+                    "out": [
+                        "imm32"
+                    ]
+                }
+            },
+            {
+                "id": "MUX_ALUSRC",
+                "label": "Mux\nAluSrc",
+                "x": 590,
+                "y": 210,
+                "w": 85,
+                "h": 115,
+                "ports": {
+                    "in": [
+                        "regdata",
+                        "imm"
+                    ],
+                    "out": [
+                        "alu_b"
+                    ]
+                }
+            },
+            {
+                "id": "ALU",
+                "label": "ALU",
+                "x": 715,
+                "y": 195,
+                "w": 115,
+                "h": 115,
+                "ports": {
+                    "in": [
+                        "a",
+                        "b"
+                    ],
+                    "out": [
+                        "result"
+                    ]
+                }
+            },
+            {
+                "id": "DMEM",
+                "label": "Data\nMemory",
+                "x": 715,
+                "y": 360,
+                "w": 125,
+                "h": 85,
+                "ports": {
+                    "in": [
+                        "addr",
+                        "wr_data"
+                    ],
+                    "out": [
+                        "rd_data"
+                    ]
+                }
+            },
+            {
+                "id": "MUX_WB",
+                "label": "Mux\nWB",
+                "x": 890,
+                "y": 215,
+                "w": 85,
+                "h": 115,
+                "ports": {
+                    "in": [
+                        "alu_res",
+                        "mem_res"
+                    ],
+                    "out": [
+                        "wb_out"
+                    ]
+                }
+            }
+        ],
+        "connessioni_iniziali": [
+            {
+                "from": "PC.addr",
+                "to": "ADD_PC4.pc_in"
+            },
+            {
+                "from": "ADD_PC4.pc4",
+                "to": "PC.next_pc"
+            },
+            {
+                "from": "PC.addr",
+                "to": "IMEM.addr"
+            },
+            {
+                "from": "IMEM.instr",
+                "to": "RF.rs"
+            },
+            {
+                "from": "IMEM.instr",
+                "to": "RF.rt"
+            }
+        ],
+        "connessioni_corrette": [
+            {
+                "from": "IMEM.instr",
+                "to": "SEXT.imm16"
+            },
+            {
+                "from": "RF.data1",
+                "to": "ALU.a"
+            },
+            {
+                "from": "RF.data2",
+                "to": "MUX_ALUSRC.regdata"
+            },
+            {
+                "from": "SEXT.imm32",
+                "to": "MUX_ALUSRC.imm"
+            },
+            {
+                "from": "MUX_ALUSRC.alu_b",
+                "to": "ALU.b"
+            },
+            {
+                "from": "ALU.result",
+                "to": "DMEM.addr"
+            },
+            {
+                "from": "RF.data2",
+                "to": "DMEM.wr_data"
+            },
+            {
+                "from": "ALU.result",
+                "to": "MUX_WB.alu_res"
+            },
+            {
+                "from": "DMEM.rd_data",
+                "to": "MUX_WB.mem_res"
+            },
+            {
+                "from": "MUX_WB.wb_out",
+                "to": "RF.write_data"
+            }
+        ],
+        "suggerimento": "Per lw: l'indirizzo di memoria = RF.data1 + offset (il Mux AluSrc deve selezionare imm, non regdata). Il risultato del write-back viene dalla Data Memory (MUX WB seleziona mem_res). Il campo rt[20:16] è sia il registro sorgente per store word che il registro destinazione per lw.",
+        "tag": [
+            "canvas",
+            "datapath",
+            "mips"
+        ]
+    },
+    {
+        "tipo": "canvas",
+        "domanda": "Esercizio Datapath MIPS — Istruzioni R-format e sw, con Unità di Controllo\n\nDisegna la parte del datapath MIPS necessaria a eseguire le istruzioni di formato R (add, sub, and, or, slt) e l'istruzione sw. Inserisci anche l'Unità di Controllo con i relativi segnali.\n\n⚠️ Attenzione: collegare componenti non necessari comporta una DETRAZIONE del punteggio, come avviene all'esame reale.",
+        "viewBox": [
+            1020,
+            600
+        ],
+        "componenti": [
+            {
+                "id": "PC",
+                "label": "PC",
+                "x": 15,
+                "y": 255,
+                "w": 70,
+                "h": 65,
+                "ports": {
+                    "in": [
+                        "next_pc"
+                    ],
+                    "out": [
+                        "addr"
+                    ]
+                }
+            },
+            {
+                "id": "ADD_PC4",
+                "label": "Adder\nPC+4",
+                "x": 15,
+                "y": 100,
+                "w": 90,
+                "h": 55,
+                "ports": {
+                    "in": [
+                        "pc_in"
+                    ],
+                    "out": [
+                        "pc4"
+                    ]
+                }
+            },
+            {
+                "id": "IMEM",
+                "label": "Instruction\nMemory",
+                "x": 150,
+                "y": 220,
+                "w": 150,
+                "h": 95,
+                "ports": {
+                    "in": [
+                        "addr"
+                    ],
+                    "out": [
+                        "instr"
+                    ]
+                }
+            },
+            {
+                "id": "CU",
+                "label": "Control\nUnit",
+                "x": 150,
+                "y": 60,
+                "w": 140,
+                "h": 110,
+                "ports": {
+                    "in": [
+                        "opcode"
+                    ],
+                    "out": [
+                        "RegDst",
+                        "AluSrc",
+                        "MemWrite",
+                        "RegWrite",
+                        "MemToReg"
+                    ]
+                }
+            },
+            {
+                "id": "RF",
+                "label": "Register\nFile",
+                "x": 365,
+                "y": 155,
+                "w": 165,
+                "h": 165,
+                "ports": {
+                    "in": [
+                        "rs",
+                        "rt",
+                        "rd",
+                        "write_data"
+                    ],
+                    "out": [
+                        "data1",
+                        "data2"
+                    ]
+                }
+            },
+            {
+                "id": "SEXT",
+                "label": "Sign\nExtend",
+                "x": 365,
+                "y": 370,
+                "w": 125,
+                "h": 60,
+                "ports": {
+                    "in": [
+                        "imm16"
+                    ],
+                    "out": [
+                        "imm32"
+                    ]
+                }
+            },
+            {
+                "id": "MUX_ALUSRC",
+                "label": "Mux\nAluSrc",
+                "x": 592,
+                "y": 205,
+                "w": 85,
+                "h": 120,
+                "ports": {
+                    "in": [
+                        "regdata",
+                        "imm"
+                    ],
+                    "out": [
+                        "alu_b"
+                    ]
+                }
+            },
+            {
+                "id": "ALU_CTRL",
+                "label": "ALU\nControl",
+                "x": 592,
+                "y": 385,
+                "w": 120,
+                "h": 60,
+                "ports": {
+                    "in": [
+                        "ALUOp",
+                        "funct"
+                    ],
+                    "out": [
+                        "ALUctrl"
+                    ]
+                }
+            },
+            {
+                "id": "ALU",
+                "label": "ALU",
+                "x": 720,
+                "y": 188,
+                "w": 115,
+                "h": 120,
+                "ports": {
+                    "in": [
+                        "a",
+                        "b",
+                        "ctrl"
+                    ],
+                    "out": [
+                        "result"
+                    ]
+                }
+            },
+            {
+                "id": "DMEM",
+                "label": "Data\nMemory",
+                "x": 720,
+                "y": 365,
+                "w": 125,
+                "h": 90,
+                "ports": {
+                    "in": [
+                        "addr",
+                        "wr_data",
+                        "memwrite"
+                    ],
+                    "out": [
+                        "rd_data"
+                    ]
+                }
+            },
+            {
+                "id": "MUX_WB",
+                "label": "Mux\nWB",
+                "x": 893,
+                "y": 205,
+                "w": 85,
+                "h": 120,
+                "ports": {
+                    "in": [
+                        "alu_res",
+                        "mem_res"
+                    ],
+                    "out": [
+                        "wb_out"
+                    ]
+                }
+            }
+        ],
+        "connessioni_iniziali": [
+            {
+                "from": "PC.addr",
+                "to": "ADD_PC4.pc_in"
+            },
+            {
+                "from": "ADD_PC4.pc4",
+                "to": "PC.next_pc"
+            },
+            {
+                "from": "PC.addr",
+                "to": "IMEM.addr"
+            }
+        ],
+        "connessioni_corrette": [
+            {
+                "from": "IMEM.instr",
+                "to": "CU.opcode"
+            },
+            {
+                "from": "IMEM.instr",
+                "to": "RF.rs"
+            },
+            {
+                "from": "IMEM.instr",
+                "to": "RF.rt"
+            },
+            {
+                "from": "IMEM.instr",
+                "to": "RF.rd"
+            },
+            {
+                "from": "IMEM.instr",
+                "to": "SEXT.imm16"
+            },
+            {
+                "from": "IMEM.instr",
+                "to": "ALU_CTRL.funct"
+            },
+            {
+                "from": "CU.AluSrc",
+                "to": "MUX_ALUSRC.imm"
+            },
+            {
+                "from": "CU.RegWrite",
+                "to": "RF.write_data"
+            },
+            {
+                "from": "CU.MemWrite",
+                "to": "DMEM.memwrite"
+            },
+            {
+                "from": "CU.ALUOp",
+                "to": "ALU_CTRL.ALUOp"
+            },
+            {
+                "from": "ALU_CTRL.ALUctrl",
+                "to": "ALU.ctrl"
+            },
+            {
+                "from": "RF.data1",
+                "to": "ALU.a"
+            },
+            {
+                "from": "RF.data2",
+                "to": "MUX_ALUSRC.regdata"
+            },
+            {
+                "from": "RF.data2",
+                "to": "DMEM.wr_data"
+            },
+            {
+                "from": "SEXT.imm32",
+                "to": "MUX_ALUSRC.imm"
+            },
+            {
+                "from": "MUX_ALUSRC.alu_b",
+                "to": "ALU.b"
+            },
+            {
+                "from": "ALU.result",
+                "to": "DMEM.addr"
+            },
+            {
+                "from": "ALU.result",
+                "to": "MUX_WB.alu_res"
+            },
+            {
+                "from": "DMEM.rd_data",
+                "to": "MUX_WB.mem_res"
+            },
+            {
+                "from": "MUX_WB.wb_out",
+                "to": "RF.write_data"
+            }
+        ],
+        "suggerimento": "Per R-format e sw condividono: PC, InstrMem, RegisterFile, ALU, DataMem (solo write per sw), Control Unit. NOT necessari: Sign Extend (solo per lw/beq), MUX WB (solo per lw). L'unità di controllo ha in ingresso i 6 bit opcode [31:26] dell'istruzione.",
+        "tag": [
+            "canvas",
+            "datapath",
+            "mips"
+        ]
+    },
+    {
+        "tipo": "canvas",
+        "domanda": "Esercizio Reti Logiche — Funzione f(a,b,c,d) = (a+b)(c+d)\n\nRealizza la rete logica per la funzione f(a,b,c,d) utilizzando soltanto porte AND e OR.\n\nCollega gli ingressi alle porte corrette e le porte tra loro. Gli ingressi a,b,c,d sono già posizionati a sinistra.",
+        "viewBox": [
+            760,
+            380
+        ],
+        "componenti": [
+            {
+                "id": "IN_A",
+                "label": "a",
+                "x": 30,
+                "y": 60,
+                "w": 45,
+                "h": 40,
+                "ports": {
+                    "in": [],
+                    "out": [
+                        "a_out"
+                    ]
+                }
+            },
+            {
+                "id": "IN_B",
+                "label": "b",
+                "x": 30,
+                "y": 120,
+                "w": 45,
+                "h": 40,
+                "ports": {
+                    "in": [],
+                    "out": [
+                        "b_out"
+                    ]
+                }
+            },
+            {
+                "id": "IN_C",
+                "label": "c",
+                "x": 30,
+                "y": 210,
+                "w": 45,
+                "h": 40,
+                "ports": {
+                    "in": [],
+                    "out": [
+                        "c_out"
+                    ]
+                }
+            },
+            {
+                "id": "IN_D",
+                "label": "d",
+                "x": 30,
+                "y": 270,
+                "w": 45,
+                "h": 40,
+                "ports": {
+                    "in": [],
+                    "out": [
+                        "d_out"
+                    ]
+                }
+            },
+            {
+                "id": "OR1",
+                "label": "OR",
+                "x": 220,
+                "y": 70,
+                "w": 90,
+                "h": 70,
+                "ports": {
+                    "in": [
+                        "in1",
+                        "in2"
+                    ],
+                    "out": [
+                        "out"
+                    ]
+                }
+            },
+            {
+                "id": "OR2",
+                "label": "OR",
+                "x": 220,
+                "y": 215,
+                "w": 90,
+                "h": 70,
+                "ports": {
+                    "in": [
+                        "in1",
+                        "in2"
+                    ],
+                    "out": [
+                        "out"
+                    ]
+                }
+            },
+            {
+                "id": "AND_OUT",
+                "label": "AND",
+                "x": 500,
+                "y": 145,
+                "w": 100,
+                "h": 70,
+                "ports": {
+                    "in": [
+                        "in1",
+                        "in2"
+                    ],
+                    "out": [
+                        "f_out"
+                    ]
+                }
+            },
+            {
+                "id": "OUT_F",
+                "label": "f(a,b,c,d)",
+                "x": 660,
+                "y": 155,
+                "w": 80,
+                "h": 50,
+                "ports": {
+                    "in": [
+                        "f_in"
+                    ],
+                    "out": []
+                }
+            }
+        ],
+        "connessioni_iniziali": [],
+        "connessioni_corrette": [
+            {
+                "from": "IN_A.a_out",
+                "to": "OR1.in1"
+            },
+            {
+                "from": "IN_B.b_out",
+                "to": "OR1.in2"
+            },
+            {
+                "from": "IN_C.c_out",
+                "to": "OR2.in1"
+            },
+            {
+                "from": "IN_D.d_out",
+                "to": "OR2.in2"
+            },
+            {
+                "from": "OR1.out",
+                "to": "AND_OUT.in1"
+            },
+            {
+                "from": "OR2.out",
+                "to": "AND_OUT.in2"
+            },
+            {
+                "from": "AND_OUT.f_out",
+                "to": "OUT_F.f_in"
+            }
+        ],
+        "suggerimento": "La funzione f = (a+b)·(c+d) si legge: OR tra a e b, OR tra c e d, AND tra i due risultati. I due gate OR alimentano gli ingressi del gate AND finale.",
+        "tag": [
+            "canvas",
+            "datapath",
+            "mips"
+        ]
+    }
+]

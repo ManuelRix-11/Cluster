@@ -1,0 +1,396 @@
+[
+  {
+    "tipo": "codice",
+    "domanda": "### Array Dinamico e Ricerca del Massimo (Notazione Puntatori)\n\nScrivere un programma in C completo che:\n1. Legge da standard input il numero intero $N$ ($N > 0$) di elementi da inserire nell'array.\n2. Alloca dinamicamente con `malloc` un array di $N$ interi e legge gli $N$ valori da standard input.\n3. Cerca il valore **massimo** presente nell'array e lo stampa nel formato:\n   ```text\n   Max: <valore_massimo>\n   ```\n4. Stampa tutti gli elementi dell'array separati da uno spazio, nel formato:\n   ```text\n   Array: elem1 elem2 elem3 ...\n   ```\n5. Dealloca la memoria dinamica allocata prima di terminare.\n\n*Nota*: Eseguire la scansione e l'accesso agli elementi utilizzando l'aritmetica dei puntatori `*(arr + i)`.",
+    "tag": [
+      "array",
+      "puntatori",
+      "allocazione-dinamica"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int n;\n    if (scanf(\"%d\", &n) != 1 || n <= 0) return 0;\n\n    // TODO 1: Alloca dinamicamente un array di n interi\n\n    // TODO 2: Leggi gli n interi da standard input usando la notazione puntatore *(arr + i)\n\n    // TODO 3: Trova il valore massimo dell'array usando l'aritmetica dei puntatori\n\n    // TODO 4: Stampa il massimo (\"Max: %d\\n\") e l'intero array (\"Array: %d %d ...\\n\")\n\n    // TODO 5: Dealloca la memoria allocata con free()\n\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "5\n12 45 7 89 23\n",
+        "expected": "Max: 89\nArray: 12 45 7 89 23\n"
+      },
+      {
+        "stdin": "1\n42\n",
+        "expected": "Max: 42\nArray: 42\n"
+      },
+      {
+        "stdin": "4\n-10 -5 -20 -3\n",
+        "expected": "Max: -3\nArray: -10 -5 -20 -3\n"
+      },
+      {
+        "stdin": "6\n100 50 100 20 80 10\n",
+        "expected": "Max: 100\nArray: 100 50 100 20 80 10\n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### Verifica Palindromo & Inversione di Stringa (Puntatori & Allocazione Dinamica)\n\nScrivere un programma in C completo che:\n1. Acquisisce da standard input una stringa di massimo 50 caratteri.\n2. Alloca dinamicamente una stringa di dimensione esatta pari a `strlen(buffer) + 1` e vi copia il testo inserito.\n3. Implementa la funzione `int checkPalindrome(char *stringa)` che analizza la stringa mediante **aritmetica dei puntatori** `*(stringa + i)` e restituisce `1` se la stringa è palindroma, `0` altrimenti.\n4. Nel `main`:\n   - Se la stringa è palindroma (`checkPalindrome` restituisce `1`), stampa esattamente:\n     ```text\n     PALINDROMA\n     ```\n   - Se la stringa NON è palindroma (`checkPalindrome` restituisce `0`), stampa la stringa originale e la stringa invertita nel formato:\n     ```text\n     Originale: <stringa>\n     Invertita: <stringa_invertita>\n     ```\n5. Dealloca la memoria dinamica con `free()` prima di uscire.",
+    "tag": [
+      "stringhe",
+      "puntatori",
+      "allocazione-dinamica",
+      "funzioni"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\n// TODO 1: Restituisce 1 se la stringa e' palindroma, 0 altrimenti (usare notazione puntatore)\nint checkPalindrome(char *stringa) {\n    // Scrivi qui il tuo codice\n}\n\n// TODO 2: Funzione per stampare la stringa al contrario\nvoid printReverse(char *stringa) {\n    // Scrivi qui il tuo codice\n}\n\nint main() {\n    char buffer[51];\n    if (scanf(\"%50s\", buffer) != 1) return 0;\n\n    // TODO 3: Alloca dinamicamente la stringa e copia il contenuto del buffer\n\n    // TODO 4: Se palindroma stampa \"PALINDROMA\\n\", altrimenti \"Originale: %s\\nInvertita: <rev>\\n\"\n\n    // TODO 5: Dealloca la memoria con free()\n\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "radar\n",
+        "expected": "PALINDROMA\n"
+      },
+      {
+        "stdin": "anna\n",
+        "expected": "PALINDROMA\n"
+      },
+      {
+        "stdin": "ciao\n",
+        "expected": "Originale: ciao\nInvertita: oaic\n"
+      },
+      {
+        "stdin": "programmazione\n",
+        "expected": "Originale: programmazione\nInvertita: enoizammargorp\n"
+      },
+      {
+        "stdin": "a\n",
+        "expected": "PALINDROMA\n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### Rimozione Spazi da Frase (Allocazione Dinamica & Puntatori)\n\nScrivere un programma in C completo che:\n1. Legge da standard input una frase contenente spazi (fino a 50 caratteri, usando il formato `%[^\n]`).\n2. Implementa la funzione `char *removeSpaces(char *stringa, int *count)` che:\n   - Alloca dinamicamente una nuova stringa di dimensione opportuna.\n   - Rimuove tutti gli spazi presenti e li conta, salvando il numero totale in `*count`.\n   - Restituisce il puntatore alla nuova stringa senza spazi (utilizzare l'aritmetica dei puntatori `*(stringa + i)`).\n3. Nel `main`:\n   - Se sono stati rimossi degli spazi (`count > 0`), stampa:\n     ```text\n     Spazi rimossi: <count>\n     Risultato: <stringa_senza_spazi>\n     ```\n   - Se non era presente alcuno spazio (`count == 0`), stampa:\n     ```text\n     Ti avevo detto di inserire una frase\n     Risultato: <stringa_senza_spazi>\n     ```\n4. Dealloca la stringa dinamica prima di terminare.",
+    "tag": [
+      "stringhe",
+      "puntatori",
+      "allocazione-dinamica",
+      "funzioni"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\n// TODO: Alloca una nuova stringa senza spazi, conta gli spazi eliminati in *count e restituisci la nuova stringa\nchar *removeSpaces(char *stringa, int *count) {\n    // Scrivi qui il tuo codice\n}\n\nint main() {\n    char buffer[100];\n    if (scanf(\" %99[^\\n]\", buffer) != 1) return 0;\n\n    int count = 0;\n    // TODO: Chiama removeSpaces, gestisci la stampa richiesta e dealloca la memoria\n\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "ciao a tutti quanti\n",
+        "expected": "Spazi rimossi: 3\nRisultato: ciaoatuttiquanti\n"
+      },
+      {
+        "stdin": "parolasenzaspazi\n",
+        "expected": "Ti avevo detto di inserire una frase\nRisultato: parolasenzaspazi\n"
+      },
+      {
+        "stdin": "uno due\n",
+        "expected": "Spazi rimossi: 1\nRisultato: unodue\n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### Verifica Prefisso & Concatenazione (Senza funzioni di string.h)\n\nScrivere un programma in C completo che:\n1. Legge da standard input due stringhe di massimo 20 caratteri: `pre` e `stringa`.\n2. Implementa la funzione `int checkPrefix(char *pre, char *stringa)` che restituisce `1` se `pre` è prefisso di `stringa`, `0` altrimenti. **Non utilizzare le funzioni di `<string.h>` come `strncmp` o `strstr`** (utilizzare l'aritmetica dei puntatori).\n3. Nel `main`:\n   - Se `checkPrefix` restituisce `1`, stampa:\n     ```text\n     PREFISSO\n     ```\n   - Se `checkPrefix` restituisce `0`, alloca dinamicamente una nuova stringa contenente la concatenazione di `pre` e `stringa` (senza usare `strcat`), e stampa:\n     ```text\n     NON PREFISSO\n     Concatenata: <pre><stringa>\n     ```\n4. Libera la memoria allocata.",
+    "tag": [
+      "stringhe",
+      "puntatori",
+      "allocazione-dinamica",
+      "senza-librerie"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n\n// TODO 1: Restituisce 1 se pre e' prefisso di stringa, 0 altrimenti (senza funzioni di string.h)\nint checkPrefix(char *pre, char *stringa) {\n    // Scrivi qui il tuo codice\n}\n\n// TODO 2: Alloca dinamicamente e restituisce la concatenazione di s1 e s2 (senza strcat)\nchar *my_concat(char *s1, char *s2) {\n    // Scrivi qui il tuo codice\n}\n\nint main() {\n    char pre[30], str[30];\n    if (scanf(\"%29s %29s\", pre, str) != 2) return 0;\n\n    // TODO 3: Verifica con checkPrefix, stampa \"PREFISSO\\n\" oppure \"NON PREFISSO\\nConcatenata: %s\\n\" e libera la memoria\n\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "auto automobile\n",
+        "expected": "PREFISSO\n"
+      },
+      {
+        "stdin": "moto automobile\n",
+        "expected": "NON PREFISSO\nConcatenata: motoautomobile\n"
+      },
+      {
+        "stdin": "pro programmazione\n",
+        "expected": "PREFISSO\n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### Conteggio Caratteri & Controllo Soglia di Lunghezza\n\nScrivere un programma in C completo che:\n1. Riceve in input una parola (stringa) e un valore numerico intero (soglia $K$).\n2. Implementa la funzione `int countLetters(const char *s)` che calcola e restituisce il numero esatto di caratteri della parola senza usare `strlen`.\n3. Implementa la funzione `int isLonger(int len, int threshold)` che restituisce `1` se la lunghezza `len` è strettamente maggiore della soglia `threshold`, `0` altrimenti.\n4. Nel `main` stampa:\n   ```text\n   Lunghezza: <lunghezza>\n   <MAGGIORE | MINORE O UGUALE>\n   ```",
+    "tag": [
+      "stringhe",
+      "funzioni",
+      "puntatori"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n\n// TODO 1: Conta i caratteri di s usando l'aritmetica dei puntatori (senza strlen)\nint countLetters(const char *s) {\n    // Scrivi qui il tuo codice\n}\n\n// TODO 2: Restituisce 1 se len > threshold, 0 altrimenti\nint isLonger(int len, int threshold) {\n    // Scrivi qui il tuo codice\n}\n\nint main() {\n    char parola[100];\n    int soglia;\n    if (scanf(\"%99s %d\", parola, &soglia) != 2) return 0;\n\n    // TODO 3: Calcola la lunghezza e stampa \"Lunghezza: %d\\n\" seguito da \"MAGGIORE\\n\" o \"MINORE O UGUALE\\n\"\n\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "informatica 5\n",
+        "expected": "Lunghezza: 11\nMAGGIORE\n"
+      },
+      {
+        "stdin": "unisa 10\n",
+        "expected": "Lunghezza: 5\nMINORE O UGUALE\n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### Confronto Stringhe, Concatenazione Dinamica & Conteggio Occorrenze\n\nScrivere un programma in C completo che:\n1. Acquisisce da standard input due stringhe `s1` e `s2` e un carattere `target`.\n2. Implementa la funzione `int compareStrings(const char *s1, const char *s2)` che confronta le due stringhe carattere per carattere con aritmetica dei puntatori e restituisce `1` se sono identiche, `0` altrimenti.\n3. Nel `main`:\n   - Se le stringhe sono uguali, stampa esattamente:\n     ```text\n     Wiiii sai scrivere due volte una parola\n     ```\n   - Se le stringhe sono diverse:\n     - Alloca dinamicamente una nuova stringa contenente la concatenazione `s1 + s2`.\n     - Implementa la funzione `int countOccurrences(const char *str, char c)` che conta quante volte compare il carattere `target` nella stringa concatenata.\n     - Stampa:\n       ```text\n       Concatenata: <s1s2>\n       Occorrenze di '<target>': <conteggio>\n       ```\n     - Dealloca la memoria allocata.",
+    "tag": [
+      "stringhe",
+      "puntatori",
+      "allocazione-dinamica",
+      "funzioni"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\n// TODO 1: Confronta due stringhe con puntatori (1 se uguali, 0 se diverse)\nint compareStrings(const char *s1, const char *s2) {\n    // Scrivi qui il tuo codice\n}\n\n// TODO 2: Conta quante volte compare il carattere c nella stringa str\nint countOccurrences(const char *str, char c) {\n    // Scrivi qui il tuo codice\n}\n\nint main() {\n    char s1[100], s2[100];\n    char target;\n    if (scanf(\"%99s %99s %c\", s1, s2, &target) != 3) return 0;\n\n    // TODO 3: Se uguali stampa \"Wiiii sai scrivere due volte una parola\\n\",\n    // altrimenti alloca la stringa concatenata, conta le occorrenze di target, stampa e dealloca\n\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "ciao ciao a\n",
+        "expected": "Wiiii sai scrivere due volte una parola\n"
+      },
+      {
+        "stdin": "casa dolce a\n",
+        "expected": "Concatenata: casadolce\nOccorrenze di 'a': 2\n"
+      },
+      {
+        "stdin": "programma corso r\n",
+        "expected": "Concatenata: programmacorso\nOccorrenze di 'r': 3\n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### Ordinamento a 3 Variabili (Passaggio per Riferimento & Swap)\n\nScrivere un programma in C completo che:\n1. Implementa la funzione `void swap(int *a, int *b)` che scambia il valore delle due variabili puntate.\n2. Implementa la funzione `void sort3(int *a, int *b, int *c)` che, sfruttando `swap`, ordina i tre numeri in ordine crescente modificando direttamente i valori originali nelle variabili del chiamante.\n3. Nel `main`:\n   - Legge 3 interi da standard input.\n   - Chiama `sort3(&x, &y, &z)`.\n   - Stampa il risultato nel formato:\n     ```text\n     Ordinati: <a_min> <b_mid> <c_max>\n     ```",
+    "tag": [
+      "puntatori",
+      "funzioni",
+      "passaggio-per-riferimento"
+    ],
+    "starter": "#include <stdio.h>\n\n// TODO 1: Scambia il valore delle due variabili puntate per riferimento\nvoid swap(int *a, int *b) {\n    // Scrivi qui il tuo codice\n}\n\n// TODO 2: Ordina in modo crescente a, b, c modificando i valori puntati\nvoid sort3(int *a, int *b, int *c) {\n    // Scrivi qui il tuo codice\n}\n\nint main() {\n    int x, y, z;\n    if (scanf(\"%d %d %d\", &x, &y, &z) != 3) return 0;\n\n    // TODO 3: Chiama sort3 e stampa \"Ordinati: %d %d %d\\n\"\n\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "15 3 9\n",
+        "expected": "Ordinati: 3 9 15\n"
+      },
+      {
+        "stdin": "1 2 3\n",
+        "expected": "Ordinati: 1 2 3\n"
+      },
+      {
+        "stdin": "-5 -20 0\n",
+        "expected": "Ordinati: -20 -5 0\n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### Statistiche Array in Singola Scansione (Min, Max, Media con Puntatori)\n\nScrivere un programma in C completo che:\n1. Legge il numero $N$ di elementi da inserire e alloca dinamicamente un array di $N$ interi.\n2. Implementa la funzione `void stats(int *arr, int n, int *min, int *max, float *avg)` che, con un unico ciclo e l'uso dell'aritmetica dei puntatori `*(arr + i)`, calcola:\n   - Il valore **minimo** (salvato in `*min`).\n   - Il valore **massimo** (salvato in `*max`).\n   - La **media aritmetica** (salvata in `*avg`).\n3. Nel `main` stampa i risultati nel formato:\n   ```text\n   Min: <valore_minimo>\n   Max: <valore_massimo>\n   Media: <media_2_decimali>\n   ```\n4. Dealloca la memoria dinamica prima di uscire.",
+    "tag": [
+      "puntatori",
+      "allocazione-dinamica",
+      "funzioni"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n\n// TODO: Calcola min, max e media con un unico ciclo e aritmetica dei puntatori *(arr + i)\nvoid stats(int *arr, int n, int *min, int *max, float *avg) {\n    // Scrivi qui il tuo codice\n}\n\nint main() {\n    int n;\n    if (scanf(\"%d\", &n) != 1 || n <= 0) return 0;\n\n    // TODO: Alloca l'array dinamico, leggi gli n valori, calcola le statistiche con stats(),\n    // stampa \"Min: %d\\nMax: %d\\nMedia: %.2f\\n\" e libera la memoria con free()\n\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "4\n10 20 30 40\n",
+        "expected": "Min: 10\nMax: 40\nMedia: 25.00\n"
+      },
+      {
+        "stdin": "3\n5 5 5\n",
+        "expected": "Min: 5\nMax: 5\nMedia: 5.00\n"
+      },
+      {
+        "stdin": "5\n12 4 88 1 -5\n",
+        "expected": "Min: -5\nMax: 88\nMedia: 20.00\n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### Filtraggio Numeri Pari in Nuovo Array Dinamico (`filterEven`)\n\nScrivere un programma in C completo che:\n1. Legge il numero $N$ di elementi e popola un array dinamico di $N$ interi.\n2. Implementa la funzione `int *filterEven(int *src, int n, int *newSize)` che:\n   - Conta quanti numeri pari sono presenti nell'array `src`.\n   - Se non vi sono numeri pari, imposta `*newSize = 0` e restituisce `NULL`.\n   - Se vi sono numeri pari, alloca dinamicamente un nuovo array della dimensione esatta, vi copia i valori pari usando l'aritmetica dei puntatori, imposta `*newSize` e restituisce il puntatore al nuovo array.\n3. Nel `main`:\n   - Se `newSize > 0`, stampa:\n     ```text\n     Pari (<newSize>): elem1 elem2 ...\n     ```\n   - Se `newSize == 0`, stampa:\n     ```text\n     Nessun numero pari\n     ```\n4. Dealloca tutti gli array dinamici prima di terminare.",
+    "tag": [
+      "puntatori",
+      "allocazione-dinamica",
+      "array",
+      "funzioni"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n\n// TODO: Alloca e restituisce un nuovo array con solo i numeri pari, imposta *newSize\nint *filterEven(int *src, int n, int *newSize) {\n    // Scrivi qui il tuo codice\n}\n\nint main() {\n    int n;\n    if (scanf(\"%d\", &n) != 1 || n <= 0) return 0;\n\n    // TODO: Alloca e leggi l'array src, filtra i numeri pari con filterEven(),\n    // stampa \"Pari (%d): ...\\n\" oppure \"Nessun numero pari\\n\" e dealloca la memoria\n\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "5\n1 2 3 4 5\n",
+        "expected": "Pari (2): 2 4\n"
+      },
+      {
+        "stdin": "3\n1 3 5\n",
+        "expected": "Nessun numero pari\n"
+      },
+      {
+        "stdin": "4\n10 20 30 40\n",
+        "expected": "Pari (4): 10 20 30 40\n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### Fusione di Due Array Dinamici Ordinati (Merge con Puntatori Singoli)\n\nScrivere un programma in C completo che:\n1. Legge la dimensione $N_1$ e popola un primo array dinamico di $N_1$ interi già ordinati.\n2. Legge la dimensione $N_2$ e popola un secondo array dinamico di $N_2$ interi già ordinati.\n3. Alloca dinamicamente un terzo array di dimensione $N_1 + N_2$.\n4. Implementa la funzione `void mergeSortedArrays(const int *a, int n1, const int *b, int n2, int *out)` che fonde i due array ordinati nel terzo array `out` in ordine crescente, accedendo agli elementi **esclusivamente con aritmetica dei puntatori singoli** `*(a + i)` e `*(b + j)`.\n5. Nel `main` stampa:\n   ```text\n   Array Fuso (<N1+N2>): elem1 elem2 elem3 ...\n   ```\n6. Dealloca tutti gli array dinamici prima di uscire.",
+    "tag": [
+      "array",
+      "puntatori",
+      "allocazione-dinamica",
+      "ordinamento"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n\n// TODO: Fonde due array ordinati in out usando solo aritmetica dei puntatori singoli *(a + i) e *(b + j)\nvoid mergeSortedArrays(const int *a, int n1, const int *b, int n2, int *out) {\n    // Scrivi qui il tuo codice\n}\n\nint main() {\n    int n1, n2;\n    if (scanf(\"%d\", &n1) != 1 || n1 <= 0) return 0;\n    // TODO: Alloca e leggi il primo array a\n\n    if (scanf(\"%d\", &n2) != 1 || n2 <= 0) return 0;\n    // TODO: Alloca e leggi il secondo array b\n\n    // TODO: Alloca out di dimensione n1 + n2, esegui mergeSortedArrays, stampa e dealloca con free()\n\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "3\n1 5 9\n4\n2 4 6 8\n",
+        "expected": "Array Fuso (7): 1 2 4 5 6 8 9\n"
+      },
+      {
+        "stdin": "2\n10 20\n2\n5 15\n",
+        "expected": "Array Fuso (4): 5 10 15 20\n"
+      },
+      {
+        "stdin": "1\n100\n3\n1 2 3\n",
+        "expected": "Array Fuso (4): 1 2 3 100\n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### Array Dinamico Auto-Espandibile con `realloc`\n\nScrivere un programma in C completo che:\n1. Alloca inizialmente un array dinamico di interi con capacità iniziale pari a **2**.\n2. Legge una sequenza di numeri interi da standard input terminata dal valore sentinel `-1` (il `-1` non fa parte dei dati da memorizzare).\n3. Ogni volta che l'array si riempie (`size == capacity`), ne **raddoppia la capacità** tramite `realloc` (`capacity = capacity * 2`).\n4. Al termine della lettura stampa:\n   ```text\n   Capacita' finale: <capacita>\n   Elementi (<totale>): elem1 elem2 ...\n   ```\n5. Libera la memoria con `free()`.",
+    "tag": [
+      "allocazione-dinamica",
+      "realloc",
+      "puntatori",
+      "array"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int cap = 2;\n    int size = 0;\n    // TODO 1: Alloca l'array dinamico iniziale con capacita' pari a 2\n\n    // TODO 2: Leggi i valori fino a sentinel -1. Se size == cap, raddoppia la capacita' con realloc\n\n    // TODO 3: Stampa \"Capacita' finale: %d\\n\" ed \"Elementi (%d): ...\\n\"\n\n    // TODO 4: Dealloca la memoria con free()\n\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "10 20 30 -1\n",
+        "expected": "Capacita' finale: 4\nElementi (3): 10 20 30\n"
+      },
+      {
+        "stdin": "1 2 3 4 5 -1\n",
+        "expected": "Capacita' finale: 8\nElementi (5): 1 2 3 4 5\n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### Calcolatrice da Linea di Comando (Parsing Argomenti & `atoi`)\n\nScrivere un programma in C che simula l'esecuzione di una calcolatrice da linea di comando `./calc <num1> <op> <num2>`.\nIl programma riceve i parametri da input (`<num1> <op> <num2>`):\n1. Converte `num1` e `num2` in interi con `atoi`.\n2. Valuta l'operatore `op` (`+`, `-`, `x` per moltiplicazione, `/` per divisione intera).\n3. Gestisce i casi speciali:\n   - Se gli argomenti non sono esattamente 3, stampa `Uso: ./calc <num1> <op> <num2>`.\n   - Se l'operatore è `/` e `num2 == 0`, stampa `Errore: divisione per zero`.\n   - Altrimenti calcola e stampa:\n     ```text\n     Risultato: <risultato>\n     ```",
+    "tag": [
+      "argc-argv",
+      "stringhe",
+      "atoi",
+      "cli"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint main() {\n    char arg_str[200];\n    if (scanf(\" %199[^\\n]\", arg_str) != 1) return 0;\n\n    // TODO: Esegui il parsing di <num1> <op> <num2>.\n    // Gestisci:\n    // - Parametri errati: stampa \"Uso: ./calc <num1> <op> <num2>\\n\"\n    // - Divisione per zero: stampa \"Errore: divisione per zero\\n\"\n    // - Operazioni +, -, x/ *, /: stampa \"Risultato: %d\\n\"\n\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "10 + 5\n",
+        "expected": "Risultato: 15\n"
+      },
+      {
+        "stdin": "20 / 4\n",
+        "expected": "Risultato: 5\n"
+      },
+      {
+        "stdin": "8 / 0\n",
+        "expected": "Errore: divisione per zero\n"
+      },
+      {
+        "stdin": "7 x 6\n",
+        "expected": "Risultato: 42\n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### Somma e Media di Sequenza di Numeri CLI\n\nScrivere un programma in C che calcola la somma e la media aritmetica di una lista di numeri passati da riga di comando.\n1. Legge il numero totale di parametri $N$ seguito dagli $N$ valori interi.\n2. Se $N = 0$, stampa:\n   ```text\n   Nessun numero inserito\n   ```\n3. Se $N > 0$, calcola la somma totale e la media aritmetica (formattata con 2 cifre decimali `%.2f`) e stampa:\n   ```text\n   Totale argomenti: <N>\n   Somma: <somma>\n   Media: <media>\n   ```",
+    "tag": [
+      "argc-argv",
+      "cicli",
+      "statistiche"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int n;\n    // TODO: Leggi n. Se n <= 0, stampa \"Nessun numero inserito\\n\".\n    // Altrimenti leggi gli n valori, calcola somma e media (%.2f) e stampa:\n    // \"Totale argomenti: %d\\nSomma: %d\\nMedia: %.2f\\n\"\n\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "3 10 20 30\n",
+        "expected": "Totale argomenti: 3\nSomma: 60\nMedia: 20.00\n"
+      },
+      {
+        "stdin": "0\n",
+        "expected": "Nessun numero inserito\n"
+      },
+      {
+        "stdin": "4 5 15 25 35\n",
+        "expected": "Totale argomenti: 4\nSomma: 80\nMedia: 20.00\n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### Parser di Flag da Linea di Comando (`-u`, `-r`, `-len`)\n\nScrivere un programma in C che simula un'utilità da riga di comando che accetta un **flag** e una **parola**:\n1. `-u <parola>`: converte tutti i caratteri della parola in maiuscolo e stampa `Upper: <PAROLA>`.\n2. `-r <parola>`: inverte la parola e stampa `Reverse: <ALORAP>`.\n3. `-len <parola>`: calcola la lunghezza della parola e stampa `Lunghezza: <len>`.\n4. Se il flag non è riconosciuto o mancano parametri, stampa `Errore argomenti`.",
+    "tag": [
+      "argc-argv",
+      "stringhe",
+      "flag",
+      "cli"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <ctype.h>\n\nint main() {\n    char flag[20], word[100];\n    if (scanf(\"%19s %99s\", flag, word) != 2) {\n        printf(\"Errore argomenti\\n\");\n        return 0;\n    }\n\n    // TODO: Gestisci i flag:\n    // - \"-u\": converti in maiuscolo e stampa \"Upper: %s\\n\"\n    // - \"-r\": inverti la stringa e stampa \"Reverse: %s\\n\"\n    // - \"-len\": stampa \"Lunghezza: %d\\n\"\n    // - altro: stampa \"Errore argomenti\\n\"\n\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "-u informatica\n",
+        "expected": "Upper: INFORMATICA\n"
+      },
+      {
+        "stdin": "-r unisa\n",
+        "expected": "Reverse: asinu\n"
+      },
+      {
+        "stdin": "-len algoritmo\n",
+        "expected": "Lunghezza: 9\n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### Unione di Parole con Delimitatore da Linea di Comando\n\nScrivere un programma in C che riceve un **delimitatore** seguito dal numero $N$ di parole e dalle $N$ parole stesse.\n1. Se $N < 1$, stampa `Argomenti insufficienti`.\n2. Concatena tutte le parole separandole con il delimitatore specificato e stampa:\n   ```text\n   Unione: parola1<delim>parola2<delim>parola3...\n   ```\n*Esempio*: con delimitatore `,` e parole `mela`, `pera`, `banana`, l'output sarà `Unione: mela,pera,banana`.",
+    "tag": [
+      "argc-argv",
+      "stringhe",
+      "cli"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint main() {\n    char delim[10];\n    int n;\n    // TODO: Leggi delim e n. Se n <= 0, stampa \"Argomenti insufficienti\\n\".\n    // Altrimenti leggi le n parole, stampale separate da delim (\"Unione: parola1<delim>parola2...\\n\")\n\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": ", 3 mela pera banana\n",
+        "expected": "Unione: mela,pera,banana\n"
+      },
+      {
+        "stdin": "- 2 ciao mondo\n",
+        "expected": "Unione: ciao-mondo\n"
+      }
+    ]
+  },
+  {
+    "tipo": "codice",
+    "domanda": "### Ricerca della Parola più Lunga tra gli Argomenti CLI\n\nScrivere un programma in C che esamina una sequenza di $N$ parole fornite come argomenti da linea di comando.\n1. Se $N = 0$, stampa:\n   ```text\n   Nessun argomento fornito\n   ```\n2. Se $N > 0$, individua la parola con il maggior numero di caratteri (in caso di parità, la prima incontrata) e stampa:\n   ```text\n   Parola piu' lunga: <parola> (<lunghezza> caratteri)\n   ```",
+    "tag": [
+      "argc-argv",
+      "stringhe",
+      "ricerca",
+      "cli"
+    ],
+    "starter": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint main() {\n    int n;\n    // TODO: Leggi n. Se n <= 0, stampa \"Nessun argomento fornito\\n\".\n    // Altrimenti leggi le n parole e trova la parola piu' lunga (la prima in caso di parita'),\n    // stampando \"Parola piu' lunga: %s (%d caratteri)\\n\"\n\n    return 0;\n}\n",
+    "test_cases": [
+      {
+        "stdin": "3 gatto elefante cane\n",
+        "expected": "Parola piu' lunga: elefante (8 caratteri)\n"
+      },
+      {
+        "stdin": "4 a ab abc ab\n",
+        "expected": "Parola piu' lunga: abc (3 caratteri)\n"
+      }
+    ]
+  }
+]

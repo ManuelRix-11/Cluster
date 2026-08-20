@@ -1,0 +1,1714 @@
+[
+    {
+        "domanda": "Cosa significa CSS?",
+        "risposta1": "Fogli di stile",
+        "risposta2": "Cascading Style Sheets",
+        "risposta3": "Creative Style System",
+        "corretta": "Fogli di stile",
+        "tag": [
+            "css"
+        ]
+    },
+    {
+        "domanda": "Qual è l'HTML corretto per fare riferimento a un foglio di stile esterno?",
+        "risposta1": "<link rel=\"stylesheet\" type=\"text/css\" href=\"mystyle.css\">",
+        "risposta2": "<link rel=\"stylesheet\" type=\"text/css\" src=\"mystyle.css\">",
+        "risposta3": "<style src=\"mystyle.css\">",
+        "corretta": "<link rel=\"stylesheet\" type=\"text/css\" href=\"mystyle.css\">",
+        "tag": [
+            "html",
+            "css"
+        ]
+    },
+    {
+        "domanda": "Dove in un documento HTML è il posto corretto per fare riferimento a un foglio di stile esterno?",
+        "risposta1": "Nella sezione <head>",
+        "risposta2": "Nella sezione <body>",
+        "risposta3": "Alla fine del documento",
+        "corretta": "Nella sezione <head>",
+        "tag": [
+            "html",
+            "css"
+        ]
+    },
+    {
+        "domanda": "Quale tag HTML viene utilizzato per definire un foglio di stile interno?",
+        "risposta1": "<style>",
+        "risposta2": "<css>",
+        "risposta3": "<script>",
+        "corretta": "<style>",
+        "tag": [
+            "html",
+            "css"
+        ]
+    },
+    {
+        "domanda": "Quale attributo HTML viene utilizzato per definire gli stili in linea?",
+        "risposta1": "style",
+        "risposta2": "class",
+        "risposta3": "font",
+        "corretta": "style",
+        "tag": [
+            "html"
+        ]
+    },
+    {
+        "domanda": "Qual è la sintassi CSS corretta?",
+        "risposta1": "body {color: black;}",
+        "risposta2": "{body:color=black;}",
+        "risposta3": "body:color=black;",
+        "corretta": "body {color: black;}",
+        "tag": [
+            "css"
+        ]
+    },
+    {
+        "domanda": "Come si inserisce un commento in un file CSS?",
+        "risposta1": "/* questo è un commento */",
+        "risposta2": "// questo è un commento",
+        "risposta3": "<!-- questo è un commento -->",
+        "corretta": "/* questo è un commento */",
+        "tag": [
+            "css"
+        ]
+    },
+    {
+        "domanda": "Quale proprietà CSS viene utilizzata per modificare il colore di sfondo?",
+        "risposta1": "background-color",
+        "risposta2": "bgcolor",
+        "risposta3": "color",
+        "corretta": "background-color",
+        "tag": [
+            "css"
+        ]
+    },
+    {
+        "domanda": "Quale proprietà CSS viene utilizzata per modificare il colore del testo di un elemento?",
+        "risposta1": "color",
+        "risposta2": "text-color",
+        "risposta3": "font-color",
+        "corretta": "color",
+        "tag": [
+            "css"
+        ]
+    },
+    {
+        "domanda": "Quale proprietà CSS controlla la dimensione del testo?",
+        "risposta1": "font-size",
+        "risposta2": "text-size",
+        "risposta3": "text-style",
+        "corretta": "font-size",
+        "tag": [
+            "css"
+        ]
+    },
+    {
+        "domanda": "Qual è la sintassi CSS corretta per rendere tutti gli elementi <p> in grassetto?",
+        "risposta1": "p {font-weight:bold;}",
+        "risposta2": "p {text-size:bold;}",
+        "risposta3": "<p style=\"font-size:bold;\">",
+        "corretta": "p {font-weight:bold;}",
+        "tag": [
+            "css"
+        ]
+    },
+    {
+        "domanda": "Come si visualizzano i collegamenti ipertestuali senza sottolineatura?",
+        "risposta1": "a {text-decoration:none;}",
+        "risposta2": "a {underline:none;}",
+        "risposta3": "a {decoration:no-underline;}",
+        "corretta": "a {text-decoration:none;}",
+        "tag": [
+            "html",
+            "css"
+        ]
+    },
+    {
+        "domanda": "Come fai a far iniziare ogni parola in un testo con una lettera maiuscola in CSS?",
+        "risposta1": "text-transform:capitalize",
+        "risposta2": "text-transform:uppercase",
+        "risposta3": "text-style:capitalize",
+        "corretta": "text-transform:capitalize",
+        "tag": [
+            "css"
+        ]
+    },
+    {
+        "domanda": "Quale proprietà CSS viene utilizzata per modificare il carattere di un elemento?",
+        "risposta1": "font-family",
+        "risposta2": "font-style",
+        "risposta3": "font-type",
+        "corretta": "font-family",
+        "tag": [
+            "css"
+        ]
+    },
+    {
+        "domanda": "Come si fa a rendere il testo in grassetto con CSS?",
+        "risposta1": "font-weight:bold;",
+        "risposta2": "font-style:bold;",
+        "risposta3": "text-style:bold;",
+        "corretta": "font-weight:bold;",
+        "tag": [
+            "css"
+        ]
+    },
+    {
+        "domanda": "Come si visualizza un bordo con top=10px, bottom=5px, left=20px, right=1px?",
+        "risposta1": "border-width:10px 1px 5px 20px;",
+        "risposta2": "border-width:10px 5px 20px 1px;",
+        "risposta3": "border-width:10px 20px 5px 1px;",
+        "corretta": "border-width:10px 1px 5px 20px;",
+        "tag": [
+            "css"
+        ]
+    },
+    {
+        "domanda": "Quale proprietà CSS viene utilizzata per modificare il margine sinistro di un elemento?",
+        "risposta1": "margin-left",
+        "risposta2": "padding-left",
+        "risposta3": "indent-left",
+        "corretta": "margin-left",
+        "tag": [
+            "css"
+        ]
+    },
+    {
+        "domanda": "Quando si utilizza la proprietà padding, puoi usare valori negativi?",
+        "risposta1": "No",
+        "risposta2": "Si",
+        "risposta3": "Dipende dal browser",
+        "corretta": "No",
+        "tag": [
+            "css"
+        ]
+    },
+    {
+        "domanda": "Come si fa un elenco che elenca i suoi elementi con i quadrati in CSS?",
+        "risposta1": "list-style-type: square;",
+        "risposta2": "list-style-type: box;",
+        "risposta3": "list-type: square;",
+        "corretta": "list-style-type: square;",
+        "tag": [
+            "css"
+        ]
+    },
+    {
+        "domanda": "Come si seleziona un elemento con ID 'demo' in CSS?",
+        "risposta1": "#demo",
+        "risposta2": ".demo",
+        "risposta3": "demo",
+        "corretta": "#demo",
+        "tag": [
+            "css"
+        ]
+    },
+    {
+        "domanda": "Come si selezionano gli elementi con il nome della classe 'test' in CSS?",
+        "risposta1": ".test",
+        "risposta2": "#test",
+        "risposta3": "test",
+        "corretta": ".test",
+        "tag": [
+            "css"
+        ]
+    },
+    {
+        "domanda": "Come si selezionano tutti gli elementi p all'interno di un elemento div in CSS?",
+        "risposta1": "div p",
+        "risposta2": "div.p",
+        "risposta3": "div + p",
+        "corretta": "div p",
+        "tag": [
+            "css"
+        ]
+    },
+    {
+        "domanda": "Come si raggruppano i selettori CSS?",
+        "risposta1": "Separare ogni selettore con una virgola",
+        "risposta2": "Separare ogni selettore con uno spazio",
+        "risposta3": "Separare ogni selettore con un punto e virgola",
+        "corretta": "Separare ogni selettore con una virgola",
+        "tag": [
+            "css"
+        ]
+    },
+    {
+        "domanda": "Qual è il valore predefinito della proprietà position in CSS?",
+        "risposta1": "Static",
+        "risposta2": "Relative",
+        "risposta3": "Absolute",
+        "corretta": "Static",
+        "tag": [
+            "css"
+        ]
+    },
+    {
+        "domanda": "In CSS, quale è lo statement che consente di non visualizzare un particolare elemento (tag)?",
+        "risposta1": "display: none",
+        "risposta2": "display: hidden",
+        "risposta3": "display: initial",
+        "corretta": "display: none",
+        "tag": [
+            "html",
+            "css"
+        ]
+    },
+    {
+        "domanda": "Quale regola CSS setta i bordi: Bordo superiore ed inferiore = 10px, Bordo sinistro e destro = 5px?",
+        "risposta1": "border-width:10px 5px",
+        "risposta2": "border-width:5px 10px",
+        "risposta3": "border-width:10px 10px 5px 5px",
+        "corretta": "border-width:10px 5px",
+        "tag": [
+            "css"
+        ]
+    },
+    {
+        "domanda": "In CSS, quale delle seguenti proprietà di un tag ancora implica un collegamento ipertestuale ancora non visitato?",
+        "risposta1": ":link",
+        "risposta2": ":visited",
+        "risposta3": ":hover",
+        "corretta": ":link",
+        "tag": [
+            "html",
+            "css"
+        ]
+    },
+    {
+        "domanda": "Qual è la CSS media query appropriata per avere font-size:1.5em negli elementi nav quando la larghezza della visualizzazione è tra 480px e 1024px su qualsiasi dispositivo?",
+        "risposta1": "@media all and (min-width: 480px) and (max-width: 1024px) { nav { font-size: 1.5em; } }",
+        "risposta2": "@media only screen and (min-width: 1024px) { nav { font-size: 1.5em; } }",
+        "risposta3": "@media (min-width: 481px) and (max-width: 1023px) { nav { font-size: 1.5em; } }",
+        "corretta": "@media all and (min-width: 480px) and (max-width: 1024px) { nav { font-size: 1.5em; } }",
+        "tag": [
+            "css"
+        ]
+    },
+    {
+        "domanda": "Un sito con layout responsive:",
+        "risposta1": "usa i breakpoint e le percentuali",
+        "risposta2": "usa esclusivamente i breakpoint",
+        "risposta3": "usa la taglia fissa per definire le dimensioni degli elementi",
+        "corretta": "usa i breakpoint e le percentuali",
+        "tag": [
+            "css"
+        ]
+    },
+    {
+        "domanda": "Come si aggiunge un colore di sfondo per tutti gli elementi h1 in CSS?",
+        "risposta1": "h1 {background-color:#FFFFFF;}",
+        "risposta2": "h1.all {background-color:#FFFFFF;}",
+        "risposta3": "all.h1 {background-color:#FFFFFF;}",
+        "corretta": "h1 {background-color:#FFFFFF;}",
+        "tag": [
+            "css"
+        ]
+    },
+    {
+        "domanda": "Dov'è il posto corretto per inserire uno script JavaScript?",
+        "risposta1": "Sia la sezione <head> che la sezione <body> sono corrette",
+        "risposta2": "Solo nella sezione <head>",
+        "risposta3": "Solo nella sezione <body>",
+        "corretta": "Sia la sezione <head> che la sezione <body> sono corrette",
+        "tag": [
+            "javascript"
+        ]
+    },
+    {
+        "domanda": "Qual è la sintassi corretta per fare riferimento a uno script esterno chiamato xxx.js?",
+        "risposta1": "<script src=\"xxx.js\">",
+        "risposta2": "<script href=\"xxx.js\">",
+        "risposta3": "<script name=\"xxx.js\">",
+        "corretta": "<script src=\"xxx.js\">",
+        "tag": [
+            "javascript"
+        ]
+    },
+    {
+        "domanda": "Il file JavaScript esterno deve contenere il tag <script>?",
+        "risposta1": "Falso",
+        "risposta2": "Vero",
+        "risposta3": "Dipende dalla versione",
+        "corretta": "Falso",
+        "tag": [
+            "html",
+            "javascript"
+        ]
+    },
+    {
+        "domanda": "Come si scrive Hello World in una finestra di avviso JavaScript?",
+        "risposta1": "alert(\"Ciao mondo\");",
+        "risposta2": "msgBox(\"Ciao mondo\");",
+        "risposta3": "msg(\"Ciao mondo\");",
+        "corretta": "alert(\"Ciao mondo\");",
+        "tag": [
+            "javascript"
+        ]
+    },
+    {
+        "domanda": "Come si crea una funzione in JavaScript?",
+        "risposta1": "function myfunction()",
+        "risposta2": "Function:myfunction()",
+        "risposta3": "create function myfunction()",
+        "corretta": "function myfunction()",
+        "tag": [
+            "javascript"
+        ]
+    },
+    {
+        "domanda": "In JavaScript, come si chiama una funzione denominata myFunction?",
+        "risposta1": "myFunction()",
+        "risposta2": "call function myFunction()",
+        "risposta3": "call myFunction()",
+        "corretta": "myFunction()",
+        "tag": [
+            "javascript"
+        ]
+    },
+    {
+        "domanda": "Come si scrive un'istruzione IF in JavaScript?",
+        "risposta1": "if (io == 5)",
+        "risposta2": "IF (io == 5)",
+        "risposta3": "if io == 5 then",
+        "corretta": "if (io == 5)",
+        "tag": [
+            "javascript"
+        ]
+    },
+    {
+        "domanda": "Come si scrive un'istruzione IF per eseguire del codice se i NON è uguale a 5 in JavaScript?",
+        "risposta1": "if (io != 5)",
+        "risposta2": "IF (io!= 5)",
+        "risposta3": "if io <> 5",
+        "corretta": "if (io != 5)",
+        "tag": [
+            "javascript"
+        ]
+    },
+    {
+        "domanda": "Come inizia un ciclo WHILE in JavaScript?",
+        "risposta1": "while (i <= 10)",
+        "risposta2": "WHILE (i <= 10)",
+        "risposta3": "loop (i <= 10)",
+        "corretta": "while (i <= 10)",
+        "tag": [
+            "javascript"
+        ]
+    },
+    {
+        "domanda": "Come inizia un ciclo FOR in JavaScript?",
+        "risposta1": "for (i = 0; i <= 5; i++)",
+        "risposta2": "FOR (i = 0; i <= 5; i++)",
+        "risposta3": "for i = 0 to 5",
+        "corretta": "for (i = 0; i <= 5; i++)",
+        "tag": [
+            "javascript"
+        ]
+    },
+    {
+        "domanda": "Come si aggiunge un commento su una singola riga in JavaScript?",
+        "risposta1": "//Questo è un commento",
+        "risposta2": "<!-- Questo è un commento -->",
+        "risposta3": "/* Questo è un commento */",
+        "corretta": "//Questo è un commento",
+        "tag": [
+            "javascript"
+        ]
+    },
+    {
+        "domanda": "Come si inserisce un commento multiriga in JavaScript?",
+        "risposta1": "/*Questo commento ha più di una riga*/",
+        "risposta2": "//Questo commento ha più di una riga//",
+        "risposta3": "<!-- Questo commento ha più di una riga -->",
+        "corretta": "/*Questo commento ha più di una riga*/",
+        "tag": [
+            "javascript"
+        ]
+    },
+    {
+        "domanda": "Qual è il modo corretto di scrivere un array JavaScript?",
+        "risposta1": "var colori = [\"rosso\", \"verde\", \"blu\"]",
+        "risposta2": "var colori = (\"rosso\", \"verde\", \"blu\")",
+        "risposta3": "var colori = {\"rosso\", \"verde\", \"blu\"}",
+        "corretta": "var colori = [\"rosso\", \"verde\", \"blu\"]",
+        "tag": [
+            "css",
+            "javascript"
+        ]
+    },
+    {
+        "domanda": "Come si arrotonda il numero 7.25 all'intero più vicino in JavaScript?",
+        "risposta1": "Math.round(7.25)",
+        "risposta2": "Math.rnd(7.25)",
+        "risposta3": "rnd(7.25)",
+        "corretta": "Math.round(7.25)",
+        "tag": [
+            "javascript"
+        ]
+    },
+    {
+        "domanda": "Come si trova il numero con il valore più alto di x e y in JavaScript?",
+        "risposta1": "Math.max(x, y)",
+        "risposta2": "Math.ceil(x, y)",
+        "risposta3": "top(x, y)",
+        "corretta": "Math.max(x, y)",
+        "tag": [
+            "javascript"
+        ]
+    },
+    {
+        "domanda": "Qual è la sintassi JavaScript corretta per aprire una nuova finestra chiamata w2?",
+        "risposta1": "w2 = window.open(\"http://www.w3schools.com\");",
+        "risposta2": "w2 = window.new(\"http://www.w3schools.com\");",
+        "risposta3": "w2 = open(\"http://www.w3schools.com\");",
+        "corretta": "w2 = window.open(\"http://www.w3schools.com\");",
+        "tag": [
+            "javascript",
+            "http"
+        ]
+    },
+    {
+        "domanda": "JavaScript è lo stesso di Java?",
+        "risposta1": "Falso",
+        "risposta2": "Vero",
+        "risposta3": "Sono linguaggi simili ma non identici",
+        "corretta": "Falso",
+        "tag": [
+            "javascript"
+        ]
+    },
+    {
+        "domanda": "Come è possibile rilevare il nome del browser del client in JavaScript?",
+        "risposta1": "navigator.appName",
+        "risposta2": "browser.name",
+        "risposta3": "client.navName",
+        "corretta": "navigator.appName",
+        "tag": [
+            "javascript"
+        ]
+    },
+    {
+        "domanda": "In JavaScript, quale evento si verifica quando l'utente fa clic su un elemento HTML?",
+        "risposta1": "onclick",
+        "risposta2": "onmouseclick",
+        "risposta3": "onmouseover",
+        "corretta": "onclick",
+        "tag": [
+            "html",
+            "javascript"
+        ]
+    },
+    {
+        "domanda": "Come si dichiara una variabile JavaScript?",
+        "risposta1": "var nomeauto;",
+        "risposta2": "variable nomeauto;",
+        "risposta3": "int nomeauto;",
+        "corretta": "var nomeauto;",
+        "tag": [
+            "javascript"
+        ]
+    },
+    {
+        "domanda": "Quale operatore viene utilizzato per assegnare un valore a una variabile in JavaScript?",
+        "risposta1": "=",
+        "risposta2": ":=",
+        "risposta3": "==",
+        "corretta": "=",
+        "tag": [
+            "javascript"
+        ]
+    },
+    {
+        "domanda": "Cosa restituirà il seguente codice JavaScript: Boolean(10 > 9)?",
+        "risposta1": "true",
+        "risposta2": "false",
+        "risposta3": "undefined",
+        "corretta": "true",
+        "tag": [
+            "javascript",
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "JavaScript fa distinzione tra maiuscole e minuscole?",
+        "risposta1": "Si",
+        "risposta2": "No",
+        "risposta3": "Solo per le parole chiave",
+        "corretta": "Si",
+        "tag": [
+            "javascript"
+        ]
+    },
+    {
+        "domanda": "Come dichiari una variabile in JavaScript?",
+        "risposta1": "var carName;",
+        "risposta2": "int carName;",
+        "risposta3": "variable carName;",
+        "corretta": "var carName;",
+        "tag": [
+            "javascript"
+        ]
+    },
+    {
+        "domanda": "Dov'è il posto giusto dove inserire un codice JavaScript?",
+        "risposta1": "Sia la sezione <head> che <body> sono corrette",
+        "risposta2": "Il codice JavaScript non può essere inserito",
+        "risposta3": "Solo nella sezione <body>",
+        "corretta": "Sia la sezione <head> che <body> sono corrette",
+        "tag": [
+            "javascript"
+        ]
+    },
+    {
+        "domanda": "Cosa stampa il seguente codice JavaScript: var bottle = {contents: function () { return this.full ? full : empty}, full: true}; console.log(bottle.contents());",
+        "risposta1": "full",
+        "risposta2": "empty",
+        "risposta3": "undefined",
+        "corretta": "full",
+        "tag": [
+            "javascript"
+        ]
+    },
+    {
+        "domanda": "Quando un utente visualizza una pagina contenente un programma JavaScript, quale macchina esegue lo script?",
+        "risposta1": "La macchina utente che sta eseguendo il browser web",
+        "risposta2": "Il Web server",
+        "risposta3": "L'application Server",
+        "corretta": "La macchina utente che sta eseguendo il browser web",
+        "tag": [
+            "javascript"
+        ]
+    },
+    {
+        "domanda": "Quale risposta rappresenta il seguente ordine di TIPI JSON: Object, Array, Number, Boolean, String?",
+        "risposta1": "{ }, [ ], 0, true, 0",
+        "risposta2": "[ ], { }, 0, false, 0",
+        "risposta3": "{ }, { }, a string, false, 0",
+        "corretta": "{ }, [ ], 0, true, 0",
+        "tag": [
+            "javascript",
+            "ajax & xml",
+            "http"
+        ]
+    },
+    {
+        "domanda": "Il metodo JSON.parse():",
+        "risposta1": "converte una stringa JSON in un oggetto JavaScript",
+        "risposta2": "converte un oggetto JSON in una stringa",
+        "risposta3": "converte una stringa JSON in una tabella HTML",
+        "corretta": "converte una stringa JSON in un oggetto JavaScript",
+        "tag": [
+            "javascript",
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Tra le seguenti qual è una caratteristica di JSON?",
+        "risposta1": "Tutte le opzioni",
+        "risposta2": "JSON è indipendente dal linguaggio",
+        "risposta3": "E' un formato di scambio leggero basato su testo",
+        "corretta": "Tutte le opzioni",
+        "tag": [
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti tecnologie consente di ottenere i dati da un server senza ricaricare l'intera pagina?",
+        "risposta1": "AJAX",
+        "risposta2": "JSON",
+        "risposta3": "MVC",
+        "corretta": "AJAX",
+        "tag": [
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti espressioni regolari valida un campo tipo (123)-1234567 (solo numeri)?",
+        "risposta1": "/^\\(([0-9]{3})\\)[-]([0-9]{7})$/;",
+        "risposta2": "/^\\(([0-9]{3})\\)[^-]([0-9]{7})$/;",
+        "risposta3": "/^\\(([0-9]{3})\\)[-]([0-9]{7})$/;",
+        "corretta": "/^\\(([0-9]{3})\\)[-]([0-9]{7})$/;",
+        "tag": [
+            "web",
+            "sviluppo"
+        ]
+    },
+    {
+        "domanda": "quale delle seguenti è corretta riguardo a jQuery?",
+        "risposta1": "jQuery è una libreria JavaScript",
+        "risposta2": "jQuery è un framework CSS",
+        "risposta3": "jQuery è un linguaggio di programmazione",
+        "corretta": "jQuery è una libreria JavaScript",
+        "tag": [
+            "javascript",
+            "jquery"
+        ]
+    },
+    {
+        "domanda": "jQuery utilizza i selettori CSS per selezionare gli elementi?",
+        "risposta1": "Vero",
+        "risposta2": "Falso",
+        "risposta3": "Solo per selettori di classe",
+        "corretta": "Vero",
+        "tag": [
+            "css",
+            "jquery"
+        ]
+    },
+    {
+        "domanda": "Quale segno usa jQuery come scorciatoia per jQuery?",
+        "risposta1": "il segno $",
+        "risposta2": "il segno @",
+        "risposta3": "il segno #",
+        "corretta": "il segno $",
+        "tag": [
+            "jquery"
+        ]
+    },
+    {
+        "domanda": "Guarda il seguente selettore jQuery: $(\"div\"). Cosa seleziona?",
+        "risposta1": "Tutti gli elementi div",
+        "risposta2": "Il primo elemento div",
+        "risposta3": "L'elemento div con id div",
+        "corretta": "Tutti gli elementi div",
+        "tag": [
+            "css",
+            "jquery"
+        ]
+    },
+    {
+        "domanda": "jQuery è una libreria per script client o script server?",
+        "risposta1": "Script client",
+        "risposta2": "Script server",
+        "risposta3": "Entrambi",
+        "corretta": "Script client",
+        "tag": [
+            "jquery"
+        ]
+    },
+    {
+        "domanda": "E' possibile utilizzare jQuery insieme ad AJAX?",
+        "risposta1": "Si",
+        "risposta2": "No",
+        "risposta3": "Solo con versioni recenti",
+        "corretta": "Si",
+        "tag": [
+            "jquery",
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Il metodo jQuery html() funziona sia per documenti HTML che XML?",
+        "risposta1": "Falso",
+        "risposta2": "Vero",
+        "risposta3": "Solo per HTML",
+        "corretta": "Falso",
+        "tag": [
+            "html",
+            "jquery",
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Qual è il codice jQuery corretto per impostare il colore di sfondo di tutti gli elementi p su rosso?",
+        "risposta1": "$(\"p\").css(\"background-color\",\"red\");",
+        "risposta2": "$(\"p\").css(\"background-color: red\");",
+        "risposta3": "$(\"p\").style(\"background-color\",\"red\");",
+        "corretta": "$(\"p\").css(\"background-color\",\"red\");",
+        "tag": [
+            "css",
+            "jquery"
+        ]
+    },
+    {
+        "domanda": "Con jQuery, guarda il seguente selettore: $(\"div.intro\"). Cosa seleziona?",
+        "risposta1": "Tutti gli elementi div con class=intro",
+        "risposta2": "Tutti gli elementi con id=div.intro",
+        "risposta3": "Il primo elemento div con class=intro",
+        "corretta": "Tutti gli elementi div con class=intro",
+        "tag": [
+            "css",
+            "jquery"
+        ]
+    },
+    {
+        "domanda": "Quale metodo jQuery viene utilizzato per nascondere gli elementi selezionati?",
+        "risposta1": "hide()",
+        "risposta2": "display(none)",
+        "risposta3": "invisible()",
+        "corretta": "hide()",
+        "tag": [
+            "jquery"
+        ]
+    },
+    {
+        "domanda": "Quale metodo jQuery viene utilizzato per impostare una o più proprietà di stile per gli elementi selezionati?",
+        "risposta1": "css()",
+        "risposta2": "style()",
+        "risposta3": "prop()",
+        "corretta": "css()",
+        "tag": [
+            "css",
+            "jquery"
+        ]
+    },
+    {
+        "domanda": "Quale metodo jQuery viene utilizzato per eseguire una richiesta HTTP asincrona?",
+        "risposta1": "jQuery.ajax()",
+        "risposta2": "jQuery.get()",
+        "risposta3": "jQuery.http()",
+        "corretta": "jQuery.ajax()",
+        "tag": [
+            "jquery",
+            "ajax & xml",
+            "http"
+        ]
+    },
+    {
+        "domanda": "Qual è il codice jQuery corretto per rendere tutti gli elementi div alti 100 pixel?",
+        "risposta1": "$(\"div\").height(100)",
+        "risposta2": "$(\"div\").css(\"height\", 100)",
+        "risposta3": "$(\"div\").size(100)",
+        "corretta": "$(\"div\").height(100)",
+        "tag": [
+            "jquery"
+        ]
+    },
+    {
+        "domanda": "Quale frase è vera riguardo jQuery?",
+        "risposta1": "Per utilizzare jQuery, puoi fare riferimento a una libreria jQuery ospitata su Google",
+        "risposta2": "jQuery richiede l'installazione sul server",
+        "risposta3": "jQuery è uno standard W3C",
+        "corretta": "Per utilizzare jQuery, puoi fare riferimento a una libreria jQuery ospitata su Google",
+        "tag": [
+            "jquery"
+        ]
+    },
+    {
+        "domanda": "In quale linguaggio di script è scritto jQuery?",
+        "risposta1": "JavaScript",
+        "risposta2": "Java",
+        "risposta3": "TypeScript",
+        "corretta": "JavaScript",
+        "tag": [
+            "javascript",
+            "jquery"
+        ]
+    },
+    {
+        "domanda": "Quale funzione jQuery viene utilizzata per impedire l'esecuzione del codice prima del completamento del caricamento del documento?",
+        "risposta1": "$(document).ready()",
+        "risposta2": "$(document).load()",
+        "risposta3": "$(page).ready()",
+        "corretta": "$(document).ready()",
+        "tag": [
+            "jquery"
+        ]
+    },
+    {
+        "domanda": "Quale metodo jQuery dovrebbe essere utilizzato per gestire i conflitti di nomi?",
+        "risposta1": "noConflict()",
+        "risposta2": "resolveConflict()",
+        "risposta3": "fixConflict()",
+        "corretta": "noConflict()",
+        "tag": [
+            "jquery"
+        ]
+    },
+    {
+        "domanda": "Quale metodo jQuery viene utilizzato per passare dall'aggiunta/rimozione di una o più classi dagli elementi selezionati?",
+        "risposta1": "toggleClass()",
+        "risposta2": "switchClass()",
+        "risposta3": "changeClass()",
+        "corretta": "toggleClass()",
+        "tag": [
+            "jquery"
+        ]
+    },
+    {
+        "domanda": "Guarda il seguente selettore jQuery: $(\"div p\"). Cosa seleziona?",
+        "risposta1": "Tutti gli elementi p all'interno di un elemento div",
+        "risposta2": "Tutti gli elementi div e p",
+        "risposta3": "Il primo elemento p all'interno di un div",
+        "corretta": "Tutti gli elementi p all'interno di un elemento div",
+        "tag": [
+            "css",
+            "jquery"
+        ]
+    },
+    {
+        "domanda": "jQuery è uno standard W3C?",
+        "risposta1": "No",
+        "risposta2": "Si",
+        "risposta3": "E' in fase di standardizzazione",
+        "corretta": "No",
+        "tag": [
+            "jquery"
+        ]
+    },
+    {
+        "domanda": "Guarda il seguente selettore jQuery: $(\"p#intro\"). Cosa seleziona?",
+        "risposta1": "L'elemento p con id=intro",
+        "risposta2": "Tutti gli elementi p con class=intro",
+        "risposta3": "L'elemento con id=p#intro",
+        "corretta": "L'elemento p con id=intro",
+        "tag": [
+            "css",
+            "jquery"
+        ]
+    },
+    {
+        "domanda": "Guarda il seguente selettore jQuery: $(':disabled'). Cosa seleziona?",
+        "risposta1": "Tutti gli elementi di input disabilitati",
+        "risposta2": "Tutti gli elementi con attributo disabled",
+        "risposta3": "Tutti gli elementi nascosti",
+        "corretta": "Tutti gli elementi di input disabilitati",
+        "tag": [
+            "css",
+            "jquery"
+        ]
+    },
+    {
+        "domanda": "Quale metodo jQuery restituisce l'elemento padre diretto dell'elemento selezionato?",
+        "risposta1": "parent()",
+        "risposta2": "parents()",
+        "risposta3": "parentNode()",
+        "corretta": "parent()",
+        "tag": [
+            "jquery",
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Il metodo jQuery animate() può essere utilizzato per animare QUALSIASI proprietà CSS?",
+        "risposta1": "Solo proprietà contenenti valori numerici",
+        "risposta2": "Qualsiasi proprietà CSS",
+        "risposta3": "Solo proprietà di posizione",
+        "corretta": "Solo proprietà contenenti valori numerici",
+        "tag": [
+            "css",
+            "jquery"
+        ]
+    },
+    {
+        "domanda": "Quali dei seguenti statement in jQuery aggiunge l'evento che permette di nascondere un paragrafo se cliccato?",
+        "risposta1": "$(\"p\").click(function() {$(this).hide();});",
+        "risposta2": "$(\"p\").click(function() {p.hide();});",
+        "risposta3": "$(\"p\").click(function() {hide();});",
+        "corretta": "$(\"p\").click(function() {$(this).hide();});",
+        "tag": [
+            "javascript",
+            "jquery"
+        ]
+    },
+    {
+        "domanda": "Quali dei seguenti frammenti di codice viene utilizzato per prevenire che il codice venga eseguito prima che il browser finisca di caricare la pagina?",
+        "risposta1": "$(document).ready()",
+        "risposta2": "$(document).load()",
+        "risposta3": "$(page).ready()",
+        "corretta": "$(document).ready()",
+        "tag": [
+            "web",
+            "sviluppo"
+        ]
+    },
+    {
+        "domanda": "Quale metodo jQuery permette di specificare una funzione da eseguire per ogni elemento selezionato?",
+        "risposta1": "each(function() { ... })",
+        "risposta2": "selected(function() { ... })",
+        "risposta3": "for(function() { ... })",
+        "corretta": "each(function() { ... })",
+        "tag": [
+            "javascript",
+            "jquery"
+        ]
+    },
+    {
+        "domanda": "Quale metodo jQuery è usato per realizzare una richiesta HTTP asincrona?",
+        "risposta1": "$.ajax()",
+        "risposta2": "$.ajaxSetup()",
+        "risposta3": "$.ajaxAsync()",
+        "corretta": "$.ajax()",
+        "tag": [
+            "jquery",
+            "ajax & xml",
+            "http"
+        ]
+    },
+    {
+        "domanda": "Quali dei seguenti statement in jQuery aggiunge ai paragrafi il colore rosa come background?",
+        "risposta1": "$(\"p\").css(\"background-color\", \"pink\");",
+        "risposta2": "$(\"p\").css(background-color: \"pink\");",
+        "risposta3": "$(<p>).css(background-color: \"pink\");",
+        "corretta": "$(\"p\").css(\"background-color\", \"pink\");",
+        "tag": [
+            "css",
+            "jquery"
+        ]
+    },
+    {
+        "domanda": "Il seguente selettore jQuery $(\"div\") cosa seleziona?",
+        "risposta1": "Tutti gli elementi div",
+        "risposta2": "Il primo elemento div",
+        "risposta3": "L'HTML del primo elemento div",
+        "corretta": "Tutti gli elementi div",
+        "tag": [
+            "css",
+            "jquery"
+        ]
+    },
+    {
+        "domanda": "Che cosa significa XML?",
+        "risposta1": "eXtensible Markup Language",
+        "risposta2": "eXtra Modern Language",
+        "risposta3": "eXclusive Markup Language",
+        "corretta": "eXtensible Markup Language",
+        "tag": [
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Come viene descritto il formato dei dati XML?",
+        "risposta1": "XML utilizza un DTD per descrivere i dati",
+        "risposta2": "XML non ha un sistema per descrivere i dati",
+        "risposta3": "XML usa i commenti per descrivere i dati",
+        "corretta": "XML utilizza un DTD per descrivere i dati",
+        "tag": [
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "L'obiettivo di XML è sostituire l'HTML?",
+        "risposta1": "Falso",
+        "risposta2": "Vero",
+        "risposta3": "In parte",
+        "corretta": "Falso",
+        "tag": [
+            "html",
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Qual è la sintassi corretta della dichiarazione che definisce la versione XML?",
+        "risposta1": "<?xml version=\"1.0\"?>",
+        "risposta2": "<xml version=\"1.0\">",
+        "risposta3": "<?xml version:1.0?>",
+        "corretta": "<?xml version=\"1.0\"?>",
+        "tag": [
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Cosa significa DTD?",
+        "risposta1": "Document Type Definition",
+        "risposta2": "Data Type Description",
+        "risposta3": "Document Transfer Definition",
+        "corretta": "Document Type Definition",
+        "tag": [
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Il seguente documento XML è ben formato? <?xml version=\"1.0\"?><note><to>Tove</to><from>Jani</from><heading>Reminder</heading><body>Don't forget me!</body></note>",
+        "risposta1": "Si",
+        "risposta2": "No",
+        "risposta3": "Non è possibile determinarlo",
+        "corretta": "Si",
+        "tag": [
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Il seguente documento XML è ben formato? <?xml version=\"1.0\"?><to>Tove</to><from>Jani</from><heading>Reminder</heading><body>Don't forget me this weekend!</body>",
+        "risposta1": "No",
+        "risposta2": "Si",
+        "risposta3": "E' corretto ma non strutturato",
+        "corretta": "No",
+        "tag": [
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Quale frase è vera riguardo agli elementi XML?",
+        "risposta1": "Tutti gli elementi XML devono essere chiusi correttamente",
+        "risposta2": "Gli elementi XML possono rimanere aperti",
+        "risposta3": "Solo gli elementi principali devono essere chiusi",
+        "corretta": "Tutti gli elementi XML devono essere chiusi correttamente",
+        "tag": [
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Quale affermazione NON è vera riguardo all'XML?",
+        "risposta1": "Lo spazio bianco non è preservato in XML",
+        "risposta2": "XML è case sensitive",
+        "risposta3": "I valori degli attributi XML devono essere racchiusi tra virgolette",
+        "corretta": "Lo spazio bianco non è preservato in XML",
+        "tag": [
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "XML conserva gli spazi bianchi?",
+        "risposta1": "Vero",
+        "risposta2": "Falso",
+        "risposta3": "Solo in certi contesti",
+        "corretta": "Vero",
+        "tag": [
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Il seguente documento XML è ben formato? <?xml version=\"1.0\"?><note><to age=\"29\">Tove</to><from>Jani</from></note>",
+        "risposta1": "Si",
+        "risposta2": "No",
+        "risposta3": "Solo se il DTD è definito",
+        "corretta": "Si",
+        "tag": [
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Il seguente documento XML è ben formato? <?xml version=\"1.0\"?><note><to age=29>Tove</to><from>Jani</from></note>",
+        "risposta1": "No",
+        "risposta2": "Si",
+        "risposta3": "Dipende dal parser",
+        "corretta": "No",
+        "tag": [
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Gli elementi XML non possono essere vuoti?",
+        "risposta1": "Falso",
+        "risposta2": "Vero",
+        "risposta3": "Solo gli elementi root non possono essere vuoti",
+        "corretta": "Falso",
+        "tag": [
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Quale non è un nome corretto per un elemento XML (inizia con numero)?",
+        "risposta1": "<1dollar>",
+        "risposta2": "<dollar1>",
+        "risposta3": "<dollar_one>",
+        "corretta": "<1dollar>",
+        "tag": [
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Quale non è un nome corretto per un elemento XML (con spazio)?",
+        "risposta1": "<first name>",
+        "risposta2": "<firstname>",
+        "risposta3": "<first_name>",
+        "corretta": "<first name>",
+        "tag": [
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Qual è il nome corretto per un elemento XML?",
+        "risposta1": "<Name>",
+        "risposta2": "<1Name>",
+        "risposta3": "<Name Value>",
+        "corretta": "<Name>",
+        "tag": [
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "I valori degli attributi XML devono essere sempre racchiusi tra virgolette?",
+        "risposta1": "Vero",
+        "risposta2": "Falso",
+        "risposta3": "Solo per attributi con spazi",
+        "corretta": "Vero",
+        "tag": [
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Che cosa significa XSL?",
+        "risposta1": "eXtensible Stylesheet Language",
+        "risposta2": "eXtra Style Language",
+        "risposta3": "eXclusive Script Language",
+        "corretta": "eXtensible Stylesheet Language",
+        "tag": [
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Qual è un modo corretto di riferirsi a un foglio di stile XSL chiamato mystyle.xsl?",
+        "risposta1": "<?xml-stylesheet type=\"text/xsl\" href=\"mystyle.xsl\" ?>",
+        "risposta2": "<link href=\"mystyle.xsl\">",
+        "risposta3": "<?xsl href=\"mystyle.xsl\"?>",
+        "corretta": "<?xml-stylesheet type=\"text/xsl\" href=\"mystyle.xsl\" ?>",
+        "tag": [
+            "css",
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Affinché il parser XML ignori una determinata sezione del documento XML, quale sintassi è corretta?",
+        "risposta1": "<![CDATA[ Text to be ignored ]]>",
+        "risposta2": "<!-- Text to be ignored -->",
+        "risposta3": "<ignore> Text to be ignored </ignore>",
+        "corretta": "<![CDATA[ Text to be ignored ]]>",
+        "tag": [
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Quale frase è vera riguardo agli attributi XML?",
+        "risposta1": "Nessuna delle altre due affermazioni è vera",
+        "risposta2": "Gli attributi devono essere presenti in un ordine definito",
+        "risposta3": "Gli attributi devono essere sempre presenti",
+        "corretta": "Nessuna delle altre due affermazioni è vera",
+        "tag": [
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "A cosa servono le entità XML?",
+        "risposta1": "Le entità definiscono collegamenti a testo standard o caratteri speciali",
+        "risposta2": "Le entità definiscono le strutture del documento",
+        "risposta3": "Le entità definiscono i tipi di dati",
+        "corretta": "Le entità definiscono collegamenti a testo standard o caratteri speciali",
+        "tag": [
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Quale dei seguenti frammenti XML è ben formato?",
+        "risposta1": "<customer id=\"3456\"><address/><zip code=\"3456\"/></customer>",
+        "risposta2": "<customer id=3456><address/><zip code=3456/></customer>",
+        "risposta3": "<customer id=\"3456\"><address/><zip code=3456/></customer>",
+        "corretta": "<customer id=\"3456\"><address/><zip code=\"3456\"/></customer>",
+        "tag": [
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Che cos'è un'istanza XML?",
+        "risposta1": "Un documento XML",
+        "risposta2": "Un elemento XML",
+        "risposta3": "Un attributo XML",
+        "corretta": "Un documento XML",
+        "tag": [
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Quale oggetto XML DOM rappresenta un nodo nell'albero dei nodi?",
+        "risposta1": "L'oggetto nodo",
+        "risposta2": "L'oggetto elemento",
+        "risposta3": "L'oggetto documento",
+        "corretta": "L'oggetto nodo",
+        "tag": [
+            "javascript",
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Come considerare il seguente documento XML? <?xml version=\"1.0\"?><to>Rose</to><from>Mary</from><heading>Reminder</heading><body>Don't forget me this weekend!</body>",
+        "risposta1": "Non e' well formed",
+        "risposta2": "E' well formed",
+        "risposta3": "Non è un documento XML",
+        "corretta": "Non e' well formed",
+        "tag": [
+            "ajax & xml"
+        ]
+    },
+    {
+        "domanda": "Come sono separati il path ed i parametri in un URL che invia dati con il metodo GET?",
+        "risposta1": "Punto interrogativo (?)",
+        "risposta2": "Virgola (,)",
+        "risposta3": "Punto (.)",
+        "corretta": "Punto interrogativo (?)",
+        "tag": [
+            "http"
+        ]
+    },
+    {
+        "domanda": "Scegli l'elemento HTML corretto per inserire l'intestazione più grande:",
+        "risposta1": "<h1>",
+        "risposta2": "<h6>",
+        "risposta3": "<heading>",
+        "corretta": "<h1>",
+        "tag": [
+            "html"
+        ]
+    },
+    {
+        "domanda": "Quale è l'HTML corretto per creare un elenco a discesa?",
+        "risposta1": "<select>",
+        "risposta2": "<list>",
+        "risposta3": "<input type=\"list\">",
+        "corretta": "<select>",
+        "tag": [
+            "html"
+        ]
+    },
+    {
+        "domanda": "Quale è il codice HTML corretto per creare una casella checkbox?",
+        "risposta1": "<input type=\"checkbox\">",
+        "risposta2": "<check>",
+        "risposta3": "<checkbox>",
+        "corretta": "<input type=\"checkbox\">",
+        "tag": [
+            "html"
+        ]
+    },
+    {
+        "domanda": "Il World Wide Web è rappresentato da:",
+        "risposta1": "URL, HTTP e HTML",
+        "risposta2": "URL, SMTP e HTML",
+        "risposta3": "TCP, IP e HTML",
+        "corretta": "URL, HTTP e HTML",
+        "tag": [
+            "html",
+            "http"
+        ]
+    },
+    {
+        "domanda": "In HTML, come si crea un elenco numerato?",
+        "risposta1": "<ol>",
+        "risposta2": "<dl>",
+        "risposta3": "<ul>",
+        "corretta": "<ol>",
+        "tag": [
+            "html"
+        ]
+    },
+    {
+        "domanda": "Quale è l'HTML corretto per la creazione di un collegamento ipertestuale?",
+        "risposta1": "<a href=\"http://www.unisa.it\">Unisa</a>",
+        "risposta2": "<a>http://www.unisa.it</a>",
+        "risposta3": "<a url=\"http://www.unisa.it\"> Unisa.it</a>",
+        "corretta": "<a href=\"http://www.unisa.it\">Unisa</a>",
+        "tag": [
+            "html",
+            "http"
+        ]
+    },
+    {
+        "domanda": "Quale è l'HTML corretto per l'inserimento di un'immagine?",
+        "risposta1": "<img src=\"image.gif\" alt=\"MyImage\">",
+        "risposta2": "<image src=\"image.gif\" alt=\"MyImage\">",
+        "risposta3": "<img href=\"image.gif\" alt=\"MyImage\">",
+        "corretta": "<img src=\"image.gif\" alt=\"MyImage\">",
+        "tag": [
+            "html"
+        ]
+    },
+    {
+        "domanda": "Quale è l'HTML corretto per creare un campo di inserimento del testo?",
+        "risposta1": "<input type=\"text\">",
+        "risposta2": "<input type=\"textfield\">",
+        "risposta3": "<textfield>",
+        "corretta": "<input type=\"text\">",
+        "tag": [
+            "html"
+        ]
+    },
+    {
+        "domanda": "Quale attributo HTML specifica un testo alternativo per un'immagine (se l'immagine non può essere visualizzata)?",
+        "risposta1": "alt",
+        "risposta2": "title",
+        "risposta3": "src",
+        "corretta": "alt",
+        "tag": [
+            "html"
+        ]
+    },
+    {
+        "domanda": "Quale è l'elemento HTML corretto per l'inserimento di un'interruzione di riga?",
+        "risposta1": "<br>",
+        "risposta2": "<lb>",
+        "risposta3": "<break>",
+        "corretta": "<br>",
+        "tag": [
+            "html"
+        ]
+    },
+    {
+        "domanda": "Quale è l'HTML corretto per creare un form con metodo GET?",
+        "risposta1": "<form action=\"function\" method=\"get\"></form>",
+        "risposta2": "<form action=\"function\" get=\"yes\"></form>",
+        "risposta3": "<form name=\"function\"></form>",
+        "corretta": "<form action=\"function\" method=\"get\"></form>",
+        "tag": [
+            "html",
+            "javascript",
+            "http"
+        ]
+    },
+    {
+        "domanda": "In HTML, quale è l'attributo che specifica che un campo di input deve essere compilato prima di inviare i dati di una form?",
+        "risposta1": "required",
+        "risposta2": "autofocus",
+        "risposta3": "placeholder",
+        "corretta": "required",
+        "tag": [
+            "html"
+        ]
+    },
+    {
+        "domanda": "Come sono inviati i dati di una form con il metodo GET?",
+        "risposta1": "Attraverso l'URL",
+        "risposta2": "Attraverso il body",
+        "risposta3": "Attraverso il payload",
+        "corretta": "Attraverso l'URL",
+        "tag": [
+            "http"
+        ]
+    },
+    {
+        "domanda": "Quel di questi è un valido MIME-type?",
+        "risposta1": "All of the above",
+        "risposta2": "application/vnd.ms-excel",
+        "risposta3": "image/bmp",
+        "corretta": "All of the above",
+        "tag": [
+            "http"
+        ]
+    },
+    {
+        "domanda": "In HTML, quali di questi elementi sono tutti elementi relati al tag table?",
+        "risposta1": "<table><th><tr><td>",
+        "risposta2": "<table><th><tr><tt>",
+        "risposta3": "<thead><body><tr><tdata>",
+        "corretta": "<table><th><tr><td>",
+        "tag": [
+            "html"
+        ]
+    },
+    {
+        "domanda": "Quale è l'HTML corretto per riferirsi a un foglio di stile esterno mystyle.css?",
+        "risposta1": "<link rel=\"stylesheet\" type=\"text/css\" href=\"mystyle.css\">",
+        "risposta2": "<link rel=\"stylesheet\" type=\"text/css\" src=\"mystyle.css\">",
+        "risposta3": "<stylesheet>mystyle.css</stylesheet>",
+        "corretta": "<link rel=\"stylesheet\" type=\"text/css\" href=\"mystyle.css\">",
+        "tag": [
+            "html",
+            "css"
+        ]
+    },
+    {
+        "domanda": "Come sono inviati i dati in un metodo POST?",
+        "risposta1": "Attraverso il body",
+        "risposta2": "Attraverso l'URL",
+        "risposta3": "Attraverso il payload",
+        "corretta": "Attraverso il body",
+        "tag": [
+            "http"
+        ]
+    },
+    {
+        "domanda": "Come sono separati i parametri in un URL che invia dati?",
+        "risposta1": "E commerciale (&)",
+        "risposta2": "Virgola (,)",
+        "risposta3": "Punto (.)",
+        "corretta": "E commerciale (&)",
+        "tag": [
+            "http"
+        ]
+    },
+    {
+        "domanda": "Quale è l'HTML corretto per creare un form con metodo post?",
+        "risposta1": "<form action=\"function\" method=\"post\"></form>",
+        "risposta2": "<form action=\"function\" post=\"true\"></form>",
+        "risposta3": "<form name=\"function\"></form>",
+        "corretta": "<form action=\"function\" method=\"post\"></form>",
+        "tag": [
+            "html",
+            "javascript",
+            "http"
+        ]
+    },
+    {
+        "domanda": "Quale dei seguenti non è mai contenuto in una richiesta HTTP?",
+        "risposta1": "Lo status code",
+        "risposta2": "Il metodo HTTP",
+        "risposta3": "L'URL della pagina a cui accedere",
+        "corretta": "Lo status code",
+        "tag": [
+            "http"
+        ]
+    },
+    {
+        "domanda": "Chi controlla il ciclo di vita di una servlet?",
+        "risposta1": "container",
+        "risposta2": "browser",
+        "risposta3": "client",
+        "corretta": "container",
+        "tag": [
+            "servlet & jsp"
+        ]
+    },
+    {
+        "domanda": "Come si imposta il refresh del browser a 5 secondi in una servlet?",
+        "risposta1": "response.setIntHeader(\"Refresh\", 5);",
+        "risposta2": "request.setIntHeader(\"Refresh\", 5);",
+        "risposta3": "header.setInt(\"Refresh\", 5);",
+        "corretta": "response.setIntHeader(\"Refresh\", 5);",
+        "tag": [
+            "servlet & jsp"
+        ]
+    },
+    {
+        "domanda": "Quale codice viene utilizzato per ottenere i nomi degli header nella servlet?",
+        "risposta1": "request.getHeaderNames()",
+        "risposta2": "response.getHeaderNames()",
+        "risposta3": "header.getHeaderNames()",
+        "corretta": "request.getHeaderNames()",
+        "tag": [
+            "http",
+            "servlet & jsp"
+        ]
+    },
+    {
+        "domanda": "Una servlet direziona il flusso di esecuzione al link http://www.google.com utilizzando:",
+        "risposta1": "response.sendRedirect(\"http://www.google.com\");",
+        "risposta2": "header.sendDirect(\"http://www.google.com\");",
+        "risposta3": "request.sendToUrl(\"http://www.google.com\");",
+        "corretta": "response.sendRedirect(\"http://www.google.com\");",
+        "tag": [
+            "http",
+            "servlet & jsp"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti affermazioni vale per il metodo service() di una servlet?",
+        "risposta1": "Tutte le precedenti",
+        "risposta2": "Il servlet container chiama il metodo service() per gestire le richieste dal client",
+        "risposta3": "Il metodo service() verifica il tipo di richiesta HTTP e chiama i metodi appropriati",
+        "corretta": "Tutte le precedenti",
+        "tag": [
+            "servlet & jsp"
+        ]
+    },
+    {
+        "domanda": "Come estrarre i dati dal nome username dalla sessione in una servlet?",
+        "risposta1": "session.getAttribute(\"username\");",
+        "risposta2": "request.getSession(\"username\");",
+        "risposta3": "response.getSession(\"username\");",
+        "corretta": "session.getAttribute(\"username\");",
+        "tag": [
+            "http",
+            "servlet & jsp"
+        ]
+    },
+    {
+        "domanda": "Quale è l'elemento HTML corretto per l'inserimento di una riga solida orizzontale?",
+        "risposta1": "<hr>",
+        "risposta2": "<br>",
+        "risposta3": "<hrow>",
+        "corretta": "<hr>",
+        "tag": [
+            "html"
+        ]
+    },
+    {
+        "domanda": "Quale è l'HTML corretto per creare un elenco a discesa con 3 linee visibili?",
+        "risposta1": "<select size=\"3\">",
+        "risposta2": "<list view=\"3\">",
+        "risposta3": "<input type=\"list\" value=\"3\">",
+        "corretta": "<select size=\"3\">",
+        "tag": [
+            "html"
+        ]
+    },
+    {
+        "domanda": "In HTML, quale è l'attributo che specifica un suggerimento che descrive il valore atteso nei campi di un form?",
+        "risposta1": "placeholder",
+        "risposta2": "autofocus",
+        "risposta3": "readonly",
+        "corretta": "placeholder",
+        "tag": [
+            "html"
+        ]
+    },
+    {
+        "domanda": "In HTML, come si specifica un radiobutton?",
+        "risposta1": "<input type=\"radio\">",
+        "risposta2": "<radio>",
+        "risposta3": "<radiobutton>",
+        "corretta": "<input type=\"radio\">",
+        "tag": [
+            "html"
+        ]
+    },
+    {
+        "domanda": "Quale codice è usato per ottenere un particolare attributo da una servlet?",
+        "risposta1": "request.getAttribute(name)",
+        "risposta2": "response.getAttribute(name)",
+        "risposta3": "new Attribute(name)",
+        "corretta": "request.getAttribute(name)",
+        "tag": [
+            "html",
+            "servlet & jsp"
+        ]
+    },
+    {
+        "domanda": "Nel modello MVC:",
+        "risposta1": "Una JSP ottiene dati dai bean",
+        "risposta2": "Una JSP processa la request",
+        "risposta3": "La servlet formatta la risposta",
+        "corretta": "Una JSP ottiene dati dai bean",
+        "tag": [
+            "servlet & jsp"
+        ]
+    },
+    {
+        "domanda": "Quale codice recupera il valore di un parametro dalla request in una servlet?",
+        "risposta1": "request.getParameter(name)",
+        "risposta2": "header.getParameter(name)",
+        "risposta3": "response.getParameter(name)",
+        "corretta": "request.getParameter(name)",
+        "tag": [
+            "servlet & jsp"
+        ]
+    },
+    {
+        "domanda": "Quale codice viene utilizzato per eliminare un attributo da una sessione HTTP in una servlet?",
+        "risposta1": "session.removeAttribute(name)",
+        "risposta2": "session.alterAttribute(name)",
+        "risposta3": "session.updateAttribute(name)",
+        "corretta": "session.removeAttribute(name)",
+        "tag": [
+            "html",
+            "http",
+            "servlet & jsp"
+        ]
+    },
+    {
+        "domanda": "Quale metodo della servlet viene chiamato quando appena arriva una richiesta dal client?",
+        "risposta1": "Service()",
+        "risposta2": "Get()",
+        "risposta3": "Post()",
+        "corretta": "Service()",
+        "tag": [
+            "http",
+            "servlet & jsp"
+        ]
+    },
+    {
+        "domanda": "Quale codice può essere utilizzato per scrivere un cookie in una servlet?",
+        "risposta1": "response.addCookie(cookie)",
+        "risposta2": "request.addCookie(cookie)",
+        "risposta3": "header.addCookie(cookie)",
+        "corretta": "response.addCookie(cookie)",
+        "tag": [
+            "http",
+            "servlet & jsp"
+        ]
+    },
+    {
+        "domanda": "Quale codice recupera il nome del metodo HTTP in una servlet?",
+        "risposta1": "request.getMethod()",
+        "risposta2": "header.getMethod()",
+        "risposta3": "response.getMethod()",
+        "corretta": "request.getMethod()",
+        "tag": [
+            "http",
+            "servlet & jsp"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti modalità può essere utilizzata per tenere traccia delle richieste precedenti fatte dal client?",
+        "risposta1": "Tutte le precedenti",
+        "risposta2": "Usando i cookie",
+        "risposta3": "Usando i campi hidden dei form",
+        "corretta": "Tutte le precedenti",
+        "tag": [
+            "web",
+            "sviluppo"
+        ]
+    },
+    {
+        "domanda": "Quando il metodo service di una servlet viene invocato?",
+        "risposta1": "E' chiamato ogni volta che la servlet è invocata",
+        "risposta2": "E' chiamato quando viene creata la servlet per la prima volta",
+        "risposta3": "Entrambe le precedenti",
+        "corretta": "E' chiamato ogni volta che la servlet è invocata",
+        "tag": [
+            "servlet & jsp"
+        ]
+    },
+    {
+        "domanda": "JSP ci permette di includere:",
+        "risposta1": "Codice Java in un documento HTML",
+        "risposta2": "Codice Java in una servlet",
+        "risposta3": "Codice HTML in un documento Java",
+        "corretta": "Codice Java in un documento HTML",
+        "tag": [
+            "html",
+            "servlet & jsp"
+        ]
+    },
+    {
+        "domanda": "Quale codice può essere utilizzato per impostare il tipo di contenuto fornito in output da una servlet?",
+        "risposta1": "response.setContentType(type)",
+        "risposta2": "request.setContentType(type)",
+        "risposta3": "header.setContentType(type)",
+        "corretta": "response.setContentType(type)",
+        "tag": [
+            "servlet & jsp"
+        ]
+    },
+    {
+        "domanda": "Quale codice è utilizzato per aggiungere un header con un nome e un valore intero in una servlet?",
+        "risposta1": "response.addIntHeader(name, value)",
+        "risposta2": "request.addHeader(name, value)",
+        "risposta3": "header.addDateHeader(name, value)",
+        "corretta": "response.addIntHeader(name, value)",
+        "tag": [
+            "http",
+            "servlet & jsp"
+        ]
+    },
+    {
+        "domanda": "Quale codice viene utilizzato per ottenere i nomi degli attributi da una servlet?",
+        "risposta1": "request.getAttributeNames()",
+        "risposta2": "header.getAttributeNames()",
+        "risposta3": "response.getAttributeNames()",
+        "corretta": "request.getAttributeNames()",
+        "tag": [
+            "servlet & jsp"
+        ]
+    },
+    {
+        "domanda": "Quale codice può essere utilizzato per impostare il codice di stato di una servlet?",
+        "risposta1": "response.setStatus(statusCode)",
+        "risposta2": "request.setStatus(statusCode)",
+        "risposta3": "header.setStatus(statusCode)",
+        "corretta": "response.setStatus(statusCode)",
+        "tag": [
+            "servlet & jsp"
+        ]
+    },
+    {
+        "domanda": "Quale codice viene utilizzato per ottenere un oggetto sessione HTTP in una servlet?",
+        "risposta1": "request.getSession();",
+        "risposta2": "response.getSession();",
+        "risposta3": "new Session();",
+        "corretta": "request.getSession();",
+        "tag": [
+            "http",
+            "servlet & jsp"
+        ]
+    },
+    {
+        "domanda": "Come possiamo mandare i dati in un metodo GET?",
+        "risposta1": "Attraverso l'URL",
+        "risposta2": "Attraverso il body",
+        "risposta3": "Attraverso il payload",
+        "corretta": "Attraverso l'URL",
+        "tag": [
+            "http"
+        ]
+    }
+]

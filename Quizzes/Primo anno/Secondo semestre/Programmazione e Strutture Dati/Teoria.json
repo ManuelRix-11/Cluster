@@ -1,0 +1,986 @@
+[
+    {
+        "domanda": "Secondo le specifiche del corso, che cosa definisce rigorosamente un algoritmo?",
+        "risposta1": "Un programma scritto esclusivamente in linguaggio C che compila senza errori e avvisi.",
+        "risposta2": "Un insieme finito di istruzioni che, se eseguite ordinatamente, sono in grado di risolvere il problema di partenza trasformando i dati iniziali in dati finali.",
+        "risposta3": "Una sequenza infinita di passi logici volta all'ottimizzazione dell'uso della CPU.",
+        "risposta4": "Uno schema concettuale privo di dati di input che descrive l'interfaccia di un sistema.",
+        "corretta": "Un insieme finito di istruzioni che, se eseguite ordinatamente, sono in grado di risolvere il problema di partenza trasformando i dati iniziali in dati finali.",
+        "tag": [
+            "algoritmi"
+        ]
+    },
+    {
+        "domanda": "Quali sono le quattro fasi fondamentali dello sviluppo di un programma?",
+        "risposta1": "Scrittura -> Compilazione -> Esecuzione -> Stampa",
+        "risposta2": "Analisi -> Progettazione -> Codifica -> Verifica",
+        "risposta3": "Definizione -> Astrazione -> Testing -> Rilascio",
+        "risposta4": "Input -> Elaborazione -> Memoria -> Output",
+        "corretta": "Analisi -> Progettazione -> Codifica -> Verifica",
+        "tag": [
+            "algoritmi"
+        ]
+    },
+    {
+        "domanda": "In cosa consiste la fase di 'Analisi' nello sviluppo di un programma?",
+        "risposta1": "Nella scelta della strategia algoritmica (es. Selection Sort o Merge Sort).",
+        "risposta2": "Nella scrittura del codice sorgente nel linguaggio di programmazione scelto.",
+        "risposta3": "Nella definizione del problema, individuando chiaramente i dati iniziali (input), i dati intermedi (se necessari) e i dati finali (output).",
+        "risposta4": "Nell'esecuzione del programma con una suite di dati di test per scovare malfunzionamenti.",
+        "corretta": "Nella definizione del problema, individuando chiaramente i dati iniziali (input), i dati intermedi (se necessari) e i dati finali (output).",
+        "tag": [
+            "algoritmi"
+        ]
+    },
+    {
+        "domanda": "Come opera l'algoritmo di ordinamento Selection Sort su un array di n elementi per ordinarlo in modo crescente?",
+        "risposta1": "Effettua una visita totale delle posizioni dell'array e, ad ogni passo i (da 0 a n-2), individua l'elemento minimo nella sottosequenza rimanente e lo scambia con l'elemento in posizione i.",
+        "risposta2": "Divide l'array in due metà uguali, le ordina separatamente e le unisce.",
+        "risposta3": "Confronta elementi adiacenti e li scambia se sono nella posizione sbagliata, procedendo fino alla fine dell'array.",
+        "risposta4": "Inserisce ogni elemento in una tabella hash per ordinarlo in tempo costante.",
+        "corretta": "Effettua una visita totale delle posizioni dell'array e, ad ogni passo i (da 0 a n-2), individua l'elemento minimo nella sottosequenza rimanente e lo scambia con l'elemento in posizione i.",
+        "tag": [
+            "ordinamento",
+            "algoritmi"
+        ]
+    },
+    {
+        "domanda": "Quali sono le caratteristiche prestazionali del Selection Sort in termini di tempo nel caso peggiore, spazio ausiliario, stabilità e ordinamento in loco?",
+        "risposta1": "Tempo: O(n log n), Memoria: O(n), Stabile: Sì, In Loco: No.",
+        "risposta2": "Tempo: O(n^2), Memoria: O(1), Stabile: No, In Loco: Sì.",
+        "risposta3": "Tempo: O(n), Memoria: O(1), Stabile: Sì, In Loco: Sì.",
+        "risposta4": "Tempo: O(n^2), Memoria: O(n), Stabile: No, In Loco: No.",
+        "corretta": "Tempo: O(n^2), Memoria: O(1), Stabile: No, In Loco: Sì.",
+        "tag": [
+            "ordinamento",
+            "complessità"
+        ]
+    },
+    {
+        "domanda": "Perché il Selection Sort effettua il ciclo principale per l'indice i che va da 0 fino a n-2 (e non fino a n-1)?",
+        "risposta1": "Perché l'ultimo elemento dell'array non può mai essere letto dal linguaggio C.",
+        "risposta2": "Perché quando si è sistemato l'elemento in posizione n-2, l'unico elemento rimasto in posizione n-1 è necessariamente il maggiore (o uguale) e si trova già al posto giusto.",
+        "risposta3": "Per evitare un errore di segmentazione nell'accesso a a[0].",
+        "risposta4": "Perché l'algoritmo ordina gli elementi a coppie escludendo l'ultimo dispari.",
+        "corretta": "Perché quando si è sistemato l'elemento in posizione n-2, l'unico elemento rimasto in posizione n-1 è necessariamente il maggiore (o uguale) e si trova già al posto giusto.",
+        "tag": [
+            "ordinamento"
+        ]
+    },
+    {
+        "domanda": "Nel contesto del testing dei programmi, come viene definito l' 'Oracolo'?",
+        "risposta1": "Una funzione di libreria che genera numeri casuali per i test.",
+        "risposta2": "L'output atteso, ovvero quello che ci si aspetta che il programma produca in base alla specifica del problema.",
+        "risposta3": "Il debugger del linguaggio C che segnala gli errori di sintassi durante la compilazione.",
+        "risposta4": "L'insieme dei casi di test ridondanti che devono essere scartati.",
+        "corretta": "L'output atteso, ovvero quello che ci si aspetta che il programma produca in base alla specifica del problema.",
+        "tag": [
+            "testing",
+            "algoritmi"
+        ]
+    },
+    {
+        "domanda": "Che cos'è una 'Test suite' secondo le slide?",
+        "risposta1": "Il programma di installazione del compilatore C.",
+        "risposta2": "Un modulo di codice che verifica la presenza di cicli infiniti.",
+        "risposta3": "Un insieme di casi di test (test case) selezionati per verificare un programma evitando ridondanze.",
+        "risposta4": "La sequenza di comandi da digitare nella shell del sistema operativo.",
+        "corretta": "Un insieme di casi di test (test case) selezionati per verificare un programma evitando ridondanze.",
+        "tag": [
+            "testing"
+        ]
+    },
+    {
+        "domanda": "Nella scelta dei casi di test per l'ordinamento di un array di n elementi, quali classi di input occorre considerare per avere una buona copertura senza ridondanza?",
+        "risposta1": "Esclusivamente array di grandi dimensioni con valori reali casuali.",
+        "risposta2": "Caso generale con n > 1 (array non ordinato, array già ordinato crescente, array ordinato decrescente) e caso particolare con n = 1 (un solo elemento).",
+        "risposta3": "Solo matrici quadrate di interi positivi e negativi.",
+        "risposta4": "Solo array con n = 0 oppure con tutti gli elementi uguali a zero.",
+        "corretta": "Caso generale con n > 1 (array non ordinato, array già ordinato crescente, array ordinato decrescente) e caso particolare con n = 1 (un solo elemento).",
+        "tag": [
+            "ordinamento",
+            "testing"
+        ]
+    },
+    {
+        "domanda": "Come si verifica in linguaggio C se l'apertura di un file tramite la funzione `fopen(\"dati.txt\", \"r\")` è avvenuta con successo?",
+        "risposta1": "Controllando se il valore restituito da fopen è diverso da NULL.",
+        "risposta2": "Verificando se la funzione restituisce il numero intero 0.",
+        "risposta3": "Controllando se la variabile globale errno è uguale a 1.",
+        "risposta4": "Leggendo il primo carattere con fgetc e controllando se è EOF.",
+        "corretta": "Controllando se il valore restituito da fopen è diverso da NULL.",
+        "tag": [
+            "file"
+        ]
+    },
+    {
+        "domanda": "Quale modalità di apertura file in C bisogna indicare come secondo argomento di `fopen` per scrivere nuovi dati alla fine di un file esistente senza sovrascrivere il contenuto precedente?",
+        "risposta1": "\"r\" (read)",
+        "risposta2": "\"w\" (write)",
+        "risposta3": "\"a\" (append)",
+        "risposta4": "\"rw\" (read/write)",
+        "corretta": "\"a\" (append)",
+        "tag": [
+            "file"
+        ]
+    },
+    {
+        "domanda": "Cosa si intende per malfunzionamento durante la fase di verifica e testing?",
+        "risposta1": "La lentezza di esecuzione su un computer con poca memoria RAM.",
+        "risposta2": "Un comportamento del programma o un output prodotto diverso da quello atteso (oracolo).",
+        "risposta3": "L'impossibilità di aprire il codice sorgente con un editor di testo.",
+        "risposta4": "Un messaggio di warning di sintassi stampato dal compilatore.",
+        "corretta": "Un comportamento del programma o un output prodotto diverso da quello atteso (oracolo).",
+        "tag": [
+            "testing"
+        ]
+    },
+    {
+        "domanda": "Come si realizza il concetto di genericità (Pseudo-Generics) in linguaggio C per generalizzare un algoritmo di ordinamento?",
+        "risposta1": "Utilizzando i costrutti nativi `template <class T>` stabiliti dallo standard C99.",
+        "risposta2": "Creando un tipo generico `Item` (interfaccia) che rappresenti il dato e utilizzando puntatori a funzione per disaccoppiare le operazioni specifiche del tipo (come input, output e confronto).",
+        "risposta3": "Dichiarando tutti i dati all'interno di variabili di tipo `double` per ospitare qualsiasi formato.",
+        "risposta4": "Scrivendo il codice sorgente all'interno di file binari `.o` senza compilare.",
+        "corretta": "Creando un tipo generico `Item` (interfaccia) che rappresenti il dato e utilizzando puntatori a funzione per disaccoppiare le operazioni specifiche del tipo (come input, output e confronto).",
+        "tag": [
+            "ordinamento",
+            "memoria",
+            "algoritmi"
+        ]
+    },
+    {
+        "domanda": "Quale ruolo svolgono i puntatori a funzione (es. per il confronto tra due elementi) nella programmazione pseudo-generica in C?",
+        "risposta1": "Allocare automaticamente nuova memoria nello stack per le variabili generiche.",
+        "risposta2": "Consentire alle funzioni di libreria (es. ordinamento) di confrontare o manipolare i dati chiamando la funzione specifica del tipo reale, senza conoscere a priori la natura esatta del dato.",
+        "risposta3": "Impedire al preprocessore C di includere file di intestazione `.h` multipli.",
+        "risposta4": "Convertire automaticamente le stringhe in numeri interi ad alta precisione.",
+        "corretta": "Consentire alle funzioni di libreria (es. ordinamento) di confrontare o manipolare i dati chiamando la funzione specifica del tipo reale, senza conoscere a priori la natura esatta del dato.",
+        "tag": [
+            "ordinamento",
+            "memoria",
+            "algoritmi"
+        ]
+    },
+    {
+        "domanda": "Nella gestione modulare per i Pseudo-Generics, come vengono gestite le diverse varianti del tipo `Item` (es. interi, stringhe, strutture Studente)?",
+        "risposta1": "Si realizza `Item` in file `.c` separati (uno per variante) che implementano la stessa interfaccia `.h`, linkando ed eseguendo separatamente con `make` la variante desiderata.",
+        "risposta2": "Si inseriscono tutti i tipi in un unico enorme array globale nello stesso file sorgente.",
+        "risposta3": "Si utilizza un'istruzione `goto` per saltare da un tipo di dato all'altro a tempo di esecuzione.",
+        "risposta4": "Si costringe l'utente a riscrivere a mano la funzione di ordinamento ogni volta che cambia il tipo.",
+        "corretta": "Si realizza `Item` in file `.c` separati (uno per variante) che implementano la stessa interfaccia `.h`, linkando ed eseguendo separatamente con `make` la variante desiderata.",
+        "tag": [
+            "file"
+        ]
+    },
+    {
+        "domanda": "Perché l'uso di puntatori generici `void*` negli pseudo-generics in C richiede particolare cautela da parte del programmatore?",
+        "risposta1": "Perché i puntatori `void*` occupano 128 bit di memoria su qualsiasi architettura.",
+        "risposta2": "Perché viene a mancare il controllo statico dei tipi da parte del compilatore (type safety), rendendo necessari casting espliciti e aumentando il rischio di errori a runtime.",
+        "risposta3": "Perché la funzione `malloc` non può mai restituire un puntatore a `void*`.",
+        "risposta4": "Perché le librerie standard del C vietano l'uso di puntatori a void nelle strutture.",
+        "corretta": "Perché viene a mancare il controllo statico dei tipi da parte del compilatore (type safety), rendendo necessari casting espliciti e aumentando il rischio di errori a runtime.",
+        "tag": [
+            "memoria"
+        ]
+    },
+    {
+        "domanda": "Qual è una differenza fondamentale tra una lista concatenata e un array in termini di allocazione di memoria e flessibilità dimensionale?",
+        "risposta1": "L'array ha dimensione fissa e accessibile con indice, mentre la lista concatenata ha dimensione variabile e i suoi elementi sono allocati dinamicamente in memoria non necessariamente contigua.",
+        "risposta2": "La lista concatenata deve essere allocata interamente nello stack all'avvio, mentre l'array risiede sempre nell'heap.",
+        "risposta3": "Gli array permettono di memorizzare solo caratteri, mentre le liste ospitano solo valori interi.",
+        "risposta4": "La lista concatenata garantisce che tutti i nodi siano memorizzati in celle di RAM strettamente adiacenti.",
+        "corretta": "L'array ha dimensione fissa e accessibile con indice, mentre la lista concatenata ha dimensione variabile e i suoi elementi sono allocati dinamicamente in memoria non necessariamente contigua.",
+        "tag": [
+            "strutture dati",
+            "memoria"
+        ]
+    },
+    {
+        "domanda": "In termini di efficienza computazionale per l'accesso al generico i-esimo elemento, come si confrontano array e liste concatenate semplici?",
+        "risposta1": "L'array richiede tempo O(n) sequenziale, mentre la lista consente accesso diretto O(1).",
+        "risposta2": "L'array consente accesso diretto O(1) tramite indice, mentre nella lista occorre scandire sequenzialmente i nodi partendo dal primo record, richiedendo tempo O(n).",
+        "risposta3": "Entrambe le strutture garantiscono l'accesso in tempo costante O(1) se si conosce il valore cercato.",
+        "risposta4": "La lista richiede tempo O(log n) grazie alla ricerca binaria sui puntatori, mentre l'array richiede O(n).",
+        "corretta": "L'array consente accesso diretto O(1) tramite indice, mentre nella lista occorre scandire sequenzialmente i nodi partendo dal primo record, richiedendo tempo O(n).",
+        "tag": [
+            "complessità",
+            "strutture dati"
+        ]
+    },
+    {
+        "domanda": "In una lista concatenata semplice non vuota, cosa contiene il campo puntatore (next) dell'ultimo record della sequenza?",
+        "risposta1": "L'indirizzo di memoria del nodo di testa della lista.",
+        "risposta2": "Il valore costante NULL.",
+        "risposta3": "Il numero intero che rappresenta la lunghezza totale della lista.",
+        "risposta4": "L'indirizzo della funzione `free` per rilasciare la memoria.",
+        "corretta": "Il valore costante NULL.",
+        "tag": [
+            "strutture dati",
+            "memoria"
+        ]
+    },
+    {
+        "domanda": "Per aggiungere un nuovo nodo in testa a una lista concatenata semplice (conoscendo il puntatore alla testa), qual è la complessità temporale e l'operazione corretta sui puntatori?",
+        "risposta1": "Complessità O(1): si assegna all'ultimo nodo il puntatore al nuovo nodo e si sposta la testa.",
+        "risposta2": "Complessità O(1): il campo next del nuovo nodo viene fatto puntare all'attuale testa, e poi la testa viene aggiornata per puntare al nuovo nodo.",
+        "risposta3": "Complessità O(n): occorre scorrere tutta la lista per spostare gli elementi di una posizione in avanti.",
+        "risposta4": "Complessità O(log n): si esegue un ordinamento sui puntatori dei nodi esistenti.",
+        "corretta": "Complessità O(1): il campo next del nuovo nodo viene fatto puntare all'attuale testa, e poi la testa viene aggiornata per puntare al nuovo nodo.",
+        "tag": [
+            "complessità",
+            "testing",
+            "strutture dati"
+        ]
+    },
+    {
+        "domanda": "Quando si alloca dinamicamente memoria per un nuovo nodo di una lista in C tramite `malloc`, cosa accade nello spazio di memoria del sistema?",
+        "risposta1": "Viene allocato un blocco di memoria della dimensione richiesta nella regione Heap e `malloc` ne restituisce l'indirizzo iniziale (puntatore).",
+        "risposta2": "Viene riservato spazio permanente nello Stack del `main`, che non potrà mai essere deallocato.",
+        "risposta3": "Viene ricreata una copia dell'intero array globale del programma in memoria virtuale.",
+        "risposta4": "Il compilatore C sposta tutte le variabili locali per far spazio al nuovo record in testa al codice.",
+        "corretta": "Viene allocato un blocco di memoria della dimensione richiesta nella regione Heap e `malloc` ne restituisce l'indirizzo iniziale (puntatore).",
+        "tag": [
+            "strutture dati",
+            "memoria"
+        ]
+    },
+    {
+        "domanda": "Che cosa si intende per 'Lista Concatenata Circolare'?",
+        "risposta1": "Una lista in cui ogni nodo contiene due puntatori, uno al nodo precedente e uno al nodo successivo.",
+        "risposta2": "Una lista concatenata semplice in cui l'ultimo nodo, invece di contenere un puntatore a NULL, punta direttamente al primo record (testa) della sequenza.",
+        "risposta3": "Un array il cui ultimo elemento deve essere obbligatoriamente uguale a zero.",
+        "risposta4": "Una lista che si trova allocata nella memoria virtuale circolare del sistema operativo.",
+        "corretta": "Una lista concatenata semplice in cui l'ultimo nodo, invece di contenere un puntatore a NULL, punta direttamente al primo record (testa) della sequenza.",
+        "tag": [
+            "testing",
+            "strutture dati",
+            "memoria"
+        ]
+    },
+    {
+        "domanda": "Qual è il principale vantaggio di una Lista Doppiamente Concatenata rispetto a una Lista Concatenata Semplice?",
+        "risposta1": "Occupare esattamente la metà dello spazio di allocazione in memoria RAM.",
+        "risposta2": "La presenza del puntatore al nodo precedente (prev) oltre a quello successivo (next), che consente la visita bidirezionale e la cancellazione efficiente O(1) di un nodo conoscendone il puntatore.",
+        "risposta3": "La possibilità di effettuare ricerche binarie sui valori dei nodi in tempo O(log n).",
+        "risposta4": "La completa immunità da memory leak senza dover mai chiamare la funzione `free`.",
+        "corretta": "La presenza del puntatore al nodo precedente (prev) oltre a quello successivo (next), che consente la visita bidirezionale e la cancellazione efficiente O(1) di un nodo conoscendone il puntatore.",
+        "tag": [
+            "complessità",
+            "strutture dati",
+            "memoria"
+        ]
+    },
+    {
+        "domanda": "Quale politica logica di accesso agli elementi caratterizza il tipo astratto di dato (ADT) Stack (Pila)?",
+        "risposta1": "FIFO (First In, First Out): il primo elemento inserito è il primo ad essere rimosso.",
+        "risposta2": "LIFO (Last In, First Out): l'ultimo elemento inserito nella sequenza è il primo ad essere eliminato.",
+        "risposta3": "Accesso casuale: gli elementi vengono estratti in base a una chiave hash di priorità.",
+        "risposta4": "LILO (Last In, Last Out): l'ultimo elemento inserito non può mai essere rimosso prima degli altri.",
+        "corretta": "LIFO (Last In, First Out): l'ultimo elemento inserito nella sequenza è il primo ad essere eliminato.",
+        "tag": [
+            "strutture dati",
+            "adt"
+        ]
+    },
+    {
+        "domanda": "Quali sono le operazioni fondamentali definite nell'interfaccia di un ADT Stack e quale è il loro comportamento?",
+        "risposta1": "`push` (inserisce in cima), `pop` (rimuove dalla cima), `top` o `peek` (legge l'elemento in cima senza rimuoverlo), `isEmpty` (verifica se la pila è vuota).",
+        "risposta2": "`enqueue` (inserisce in coda), `dequeue` (estrae dalla testa), `first` (legge il primo elemento).",
+        "risposta3": "`insert` (inserisce in posizione ordinata), `delete` (cancella una chiave), `search` (cerca un elemento).",
+        "risposta4": "`open` (apre la pila), `read` (legge sequenzialmente), `close` (chiude la struttura).",
+        "corretta": "`push` (inserisce in cima), `pop` (rimuove dalla cima), `top` o `peek` (legge l'elemento in cima senza rimuoverlo), `isEmpty` (verifica se la pila è vuota).",
+        "tag": [
+            "strutture dati",
+            "adt"
+        ]
+    },
+    {
+        "domanda": "In un'implementazione dello Stack tramite array statica di dimensione N, con la variabile `top` inizializzata a -1 per indicare pila vuota, quando si verifica la condizione di Stack Overflow durante una `push`?",
+        "risposta1": "Quando si tenta di eseguire una push e la variabile `top` è uguale a 0.",
+        "risposta2": "Quando si tenta di eseguire una push su una pila in cui l'indice `top` ha raggiunto il valore `N - 1`, ovvero l'array è completamente pieno.",
+        "risposta3": "Quando si tenta di fare una pop su una pila che ha `top == -1`.",
+        "risposta4": "Quando si allocano più di 10 record nello stack delle chiamate ricorsive.",
+        "corretta": "Quando si tenta di eseguire una push su una pila in cui l'indice `top` ha raggiunto il valore `N - 1`, ovvero l'array è completamente pieno.",
+        "tag": [
+            "strutture dati"
+        ]
+    },
+    {
+        "domanda": "Quale esempio del mondo reale viene illustrato per spiegare visivamente il comportamento dell'ADT Stack?",
+        "risposta1": "Una coda di persone allo sportello di un ufficio postale.",
+        "risposta2": "Una pila di monete, in cui si può aggiungere una moneta solo in cima e prelevare solo la moneta che si trova più in alto.",
+        "risposta3": "Un treno merci composto da vagoni collegati tra loro da ganci.",
+        "risposta4": "Una rubrica telefonica ordinata alfabeticamente.",
+        "corretta": "Una pila di monete, in cui si può aggiungere una moneta solo in cima e prelevare solo la moneta che si trova più in alto.",
+        "tag": [
+            "strutture dati",
+            "adt"
+        ]
+    },
+    {
+        "domanda": "In quali applicazioni informatiche gioca un ruolo fondamentale la struttura dati Stack?",
+        "risposta1": "Nella gestione dello spooling di stampa e nello scheduling dei processi FIFO.",
+        "risposta2": "Nella gestione delle chiamate a funzione e del ritorno dei risultati (Call Stack / Record di attivazione), nell'interpretazione e valutazione di espressioni matematiche e nella navigazione tra le view delle app.",
+        "risposta3": "Nel partizionamento dell'hard disk e nella frammentazione dei file di log.",
+        "risposta4": "Nella ricerca binaria su vettori ordinati non ricorsiva.",
+        "corretta": "Nella gestione delle chiamate a funzione e del ritorno dei risultati (Call Stack / Record di attivazione), nell'interpretazione e valutazione di espressioni matematiche e nella navigazione tra le view delle app.",
+        "tag": [
+            "strutture dati",
+            "memoria"
+        ]
+    },
+    {
+        "domanda": "Come si concilia l'uso di 'Array Circolari' nella memorizzazione di strutture dati sequenziali per ottimizzare l'uso degli indici e dello spazio in array di dimensione fissa N?",
+        "risposta1": "Gli indici vengono incrementati utilizzando l'operatore aritmetico modulo N (es. `(indice + 1) % N`), permettendo di riutilizzare le celle iniziali rimaste vuote quando si supera l'estremo destro dell'array.",
+        "risposta2": "Si collegano fisicamente le celle dell'array saldando l'ultimo byte della memoria al primo byte di intestazione del programma.",
+        "risposta3": "Si utilizza un doppio ciclo `for` che rovescia l'array ogni volta che si raggiunge la metà degli elementi allocati.",
+        "risposta4": "Si sostituisce l'array con un albero binario in cui ogni foglia punta alla radice.",
+        "corretta": "Gli indici vengono incrementati utilizzando l'operatore aritmetico modulo N (es. `(indice + 1) % N`), permettendo di riutilizzare le celle iniziali rimaste vuote quando si supera l'estremo destro dell'array.",
+        "tag": [
+            "algoritmi",
+            "c"
+        ]
+    },
+    {
+        "domanda": "Perché in un array circolare di dimensione N usato per gestire una sequenza senza sovrascritture, si evita di riempire tutte le N celle oppure si ricorre a una variabile contatore ausiliaria?",
+        "risposta1": "Perché il compilatore C vieta di accedere all'elemento in posizione N-1 di un array modulare.",
+        "risposta2": "Per poter distinguere in modo non ambiguo la condizione di struttura completamente vuota dalla condizione di struttura completamente piena, che altrimenti coinciderebbero con la stessa posizione degli indici di testa e coda.",
+        "risposta3": "Perché un array circolare può ospitare per definizione solo un numero dispari di elementi.",
+        "risposta4": "Per lasciare sempre uno spazio libero destinato ad ospitare il carattere terminatore di stringa `\\0`.",
+        "corretta": "Per poter distinguere in modo non ambiguo la condizione di struttura completamente vuota dalla condizione di struttura completamente piena, che altrimenti coinciderebbero con la stessa posizione degli indici di testa e coda.",
+        "tag": [
+            "testing",
+            "strutture dati"
+        ]
+    },
+    {
+        "domanda": "Cosa accade precisamente nella memoria di sistema ogni volta che viene invocata una funzione, inclusa una chiamata ricorsiva?",
+        "risposta1": "Viene allocata dinamicamente nello Stack di sistema una struttura dati detta RECORD DI ATTIVAZIONE, che riserva memoria per i parametri passati e per le variabili locali di quella specifica istanza.",
+        "risposta2": "Il codice sorgente della funzione viene ricopiato sull'Hard Disk per evitare che venga modificato dal programma chiamante.",
+        "risposta3": "Viene cancellata la memoria dell'istanza precedente della funzione per far posto alla nuova esecuzione.",
+        "risposta4": "Viene allocato un array globale nel segmento Heap per memorizzare permanentemente i valori di ritorno.",
+        "corretta": "Viene allocata dinamicamente nello Stack di sistema una struttura dati detta RECORD DI ATTIVAZIONE, che riserva memoria per i parametri passati e per le variabili locali di quella specifica istanza.",
+        "tag": [
+            "ricorsione",
+            "strutture dati",
+            "memoria"
+        ]
+    },
+    {
+        "domanda": "Nel caso del calcolo ricorsivo del fattoriale di 3 (`fact(3)`), come si comporta lo stack dei record di attivazione al momento del ritorno dei risultati?",
+        "risposta1": "Tutti i record di attivazione vengono valutati simultaneamente in parallelo dalla CPU in un unico ciclo di clock.",
+        "risposta2": "Quando si raggiunge il caso base (`fact(1) = 1`), i record di attivazione vengono rimossi dallo stack in ordine LIFO e ciascuna chiamata restituisce all'istanza precedente (chiamante) il valore calcolato, fino al `main` che riceve 6.",
+        "risposta3": "Lo stack si svuota partendo dalla prima chiamata `fact(3)` prima che le chiamate successive abbiano terminato il calcolo.",
+        "risposta4": "Il valore finale 6 viene scritto in una variabile ambiente e lo stack viene abbandonato senza essere deallocato.",
+        "corretta": "Quando si raggiunge il caso base (`fact(1) = 1`), i record di attivazione vengono rimossi dallo stack in ordine LIFO e ciascuna chiamata restituisce all'istanza precedente (chiamante) il valore calcolato, fino al `main` che riceve 6.",
+        "tag": [
+            "ricorsione",
+            "strutture dati",
+            "memoria"
+        ]
+    },
+    {
+        "domanda": "Quali sono i due elementi indispensabili nella definizione di un algoritmo o di una funzione ricorsiva?",
+        "risposta1": "Un ciclo `while` globale e una variabile contatore statica di tipo float.",
+        "risposta2": "Il caso base (condizione di terminazione in cui il risultato è determinato senza ulteriori chiamate) e il passo ricorsivo (che riconduce il problema a un sottoproblema più piccolo, avvicinandosi al caso base).",
+        "risposta3": "L'istruzione `goto` per saltare alla testa della funzione e l'inclusione di `<math.h>`.",
+        "risposta4": "L'allocazione manuale nell'heap tramite `malloc` e la chiusura dei file di log.",
+        "corretta": "Il caso base (condizione di terminazione in cui il risultato è determinato senza ulteriori chiamate) e il passo ricorsivo (che riconduce il problema a un sottoproblema più piccolo, avvicinandosi al caso base).",
+        "tag": [
+            "ricorsione",
+            "algoritmi"
+        ]
+    },
+    {
+        "domanda": "Che cosa caratterizza specificamente la 'Ricorsione Tail' (ricorsione di coda)?",
+        "risposta1": "La chiamata ricorsiva è la prima istruzione eseguita nel blocco di codice della funzione.",
+        "risposta2": "La chiamata ricorsiva è l'assoluta ultima istruzione eseguita dalla funzione, per cui non vi è alcuna operazione in sospeso in attesa del ritorno del risultato dal passo ricorsivo.",
+        "risposta3": "La funzione accetta come argomento esclusivamente il puntatore alla fine (coda) di una lista o di un array.",
+        "risposta4": "La funzione ricorsiva restituisce sempre il valore NULL quando ha terminato l'elaborazione.",
+        "corretta": "La chiamata ricorsiva è l'assoluta ultima istruzione eseguita dalla funzione, per cui non vi è alcuna operazione in sospeso in attesa del ritorno del risultato dal passo ricorsivo.",
+        "tag": [
+            "ricorsione",
+            "strutture dati",
+            "algoritmi"
+        ]
+    },
+    {
+        "domanda": "Perché il calcolo del n-esimo numero di Fibonacci con la definizione ricorsiva pura (`Fn = Fn-1 + Fn-2`) risulta computazionalmente inefficiente se non ottimizzato?",
+        "risposta1": "Perché genera un albero di chiamate ricorsive di complessità esponenziale O(2^n), calcolando ripetutamente gli stessi sottoproblemi nei diversi rami dello stack.",
+        "risposta2": "Perché l'operatore di addizione tra numeri interi richiede tempo lineare O(n) nei processori moderni.",
+        "risposta3": "Perché la sequenza di Fibonacci è indefinita per numeri interi dispari maggiori di 5.",
+        "risposta4": "Perché il compilatore C va in errore di sintassi quando incontra due chiamate ricorsive sulla stessa riga di ritorno.",
+        "corretta": "Perché genera un albero di chiamate ricorsive di complessità esponenziale O(2^n), calcolando ripetutamente gli stessi sottoproblemi nei diversi rami dello stack.",
+        "tag": [
+            "complessità",
+            "ricorsione",
+            "strutture dati"
+        ]
+    },
+    {
+        "domanda": "Come si applica la ricorsione per verificare se una stringa è palindroma (es. 'radar', 'anilina') secondo le slide?",
+        "risposta1": "Si confronta il primo carattere con l'ultimo: se sono uguali, si chiama ricorsivamente la verifica sulla sottostringa interna (senza primo e ultimo carattere), terminando con vero quando la lunghezza è 0 o 1.",
+        "risposta2": "Si capovolge l'intera stringa in un array ausiliario allocato nell'heap e poi si esegue un confronto carattere per carattere in un ciclo `while`.",
+        "risposta3": "Si somma il codice ASCII di tutti i caratteri e si controlla se il totale è un numero pari.",
+        "risposta4": "Si invoca la funzione di libreria `strcmp` passando la stringa stessa due volte come parametro.",
+        "corretta": "Si confronta il primo carattere con l'ultimo: se sono uguali, si chiama ricorsivamente la verifica sulla sottostringa interna (senza primo e ultimo carattere), terminando con vero quando la lunghezza è 0 o 1.",
+        "tag": [
+            "ricorsione"
+        ]
+    },
+    {
+        "domanda": "Che cosa esprime rigorosamente la notazione O-grande (Big-O) nello studio della complessità computazionale di un algoritmo?",
+        "risposta1": "Il tempo di esecuzione esatto in millisecondi misurato con il cronometro del sistema operativo.",
+        "risposta2": "Un limite superiore asintotico al tasso di crescita delle operazioni (o della memoria) in funzione della dimensione dell'input n, per n che tende all'infinito.",
+        "risposta3": "Il limite inferiore assoluto di memoria RAM al di sotto del quale l'eseguibile va in crash.",
+        "risposta4": "La probabilità percentuale che il programma produca un malfunzionamento a runtime.",
+        "corretta": "Un limite superiore asintotico al tasso di crescita delle operazioni (o della memoria) in funzione della dimensione dell'input n, per n che tende all'infinito.",
+        "tag": [
+            "complessità",
+            "algoritmi"
+        ]
+    },
+    {
+        "domanda": "Come sono ordinate correttamente le seguenti classi di complessità computazionale dalla più efficiente (crescita più lenta per n grande) alla meno efficiente (crescita più rapida)?",
+        "risposta1": "O(n) < O(1) < O(log n) < O(n^2) < O(n log n) < O(2^n)",
+        "risposta2": "O(1) < O(log n) < O(n) < O(n log n) < O(n^2) < O(2^n)",
+        "risposta3": "O(2^n) < O(n^2) < O(n log n) < O(n) < O(log n) < O(1)",
+        "risposta4": "O(log n) < O(1) < O(n^2) < O(n) < O(2^n) < O(n log n)",
+        "corretta": "O(1) < O(log n) < O(n) < O(n log n) < O(n^2) < O(2^n)",
+        "tag": [
+            "complessità"
+        ]
+    },
+    {
+        "domanda": "Perché nell'analisi di un algoritmo si presta particolare attenzione alla valutazione del 'Caso Peggiore'?",
+        "risposta1": "Perché è l'unico caso che si verifica mai nei computer moderni.",
+        "risposta2": "Perché garantisce un limite di costo che non sarà mai superato per un input di quella dimensione, assicurando la robustezza del sistema.",
+        "risposta3": "Perché il caso medio non può essere calcolato nemmeno conoscendo la probabilità degli input.",
+        "risposta4": "Perché le specifiche di testing richiedono di scartare i casi migliori e medi dalla test suite.",
+        "corretta": "Perché garantisce un limite di costo che non sarà mai superato per un input di quella dimensione, assicurando la robustezza del sistema.",
+        "tag": [
+            "complessità",
+            "algoritmi"
+        ]
+    },
+    {
+        "domanda": "In un array di n elementi non ordinati, qual è il costo nel caso medio della ricerca sequenziale supponendo equiprobabilità di presenza dell'elemento cercato?",
+        "risposta1": "Si eseguono sempre esattamente n salti nell'array.",
+        "risposta2": "Si esegue in media un numero di confronti proporzionale a n/2, con una complessità asintotica pari a O(n).",
+        "risposta3": "La complessità si riduce magicamente a O(log n) grazie al calcolo delle probabilità.",
+        "risposta4": "Il tempo di esecuzione diventa costante O(1) se l'array si trova nella memoria cache.",
+        "corretta": "Si esegue in media un numero di confronti proporzionale a n/2, con una complessità asintotica pari a O(n).",
+        "tag": [
+            "complessità"
+        ]
+    },
+    {
+        "domanda": "Qual è il principio di funzionamento della Ricerca Binaria e su quale requisito fondamentale deve basarsi l'input?",
+        "risposta1": "Richiede che l'array sia già ORDINATO; confronta la chiave con l'elemento centrale (mediano) e dimezza ad ogni passo lo spazio di ricerca, ottenendo una complessità O(log n).",
+        "risposta2": "Funziona su qualsiasi array anche non ordinato, dividendo gli elementi in coppie pari e dispari con complessità O(n log n).",
+        "risposta3": "Si applica solo a liste concatenate circolari, confrontando il primo e l'ultimo elemento in tempo O(1).",
+        "risposta4": "Richiede un array con chiavi tutte uguali tra loro per completarsi in 3 iterazioni.",
+        "corretta": "Richiede che l'array sia già ORDINATO; confronta la chiave con l'elemento centrale (mediano) e dimezza ad ogni passo lo spazio di ricerca, ottenendo una complessità O(log n).",
+        "tag": [
+            "complessità"
+        ]
+    },
+    {
+        "domanda": "Quale tra le seguenti equazioni alle ricorrenze descrive correttamente il costo computazionale della Ricerca Binaria ricorsiva su un vettore di n elementi?",
+        "risposta1": "T(n) = 2 T(n/2) + O(n)",
+        "risposta2": "T(n) = T(n - 1) + O(n)",
+        "risposta3": "T(n) = T(n / 2) + O(1)",
+        "risposta4": "T(n) = n * T(n / 2) + O(log n)",
+        "corretta": "T(n) = T(n / 2) + O(1)",
+        "tag": [
+            "complessità",
+            "ricorsione"
+        ]
+    },
+    {
+        "domanda": "Come è definito ricorsivamente un albero e in particolare un Albero Binario?",
+        "risposta1": "Una struttura sequenziale bidirezionale di elementi allocati in celle contigue su disco.",
+        "risposta2": "Un insieme di nodi con una radice connessa a sottoinsiemi che sono a loro volta alberi; in un Albero Binario ogni nodo può avere al più due figli (sottoalbero sinistro e sottoalbero destro), oppure essere un albero vuoto o una sola foglia.",
+        "risposta3": "Un grafo ciclico non orientato in cui ogni vertice deve avere grado esatto pari a 3.",
+        "risposta4": "Una tabella di hash in cui ogni bucket punta a una lista circolare di massimo due elementi.",
+        "corretta": "Un insieme di nodi con una radice connessa a sottoinsiemi che sono a loro volta alberi; in un Albero Binario ogni nodo può avere al più due figli (sottoalbero sinistro e sottoalbero destro), oppure essere un albero vuoto o una sola foglia.",
+        "tag": [
+            "ricorsione",
+            "strutture dati"
+        ]
+    },
+    {
+        "domanda": "Come si definisce rigorosamente 'l'altezza' di un albero binario non vuoto secondo la convenzione delle slide?",
+        "risposta1": "Il numero totale dei nodi interni moltiplicato per 2.",
+        "risposta2": "Il numero di nodi foglia presenti al livello più basso dell'albero.",
+        "risposta3": "La lunghezza (numero di archi) del cammino più lungo dalla radice ad una foglia (oppure il livello massimo raggiunto dai suoi nodi, con la radice a livello 0).",
+        "risposta4": "Il diametro orizzontale dell'albero misurato contando il numero di sottoalberi vuoti.",
+        "corretta": "La lunghezza (numero di archi) del cammino più lungo dalla radice ad una foglia (oppure il livello massimo raggiunto dai suoi nodi, con la radice a livello 0).",
+        "tag": [
+            "strutture dati"
+        ]
+    },
+    {
+        "domanda": "In un albero binario, qual è il numero massimo di nodi che possono trovarsi ad un generico livello k (considerando la radice posta al livello 0)?",
+        "risposta1": "k + 1 nodi",
+        "risposta2": "2 * k nodi",
+        "risposta3": "2^k nodi",
+        "risposta4": "2^(k+1) - 1 nodi",
+        "corretta": "2^k nodi",
+        "tag": [
+            "strutture dati"
+        ]
+    },
+    {
+        "domanda": "Qual è l'ordine esatto di esame dei nodi nella visita in 'PRE-ORDINE' (anticipata) di un albero binario?",
+        "risposta1": "Sottoalbero sinistro -> Sottoalbero destro -> Radice",
+        "risposta2": "Radice -> Sottoalbero sinistro -> Sottoalbero destro",
+        "risposta3": "Sottoalbero sinistro -> Radice -> Sottoalbero destro",
+        "risposta4": "Radice -> Sottoalbero destro -> Sottoalbero sinistro",
+        "corretta": "Radice -> Sottoalbero sinistro -> Sottoalbero destro",
+        "tag": [
+            "strutture dati"
+        ]
+    },
+    {
+        "domanda": "Qual è l'ordine esatto di esame dei nodi nella visita 'SIMMETRICA' (in-ordine) di un albero binario?",
+        "risposta1": "Radice -> Sottoalbero sinistro -> Sottoalbero destro",
+        "risposta2": "Sottoalbero sinistro -> Sottoalbero destro -> Radice",
+        "risposta3": "Sottoalbero sinistro -> Radice -> Sottoalbero destro",
+        "risposta4": "Sottoalbero destro -> Radice -> Sottoalbero sinistro",
+        "corretta": "Sottoalbero sinistro -> Radice -> Sottoalbero destro",
+        "tag": [
+            "strutture dati"
+        ]
+    },
+    {
+        "domanda": "Qual è l'ordine esatto di esame dei nodi nella visita in 'POST-ORDINE' (differita) di un albero binario?",
+        "risposta1": "Sottoalbero sinistro -> Sottoalbero destro -> Radice",
+        "risposta2": "Radice -> Sottoalbero sinistro -> Sottoalbero destro",
+        "risposta3": "Sottoalbero sinistro -> Radice -> Sottoalbero destro",
+        "risposta4": "Radice -> Sottoalbero destro -> Sottoalbero sinistro",
+        "corretta": "Sottoalbero sinistro -> Sottoalbero destro -> Radice",
+        "tag": [
+            "strutture dati"
+        ]
+    },
+    {
+        "domanda": "Quale proprietà di ordinamento caratterizza l'ADT Binary Search Tree (BST - Albero Binario di Ricerca)?",
+        "risposta1": "Ogni nodo interno contiene una chiave uguale alla somma delle chiavi dei suoi due figli.",
+        "risposta2": "Per ogni nodo X, tutte le chiavi nel suo sottoalbero sinistro sono minori della chiave di X, e tutte le chiavi nel suo sottoalbero destro sono maggiori (o uguali) della chiave di X.",
+        "risposta3": "Tutte le foglie devono trovarsi rigorosamente all'ultimo livello della struttura e avere chiavi pari a zero.",
+        "risposta4": "Il sottoalbero sinistro deve sempre contenere il doppio dei nodi rispetto al sottoalbero destro.",
+        "corretta": "Per ogni nodo X, tutte le chiavi nel suo sottoalbero sinistro sono minori della chiave di X, e tutte le chiavi nel suo sottoalbero destro sono maggiori (o uguali) della chiave di X.",
+        "tag": [
+            "ordinamento",
+            "strutture dati",
+            "adt"
+        ]
+    },
+    {
+        "domanda": "Quale algoritmo di visita, se applicato a un Binary Search Tree (BST), permette di esaminare o stampare tutte le chiavi in ordine stabilmente CRESCENTE?",
+        "risposta1": "La visita in Pre-ordine.",
+        "risposta2": "La visita Simmetrica (In-ordine).",
+        "risposta3": "La visita in Post-ordine.",
+        "risposta4": "La visita per livelli partendo dalle foglie.",
+        "corretta": "La visita Simmetrica (In-ordine).",
+        "tag": [
+            "strutture dati",
+            "algoritmi"
+        ]
+    },
+    {
+        "domanda": "Qual è la complessità temporale asintotica per le operazioni di ricerca (`search`), inserimento (`insert`) e cancellazione (`delete`) in un BST di altezza h?",
+        "risposta1": "Sempre costante O(1) in qualsiasi condizione di bilanciamento.",
+        "risposta2": "O(h), che in un albero ben bilanciato corrisponde a O(log n), ma nel caso peggiore (albero degenerato in una lista sequenziale) può decadere a O(n).",
+        "risposta3": "Sempre O(n log n) per via della necessità di ricombinare i rami.",
+        "risposta4": "O(2^h) a causa della natura ricorsiva delle chiamate ai due sottoalberi.",
+        "corretta": "O(h), che in un albero ben bilanciato corrisponde a O(log n), ma nel caso peggiore (albero degenerato in una lista sequenziale) può decadere a O(n).",
+        "tag": [
+            "complessità",
+            "strutture dati"
+        ]
+    },
+    {
+        "domanda": "Nel caso della cancellazione (`delete`) da un BST di un nodo che possiede ENTRAMBI i figli (sottoalbero sinistro e destro non vuoti), quale procedura viene adottata per mantenere la proprietà del BST?",
+        "risposta1": "Si cancella semplicemente il nodo e si collegano i suoi due figli direttamente alla radice globale del BST.",
+        "risposta2": "Si sostituisce la chiave del nodo da cancellare con l'elemento massimo del suo sottoalbero sinistro (oppure alternativamente con il minimo del sottoalbero destro) e si chiama ricorsivamente la delete su quel nodo sostituto.",
+        "risposta3": "Si sposta l'intero sottoalbero destro come figlio sinistro della foglia più profonda del sottoalbero sinistro.",
+        "risposta4": "Si svuota l'intero albero e lo si ricostruisce da capo senza l'elemento rimosso.",
+        "corretta": "Si sostituisce la chiave del nodo da cancellare con l'elemento massimo del suo sottoalbero sinistro (oppure alternativamente con il minimo del sottoalbero destro) e si chiama ricorsivamente la delete su quel nodo sostituto.",
+        "tag": [
+            "ricorsione",
+            "strutture dati"
+        ]
+    },
+    {
+        "domanda": "Cosa accade alla struttura e all'efficienza di un Binary Search Tree (BST) inizialmente vuoto se si inserisce una sequenza di elementi già perfettamente ordinati (es. 1, 2, 3, 4, 5)?",
+        "risposta1": "Si ottiene automaticamente un albero perfettamente bilanciato con altezza logaritmica.",
+        "risposta2": "L'albero degenera in una struttura lineare simile a una lista concatenata che si sviluppa solo verso destra, con altezza h = n - 1 e tempo di ricerca O(n).",
+        "risposta3": "La funzione di inserimento va in errore di stack overflow al terzo elemento per proteggere la RAM.",
+        "risposta4": "Il BST inverte automaticamente l'ordine delle chiavi ponendo il numero 5 come radice globale.",
+        "corretta": "L'albero degenera in una struttura lineare simile a una lista concatenata che si sviluppa solo verso destra, con altezza h = n - 1 e tempo di ricerca O(n).",
+        "tag": [
+            "complessità",
+            "strutture dati"
+        ]
+    },
+    {
+        "domanda": "Quale potente paradigma algoritmico accomuna la progettazione di Merge Sort e Quicksort?",
+        "risposta1": "Greedy (Approccio goloso).",
+        "risposta2": "Divide et Impera (suddivisione in sottoproblemi, risoluzione ricorsiva e combinazione).",
+        "risposta3": "Backtracking con potatura dello spazio degli stati.",
+        "risposta4": "Programmazione Dinamica con tabelle di memoization in heap.",
+        "corretta": "Divide et Impera (suddivisione in sottoproblemi, risoluzione ricorsiva e combinazione).",
+        "tag": [
+            "ordinamento",
+            "ricorsione",
+            "algoritmi"
+        ]
+    },
+    {
+        "domanda": "Quali sono le complessità temporali del Merge Sort nei casi migliore, medio e peggiore per ordinare un vettore di n elementi?",
+        "risposta1": "Migliore: O(n), Medio: O(n^2), Peggiore: O(n^2).",
+        "risposta2": "Sempre O(n log n) in tutti i casi (migliore, medio e peggiore).",
+        "risposta3": "Migliore: O(log n), Medio: O(n log n), Peggiore: O(n^2).",
+        "risposta4": "Sempre O(n) se l'array viene allocato dinamicamente.",
+        "corretta": "Sempre O(n log n) in tutti i casi (migliore, medio e peggiore).",
+        "tag": [
+            "ordinamento",
+            "complessità"
+        ]
+    },
+    {
+        "domanda": "Perché il Merge Sort, pur essendo un algoritmo stabile e con complessità temporale ottima O(n log n), NON è classificato come ordinamento 'In Loco' (In-Place)?",
+        "risposta1": "Perché necessita di un array ausiliario di dimensione O(n) per effettuare la fase di combinazione (merge) delle sottosequenze ordinate.",
+        "risposta2": "Perché cancella e ricrea i file sorgente ad ogni chiamata ricorsiva.",
+        "risposta3": "Perché può essere eseguito solo su liste concatenate e mai su array numerici.",
+        "risposta4": "Perché utilizza variabili globali per scambiare gli indici del vettore.",
+        "corretta": "Perché necessita di un array ausiliario di dimensione O(n) per effettuare la fase di combinazione (merge) delle sottosequenze ordinate.",
+        "tag": [
+            "ordinamento",
+            "complessità",
+            "algoritmi"
+        ]
+    },
+    {
+        "domanda": "Nel Merge Sort, in cosa consiste la fase di combinazione (Merge) di due sottovettori ordinati `a1` di dimensione `n1` e `a2` di dimensione `n2` in un vettore `a`?",
+        "risposta1": "Nel sommare gli elementi adiacenti di a1 e a2 e dividerli per due per calcolare la media.",
+        "risposta2": "Nel confrontare iterativamente `a1[i]` e `a2[j]` inserendo il minore in `a` e incrementando l'indice corrispondente, per poi riversare in `a` tutti gli elementi rimasti al termine.",
+        "risposta3": "Nell'eseguire un Selection Sort sull'unione non ordinata di a1 e a2.",
+        "risposta4": "Nel concatenare a2 in coda ad a1 senza effettuare alcun confronto tra i singoli elementi.",
+        "corretta": "Nel confrontare iterativamente `a1[i]` e `a2[j]` inserendo il minore in `a` e incrementando l'indice corrispondente, per poi riversare in `a` tutti gli elementi rimasti al termine.",
+        "tag": [
+            "ordinamento"
+        ]
+    },
+    {
+        "domanda": "Qual è il ruolo cruciale dell'operazione di 'Partizionamento' (Partition) nell'algoritmo Quicksort?",
+        "risposta1": "Dividere l'array esattamente a metà contando solo il numero di celle totali.",
+        "risposta2": "Scegliere un elemento detto 'Pivot' e riorganizzare l'array in modo che tutti gli elementi minori o uguali al pivot si trovino a sinistra, e tutti gli elementi maggiori si trovino a destra del pivot.",
+        "risposta3": "Calcolare il massimo comun divisore di tutti gli elementi del vettore per trovare l'indice di separazione.",
+        "risposta4": "Allocare nello stack due nuovi vettori di dimensione N per separare i numeri pari dai numeri dispodi.",
+        "corretta": "Scegliere un elemento detto 'Pivot' e riorganizzare l'array in modo che tutti gli elementi minori o uguali al pivot si trovino a sinistra, e tutti gli elementi maggiori si trovino a destra del pivot.",
+        "tag": [
+            "ordinamento",
+            "algoritmi"
+        ]
+    },
+    {
+        "domanda": "Qual è la complessità temporale del Quicksort nel caso medio e cosa accade nel suo 'Caso Peggiore'?",
+        "risposta1": "Caso medio: O(n); Caso peggiore: O(n log n) quando l'array è già ordinato.",
+        "risposta2": "Caso medio: O(n log n); Caso peggiore: degrada a O(n^2), che si verifica quando ad ogni passo il pivot scelto è l'elemento minimo o massimo della sottosequenza (es. array già ordinato o ordinato al contrario con scelta del primo elemento come pivot).",
+        "risposta3": "Caso medio: O(n^2); Caso peggiore: O(2^n) su array che contengono solo numeri negativi.",
+        "risposta4": "Caso medio e peggiore sono sempre pari a O(n log n) grazie al partizionamento in loco.",
+        "corretta": "Caso medio: O(n log n); Caso peggiore: degrada a O(n^2), che si verifica quando ad ogni passo il pivot scelto è l'elemento minimo o massimo della sottosequenza (es. array già ordinato o ordinato al contrario con scelta del primo elemento come pivot).",
+        "tag": [
+            "ordinamento",
+            "complessità"
+        ]
+    },
+    {
+        "domanda": "Perché il Quicksort è largamente utilizzato nella pratica ed è classificato come algoritmo 'In Loco' (In-Place), a differenza del Merge Sort?",
+        "risposta1": "Perché non effettua alcuna chiamata ricorsiva durante l'ordinamento.",
+        "risposta2": "Perché il partizionamento e gli scambi avvengono direttamente all'interno dell'array di input, richiedendo solo uno spazio di memoria ausiliario O(log n) o O(n) dovuto esclusivamente alla gestione dello stack della ricorsione, senza allocare array di fusione.",
+        "risposta3": "Perché la sua complessità nel caso peggiore è matematicamente inferiore a quella del Merge Sort.",
+        "risposta4": "Perché garantisce sempre la stabilità delle posizioni per gli elementi con chiave uguale.",
+        "corretta": "Perché il partizionamento e gli scambi avvengono direttamente all'interno dell'array di input, richiedendo solo uno spazio di memoria ausiliario O(log n) o O(n) dovuto esclusivamente alla gestione dello stack della ricorsione, senza allocare array di fusione.",
+        "tag": [
+            "ordinamento",
+            "complessità",
+            "ricorsione"
+        ]
+    },
+    {
+        "domanda": "Che cos'è una Tabella Hash secondo le slide del corso e qual è il suo scopo principale?",
+        "risposta1": "Un albero binario strettamente bilanciato usato per ordinare file di testo su disco.",
+        "risposta2": "Una struttura dati usata per mettere in corrispondenza una data chiave con un dato valore (array associativo), con l'obiettivo di fornire operazioni di ricerca, inserimento e cancellazione in tempo atteso costante O(1).",
+        "risposta3": "Un array sequenziale il cui contenuto è crittografato tramite algoritmi di sicurezza per impedire accessi non autorizzati.",
+        "risposta4": "Una lista concatenata circolare in cui ogni nodo contiene una funzione ricorsiva.",
+        "corretta": "Una struttura dati usata per mettere in corrispondenza una data chiave con un dato valore (array associativo), con l'obiettivo di fornire operazioni di ricerca, inserimento e cancellazione in tempo atteso costante O(1).",
+        "tag": [
+            "complessità",
+            "strutture dati"
+        ]
+    },
+    {
+        "domanda": "Cosa si intende per 'Collisione' all'interno di una Tabella Hash di dimensione m dotata di funzione di hash `h(k)`?",
+        "risposta1": "L'inserimento di una chiave di tipo stringa in una tabella progettata per ospitare solo numeri interi.",
+        "risposta2": "Il fenomeno inevitabile per cui due chiavi distinte k1 e k2 (con `k1 != k2`) vengono mappate dalla funzione di hash nella stessa identica posizione dell'array, ossia `h(k1) == h(k2)`.",
+        "risposta3": "L'esaurimento della memoria Stack durante una ricerca ricorsiva nella tabella.",
+        "risposta4": "Il crash dell'applicazione dovuto a un indice di array negativo restituito dalla funzione `malloc`.",
+        "corretta": "Il fenomeno inevitabile per cui due chiavi distinte k1 e k2 (con `k1 != k2`) vengono mappate dalla funzione di hash nella stessa identica posizione dell'array, ossia `h(k1) == h(k2)`.",
+        "tag": [
+            "strutture dati"
+        ]
+    },
+    {
+        "domanda": "Come funziona il metodo di risoluzione delle collisioni per 'Concatenazione' (Chaining)?",
+        "risposta1": "Ogni cella dell'array della tabella hash contiene il puntatore alla testa di una lista concatenata nella quale vengono inseriti tutti gli elementi che condividono quello stesso valore di hash.",
+        "risposta2": "Se la cella calcolata è già occupata, la tabella hash incrementa l'indice di 1 per cercare la successiva cella vuota nell'array.",
+        "risposta3": "Le collisioni vengono eliminate raddoppiando immediatamente la dimensione del file `.c` di implementazione.",
+        "risposta4": "I dati in collisione vengono scartati e non memorizzati, restituendo un messaggio di avviso all'oracolo.",
+        "corretta": "Ogni cella dell'array della tabella hash contiene il puntatore alla testa di una lista concatenata nella quale vengono inseriti tutti gli elementi che condividono quello stesso valore di hash.",
+        "tag": [
+            "testing",
+            "strutture dati",
+            "memoria"
+        ]
+    },
+    {
+        "domanda": "Che cosa caratterizza la tecnica di risoluzione delle collisioni per 'Indirizzamento Aperto' (Open Addressing)?",
+        "risposta1": "I dati vengono salvati su un server di rete aperto accessibile tramite URL.",
+        "risposta2": "Tutti gli elementi sono memorizzati direttamente all'interno dell'array della tabella hash; se avviene una collisione, si cerca una cella alternativa libera scandendo l'array secondo una sequenza di ispezione prestabilita (es. lineare o quadratica).",
+        "risposta3": "Ogni cella della tabella ospita un sottoalbero binario di ricerca (BST) con i propri puntatori.",
+        "risposta4": "La tabella non ha una dimensione massima definita ma cresce all'infinito nell'heap ad ogni singola `push`.",
+        "corretta": "Tutti gli elementi sono memorizzati direttamente all'interno dell'array della tabella hash; se avviene una collisione, si cerca una cella alternativa libera scandendo l'array secondo una sequenza di ispezione prestabilita (es. lineare o quadratica).",
+        "tag": [
+            "strutture dati"
+        ]
+    },
+    {
+        "domanda": "Come si definisce e che significato ha il 'Fattore di Carico' (Load Factor, denotato con alpha) di una tabella hash con array di dimensione m in cui sono memorizzati n elementi?",
+        "risposta1": "alpha = m / n, che rappresenta l'altezza del sottoalbero di ricerca più lungo.",
+        "risposta2": "alpha = n / m, ovvero il rapporto tra il numero totale di chiavi memorizzate e il numero totale di celle della tabella (indicando il numero medio di elementi per cella nel caso del Chaining).",
+        "risposta3": "alpha = n * m, che indica la quantità di memoria virtuale espressa in byte.",
+        "risposta4": "alpha = log2(m) - n, che rappresenta il tempo residuo prima dello stack overflow.",
+        "corretta": "alpha = n / m, ovvero il rapporto tra il numero totale di chiavi memorizzate e il numero totale di celle della tabella (indicando il numero medio di elementi per cella nel caso del Chaining).",
+        "tag": [
+            "strutture dati"
+        ]
+    },
+    {
+        "domanda": "In un albero autobilanciante (es. AVL) menzionato, come è definito il 'Fattore di Bilanciamento' (o Delta di bilanciamento) di un nodo e quali sono gli unici valori ammessi in una condizione di equilibrio?",
+        "risposta1": "È la somma delle chiavi del sottoalbero sinistro meno quelle del destro; valori ammessi: da -10 a +10.",
+        "risposta2": "È la differenza di altezza tra il sottoalbero sinistro e il sottoalbero destro di quel nodo; in un albero bilanciato i valori ammessi per ogni nodo sono esclusivamente -1, 0 e +1.",
+        "risposta3": "È il numero di puntatori a NULL presenti nelle foglie; valori ammessi: solo 0 e 2.",
+        "risposta4": "È il rapporto tra la memoria Heap utilizzata e la memoria Stack; valori ammessi: tra 0.0 e 1.0.",
+        "corretta": "È la differenza di altezza tra il sottoalbero sinistro e il sottoalbero destro di quel nodo; in un albero bilanciato i valori ammessi per ogni nodo sono esclusivamente -1, 0 e +1.",
+        "tag": [
+            "strutture dati"
+        ]
+    },
+    {
+        "domanda": "Sul ribilanciamento degli alberi AVL, cos'è il 'Nodo Critico' e come si interviene per ripristinare il bilanciamento preservando l'ordinamento del BST?",
+        "risposta1": "È il nodo con la chiave massima globale; si interviene cancellandolo con la funzione `free`.",
+        "risposta2": "È il nodo più profondo sul percorso che va dalla radice al nodo inserito/rimosso il cui fattore di bilanciamento assume valore +2 o -2; si interviene applicando operazioni locali di Rotazione Semplice o Rotazione Doppia sui puntatori.",
+        "risposta3": "È la radice globale dell'albero quando l'altezza h supera il valore 100; si interviene ricompilando il sorgente `.c`.",
+        "risposta4": "È qualsiasi nodo foglia che non possiede un puntatore al genitore; si interviene trasformando il BST in una tabella hash.",
+        "corretta": "È il nodo più profondo sul percorso che va dalla radice al nodo inserito/rimosso il cui fattore di bilanciamento assume valore +2 o -2; si interviene applicando operazioni locali di Rotazione Semplice o Rotazione Doppia sui puntatori.",
+        "tag": [
+            "ordinamento",
+            "strutture dati",
+            "memoria"
+        ]
+    },
+    {
+        "domanda": "Secondo lo schema di ribilanciamento con rotazioni illustrato, in quali due casi di sbilanciamento rispetto al nodo critico si applica una 'Rotazione Semplice'?",
+        "risposta1": "In caso di inserimento nel sottoalbero destro del figlio sinistro oppure nel sottoalbero sinistro del figlio destro del nodo critico.",
+        "risposta2": "In caso di inserimento nel sottoalbero sinistro del figlio sinistro oppure nel sottoalbero destro del figlio destro del nodo critico.",
+        "risposta3": "Quando il BST contiene un numero dispari di nodi totali e si cancella la radice.",
+        "risposta4": "Solo quando si esegue una visita in post-ordine su un albero circolare.",
+        "corretta": "In caso di inserimento nel sottoalbero sinistro del figlio sinistro oppure nel sottoalbero destro del figlio destro del nodo critico.",
+        "tag": [
+            "strutture dati"
+        ]
+    },
+    {
+        "domanda": "Quale proprietà strutturale e di ordinamento caratterizza la struttura dati 'Heap Binario' (es. Min-Heap o Max-Heap) introdotta nelle estensioni avanzate sugli alberi?",
+        "risposta1": "È una lista doppiamente concatenata in cui gli elementi sono ordinati in modo strettamente decrescente dal primo all'ultimo nodo.",
+        "risposta2": "È un albero binario quasi completo (riempito per livelli da sinistra a destra) in cui, per un Min-Heap, la chiave di ogni nodo è sempre minore o uguale alla chiave dei suoi figli (nel Max-Heap è maggiore o uguale), garantendo che l'estremo (minimo o massimo) sia sempre nella radice.",
+        "risposta3": "È un Binary Search Tree (BST) in cui tutte le chiavi nel sottoalbero sinistro sono rigorosamente maggiori di quelle nel sottoalbero destro.",
+        "risposta4": "È un array circolare il cui indice di testa viene incrementato solo tramite la funzione `malloc`.",
+        "corretta": "È un albero binario quasi completo (riempito per livelli da sinistra a destra) in cui, per un Min-Heap, la chiave di ogni nodo è sempre minore o uguale alla chiave dei suoi figli (nel Max-Heap è maggiore o uguale), garantendo che l'estremo (minimo o massimo) sia sempre nella radice.",
+        "tag": [
+            "ordinamento",
+            "strutture dati"
+        ]
+    },
+    {
+        "domanda": "Sfruttando la proprietà di albero quasi completo, come viene solitamente memorizzato un Heap Binario in un array A di n elementi e quali sono le relazioni tra gli indici (con radice in indice 0)?",
+        "risposta1": "Il figlio sinistro di un nodo in posizione `i` si trova all'indice `i + 1`, il figlio destro all'indice `i + 2` e il genitore all'indice `i - 1`.",
+        "risposta2": "Il figlio sinistro si trova all'indice `2*i + 1`, il figlio destro all'indice `2*i + 2` e il genitore all'indice `floor((i - 1) / 2)`, permettendo di muoversi nell'albero senza bisogno di puntatori espliciti.",
+        "risposta3": "Gli elementi vengono disposti nell'array in ordine casuale e indicizzati tramite una seconda tabella hash ad indirizzamento aperto.",
+        "risposta4": "Il figlio sinistro si trova all'indice `i^2`, il destro all'indice `i^2 + 1` e l'array deve essere ridimensionato ad ogni lettura.",
+        "corretta": "Il figlio sinistro si trova all'indice `2*i + 1`, il figlio destro all'indice `2*i + 2` e il genitore all'indice `floor((i - 1) / 2)`, permettendo di muoversi nell'albero senza bisogno di puntatori espliciti.",
+        "tag": [
+            "strutture dati",
+            "memoria"
+        ]
+    },
+    {
+        "domanda": "Nella programmazione ricorsiva, quale delle seguenti strutture dati è tipicamente gestita in modo naturale tramite ricorsione?",
+        "risposta1": "Tabella hash",
+        "risposta2": "Array",
+        "risposta3": "Lista linkata",
+        "risposta4": "Coda",
+        "corretta": "Lista linkata",
+        "tag": [
+            "ricorsione",
+            "strutture dati"
+        ]
+    },
+    {
+        "domanda": "Quale dei seguenti algoritmi ricorsivi presenta una complessità esponenziale a causa delle numerose chiamate ricorsive che effettua?",
+        "risposta1": "Ricerca binaria",
+        "risposta2": "Successione di Fibonacci",
+        "risposta3": "Calcolo del fattoriale",
+        "risposta4": "QuickSort",
+        "corretta": "Successione di Fibonacci",
+        "tag": [
+            "complessità",
+            "ricorsione",
+            "algoritmi"
+        ]
+    },
+    {
+        "domanda": "Quale delle seguenti strutture dati è indicata per implementare una politica di gestione di tipo FIFO (First-In, First-Out)?",
+        "risposta1": "Pila (Stack)",
+        "risposta2": "Coda (Queue)",
+        "risposta3": "Albero binario di ricerca",
+        "risposta4": "Tabella Hash",
+        "corretta": "Coda (Queue)",
+        "tag": [
+            "strutture dati"
+        ]
+    },
+    {
+        "domanda": "Qual è la complessità temporale nel caso peggiore del Selection Sort?",
+        "risposta1": "O(n)",
+        "risposta2": "O(n log n)",
+        "risposta3": "O(n^2)",
+        "risposta4": "O(log n)",
+        "corretta": "O(n^2)",
+        "tag": [
+            "ordinamento",
+            "complessità"
+        ]
+    },
+    {
+        "domanda": "In un albero binario di ricerca (BST), che proprietà deve soddisfare ogni nodo per garantire la correttezza della struttura?",
+        "risposta1": "Il sottoalbero sinistro deve contenere solo chiavi minori della radice e quello destro solo chiavi maggiori.",
+        "risposta2": "Il numero di nodi del sottoalbero sinistro deve essere uguale a quello del destro.",
+        "risposta3": "La radice deve contenere sempre il valore massimo dell'albero.",
+        "risposta4": "Ogni nodo può avere al massimo un figlio.",
+        "corretta": "Il sottoalbero sinistro deve contenere solo chiavi minori della radice e quello destro solo chiavi maggiori.",
+        "tag": [
+            "strutture dati",
+            "algoritmi"
+        ]
+    },
+    {
+        "domanda": "Cosa accade quando si tenta di inserire un elemento in una tabella Hash utilizzando una funzione di hash che genera lo stesso indice per due chiavi diverse?",
+        "risposta1": "La tabella si ridimensiona automaticamente.",
+        "risposta2": "Si verifica una collisione, che deve essere gestita tramite tecniche come il chaining o l'open addressing.",
+        "risposta3": "L'elemento viene scartato automaticamente.",
+        "risposta4": "Il programma termina per errore di segmentazione.",
+        "corretta": "Si verifica una collisione, che deve essere gestita tramite tecniche come il chaining o l'open addressing.",
+        "tag": [
+            "strutture dati"
+        ]
+    },
+    {
+        "domanda": "Qual è la complessità temporale nel caso migliore dell'algoritmo QuickSort?",
+        "risposta1": "O(n)",
+        "risposta2": "O(n log n)",
+        "risposta3": "O(n^2)",
+        "risposta4": "O(log n)",
+        "corretta": "O(n log n)",
+        "tag": [
+            "ordinamento",
+            "complessità",
+            "algoritmi"
+        ]
+    },
+    {
+        "domanda": "In C, cosa restituisce la funzione 'malloc' se non è possibile allocare il blocco di memoria richiesto?",
+        "risposta1": "Un puntatore all'inizio dell'heap",
+        "risposta2": "Un puntatore a una locazione di memoria casuale",
+        "risposta3": "NULL",
+        "risposta4": "Termina l'esecuzione del programma con un errore",
+        "corretta": "NULL",
+        "tag": [
+            "memoria"
+        ]
+    },
+    {
+        "domanda": "Quale tra i seguenti algoritmi di ordinamento si basa sulla strategia 'Divide et Impera'?",
+        "risposta1": "Selection Sort",
+        "risposta2": "Insertion Sort",
+        "risposta3": "Merge Sort",
+        "risposta4": "Bubble Sort",
+        "corretta": "Merge Sort",
+        "tag": [
+            "ordinamento",
+            "ricorsione",
+            "algoritmi"
+        ]
+    },
+    {
+        "domanda": "Data una lista linkata, qual è la complessità per accedere all'elemento in posizione i-esima?",
+        "risposta1": "O(1)",
+        "risposta2": "O(log n)",
+        "risposta3": "O(n)",
+        "risposta4": "O(n^2)",
+        "corretta": "O(n)",
+        "tag": [
+            "complessità",
+            "strutture dati"
+        ]
+    },
+    {
+        "domanda": "Qual è la funzione principale del 'puntatore a testa' (head) in una lista linkata?",
+        "risposta1": "Puntare all'ultimo elemento della lista.",
+        "risposta2": "Memorizzare il numero totale di elementi nella lista.",
+        "risposta3": "Puntare al primo elemento della lista per permetterne l'accesso e la manipolazione.",
+        "risposta4": "Gestire la memoria allocata per l'intera struttura.",
+        "corretta": "Puntare al primo elemento della lista per permetterne l'accesso e la manipolazione.",
+        "tag": [
+            "testing",
+            "strutture dati",
+            "memoria"
+        ]
+    },
+    {
+        "domanda": "In un array, qual è la complessità temporale per l'accesso a un elemento tramite il suo indice?",
+        "risposta1": "O(1)",
+        "risposta2": "O(log n)",
+        "risposta3": "O(n)",
+        "risposta4": "O(n^2)",
+        "corretta": "O(1)",
+        "tag": [
+            "complessità"
+        ]
+    },
+    {
+        "domanda": "Quale tra le seguenti è una caratteristica distintiva di una 'coda' (queue) rispetto a una 'pila' (stack)?",
+        "risposta1": "La coda segue una politica LIFO (Last-In, First-Out).",
+        "risposta2": "La coda segue una politica FIFO (First-In, First-Out).",
+        "risposta3": "La coda permette l'inserimento solo in cima.",
+        "risposta4": "La coda non richiede la gestione della memoria dinamica.",
+        "corretta": "La coda segue una politica FIFO (First-In, First-Out).",
+        "tag": [
+            "strutture dati"
+        ]
+    }
+]

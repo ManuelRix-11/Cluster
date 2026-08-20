@@ -1,0 +1,193 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.instructions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.icon {
+  font-size: 1.2rem;
+}
+
+.graphCard {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-radius: 10px;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.graphHeader {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #c084fc;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.tracerTableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 12px;
+}
+
+.tracerTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tracerTable th {
+  padding: 10px 12px;
+  font-size: 0.86rem;
+  color: var(--muted);
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tracerTable td {
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stepNumCol {
+  width: 60px;
+  font-family: 'Fira Code', monospace;
+  font-weight: 700;
+  color: #a855f7;
+  text-align: center !important;
+}
+
+.select {
+  width: 100%;
+  max-width: 240px;
+  padding: 8px 12px;
+  background: #161828;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  color: #fff;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.select option {
+  background-color: #161828;
+  color: #ffffff;
+  padding: 8px 12px;
+}
+
+.select:focus {
+  border-color: var(--accent);
+}
+
+.actionToggle {
+  display: flex;
+  gap: 8px;
+}
+
+.actionBtn {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--muted);
+}
+
+.actionAccept:hover {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.actionReject:hover {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.actionActiveAccept {
+  background: #10b981 !important;
+  color: #fff !important;
+  border-color: #10b981 !important;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+.actionActiveReject {
+  background: #ef4444 !important;
+  color: #fff !important;
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+}
+
+.costRow {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 12px 16px;
+}
+
+.costLabel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.92rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.costInput {
+  width: 100px;
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: #fff;
+  font-family: 'Fira Code', monospace;
+  font-weight: 700;
+  font-size: 1rem;
+  outline: none;
+}
+
+.costInput:focus {
+  border-color: var(--accent);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.progress {
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+.progress strong {
+  color: #fff;
+}

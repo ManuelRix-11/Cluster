@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { renderMarkdown, renderMarkdownInline } from '../utils/markdown';
 import styles from './Result.module.css';
+import { getTags } from '../utils/tags';
 
 export function Result({ questions, answers, quizName, onHome }) {
   const tot = questions.length;
@@ -29,6 +31,22 @@ export function Result({ questions, answers, quizName, onHome }) {
       const oggi = new Date().toISOString().slice(0, 10);
       const csvLine = `${oggi},"${quizName}",${tot},${nCorrette},${nSimili},${nSbagliate},${nSaltate},${punteggio30Str},${pct}\n`;
       window.electronAPI.writeStats(csvLine).catch(console.error);
+
+      // ponytail: traccia risultati per tag
+      const tagEvents = [];
+      questions.forEach((q, idx) => {
+        const qTags = getTags(q);
+        if (qTags.length > 0) {
+          const ans = answers[idx];
+          const isOk = ans && (ans.esito === 'corretta' || ans.esito === 'simile');
+          qTags.forEach(t => {
+            tagEvents.push({ tag: String(t).trim().toLowerCase(), ok: Boolean(isOk) });
+          });
+        }
+      });
+      if (tagEvents.length > 0 && window.electronAPI.recordTagStats) {
+        window.electronAPI.recordTagStats(tagEvents).catch(console.error);
+      }
     }
     // Animate bar
     requestAnimationFrame(() => requestAnimationFrame(() => setBarWidth(pct)));
@@ -64,7 +82,10 @@ export function Result({ questions, answers, quizName, onHome }) {
               <div key={i} className={`${styles.row} ${styles.saltata}`}>
                 <div className={styles.num}>{i + 1}</div>
                 <div className={styles.content}>
-                  <div className={styles.domanda}>{questions[i].domanda}</div>
+                  <div 
+                    className={styles.domanda} 
+                    dangerouslySetInnerHTML={{ __html: renderMarkdown(questions[i].domanda || '') }} 
+                  />
                   <div className={styles.risposta}>⏭️ <span className={styles.label}>Non risposta</span></div>
                 </div>
               </div>
@@ -80,11 +101,14 @@ export function Result({ questions, answers, quizName, onHome }) {
             <div key={i} className={`${styles.row} ${rowClass}`}>
               <div className={styles.num}>{i + 1}</div>
               <div className={styles.content}>
-                <div className={styles.domanda}>{item.domanda}</div>
+                <div 
+                  className={styles.domanda} 
+                  dangerouslySetInnerHTML={{ __html: renderMarkdown(item.domanda || '') }} 
+                />
                 <div className={styles.risposta}>
-                  {icona} <span className={styles.label}>La tua risposta:</span> <strong>{item.rispostaUtente}</strong>
+                  {icona} <span className={styles.label}>La tua risposta:</span> <strong dangerouslySetInnerHTML={{ __html: renderMarkdownInline(item.rispostaUtente || '') }} />
                   {!isOk && (
-                    <span className={styles.rispostaCorretta}> — Corretta: <strong>{item.rispostaCorretta}</strong></span>
+                    <span className={styles.rispostaCorretta}> — Corretta: <strong dangerouslySetInnerHTML={{ __html: renderMarkdownInline(item.rispostaCorretta || '') }} /></span>
                   )}
                 </div>
               </div>

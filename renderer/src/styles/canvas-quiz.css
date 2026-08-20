@@ -6,9 +6,9 @@
 .cq-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.45rem;
   width: 100%;
-  margin-top: 0.75rem;
+  margin-top: 0.2rem;
 }
 
 /* ── Canvas area ─────────────────────────────────────────────────────────── */
@@ -16,10 +16,10 @@
   width: 100%;
   background: rgba(10, 15, 30, 0.75);
   border: 1.5px solid rgba(99, 102, 241, 0.35);
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
   backdrop-filter: blur(12px);
-  box-shadow: 0 4px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04);
 }
 
 .cq-svg {
@@ -152,24 +152,24 @@
 /* ── Toolbar ─────────────────────────────────────────────────────────────── */
 .cq-toolbar {
   display: flex;
-  align-items: flex-start;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.75rem;
   flex-wrap: wrap;
-  padding: 0.25rem 0;
+  padding: 0;
 }
 
 .cq-status {
   flex: 1;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: #94a3b8;
-  min-width: 180px;
-  line-height: 1.5;
-  padding-top: 0.1rem;
+  min-width: 160px;
+  line-height: 1.4;
+  padding-top: 0;
 }
 
 .cq-actions {
   display: flex;
-  gap: 0.45rem;
+  gap: 0.4rem;
   flex-shrink: 0;
   flex-wrap: wrap;
 }
@@ -178,7 +178,8 @@
 .cq-actions .btn {
   width: auto;
   margin-bottom: 0;
-  padding: 8px 16px;
+  padding: 5px 12px;
+  font-size: 0.76rem;
 }
 
 /* ── Score colors ────────────────────────────────────────────────────────── */
@@ -196,8 +197,8 @@
 /* ── Legend ──────────────────────────────────────────────────────────────── */
 .cq-legend {
   display: flex;
-  gap: 1rem;
-  font-size: 0.75rem;
+  gap: 0.75rem;
+  font-size: 0.72rem;
   color: #64748b;
   flex-wrap: wrap;
   align-items: center;
@@ -205,11 +206,11 @@
 .cq-legend-item {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.3rem;
 }
 .cq-legend-dot {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   border: 2px solid;
   flex-shrink: 0;

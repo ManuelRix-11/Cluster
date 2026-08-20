@@ -577,10 +577,10 @@ export class CanvasQuiz {
 
   _adjustHeight() {
     const w = this.canvasArea.clientWidth;
-    // ponytail: cap height at 68vh so tall exercises don't push content off screen
+    // Rendi il canvas compatto (max 350px / 44vh) per evitare lo scroll della finestra
     const natural = Math.round(w * this.VH / this.VW);
-    const maxH    = Math.round(window.innerHeight * 0.68);
-    this.svg.style.height = Math.min(natural, maxH) + 'px';
+    const maxH    = Math.min(350, Math.round(window.innerHeight * 0.44));
+    this.svg.style.height = Math.max(260, Math.min(natural, maxH)) + 'px';
   }
 
   destroy() {

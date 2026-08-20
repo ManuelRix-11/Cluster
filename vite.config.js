@@ -5,7 +5,7 @@ import { join } from 'path'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  root: join(__dirname, 'renderer'),
+  root: join(import.meta.dirname, 'renderer'),
   base: './',
   build: {
     outDir: 'dist',
