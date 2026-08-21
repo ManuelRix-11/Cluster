@@ -372,13 +372,32 @@ ipcMain.handle('notes:exportPDF', async (_, { title, htmlContent }) => {
       }
     })
 
+    let katexCssTag = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">'
+    let hljsCssTag = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/github.min.css">'
+
+    try {
+      const localKatexCssPath = path.join(app.getAppPath(), 'node_modules', 'katex', 'dist', 'katex.min.css')
+      if (fs.existsSync(localKatexCssPath)) {
+        const katexCssContent = fs.readFileSync(localKatexCssPath, 'utf-8')
+        katexCssTag = `<style>${katexCssContent}</style>`
+      }
+    } catch {}
+
+    try {
+      const localHljsCssPath = path.join(app.getAppPath(), 'node_modules', 'highlight.js', 'styles', 'github.min.css')
+      if (fs.existsSync(localHljsCssPath)) {
+        const hljsCssContent = fs.readFileSync(localHljsCssPath, 'utf-8')
+        hljsCssTag = `<style>${hljsCssContent}</style>`
+      }
+    } catch {}
+
     const fullHtml = `<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="utf-8">
   <title>${escapeHtml(title || 'Appunto')}</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/github.min.css">
+  ${katexCssTag}
+  ${hljsCssTag}
   <style>
     @page {
       size: A4;

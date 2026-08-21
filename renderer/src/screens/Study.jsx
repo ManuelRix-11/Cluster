@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import mermaid from 'mermaid';
-import { renderMarkdown } from '../utils/markdown';
+import { renderMarkdown, slugify } from '../utils/markdown';
+import { NoteToolbar } from '../components/study/NoteToolbar';
 import styles from './Study.module.css';
 
 let isMermaidInitialized = false;
@@ -125,14 +126,7 @@ function scrollToMark(mark, viewer) {
     p = p.parentElement;
   }
 
-  // 1. Scroll nativo con scrollIntoView
-  try {
-    mark.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
-  } catch (e) {
-    console.warn(e);
-  }
-
-  // 2. Scroll esplicito calcolato sul container viewer
+  // Scroll sul container viewer centrando il match
   if (viewer) {
     try {
       const viewerRect = viewer.getBoundingClientRect();
@@ -147,6 +141,12 @@ function scrollToMark(mark, viewer) {
     } catch (e) {
       console.warn(e);
     }
+  } else {
+    try {
+      mark.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+    } catch (e) {
+      console.warn(e);
+    }
   }
 }
 
@@ -154,16 +154,24 @@ export function Study() {
   const [tree, setTree] = useState([]);
   const [activeNote, setActiveNote] = useState(null);
   const [activeNoteName, setActiveNoteName] = useState('');
+  const [rawMarkdown, setRawMarkdown] = useState('');
   const [htmlContent, setHtmlContent] = useState('');
+  const [headings, setHeadings] = useState([]);
   const [search, setSearch] = useState('');
   // ponytail: minimal boolean state for loading screen without heavy libraries
   const [isLoading, setIsLoading] = useState(false);
+
+  // Layout & Toolbar State
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isToolbarOpen, setIsToolbarOpen] = useState(false);
+  const [fontScale, setFontScale] = useState(100);
 
   // In-note search state
   const [isFindOpen, setIsFindOpen] = useState(false);
   const [findQuery, setFindQuery] = useState('');
   const [matchesCount, setMatchesCount] = useState(0);
   const [activeMatchIndex, setActiveMatchIndex] = useState(0);
+  const [findFocusTrigger, setFindFocusTrigger] = useState(0);
 
   // PDF export state
   const [exportingPath, setExportingPath] = useState(null);
@@ -173,7 +181,6 @@ export function Study() {
   const activeMatchIndexRef = useRef(0);
   const articleRef = useRef(null);
   const viewerRef = useRef(null);
-  const findInputRef = useRef(null);
   const sidebarSearchInputRef = useRef(null);
 
   useEffect(() => {
@@ -198,6 +205,22 @@ export function Study() {
         console.warn('Mermaid execution error:', err);
       }
 
+      // ponytail: Estrai capitoli (h1-h6) per l'indice interattivo (TOC) escludendo MathML duplicato
+      try {
+        const headingEls = articleRef.current.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        const extracted = Array.from(headingEls)
+          .map(el => ({
+            id: el.id,
+            text: (el.innerText || el.textContent || '').trim(),
+            level: parseInt(el.tagName[1], 10),
+            el
+          }))
+          .filter(h => h.text.length > 0);
+        setHeadings(extracted);
+      } catch (err) {
+        console.warn('Headings extraction error:', err);
+      }
+
       if (isFindOpen && findQueryRef.current.trim()) {
         const marks = highlightMatches(articleRef.current, findQueryRef.current);
         setMatchesCount(marks.length);
@@ -211,21 +234,21 @@ export function Study() {
     }
   }, [htmlContent, activeNote, isLoading]);
 
-  // Global keyboard shortcut Ctrl+F / Cmd+F / Esc / F3
+  // Global keyboard shortcut Ctrl+F / Cmd+F / Esc / F3 / Alt+Z / Ctrl+B
   useEffect(() => {
     const handleKeyDown = (e) => {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'f') {
         e.preventDefault();
         if (activeNote) {
           setIsFindOpen(true);
-          setTimeout(() => {
-            findInputRef.current?.focus();
-            findInputRef.current?.select();
-          }, 30);
+          setFindFocusTrigger(t => t + 1);
         } else {
           sidebarSearchInputRef.current?.focus();
           sidebarSearchInputRef.current?.select();
         }
+      } else if ((e.altKey && e.key.toLowerCase() === 'z') || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'b')) {
+        e.preventDefault();
+        setIsSidebarOpen(prev => !prev);
       } else if (e.key === 'F3' && isFindOpen) {
         e.preventDefault();
         if (e.shiftKey) {
@@ -233,9 +256,10 @@ export function Study() {
         } else {
           handleNextMatch();
         }
-      } else if (e.key === 'Escape' && isFindOpen) {
-        e.preventDefault();
-        closeFind();
+      } else if (e.key === 'Escape') {
+        if (isFindOpen) {
+          closeFind();
+        }
       }
     };
 
@@ -246,12 +270,16 @@ export function Study() {
   const loadNote = async (relpath, name) => {
     setActiveNote(relpath);
     setActiveNoteName(name);
+    setMatchesCount(0);
+    setActiveMatchIndex(0);
+    activeMatchIndexRef.current = 0;
     setIsLoading(true);
     // ponytail: setTimeout allows immediate frame paint of loading screen before CPU-heavy parsing
     await new Promise(resolve => setTimeout(resolve, 20));
     if (window.electronAPI?.loadNote) {
       try {
         const md = await window.electronAPI.loadNote(relpath);
+        setRawMarkdown(md);
         const html = renderMarkdown(md);
         setHtmlContent(html);
       } catch (err) {
@@ -265,7 +293,11 @@ export function Study() {
   };
 
   const exportNoteToPDF = async (relpath, name) => {
-    if (!window.electronAPI?.exportNotePDF) return;
+    if (!window.electronAPI?.exportNotePDF) {
+      // Fallback per browser / web preview
+      window.print();
+      return;
+    }
     try {
       setExportingPath(relpath);
 
@@ -278,7 +310,7 @@ export function Study() {
         htmlContent: htmlToExport
       });
 
-      if (res.success) {
+      if (res?.success) {
         setExportedSuccessPath(relpath);
         setTimeout(() => setExportedSuccessPath(null), 3000);
       }
@@ -360,18 +392,32 @@ export function Study() {
     }
   };
 
-  const handleFindKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      e.stopPropagation();
-      if (e.shiftKey) {
-        handlePrevMatch();
-      } else {
-        handleNextMatch();
+  const handleSelectHeading = (heading) => {
+    if (!heading?.el || !viewerRef.current) return;
+
+    // Apri eventuali sezioni <details> antenate
+    let p = heading.el.parentElement;
+    while (p && p !== document.body) {
+      if (p.tagName && p.tagName.toLowerCase() === 'details') {
+        p.open = true;
       }
-    } else if (e.key === 'Escape') {
-      e.preventDefault();
-      closeFind();
+      p = p.parentElement;
+    }
+
+    const viewer = viewerRef.current;
+    const viewerRect = viewer.getBoundingClientRect();
+    const elRect = heading.el.getBoundingClientRect();
+    const offsetTop = elRect.top - viewerRect.top + viewer.scrollTop;
+    viewer.scrollTo({ top: Math.max(0, offsetTop - 18), behavior: 'smooth' });
+  };
+
+  const handleScrollTop = () => {
+    viewerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleScrollBottom = () => {
+    if (viewerRef.current) {
+      viewerRef.current.scrollTo({ top: viewerRef.current.scrollHeight, behavior: 'smooth' });
     }
   };
 
@@ -444,26 +490,94 @@ export function Study() {
       const rawTarget = decodeURIComponent(href.slice(1));
       let targetEl = document.getElementById(rawTarget);
       if (!targetEl) {
-        const slug = rawTarget.toLowerCase().replace(/[\s\u2013\u2014_\/]+/g, '-').replace(/[^\w-]/g, '').replace(/--+/g, '-').replace(/^-+|-+$/g, '');
-        targetEl = document.getElementById(slug);
+        targetEl = document.getElementById(slugify(rawTarget));
+      }
+      if (!targetEl) {
+        const unaccented = rawTarget.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        targetEl = document.getElementById(slugify(unaccented));
+      }
+      if (!targetEl && headings.length > 0) {
+        const targetSlug = slugify(rawTarget);
+        const unaccentedSlug = slugify(rawTarget.normalize('NFD').replace(/[\u0300-\u036f]/g, ''));
+        const found = headings.find(h => {
+          const hSlug = slugify(h.text);
+          const hUnaccented = slugify(h.text.normalize('NFD').replace(/[\u0300-\u036f]/g, ''));
+          return (
+            h.id === rawTarget ||
+            hSlug === targetSlug ||
+            hSlug === unaccentedSlug ||
+            hUnaccented === targetSlug ||
+            hUnaccented === unaccentedSlug ||
+            hSlug.startsWith(targetSlug) ||
+            targetSlug.startsWith(hSlug) ||
+            hUnaccented.startsWith(unaccentedSlug) ||
+            unaccentedSlug.startsWith(hUnaccented)
+          );
+        });
+        if (found?.el) {
+          targetEl = found.el;
+        }
+      }
+      if (!targetEl && articleRef.current) {
+        // Fallback per sezioni di riepilogo o ancore non-heading (es. "> **Sunto: ...**" o elementi strong/dt/summary)
+        const targetSlug = slugify(rawTarget);
+        const unaccentedSlug = slugify(rawTarget.normalize('NFD').replace(/[\u0300-\u036f]/g, ''));
+        const candidates = articleRef.current.querySelectorAll('strong, b, summary, dt, h1, h2, h3, h4, h5, h6, blockquote, p');
+        for (const el of candidates) {
+          const text = (el.innerText || el.textContent || '').trim();
+          if (text.length > 2 && text.length < 120) {
+            const elSlug = slugify(text);
+            const elUnaccented = slugify(text.normalize('NFD').replace(/[\u0300-\u036f]/g, ''));
+            if (
+              elSlug === targetSlug ||
+              elSlug === unaccentedSlug ||
+              elUnaccented === targetSlug ||
+              elUnaccented === unaccentedSlug ||
+              elSlug.startsWith(targetSlug) ||
+              targetSlug.startsWith(elSlug) ||
+              elUnaccented.startsWith(unaccentedSlug) ||
+              unaccentedSlug.startsWith(elUnaccented)
+            ) {
+              targetEl = el;
+              break;
+            }
+          }
+        }
       }
       if (targetEl && viewerRef.current) {
+        let p = targetEl.parentElement;
+        while (p && p !== document.body) {
+          if (p.tagName && p.tagName.toLowerCase() === 'details') {
+            p.open = true;
+          }
+          p = p.parentElement;
+        }
         const viewer = viewerRef.current;
         const viewerRect = viewer.getBoundingClientRect();
         const elRect = targetEl.getBoundingClientRect();
         const offsetTop = elRect.top - viewerRect.top + viewer.scrollTop;
-        viewer.scrollTo({ top: offsetTop - 20, behavior: 'smooth' });
+        viewer.scrollTo({ top: Math.max(0, offsetTop - 18), behavior: 'smooth' });
       }
     }
   };
 
   return (
     <div className={styles.container}>
-      <aside className={styles.sidebar}>
+      {/* ── Sidebar Dispense & Note ── */}
+      <aside className={`${styles.sidebar} ${!isSidebarOpen ? styles.sidebarCollapsed : ''}`}>
         <div className={styles.sidebarHeader}>
           <div className={styles.sidebarHeaderTop}>
             <span className={styles.sidebarTitle}>📚 Dispense & Note</span>
-            {totalNotes > 0 && <span className={styles.totalBadge}>{totalNotes} totali</span>}
+            <button
+              type="button"
+              className={styles.sidebarFocusBtn}
+              onClick={() => setIsSidebarOpen(false)}
+              title="Nascondi barra laterale (Modalità Focus)"
+              aria-label="Modalità Focus"
+            >
+              <span className={styles.sidebarFocusIcon}>⇤</span>
+              <span className={styles.sidebarFocusText}>Focus</span>
+            </button>
           </div>
           <div className={styles.searchBox}>
             <span className={styles.searchIcon} aria-hidden="true">🔍</span>
@@ -500,100 +614,55 @@ export function Study() {
         </div>
       </aside>
 
+      {/* ── Visualizzatore Note & Toolbar Avanzata ── */}
       <div className={styles.viewerWrapper}>
-        {activeNote && (
-          <div className={styles.viewerTopBar}>
-            <div className={styles.viewerTopActions}>
-              <button
-                type="button"
-                className={styles.topBarBtn}
-                onClick={() => {
-                  setIsFindOpen(true);
-                  setTimeout(() => {
-                    findInputRef.current?.focus();
-                    findInputRef.current?.select();
-                  }, 30);
-                }}
-                title="Cerca nel testo (Ctrl+F)"
-              >
-                🔍 Cerca <kbd className={styles.kbd}>Ctrl+F</kbd>
-              </button>
-              <button
-                type="button"
-                className={`${styles.topBarBtn} ${styles.topBarBtnPrimary} ${exportingPath === activeNote ? styles.exporting : ''}`}
-                onClick={() => exportNoteToPDF(activeNote, activeNoteName)}
-                disabled={exportingPath !== null}
-                title="Salva questa dispensa come documento PDF"
-              >
-                {exportingPath === activeNote ? (
-                  <>
-                    <span className={styles.btnSpinner} aria-hidden="true" />
-                    <span>Esportazione…</span>
-                  </>
-                ) : exportedSuccessPath === activeNote ? (
-                  '✅ PDF Salvato!'
-                ) : (
-                  '📥 Esporta PDF'
-                )}
-              </button>
-            </div>
-          </div>
+        {!isSidebarOpen && !isToolbarOpen && (
+          <button
+            type="button"
+            className={styles.sidebarRestoreBtn}
+            onClick={() => setIsSidebarOpen(true)}
+            title="Mostra barra laterale (Dispense & Note)"
+            aria-label="Mostra barra laterale"
+          >
+            <span className={styles.sidebarRestoreIcon}>⇥</span>
+            <span className={styles.sidebarRestoreText}>Dispense</span>
+          </button>
         )}
 
-        {activeNote && isFindOpen && (
-          <div className={styles.findBar}>
-            <span className={styles.findIcon} aria-hidden="true">🔍</span>
-            <input
-              ref={findInputRef}
-              type="text"
-              className={styles.findInput}
-              placeholder="Cerca nella nota..."
-              value={findQuery}
-              onChange={e => handleFindChange(e.target.value)}
-              onKeyDown={handleFindKeyDown}
-            />
-            {findQuery.trim() && (
-              <span className={styles.findCount}>
-                {matchesCount === 0 ? '0 risultati' : `${activeMatchIndex + 1}/${matchesCount}`}
-              </span>
-            )}
-            <div className={styles.findActions}>
-              <button
-                type="button"
-                className={styles.findNavBtn}
-                onMouseDown={e => e.preventDefault()}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handlePrevMatch();
-                }}
-                disabled={matchesCount === 0}
-                title="Precedente (Shift+Enter / F3)"
-              >
-                ▲
-              </button>
-              <button
-                type="button"
-                className={styles.findNavBtn}
-                onMouseDown={e => e.preventDefault()}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNextMatch();
-                }}
-                disabled={matchesCount === 0}
-                title="Successivo (Enter / F3)"
-              >
-                ▼
-              </button>
-              <button
-                type="button"
-                className={styles.findCloseBtn}
-                onClick={closeFind}
-                title="Chiudi (Esc)"
-              >
-                ✕
-              </button>
-            </div>
-          </div>
+        {activeNote && (
+          <NoteToolbar
+            noteTitle={activeNoteName}
+            notePath={activeNote}
+            rawMarkdown={rawMarkdown}
+            headings={headings}
+            getPlainText={() => articleRef.current?.innerText || ''}
+            onSelectHeading={handleSelectHeading}
+            onScrollTop={handleScrollTop}
+            onScrollBottom={handleScrollBottom}
+            isSidebarOpen={isSidebarOpen}
+            onToggleSidebar={() => setIsSidebarOpen(prev => !prev)}
+            isExpanded={isToolbarOpen}
+            onToggleExpanded={setIsToolbarOpen}
+            fontScale={fontScale}
+            onChangeFontScale={setFontScale}
+            isFindOpen={isFindOpen}
+            findQuery={findQuery}
+            matchesCount={matchesCount}
+            activeMatchIndex={activeMatchIndex}
+            findFocusTrigger={findFocusTrigger}
+            onOpenFind={() => {
+              setIsFindOpen(true);
+              setIsToolbarOpen(true);
+              setFindFocusTrigger(t => t + 1);
+            }}
+            onCloseFind={closeFind}
+            onFindChange={handleFindChange}
+            onPrevMatch={handlePrevMatch}
+            onNextMatch={handleNextMatch}
+            onExportPDF={() => exportNoteToPDF(activeNote, activeNoteName)}
+            isExportingPDF={exportingPath === activeNote}
+            isExportPDFSuccess={exportedSuccessPath === activeNote}
+          />
         )}
 
         <main className={styles.viewer} ref={viewerRef}>
@@ -613,6 +682,7 @@ export function Study() {
             <article
               ref={articleRef}
               className={`markdown-body ${styles.article}`}
+              style={{ fontSize: `${fontScale}%` }}
               onClick={handleArticleClick}
             />
           )}

@@ -3,8 +3,17 @@ import katex from 'katex';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css';
 
+let activeMathTokens = [];
+
 export function slugify(text) {
-  return String(text)
+  let s = String(text);
+  if (activeMathTokens && activeMathTokens.length > 0) {
+    s = s.replace(/%%%KATEX_(?:INLINE|BLOCK)_(\d+)%%%/g, (_, idx) => {
+      const item = activeMathTokens[parseInt(idx, 10)];
+      return item ? item.math : '';
+    });
+  }
+  return s
     .toLowerCase()
     .trim()
     .replace(/<[^>]+>/g, '')
@@ -151,11 +160,15 @@ export function renderMarkdown(content) {
     return `![${alt}](quiz-local:///${cleanSrc})`;
   });
 
-  // 5. Process GitHub-style Alert Callouts ([!NOTE], [!IMPORTANT], [!TIP], [!WARNING], [!CAUTION])
-  text = processAlertCallouts(text);
-
-  // 6. Parse Markdown structure (tables, lists, headers, etc.)
-  let html = marked.parse(text);
+  // 5. Process GitHub-style Alert Callouts ([!NOTE], [!IMPORTANT], [!TIP], [!WARNING], [!CAUTION]) & Parse Markdown
+  activeMathTokens = mathTokens;
+  let html;
+  try {
+    text = processAlertCallouts(text);
+    html = marked.parse(text);
+  } finally {
+    activeMathTokens = [];
+  }
 
   // 7. Inject rendered KaTeX HTML back into placeholders (using function callback to prevent '$`' dollar pattern expansion)
   mathTokens.forEach((item, idx) => {
@@ -206,7 +219,13 @@ export function renderMarkdownInline(content) {
     text = text.replaceAll(`%%%CODE_TOKEN_${idx}%%%`, () => match);
   });
 
-  let html = marked.parseInline(text);
+  activeMathTokens = mathTokens;
+  let html;
+  try {
+    html = marked.parseInline(text);
+  } finally {
+    activeMathTokens = [];
+  }
 
   mathTokens.forEach((item, idx) => {
     const token = item.display ? `%%%KATEX_BLOCK_${idx}%%%` : `%%%KATEX_INLINE_${idx}%%%`;
