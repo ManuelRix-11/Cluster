@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) 2026 Emanuele Ragozzini
+ * Cluster - Hub di studio e simulatore d'esami per Informatica Unisa
+ * Licensed under the PolyForm Strict License 1.0.0.
+ * SPDX-License-Identifier: PolyForm-Strict-1.0.0
+ */
+
 import React, { useEffect, useRef } from 'react';
 import styles from './CanvasQuestion.module.css';
 import '../../styles/canvas-quiz.css'; // global canvas css

@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) 2026 Emanuele Ragozzini
+ * Cluster - Hub di studio e simulatore d'esami per Informatica Unisa
+ * Licensed under the PolyForm Strict License 1.0.0.
+ * SPDX-License-Identifier: PolyForm-Strict-1.0.0
+ */
+
 // ponytail: Dedicated Structural Induction Question Component (checkpoints + step feedback + official proof accordion).
 import React, { useState, useEffect } from 'react';
 import styles from './InduzioneStrutturaleQuestion.module.css';
