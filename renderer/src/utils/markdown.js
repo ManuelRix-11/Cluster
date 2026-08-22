@@ -90,17 +90,17 @@ function processAlertCallouts(srcText) {
   while (i < lines.length) {
     const line = lines[i];
 
-    // Detect the first line of an alert callout: "> [!TYPE]"
-    const startMatch = line.match(/^>[ ]*\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\][ ]*(.*)/i);
+    // Detect the first line of an alert callout: "> [!TYPE]" with optional leading spaces
+    const startMatch = line.match(/^[ ]*>[ ]*\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\][ ]*(.*)/i);
     if (startMatch) {
       const type = startMatch[1].toUpperCase();
       const firstLineText = startMatch[2].trim();
       i++;
 
-      // Collect all consecutive "> ..." lines as the body
+      // Collect all consecutive "> ..." lines as the body (including indented ones)
       const bodyLines = [];
-      while (i < lines.length && lines[i].startsWith('>')) {
-        bodyLines.push(lines[i].replace(/^>[ ]?/, ''));
+      while (i < lines.length && lines[i].match(/^[ ]*>/)) {
+        bodyLines.push(lines[i].replace(/^[ ]*>[ ]?/, ''));
         i++;
       }
 
